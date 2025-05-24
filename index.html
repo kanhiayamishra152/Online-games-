@@ -9,13 +9,13 @@
     <meta name="description" content="Explore a collection of exciting online games at GameVerse, including Strategic Chess and Wooden Block Puzzle. Play free games, challenge your mind, and have fun!">
     <meta name="keywords" content="online games, free games, play games, chess, online chess, play chess, puzzle game, wooden puzzle game, block puzzle, strategy games, browser games, GameVerse">
     <meta name="author" content="Kanhaiya Mishra">
-    <link rel="canonical" href="https://www.your-gameverse-website.com/"> <!-- Replace with your actual website URL -->
+    <link rel="canonical" href="https://online-games-indol.vercel.app/">
 
-    <!-- Open Graph Meta Tags (for social media sharing) -->
+    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="GameVerse - Your Modern Gaming Hub | Play Online Chess & Puzzle Games">
     <meta property="og:description" content="Explore a collection of exciting online games at GameVerse, including Strategic Chess and Wooden Block Puzzle. Play free games, challenge your mind, and have fun!">
-    <meta property="og:image" content="https://www.your-gameverse-website.com/images/gameverse-social-preview.png"> <!-- Replace with a link to a suitable preview image -->
-    <meta property="og:url" content="https://www.your-gameverse-website.com/"> <!-- Replace with your actual website URL -->
+    <meta property="og:image" content="https://online-games-indol.vercel.app/images/gameverse-social-preview.png"> <!-- Ensure this image exists -->
+    <meta property="og:url" content="https://online-games-indol.vercel.app/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="GameVerse">
 
@@ -23,8 +23,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="GameVerse - Your Modern Gaming Hub | Play Online Chess & Puzzle Games">
     <meta name="twitter:description" content="Explore a collection of exciting online games at GameVerse, including Strategic Chess and Wooden Block Puzzle. Play free games, challenge your mind, and have fun!">
-    <meta name="twitter:image" content="https://www.your-gameverse-website.com/images/gameverse-social-preview.png"> <!-- Replace with a link to a suitable preview image -->
-    <!-- <meta name="twitter:site" content="@YourTwitterHandle"> --> <!-- Optional: Add your Twitter handle -->
+    <meta name="twitter:image" content="https://online-games-indol.vercel.app/images/gameverse-social-preview.png"> <!-- Ensure this image exists -->
 
     <!-- Google AdSense Script -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8067952496194704"
@@ -34,14 +33,18 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
         :root {
-            --primary-bg: #1e1e2f; /* Dark blue-ish background */
-            --card-bg: #2a2a40;    /* Slightly lighter card background */
+            --primary-bg: #1e1e2f;
+            --card-bg: #2a2a40;
             --text-light: #e0e0e0;
             --text-dark: #c0c0c0;
-            --accent-color1: #4a90e2; /* Bright blue accent */
-            --accent-color2: #50e3c2; /* Teal accent */
+            --accent-color1: #4a90e2;
+            --accent-color2: #50e3c2;
             --shadow-color: rgba(0, 0, 0, 0.4);
             --card-hover-shadow-color: rgba(0, 0, 0, 0.6);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -53,8 +56,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden; /* Prevent horizontal scroll from 3D effects */
+            min-height: 100vh; /* Ensures footer is at bottom on short content pages */
+            overflow-x: hidden;
         }
 
         header {
@@ -65,6 +68,9 @@
             width: 100%;
             box-shadow: 0 4px 10px var(--shadow-color);
             border-bottom: 3px solid var(--accent-color2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         header h1 {
@@ -75,18 +81,19 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        main { /* Added for semantic HTML */
+        main {
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            flex-grow: 1; /* Ensures main content pushes footer down */
+            flex-grow: 1; /* Allows main to take up available space, pushing footer down */
+            padding-top: 20px;
         }
 
         .container {
             width: 90%;
-            max-width: 1300px; /* Increased max-width for a more spacious feel */
-            margin: 40px auto;
+            max-width: 1300px;
+            margin: 0 auto 20px auto; /* Reduced bottom margin */
             padding: 20px;
             text-align: center;
         }
@@ -106,37 +113,37 @@
 
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Min card width 300px */
-            gap: 35px; /* Increased gap */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
             margin-top: 20px;
-            perspective: 1000px; /* Added for 3D effect on child cards */
+            perspective: 1000px;
         }
 
         .game-card {
             background-color: var(--card-bg);
-            border-radius: 15px; /* More rounded corners */
+            border-radius: 15px;
             box-shadow: 0 8px 15px var(--shadow-color);
             overflow: hidden;
             transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             display: flex;
             flex-direction: column;
-            border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .game-card:hover {
-            transform: translateY(-10px) rotateX(3deg) rotateY(-2deg) scale(1.03); /* Subtle 3D tilt and lift */
+            transform: translateY(-10px) rotateX(3deg) rotateY(-2deg) scale(1.03);
             box-shadow: 0 15px 30px var(--card-hover-shadow-color);
         }
 
         .game-image {
             width: 100%;
-            height: 200px; /* Standardized image height */
-            object-fit: cover; /* Ensures image covers the area, might crop */
-            display: block; /* Remove any extra space below image */
+            height: 200px;
+            object-fit: cover;
+            display: block;
         }
         .game-card-image-placeholder {
             height: 200px;
-            background-color: #3a3a52; /* Darker placeholder */
+            background-color: #3a3a52;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -150,13 +157,13 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Pushes button to bottom if content is short */
+            justify-content: space-between;
         }
 
         .game-card h3 {
             margin-top: 0;
             margin-bottom: 12px;
-            font-size: 1.8em; /* Slightly larger title */
+            font-size: 1.8em;
             font-weight: 600;
             color: var(--accent-color2);
         }
@@ -198,39 +205,34 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
-
-        footer {
-            background-color: #161624; /* Even darker footer */
-            color: #888;
+        /* --- NEW STYLING FOR PRIVACY POLICY SECTION --- */
+        .privacy-section {
+            width: 90%;
+            max-width: 1300px; /* Consistent with .container */
             text-align: center;
-            padding: 20px 0;
-            width: 100%;
-            margin-top: auto; /* Pushes footer to bottom if content is short */
-            font-size: 0.9em;
-            border-top: 1px solid #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .footer-links {
-            margin-top: 15px; /* Space between copyright and button */
+            padding: 30px 0 40px 0; /* Add some vertical spacing */
+            margin: 0 auto; /* Center it */
+            visibility: visible !important;
+            display: block !important;
+            opacity: 1 !important;
         }
 
         .privacy-policy-button {
-            display: inline-block;
-            padding: 10px 25px;
-            font-size: 0.9em;
+            display: inline-block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            padding: 12px 28px; /* Slightly adjusted padding */
+            font-size: 1em; /* Slightly larger font for more prominence */
             font-weight: 600;
             color: var(--text-light);
-            background: linear-gradient(145deg, #2f2f46, #222235); /* Dark, subtle gradient */
+            background: linear-gradient(145deg, #2f2f46, #222235);
             text-decoration: none;
-            border-radius: 20px; /* Curvy */
+            border-radius: 25px; /* More curvy */
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 4px 4px 8px rgba(0,0,0,0.35), /* Bottom-right dark shadow */
-                        -2px -2px 5px rgba(255,255,255,0.03), /* Top-left subtle highlight for 3D */
-                        inset 1px 1px 1px rgba(255,255,255,0.08), /* Inner highlight */
-                        inset -1px -1px 1px rgba(0,0,0,0.15); /* Inner shadow */
+            box-shadow: 4px 4px 8px rgba(0,0,0,0.35),
+                        -2px -2px 5px rgba(255,255,255,0.03),
+                        inset 1px 1px 1px rgba(255,255,255,0.08),
+                        inset -1px -1px 1px rgba(0,0,0,0.15);
             transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.2s;
             position: relative;
         }
@@ -249,8 +251,20 @@
             transform: translateY(0px) scale(0.99);
             box-shadow: 2px 2px 4px rgba(0,0,0,0.3),
                         -1px -1px 2px rgba(255,255,255,0.02),
-                        inset 1px 1px 2px rgba(0,0,0,0.25), /* More pronounced inset on active */
+                        inset 1px 1px 2px rgba(0,0,0,0.25),
                         inset -1px -1px 2px rgba(255,255,255,0.05);
+        }
+        /* --- END NEW STYLING --- */
+
+        footer {
+            background-color: #161624;
+            color: #888;
+            text-align: center;
+            padding: 25px 0; /* Increased padding */
+            width: 100%;
+            /* margin-top: auto; is handled by body's flex-direction:column and main's flex-grow:1 */
+            font-size: 0.9em;
+            border-top: 1px solid #333;
         }
 
 
@@ -262,21 +276,21 @@
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "GameVerse",
-      "url": "https://www.your-gameverse-website.com/", // Replace with your actual website URL
+      "url": "https://online-games-indol.vercel.app/",
       "description": "Play free online games like chess and wooden block puzzles at GameVerse, your modern gaming hub. Discover a variety of puzzle games and strategy challenges.",
       "publisher": {
         "@type": "Organization",
         "name": "GameVerse by Kanhaiya Mishra",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://www.your-gameverse-website.com/images/gameverse-logo.png" // Replace with your logo URL
+          "url": "https://online-games-indol.vercel.app/images/gameverse-logo.png" // Ensure this logo image exists
         }
       },
       "potentialAction": {
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://www.your-gameverse-website.com/search?q={search_term_string}" // Replace if you have a search page
+          "urlTemplate": "https://online-games-indol.vercel.app/search?q={search_term_string}" // If you implement search
         },
         "query-input": "required name=search_term_string"
       }
@@ -297,7 +311,7 @@
 
             <div class="games-grid">
                 <!-- Game Card 1: Chess -->
-                <article class="game-card"> <!-- Using <article> for semantic grouping of game content -->
+                <article class="game-card">
                     <img src="chess.png" alt="Play Strategic Online Chess Game" class="game-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="game-card-image-placeholder" style="display:none;"><span>Chess Image Not Found</span></div>
                     <div class="game-card-content">
@@ -310,7 +324,7 @@
                 </article>
 
                 <!-- Game Card 2: Wooden Puzzle -->
-                <article class="game-card"> <!-- Using <article> for semantic grouping of game content -->
+                <article class="game-card">
                     <img src="wooden puzzle.png" alt="Play Wooden Block Puzzle Game Online" class="game-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="game-card-image-placeholder" style="display:none;"><span>Wooden Puzzle Image Not Found</span></div>
                     <div class="game-card-content">
@@ -321,32 +335,20 @@
                         <a href="wooden_puzzle_page.html" class="play-button" aria-label="Play Wooden Block Puzzle Game">Play Puzzle Game</a>
                     </div>
                 </article>
+            </div> <!-- End .games-grid -->
+        </div> <!-- End .container -->
 
-                <!-- Example of a future game card with placeholder image if no specific image is ready -->
-                <!--
-                <article class="game-card">
-                    <div class="game-card-image-placeholder">
-                        <span>New Game Coming Soon!</span>
-                    </div>
-                    <div class="game-card-content">
-                        <div>
-                            <h3>Epic Adventure Quest</h3>
-                            <p>Embark on a thrilling journey in a land of fantasy. More details to come for this new online game!</p>
-                        </div>
-                        <a href="#" class="play-button" style="background: #555; cursor: not-allowed;" aria-label="Epic Adventure Quest - Coming Soon">Coming Soon</a>
-                    </div>
-                </article>
-                -->
-
-            </div>
+        <!-- NEW PRIVACY POLICY BUTTON SECTION -->
+        <div class="privacy-section">
+            <a href="privacy_policy.html" class="privacy-policy-button">Privacy Policy</a>
         </div>
+        <!-- END NEW PRIVACY POLICY BUTTON SECTION -->
+
     </main>
 
     <footer>
         <p>© 2025 GameVerse by Kanhaiya Mishra. All Rights Reserved.</p>
-        <div class="footer-links">
-            <a href="privacy_policy.html" class="privacy-policy-button">Privacy Policy</a>
-        </div>
+        <!-- Footer links div removed as button is now above footer -->
     </footer>
 
 </body>
