@@ -80,6 +80,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            flex-grow: 1; /* Ensures main content pushes footer down */
         }
 
         .container {
@@ -204,10 +205,54 @@
             text-align: center;
             padding: 20px 0;
             width: 100%;
-            margin-top: auto;
+            margin-top: auto; /* Pushes footer to bottom if content is short */
             font-size: 0.9em;
             border-top: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+
+        .footer-links {
+            margin-top: 15px; /* Space between copyright and button */
+        }
+
+        .privacy-policy-button {
+            display: inline-block;
+            padding: 10px 25px;
+            font-size: 0.9em;
+            font-weight: 600;
+            color: var(--text-light);
+            background: linear-gradient(145deg, #2f2f46, #222235); /* Dark, subtle gradient */
+            text-decoration: none;
+            border-radius: 20px; /* Curvy */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 4px 4px 8px rgba(0,0,0,0.35), /* Bottom-right dark shadow */
+                        -2px -2px 5px rgba(255,255,255,0.03), /* Top-left subtle highlight for 3D */
+                        inset 1px 1px 1px rgba(255,255,255,0.08), /* Inner highlight */
+                        inset -1px -1px 1px rgba(0,0,0,0.15); /* Inner shadow */
+            transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.2s;
+            position: relative;
+        }
+
+        .privacy-policy-button:hover {
+            transform: translateY(-2px) scale(1.03);
+            color: var(--accent-color2);
+            background: linear-gradient(145deg, #3a3a52, #2a2a40);
+            box-shadow: 6px 6px 12px rgba(0,0,0,0.4),
+                        -3px -3px 7px rgba(255,255,255,0.04),
+                        inset 1px 1px 1px rgba(255,255,255,0.1),
+                        inset -1px -1px 1px rgba(0,0,0,0.2);
+        }
+
+        .privacy-policy-button:active {
+            transform: translateY(0px) scale(0.99);
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.3),
+                        -1px -1px 2px rgba(255,255,255,0.02),
+                        inset 1px 1px 2px rgba(0,0,0,0.25), /* More pronounced inset on active */
+                        inset -1px -1px 2px rgba(255,255,255,0.05);
+        }
+
 
     </style>
 
@@ -299,6 +344,9 @@
 
     <footer>
         <p>© 2023 GameVerse by Kanhaiya Mishra. All Rights Reserved.</p>
+        <div class="footer-links">
+            <a href="privacy_policy.html" class="privacy-policy-button">Privacy Policy</a>
+        </div>
     </footer>
 
 </body>
