@@ -1,0 +1,980 @@
+<script type="text/javascript">
+	atOptions = {
+		'key' : 'b738e09d724570089c949e7d60c0f63b',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/b738e09d724570089c949e7d60c0f63b/invoke.js"></script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Wood Block Puzzle</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding-top: 5px;
+            background-color: #654321;
+            touch-action: none;
+            overflow-x: hidden;
+        }
+
+        #ad-banner-container { /* Container for your ad */
+            width: 320px;   /* Matches your ad script width */
+            height: 50px;  /* Matches your ad script height */
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* To contain ad if it tries to expand */
+        }
+
+
+        body.dragging-active {
+            cursor: grabbing;
+        }
+
+        .game-container {
+            background-color: #8B4513;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5), inset 0 0 15px rgba(50,20,0,0.7);
+            text-align: center;
+            max-width: 90vw;
+            width: 400px;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            position: relative;
+        }
+
+        .screen {
+            display: none;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        #score-area {
+            background-color: #A0522D;
+            color: #FFF0E1;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+            border: 2px solid #6B4226;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        #game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        #back-to-difficulty-btn {
+            background-color: #A0522D;
+            color: #FFF0E1;
+            border: 1px solid #6B4226;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px #6B4226;
+            margin-right: 10px;
+        }
+        #back-to-difficulty-btn:hover {
+            background-color: #804020;
+        }
+         #back-to-difficulty-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 1px #6B4226;
+        }
+
+
+        #game-board {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: repeat(10, 1fr);
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-color: #A0522D;
+            border: 3px solid #603813;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .grid-cell {
+            background-color: #DEB887;
+            border: 1px solid #B8860B;
+            box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1), inset -1px -1px 2px rgba(255,255,255,0.2);
+            transition: background-color 0.1s;
+        }
+
+        .grid-cell.filled {
+            background-color: #CD853F;
+            border: 1px solid #8B4513;
+            box-shadow: inset 2px 2px 5px rgba(0,0,0,0.3), 0 0 3px rgba(255,222,173,0.5);
+        }
+
+        .grid-cell.preview {
+            background-color: rgba(255, 255, 255, 0.5) !important;
+            outline: 1px dashed #333;
+        }
+
+        @keyframes flash {
+            0%, 100% { background-color: #FFFACD; opacity: 1; }
+            50% { background-color: #CD853F; opacity: 0.7; }
+        }
+
+        .grid-cell.line-clearing {
+            animation: flash 0.25s linear 2;
+        }
+
+        .combo-popup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            z-index: 1001;
+            opacity: 0;
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+            pointer-events: none;
+        }
+        .combo-popup.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        .combo-popup.hide {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.9);
+        }
+
+        #game-over-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            background-color: rgba(139, 69, 19, 0.9);
+            color: #FFF0E1;
+            padding: 25px;
+            border-radius: 15px;
+            border: 3px solid #603813;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            z-index: 1002;
+            text-align: center;
+            width: 80%;
+            max-width: 300px;
+        }
+        #game-over-message h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 24px;
+            color: #FFD700;
+        }
+         #game-over-message p {
+            margin: 8px 0;
+            font-size: 18px;
+         }
+
+
+        #piece-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            min-height: 80px;
+            padding: 10px;
+            background-color: #A0522D;
+            border-radius: 8px;
+            box-shadow: inset 0 0 8px rgba(0,0,0,0.3);
+        }
+
+        .piece-slot {
+            width: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60px;
+        }
+
+        .piece {
+            display: grid;
+            cursor: grab;
+            border: 1px solid transparent;
+            touch-action: none;
+        }
+        .piece.is-being-dragged {
+            opacity: 0.3;
+            cursor: grabbing;
+        }
+        .piece.hint-piece {
+            opacity: 0.6;
+            cursor: default !important;
+        }
+        .piece-cell {
+            width: 18px;
+            height: 18px;
+            background-color: #CD853F;
+            border: 1px solid #8B4513;
+            box-shadow: inset 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        .piece-cell.empty {
+            background-color: transparent;
+            border: none;
+            box-shadow: none;
+        }
+
+        .piece-clone {
+            position: absolute;
+            z-index: 1000;
+            opacity: 0.75;
+            pointer-events: none;
+            transform-origin: top left;
+        }
+
+
+        button {
+            background-color: #D2691E;
+            color: white;
+            border: 2px solid #8B4513;
+            padding: 12px 25px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+            box-shadow: 0 4px #8B4513;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background-color: #B85C1A;
+        }
+        button:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px #8B4513;
+        }
+
+        h1, h2 {
+            color: #FFF0E1;
+        }
+
+        .music-controls {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #6B4226;
+        }
+        .music-controls h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #FFF0E1;
+        }
+        .volume-control-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5px;
+        }
+        #volume-slider {
+            width: 180px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="ad-banner-container">
+        <script type="text/javascript">
+            atOptions = {
+                'key' : 'b738e09d724570089c949e7d60c0f63b',
+                'format' : 'iframe',
+                'height' : 50,
+                'width' : 320,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/b738e09d724570089c949e7d60c0f63b/invoke.js"></script>
+    </div>
+
+    <audio id="menu-music" loop src="background music.mp3"></audio>
+    <audio id="game-music" loop src="background music 2.mp3"></audio>
+    <audio id="drag-sound" loop src="gear.mp3"></audio>
+    <audio id="drop-sound" src="drop object.mp3"></audio>
+    <audio id="line-clear-sound" src="line clear.mp3"></audio>
+
+
+    <div class="game-container">
+        <div id="combo-popup-message" class="combo-popup"></div>
+
+        <div id="start-screen" class="screen active">
+            <h1>Wood Block Puzzle</h1>
+            <button id="start-game-btn">Start Game</button>
+        </div>
+
+        <div id="difficulty-screen" class="screen">
+            <h2>Select Difficulty</h2>
+            <button class="difficulty-btn" data-difficulty="easy">Easy</button>
+            <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+            <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+
+            <div class="music-controls">
+                <h3>Music Volume</h3>
+                <div class="volume-control-container">
+                    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
+                </div>
+            </div>
+        </div>
+
+        <div id="game-screen" class="screen">
+            <div id="game-header">
+                 <button id="back-to-difficulty-btn">< Back</button>
+                 <div id="score-area">Score: <span id="score">0</span></div>
+            </div>
+            <div id="game-board"></div>
+            <div id="piece-container">
+                <div class="piece-slot" id="slot-0"></div>
+                <div class="piece-slot" id="slot-1"></div>
+                <div class="piece-slot" id="slot-2"></div>
+            </div>
+            <div id="game-over-message" style="display:none;">
+                <!-- Content dynamically set by gameOver() -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const GRID_SIZE = 10;
+        const gameBoardElement = document.getElementById('game-board');
+        const scoreElement = document.getElementById('score');
+        const pieceSlots = [
+            document.getElementById('slot-0'),
+            document.getElementById('slot-1'),
+            document.getElementById('slot-2')
+        ];
+
+        const startScreen = document.getElementById('start-screen');
+        const difficultyScreen = document.getElementById('difficulty-screen');
+        const gameScreen = document.getElementById('game-screen');
+        const gameOverMessageDiv = document.getElementById('game-over-message');
+        const comboPopupMessageElement = document.getElementById('combo-popup-message');
+        const backToDifficultyBtn = document.getElementById('back-to-difficulty-btn');
+
+
+        const menuMusic = document.getElementById('menu-music');
+        const gameMusic = document.getElementById('game-music');
+        const dragSound = document.getElementById('drag-sound');
+        const dropSound = document.getElementById('drop-sound');
+        const lineClearSound = document.getElementById('line-clear-sound');
+        const volumeSlider = document.getElementById('volume-slider');
+
+        let board = [];
+        let score = 0;
+        let currentPieces = [null, null, null];
+        let difficulty = 'medium';
+        let difficultyMultipliers = { easy: 0.8, medium: 1, hard: 1.3 };
+        const HIGH_SCORE_KEY = 'woodBlockPuzzleHighScore';
+
+
+        const PIECES = {
+            SINGLE: { shape: [[1]], id: 'SINGLE' }, DOMINO1X2_H: { shape: [[1,1]], id: 'DOMINO1X2_H' },
+            DOMINO1X2_V: { shape: [[1],[1]], id: 'DOMINO1X2_V' }, SQUARE2X2: { shape: [[1,1],[1,1]], id: 'SQUARE2X2' },
+            CORNER_A: { shape: [[1,1],[1,0]], id: 'CORNER_A'}, CORNER_B: { shape: [[1,1],[0,1]], id: 'CORNER_B'},
+            I3_H: { shape: [[1,1,1]], id: 'I3_H' }, I3_V: { shape: [[1],[1],[1]], id: 'I3_V' },
+            L_SHAPE_A: { shape: [[1,0],[1,0],[1,1]], id: 'L_SHAPE_A' }, L_SHAPE_B: { shape: [[1,1],[1,0],[1,0]], id: 'L_SHAPE_B' },
+            T_SHAPE: { shape: [[1,1,1],[0,1,0]], id: 'T_SHAPE' }, S_SHAPE: { shape: [[0,1,1],[1,1,0]], id: 'S_SHAPE' },
+            Z_SHAPE: { shape: [[1,1,0],[0,1,1]], id: 'Z_SHAPE' }, U_SHAPE_3X2: { shape: [[1,0,1],[1,1,1]], id: 'U_SHAPE_3X2'},
+            C_SHAPE_3X2_A: { shape: [[1,1],[1,0],[1,1]], id: 'C_SHAPE_3X2_A' }, C_SHAPE_3X2_B: { shape: [[1,1],[0,1],[1,1]], id: 'C_SHAPE_3X2_B' },
+            SMALL_HAT_V: { shape: [[1,0],[1,1],[1,0]], id: 'SMALL_HAT_V' }, I4_H: { shape: [[1,1,1,1]], id: 'I4_H' },
+            I4_V: { shape: [[1],[1],[1],[1]], id: 'I4_V' }, L_LARGE_A: { shape: [[1,0],[1,0],[1,0],[1,1]], id: 'L_LARGE_A' },
+            L_LARGE_B: { shape: [[0,1],[0,1],[0,1],[1,1]], id: 'L_LARGE_B' }, SQUARE3X3: { shape: [[1,1,1],[1,1,1],[1,1,1]], id: 'SQUARE3X3'},
+            HOLLOW_SQUARE_3X3: { shape: [[1,1,1],[1,0,1],[1,1,1]], id: 'HOLLOW_SQUARE_3X3'},
+            CROSS_5_HIGH: {shape: [[0,1,0],[0,1,0],[1,1,1],[0,1,0],[0,1,0]], id: 'CROSS_5_HIGH'},
+            CROSS_3H_5W: {shape: [[0,0,1,0,0],[1,1,1,1,1],[0,0,1,0,0]], id: 'CROSS_3H_5W'},
+            AWKWARD_ANGLE_A: { shape: [[1,1,0],[0,1,1],[0,0,1]], id: 'AWKWARD_ANGLE_A'},
+            AWKWARD_ANGLE_B: { shape: [[0,1,1],[1,1,0],[1,0,0]], id: 'AWKWARD_ANGLE_B'},
+            I5_H: { shape: [[1,1,1,1,1]], id: 'I5_H' }, I5_V: { shape: [[1],[1],[1],[1],[1]], id: 'I5_V' },
+        };
+
+        const NEW_EASY_PIECE_KEYS_POOL = [
+            'SINGLE', 'SINGLE', 'SINGLE', 'SINGLE', 'SINGLE', 'SINGLE', 'SINGLE', 'SINGLE', 'SINGLE', 'SINGLE',
+            'DOMINO1X2_H', 'DOMINO1X2_H', 'DOMINO1X2_H', 'DOMINO1X2_H', 'DOMINO1X2_H',
+            'DOMINO1X2_V', 'DOMINO1X2_V', 'DOMINO1X2_V', 'DOMINO1X2_V', 'DOMINO1X2_V',
+            'SQUARE2X2', 'SQUARE2X2', 'SQUARE2X2', 'SQUARE2X2',
+            'CORNER_A', 'CORNER_A', 'CORNER_B', 'CORNER_B', 'I3_H', 'I3_V'
+        ];
+        const NEW_MEDIUM_PIECE_KEYS_POOL = [
+            'SINGLE', 'DOMINO1X2_H', 'DOMINO1X2_V', 'SQUARE2X2', 'SQUARE2X2',
+            'CORNER_A', 'CORNER_A', 'CORNER_B', 'CORNER_B', 'I3_H', 'I3_H', 'I3_V', 'I3_V',
+            'L_SHAPE_A', 'L_SHAPE_A', 'L_SHAPE_B', 'L_SHAPE_B', 'T_SHAPE', 'T_SHAPE', 'T_SHAPE',
+            'S_SHAPE', 'S_SHAPE', 'Z_SHAPE', 'Z_SHAPE', 'U_SHAPE_3X2',
+            'C_SHAPE_3X2_A', 'C_SHAPE_3X2_B', 'SMALL_HAT_V', 'I4_H', 'I4_V'
+        ];
+        const NEW_HARD_PIECE_KEYS_POOL = [
+            'I3_H', 'I3_V', 'L_SHAPE_A', 'L_SHAPE_B', 'T_SHAPE', 'T_SHAPE',
+            'S_SHAPE', 'S_SHAPE', 'Z_SHAPE', 'Z_SHAPE', 'U_SHAPE_3X2', 'U_SHAPE_3X2',
+            'C_SHAPE_3X2_A', 'C_SHAPE_3X2_B', 'SMALL_HAT_V', 'SMALL_HAT_V',
+            'I4_H', 'I4_H', 'I4_V', 'I4_V', 'L_LARGE_A', 'L_LARGE_A',
+            'L_LARGE_B', 'L_LARGE_B', 'SQUARE3X3', 'HOLLOW_SQUARE_3X3',
+            'CROSS_5_HIGH', 'CROSS_3H_5W', 'AWKWARD_ANGLE_A', 'AWKWARD_ANGLE_B', 'I5_H', 'I5_V'
+        ];
+
+        let easyPieceBag = [];
+        let mediumPieceBag = [];
+        let hardPieceBag = [];
+
+        let isDragging = false;
+        let draggedPieceData = null;
+        let draggedPieceCloneElement = null;
+        let originalPieceElement = null;
+        let dragOffsetX = 0;
+        let dragOffsetY = 0;
+        let mainCellSize = 30;
+        const PIECE_PREVIEW_CELL_SIZE = 18;
+        const LINE_CLEAR_ANIMATION_DURATION = 500;
+        let comboPopupTimeout = null;
+
+
+        function playSound(soundElement, loop = false) {
+            if (soundElement) {
+                soundElement.loop = loop;
+                soundElement.currentTime = 0;
+                soundElement.play().catch(e => console.warn("Sound play failed:", e));
+            }
+        }
+
+        function stopSound(soundElement) {
+            if(soundElement){
+                soundElement.pause();
+                soundElement.currentTime = 0;
+            }
+        }
+
+        function showComboPopup(message) {
+            if (comboPopupTimeout) clearTimeout(comboPopupTimeout);
+
+            comboPopupMessageElement.textContent = message;
+            comboPopupMessageElement.classList.remove('hide');
+            comboPopupMessageElement.classList.add('show');
+
+            comboPopupTimeout = setTimeout(() => {
+                comboPopupMessageElement.classList.remove('show');
+                comboPopupMessageElement.classList.add('hide');
+            }, 1500);
+        }
+
+
+        function initGame() {
+            document.getElementById('start-game-btn').addEventListener('click', () => {
+                 showDifficultyScreen();
+                 if (parseFloat(volumeSlider.value) > 0 && menuMusic.paused) {
+                     menuMusic.play().catch(e => console.warn("Menu music play failed on start button:", e));
+                 }
+            });
+            document.querySelectorAll('.difficulty-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => selectDifficulty(e.target.dataset.difficulty));
+            });
+
+            backToDifficultyBtn.addEventListener('click', () => {
+                gameMusic.pause();
+                if (parseFloat(volumeSlider.value) > 0 && menuMusic.paused) {
+                    menuMusic.play().catch(e => console.warn("Menu music play failed on back button:", e));
+                }
+                showDifficultyScreen();
+            });
+
+            createBoardCells();
+            const initialVolume = parseFloat(volumeSlider.value);
+            menuMusic.volume = initialVolume;
+            gameMusic.volume = initialVolume;
+            dragSound.volume = initialVolume;
+            dropSound.volume = initialVolume;
+            lineClearSound.volume = initialVolume;
+
+
+            if (initialVolume == 0) {
+                menuMusic.pause();
+                gameMusic.pause();
+            }
+            volumeSlider.addEventListener('input', (e) => {
+                const newVolume = parseFloat(e.target.value);
+                menuMusic.volume = newVolume;
+                gameMusic.volume = newVolume;
+                dragSound.volume = newVolume;
+                dropSound.volume = newVolume;
+                lineClearSound.volume = newVolume;
+
+                if (newVolume > 0) {
+                    if (gameScreen.classList.contains('active') && gameMusic.paused) {
+                        gameMusic.play().catch(error => console.warn("Game music play failed on slider change:", error));
+                    } else if ((startScreen.classList.contains('active') || difficultyScreen.classList.contains('active')) && menuMusic.paused) {
+                         menuMusic.play().catch(error => console.warn("Menu music play failed on slider change:", error));
+                    }
+                } else {
+                    menuMusic.pause();
+                    gameMusic.pause();
+                }
+            });
+        }
+
+        function showStartScreen() {
+            startScreen.classList.add('active');
+            difficultyScreen.classList.remove('active');
+            gameScreen.classList.remove('active');
+            gameOverMessageDiv.style.display = 'none';
+            if(!gameMusic.paused) gameMusic.pause();
+            if (parseFloat(volumeSlider.value) > 0 && menuMusic.paused) {
+                menuMusic.play().catch(e => console.warn("Menu music play on showStartScreen failed:", e));
+            }
+        }
+
+        function showDifficultyScreen() {
+            startScreen.classList.remove('active');
+            difficultyScreen.classList.add('active');
+            gameScreen.classList.remove('active');
+            gameOverMessageDiv.style.display = 'none';
+            if(!gameMusic.paused) gameMusic.pause();
+            if (parseFloat(volumeSlider.value) > 0 && menuMusic.paused) {
+                menuMusic.play().catch(e => console.warn("Menu music play on showDifficultyScreen failed:", e));
+            }
+        }
+
+        function selectDifficulty(selectedDifficulty) {
+            difficulty = selectedDifficulty;
+            easyPieceBag = [];
+            mediumPieceBag = [];
+            hardPieceBag = [];
+            if(!menuMusic.paused) menuMusic.pause();
+            if (parseFloat(volumeSlider.value) > 0 && gameMusic.paused) {
+                 const playPromise = gameMusic.play();
+                 if (playPromise !== undefined) {
+                    playPromise.catch(error => console.warn("Game music play on game start failed:", error));
+                 }
+            }
+            startGame();
+        }
+
+        function startGame() {
+            showGameScreen();
+            board = Array(GRID_SIZE).fill(null).map(() => Array(GRID_SIZE).fill(0));
+            score = 0;
+            updateScoreDisplay();
+            renderBoard();
+            const firstGridCell = gameBoardElement.querySelector('.grid-cell');
+            if (firstGridCell) mainCellSize = firstGridCell.offsetWidth;
+            else mainCellSize = 30;
+            initialFillAllSlots();
+            gameOverMessageDiv.style.display = 'none';
+        }
+        function showGameScreen() {
+            startScreen.classList.remove('active');
+            difficultyScreen.classList.remove('active');
+            gameScreen.classList.add('active');
+            gameOverMessageDiv.style.display = 'none';
+        }
+        function createBoardCells() {
+            gameBoardElement.innerHTML = '';
+            for (let r = 0; r < GRID_SIZE; r++) {
+                for (let c = 0; c < GRID_SIZE; c++) {
+                    const cell = document.createElement('div');
+                    cell.classList.add('grid-cell');
+                    cell.dataset.r = r;
+                    cell.dataset.c = c;
+                    gameBoardElement.appendChild(cell);
+                }
+            }
+        }
+        function renderBoard() {
+             for (let r = 0; r < GRID_SIZE; r++) {
+                for (let c = 0; c < GRID_SIZE; c++) {
+                    const cellElement = gameBoardElement.children[r * GRID_SIZE + c];
+                    if (board[r][c] === 1) {
+                        cellElement.classList.add('filled');
+                    } else {
+                        cellElement.classList.remove('filled');
+                    }
+                    cellElement.classList.remove('line-clearing');
+                }
+            }
+        }
+        function getPieceKeyFromBag(difficultyLevel) {
+            let targetBag;
+            let sourcePool;
+            if (difficultyLevel === 'easy') {
+                targetBag = easyPieceBag; sourcePool = NEW_EASY_PIECE_KEYS_POOL;
+            } else if (difficultyLevel === 'medium') {
+                targetBag = mediumPieceBag; sourcePool = NEW_MEDIUM_PIECE_KEYS_POOL;
+            } else if (difficultyLevel === 'hard') {
+                targetBag = hardPieceBag; sourcePool = NEW_HARD_PIECE_KEYS_POOL;
+            } else {
+                targetBag = mediumPieceBag; sourcePool = NEW_MEDIUM_PIECE_KEYS_POOL;
+            }
+            if (targetBag.length === 0) {
+                if (!sourcePool || sourcePool.length === 0) return 'SINGLE';
+                if (difficultyLevel === 'easy') easyPieceBag.push(...[...sourcePool]);
+                else if (difficultyLevel === 'medium') mediumPieceBag.push(...[...sourcePool]);
+                else if (difficultyLevel === 'hard') hardPieceBag.push(...[...sourcePool]);
+            }
+            if (targetBag.length === 0) return 'SINGLE';
+            const randomIndex = Math.floor(Math.random() * targetBag.length);
+            return targetBag.splice(randomIndex, 1)[0];
+        }
+        function generateRandomPieceData(targetSlotIndex) {
+            const randomPieceKey = getPieceKeyFromBag(difficulty);
+            if (!PIECES[randomPieceKey]) {
+                return { piece: PIECES['SINGLE'], shape: PIECES['SINGLE'].shape, slotIndex: targetSlotIndex };
+            }
+            return {
+                piece: PIECES[randomPieceKey],
+                shape: PIECES[randomPieceKey].shape,
+                slotIndex: targetSlotIndex
+            };
+        }
+        function initialFillAllSlots() {
+            for (let i = 0; i < 3; i++) {
+                currentPieces[i] = generateRandomPieceData(i);
+                renderPieceInSlot(currentPieces[i], pieceSlots[i]);
+            }
+            checkGameOver();
+        }
+        function renderPieceInSlot(pieceData, slotElement) {
+            slotElement.innerHTML = '';
+            if (!pieceData) return;
+            const pieceElement = document.createElement('div');
+            pieceElement.classList.add('piece');
+            const shape = pieceData.shape;
+            pieceElement.style.gridTemplateRows = `repeat(${shape.length}, 1fr)`;
+            pieceElement.style.gridTemplateColumns = `repeat(${shape[0].length}, 1fr)`;
+            for (let r_shape = 0; r_shape < shape.length; r_shape++) {
+                for (let c_shape = 0; c_shape < shape[0].length; c_shape++) {
+                    const cell = document.createElement('div');
+                    cell.classList.add('piece-cell');
+                    if (shape[r_shape][c_shape] === 0) {
+                        cell.classList.add('empty');
+                    }
+                    pieceElement.appendChild(cell);
+                }
+            }
+            if (pieceData.slotIndex === 2) {
+                pieceElement.classList.add('hint-piece');
+            } else {
+                pieceElement.addEventListener('pointerdown', (e) => onPiecePointerDown(e, pieceData, pieceElement));
+            }
+            slotElement.appendChild(pieceElement);
+        }
+        function shiftAndRefillPieces(usedSlotIndex) {
+            if (usedSlotIndex === 0) {
+                currentPieces[0] = currentPieces[1];
+                if (currentPieces[0]) currentPieces[0].slotIndex = 0;
+                currentPieces[1] = currentPieces[2];
+                if (currentPieces[1]) currentPieces[1].slotIndex = 1;
+            } else {
+                currentPieces[1] = currentPieces[2];
+                if (currentPieces[1]) currentPieces[1].slotIndex = 1;
+            }
+            currentPieces[2] = generateRandomPieceData(2);
+            renderPieceInSlot(currentPieces[0], pieceSlots[0]);
+            renderPieceInSlot(currentPieces[1], pieceSlots[1]);
+            renderPieceInSlot(currentPieces[2], pieceSlots[2]);
+            checkGameOver();
+        }
+
+        function onPiecePointerDown(event, pieceData, pieceElement) {
+            if (isDragging || event.button !== 0) return;
+            event.preventDefault();
+
+            playSound(dragSound, true);
+
+            isDragging = true;
+            draggedPieceData = pieceData;
+            originalPieceElement = pieceElement;
+            const rect = pieceElement.getBoundingClientRect();
+            dragOffsetX = event.clientX - rect.left;
+            dragOffsetY = event.clientY - rect.top;
+            draggedPieceCloneElement = pieceElement.cloneNode(true);
+            draggedPieceCloneElement.classList.add('piece-clone');
+            document.body.appendChild(draggedPieceCloneElement);
+            document.body.classList.add('dragging-active');
+            const scaleFactor = mainCellSize / PIECE_PREVIEW_CELL_SIZE;
+            draggedPieceCloneElement.style.transform = `scale(${scaleFactor})`;
+            draggedPieceCloneElement.style.left = `${event.clientX - (dragOffsetX * scaleFactor)}px`;
+            draggedPieceCloneElement.style.top = `${event.clientY - (dragOffsetY * scaleFactor)}px`;
+            originalPieceElement.classList.add('is-being-dragged');
+            document.addEventListener('pointermove', onDocumentPointerMove);
+            document.addEventListener('pointerup', onDocumentPointerUp);
+            document.addEventListener('pointercancel', onDocumentPointerUp);
+        }
+
+        function onDocumentPointerMove(event) {
+            if (!isDragging || !draggedPieceCloneElement) return;
+            event.preventDefault();
+            const scaleFactor = mainCellSize / PIECE_PREVIEW_CELL_SIZE;
+            const currentX = event.clientX - (dragOffsetX * scaleFactor);
+            const currentY = event.clientY - (dragOffsetY * scaleFactor);
+            draggedPieceCloneElement.style.left = `${currentX}px`;
+            draggedPieceCloneElement.style.top = `${currentY}px`;
+            const gameBoardRect = gameBoardElement.getBoundingClientRect();
+            let potentialDropR = Math.round((currentY - gameBoardRect.top) / mainCellSize);
+            let potentialDropC = Math.round((currentX - gameBoardRect.left) / mainCellSize);
+            clearPreview();
+            if (draggedPieceData &&
+                potentialDropR >=0 && potentialDropC >=0 &&
+                canPlacePiece(draggedPieceData.shape, potentialDropR, potentialDropC)) {
+                drawPreview(draggedPieceData.shape, potentialDropR, potentialDropC);
+            }
+        }
+
+        async function onDocumentPointerUp(event) {
+            if (!isDragging) return;
+
+            stopSound(dragSound);
+
+            document.removeEventListener('pointermove', onDocumentPointerMove);
+            document.removeEventListener('pointerup', onDocumentPointerUp);
+            document.removeEventListener('pointercancel', onDocumentPointerUp);
+            document.body.classList.remove('dragging-active');
+            if (draggedPieceCloneElement) {
+                draggedPieceCloneElement.remove();
+                draggedPieceCloneElement = null;
+            }
+            if (originalPieceElement) {
+                originalPieceElement.classList.remove('is-being-dragged');
+            }
+            clearPreview();
+            const gameBoardRect = gameBoardElement.getBoundingClientRect();
+            const scaleFactor = mainCellSize / PIECE_PREVIEW_CELL_SIZE;
+            const finalPieceTopLeftX = event.clientX - (dragOffsetX * scaleFactor);
+            const finalPieceTopLeftY = event.clientY - (dragOffsetY * scaleFactor);
+            let dropR = Math.round((finalPieceTopLeftY - gameBoardRect.top) / mainCellSize);
+            let dropC = Math.round((finalPieceTopLeftX - gameBoardRect.left) / mainCellSize);
+
+            const piecePlacedSuccessfully = draggedPieceData && canPlacePiece(draggedPieceData.shape, dropR, dropC);
+
+            if (piecePlacedSuccessfully) {
+                playSound(dropSound);
+                placePiece(draggedPieceData.shape, dropR, dropC);
+                addScore(draggedPieceData.shape.flat().reduce((sum, val) => sum + val, 0) * 5);
+                const usedSlotOriginalIndex = draggedPieceData.slotIndex;
+                currentPieces[usedSlotOriginalIndex] = null;
+
+                const linesClearedInfo = await clearLines();
+                renderBoard();
+
+                if (linesClearedInfo.totalLines > 0) {
+                    if (linesClearedInfo.totalLines >= 3) {
+                        showComboPopup("Excellent!");
+                    } else if (linesClearedInfo.totalLines === 2) {
+                        showComboPopup("Good!");
+                    } else if (linesClearedInfo.totalLines === 1) {
+                        showComboPopup("Great!");
+                    }
+                }
+                shiftAndRefillPieces(usedSlotOriginalIndex);
+            }
+
+            isDragging = false;
+            draggedPieceData = null;
+            originalPieceElement = null;
+        }
+        function clearPreview() {
+            document.querySelectorAll('.grid-cell.preview').forEach(cell => cell.classList.remove('preview'));
+        }
+        function drawPreview(shape, startR, startC) {
+            for (let rOffset = 0; rOffset < shape.length; rOffset++) {
+                for (let cOffset = 0; cOffset < shape[0].length; cOffset++) {
+                    if (shape[rOffset][cOffset] === 1) {
+                        const boardR = startR + rOffset;
+                        const boardC = startC + cOffset;
+                        if (boardR >= 0 && boardR < GRID_SIZE && boardC >= 0 && boardC < GRID_SIZE) {
+                           const cellEl = gameBoardElement.children[boardR * GRID_SIZE + boardC];
+                           if (cellEl && !cellEl.classList.contains('filled')) {
+                                cellEl.classList.add('preview');
+                           }
+                        }
+                    }
+                }
+            }
+        }
+        function canPlacePiece(shape, startR, startC) {
+            for (let rOffset = 0; rOffset < shape.length; rOffset++) {
+                for (let cOffset = 0; cOffset < shape[0].length; cOffset++) {
+                    if (shape[rOffset][cOffset] === 1) {
+                        const boardR = startR + rOffset;
+                        const boardC = startC + cOffset;
+                        if (boardR >= GRID_SIZE || boardC >= GRID_SIZE || boardR < 0 || boardC < 0 || board[boardR][boardC] === 1) {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+        function placePiece(shape, startR, startC) {
+            for (let rOffset = 0; rOffset < shape.length; rOffset++) {
+                for (let cOffset = 0; cOffset < shape[0].length; cOffset++) {
+                    if (shape[rOffset][cOffset] === 1) {
+                        board[startR + rOffset][startC + cOffset] = 1;
+                    }
+                }
+            }
+        }
+
+        async function clearLines() {
+            let rowsToClear = [];
+            let colsToClear = [];
+            let cellsToAnimateElements = [];
+
+            for (let r = 0; r < GRID_SIZE; r++) {
+                if (board[r].every(cell => cell === 1)) {
+                    rowsToClear.push(r);
+                    for (let c = 0; c < GRID_SIZE; c++) {
+                        cellsToAnimateElements.push(gameBoardElement.children[r * GRID_SIZE + c]);
+                    }
+                }
+            }
+
+            for (let c = 0; c < GRID_SIZE; c++) {
+                let colFull = true;
+                for (let r = 0; r < GRID_SIZE; r++) {
+                    if (board[r][c] === 0) {
+                        colFull = false;
+                        break;
+                    }
+                }
+                if (colFull) {
+                    colsToClear.push(c);
+                    for (let r = 0; r < GRID_SIZE; r++) {
+                        const cellElement = gameBoardElement.children[r * GRID_SIZE + c];
+                        if (!cellsToAnimateElements.includes(cellElement)) {
+                            cellsToAnimateElements.push(cellElement);
+                        }
+                    }
+                }
+            }
+
+            const totalLinesCleared = rowsToClear.length + colsToClear.length;
+
+            if (cellsToAnimateElements.length > 0) {
+                playSound(lineClearSound);
+                cellsToAnimateElements.forEach(cellEl => cellEl.classList.add('line-clearing'));
+
+                await new Promise(resolve => setTimeout(resolve, LINE_CLEAR_ANIMATION_DURATION));
+
+                rowsToClear.forEach(r => {
+                    for (let c = 0; c < GRID_SIZE; c++) board[r][c] = 0;
+                });
+                colsToClear.forEach(c => {
+                    for (let r = 0; r < GRID_SIZE; r++) board[r][c] = 0;
+                });
+
+                if (totalLinesCleared > 0) {
+                    let lineScore = 0;
+                    if (totalLinesCleared === 1) lineScore = 100;
+                    else if (totalLinesCleared === 2) lineScore = 300;
+                    else if (totalLinesCleared === 3) lineScore = 600;
+                    else if (totalLinesCleared >= 4) lineScore = 1000 + (totalLinesCleared - 4) * 500;
+                    addScore(lineScore);
+                }
+            }
+            return { totalLines: totalLinesCleared };
+        }
+
+        function addScore(points) {
+            score += Math.round(points * difficultyMultipliers[difficulty]);
+            updateScoreDisplay();
+        }
+        function updateScoreDisplay() {
+             scoreElement.textContent = score;
+        }
+        function checkGameOver() {
+            let canPlaceAnyPlayable = false;
+            if (currentPieces[0]) {
+                for (let r = 0; r < GRID_SIZE; r++) {
+                    for (let c = 0; c < GRID_SIZE; c++) {
+                        if (canPlacePiece(currentPieces[0].shape, r, c)) {
+                            canPlaceAnyPlayable = true; break;
+                        }
+                    }
+                    if (canPlaceAnyPlayable) break;
+                }
+            }
+            if (!canPlaceAnyPlayable && currentPieces[1]) {
+                for (let r = 0; r < GRID_SIZE; r++) {
+                    for (let c = 0; c < GRID_SIZE; c++) {
+                        if (canPlacePiece(currentPieces[1].shape, r, c)) {
+                            canPlaceAnyPlayable = true; break;
+                        }
+                    }
+                    if (canPlaceAnyPlayable) break;
+                }
+            }
+            const hasPlayablePiece = currentPieces[0] !== null || currentPieces[1] !== null;
+            if (hasPlayablePiece && !canPlaceAnyPlayable) {
+                 gameOver();
+            }
+        }
+
+        function gameOver() {
+            let highScore = localStorage.getItem(HIGH_SCORE_KEY);
+            if (highScore === null) {
+                highScore = 0;
+            } else {
+                highScore = parseInt(highScore);
+            }
+
+            if (score > highScore) {
+                highScore = score;
+                localStorage.setItem(HIGH_SCORE_KEY, highScore);
+            }
+
+            gameOverMessageDiv.innerHTML = `
+                <h3>No Space!</h3>
+                <p>Your Score: ${score}</p>
+                <p>High Score: ${highScore}</p>
+                <button id="restart-game-over-btn">Play Again</button>
+            `;
+            gameOverMessageDiv.style.display = 'block';
+
+            const restartGameOverBtn = document.getElementById('restart-game-over-btn');
+            if(restartGameOverBtn){
+                restartGameOverBtn.addEventListener('click', () => {
+                    gameOverMessageDiv.style.display = 'none';
+                    gameMusic.pause();
+                    if (parseFloat(volumeSlider.value) > 0 && menuMusic.paused) {
+                        menuMusic.play().catch(e => console.warn("Menu music play failed on restart (game over):", e));
+                    }
+                    showDifficultyScreen();
+                });
+            }
+
+            isDragging = false;
+            if (draggedPieceCloneElement) draggedPieceCloneElement.remove();
+            document.body.classList.remove('dragging-active');
+        }
+
+        initGame();
+        showStartScreen();
+    </script>
+</body>
+</html>
