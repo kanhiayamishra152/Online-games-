@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameVerse - Your Modern Gaming Hub</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary-bg: #1e1e2f; /* Dark blue-ish background */
+            --card-bg: #2a2a40;    /* Slightly lighter card background */
+            --text-light: #e0e0e0;
+            --text-dark: #c0c0c0;
+            --accent-color1: #4a90e2; /* Bright blue accent */
+            --accent-color2: #50e3c2; /* Teal accent */
+            --shadow-color: rgba(0, 0, 0, 0.4);
+            --card-hover-shadow-color: rgba(0, 0, 0, 0.6);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--text-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal scroll from 3D effects */
+        }
+
+        header {
+            background: linear-gradient(90deg, var(--accent-color1), var(--accent-color2));
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 4px 10px var(--shadow-color);
+            border-bottom: 3px solid var(--accent-color2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1300px; /* Increased max-width for a more spacious feel */
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container h2 {
+            font-size: 2.2em;
+            color: var(--accent-color1);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .container p.subtitle {
+            font-size: 1.1em;
+            color: var(--text-dark);
+            margin-bottom: 40px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Min card width 300px */
+            gap: 35px; /* Increased gap */
+            margin-top: 20px;
+            perspective: 1000px; /* Added for 3D effect on child cards */
+        }
+
+        .game-card {
+            background-color: var(--card-bg);
+            border-radius: 15px; /* More rounded corners */
+            box-shadow: 0 8px 15px var(--shadow-color);
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px) rotateX(3deg) rotateY(-2deg) scale(1.03); /* Subtle 3D tilt and lift */
+            box-shadow: 0 15px 30px var(--card-hover-shadow-color);
+        }
+
+        .game-image {
+            width: 100%;
+            height: 200px; /* Standardized image height */
+            object-fit: cover; /* Ensures image covers the area, might crop */
+            /* No border-bottom needed if image covers well */
+            display: block; /* Remove any extra space below image */
+        }
+        /* Fallback placeholder if an image is missing for future games */
+        .game-card-image-placeholder {
+            height: 200px;
+            background-color: #3a3a52; /* Darker placeholder */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            color: var(--text-dark);
+        }
+
+
+        .game-card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Pushes button to bottom if content is short */
+        }
+
+        .game-card h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.8em; /* Slightly larger title */
+            font-weight: 600;
+            color: var(--accent-color2);
+        }
+
+        .game-card p {
+            font-size: 1em;
+            line-height: 1.7;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .play-button {
+            display: inline-block; /* Changed for better centering if needed, but block is fine if always full width */
+            padding: 14px 30px;
+            background: linear-gradient(90deg, var(--accent-color1), var(--accent-color2));
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-position 0.4s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            background-size: 200% auto; /* For gradient shift on hover */
+            align-self: center; /* Center button if card content doesn't push it */
+            margin-top: auto; /* Push button to bottom */
+        }
+
+        .play-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+            background-position: right center; /* Shift gradient on hover */
+        }
+         .play-button:active {
+            transform: translateY(-1px) scale(0.98);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+
+        footer {
+            background-color: #161624; /* Even darker footer */
+            color: #888;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            margin-top: auto;
+            font-size: 0.9em;
+            border-top: 1px solid #333;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>GameVerse</h1>
+    </header>
+
+    <div class="container">
+        <h2>Explore Our Games</h2>
+        <p class="subtitle">Dive into a world of fun and challenge. Select a game to begin!</p>
+
+        <div class="games-grid">
+            <!-- Game Card 1: Chess -->
+            <div class="game-card">
+                <img src="chess.png" alt="Chess Game" class="game-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="game-card-image-placeholder" style="display:none;"><span>Chess Image Not Found</span></div> <!-- Fallback if image fails to load -->
+                <div class="game-card-content">
+                    <div> <!-- Wrapper for title and description -->
+                        <h3>Strategic Chess</h3>
+                        <p>Engage in the timeless battle of wits. Outsmart your opponent in this classic game of strategy.</p>
+                    </div>
+                    <a href="chess_game_page.html" class="play-button">Play Chess</a>
+                </div>
+            </div>
+
+            <!-- Game Card 2: Wooden Puzzle -->
+            <div class="game-card">
+                <img src="wooden_puzzle.png" alt="Wooden Puzzle Game" class="game-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="game-card-image-placeholder" style="display:none;"><span>Wooden Puzzle Image Not Found</span></div> <!-- Fallback -->
+                <div class="game-card-content">
+                    <div>
+                        <h3>Wooden Block Puzzle</h3>
+                        <p>A captivating puzzle experience. Arrange the wooden blocks to fill the board and clear lines.</p>
+                    </div>
+                    <a href="wooden_puzzle_page.html" class="play-button">Play Puzzle</a>
+                </div>
+            </div>
+
+            <!-- Example of a future game card with placeholder image if no specific image is ready -->
+            <!--
+            <div class="game-card">
+                <div class="game-card-image-placeholder">
+                    <span>New Game Coming Soon!</span>
+                </div>
+                <div class="game-card-content">
+                    <div>
+                        <h3>Epic Adventure Quest</h3>
+                        <p>Embark on a thrilling journey in a land of fantasy. More details to come!</p>
+                    </div>
+                    <a href="#" class="play-button" style="background: #555; cursor: not-allowed;">Coming Soon</a>
+                </div>
+            </div>
+            -->
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 GameVerse. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
