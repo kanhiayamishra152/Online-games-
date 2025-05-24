@@ -19,22 +19,13 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            padding-top: 5px;
+            padding-top: 5px; /* Adjusted padding after removing ad banner */
             background-color: #654321;
             touch-action: none;
             overflow-x: hidden;
         }
 
-        #ad-banner-container { /* Container for your ad */
-            width: 320px;   /* Matches your ad script width */
-            height: 50px;  /* Matches your ad script height */
-            margin-bottom: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden; /* To contain ad if it tries to expand */
-        }
-
+        /* Adsterra ad container CSS removed */
 
         body.dragging-active {
             cursor: grabbing;
@@ -53,6 +44,7 @@
             -moz-user-select: none;
             -ms-user-select: none;
             position: relative;
+            margin-top: 10px; /* Optional: to give some space if Google AdSense shows an ad at the top */
         }
 
         .screen {
@@ -299,18 +291,7 @@
     </style>
 </head>
 <body>
-    <div id="ad-banner-container">
-        <script type="text/javascript">
-            atOptions = {
-                'key' : 'b738e09d724570089c949e7d60c0f63b',
-                'format' : 'iframe',
-                'height' : 50,
-                'width' : 320,
-                'params' : {}
-            };
-        </script>
-        <script type="text/javascript" src="//www.highperformanceformat.com/b738e09d724570089c949e7d60c0f63b/invoke.js"></script>
-    </div>
+    <!-- Adsterra ad banner container and scripts REMOVED -->
 
     <audio id="menu-music" loop src="background music.mp3"></audio>
     <audio id="game-music" loop src="background music 2.mp3"></audio>
