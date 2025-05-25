@@ -287,6 +287,42 @@
         }
         /* --- END Custom Pop-up Styling --- */
 
+        /* --- Pawn Promotion Pop-up Styling --- */
+        #promotion-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #e0e0e0; /* Light wooden texture-like */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1001; /* Above other pop-ups if any */
+            text-align: center;
+        }
+        #promotion-popup p {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            color: #333;
+        }
+        .promotion-options button {
+            font-size: 40px; /* Larger piece icons */
+            background: none;
+            border: 2px solid transparent;
+            cursor: pointer;
+            padding: 10px;
+            margin: 0 8px;
+            border-radius: 5px;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .promotion-options button:hover {
+            background-color: #c7c7c7;
+            border-color: #888;
+        }
+        /* --- END Pawn Promotion Pop-up Styling --- */
+
+
     </style>
 </head>
 <body>
@@ -331,6 +367,19 @@
         </div>
         <!-- END Custom Pop-up Notification -->
 
+        <!-- Pawn Promotion Pop-up -->
+        <div id="promotion-popup" style="display: none;">
+            <p>Promote pawn to:</p>
+            <div class="promotion-options">
+                <button data-promote="q">♕</button> <!-- Queen -->
+                <button data-promote="r">♖</button> <!-- Rook -->
+                <button data-promote="b">♗</button> <!-- Bishop -->
+                <button data-promote="n">♘</button> <!-- Knight -->
+            </div>
+        </div>
+        <!-- END Pawn Promotion Pop-up -->
+
+
     </div>
 
     <!-- Include chess.js library -->
@@ -344,6 +393,8 @@
         let gameMode = null;
         let isBotThinking = false;
         let botTimeoutId = null;
+        let awaitingPromotion = false; // New state for pawn promotion
+        let promotionDetails = null; // To store {from, to} for promotion
 
         // --- Sound ---
         let moveSound = null;
@@ -368,6 +419,10 @@
         const customAlertMessageElement = document.getElementById('custom-alert-message');
         const customAlertOkButton = document.getElementById('custom-alert-ok-button');
         let customAlertTimeoutId = null;
+
+        // --- Promotion Pop-up Elements ---
+        const promotionPopup = document.getElementById('promotion-popup');
+        const promotionOptionsElement = promotionPopup.querySelector('.promotion-options');
 
 
         // --- Piece Representation (Unicode) ---
@@ -453,7 +508,8 @@
             if (maximizingPlayer) {
                 let maxEval = -Infinity;
                 for (const move of moves) {
-                    gameInstance.move(move);
+                    let promotionPiece = (move.flags.includes('p')) ? 'q' : undefined; // Bot always promotes to queen
+                    gameInstance.move({from: move.from, to: move.to, promotion: promotionPiece});
                     const evaluation = minimax(gameInstance, depth - 1, alpha, beta, false);
                     gameInstance.undo();
                     maxEval = Math.max(maxEval, evaluation);
@@ -464,7 +520,8 @@
             } else {
                 let minEval = Infinity;
                 for (const move of moves) {
-                     gameInstance.move(move);
+                     let promotionPiece = (move.flags.includes('p')) ? 'q' : undefined; // Bot always promotes to queen
+                    gameInstance.move({from: move.from, to: move.to, promotion: promotionPiece});
                     const evaluation = minimax(gameInstance, depth - 1, alpha, beta, true);
                     gameInstance.undo();
                     minEval = Math.min(minEval, evaluation);
@@ -482,7 +539,8 @@
             let bestEval = color === 'w' ? -Infinity : Infinity;
             moves.sort(() => Math.random() - 0.5);
             for (const move of moves) {
-                 gameInstance.move(move);
+                 let promotionPiece = (move.flags.includes('p')) ? 'q' : undefined; // Bot always promotes to queen
+                 gameInstance.move({from: move.from, to: move.to, promotion: promotionPiece});
                 const evaluation = minimax(gameInstance, searchDepth - 1, -Infinity, Infinity, color !== 'w');
                 gameInstance.undo();
                  if (color === 'w') {
@@ -496,7 +554,7 @@
         }
 
         function makeBotMove() {
-             if (game.game_over() || game.turn() !== 'b' || isBotThinking) return;
+             if (game.game_over() || game.turn() !== 'b' || isBotThinking || awaitingPromotion) return;
              isBotThinking = true;
              updateStatus();
              if (botTimeoutId) { clearTimeout(botTimeoutId); botTimeoutId = null; }
@@ -506,7 +564,8 @@
                  const move = getBestMove(game, 'b');
                  if (move) {
                      console.log("Bot moving:", move.san || (move.from + move.to));
-                     game.move(move);
+                     let promotionPiece = (move.flags.includes('p')) ? 'q' : undefined; // Bot always promotes to queen
+                     game.move({from: move.from, to: move.to, promotion: promotionPiece});
                      afterMove();
                  } else {
                       console.log("Bot found no legal moves. Game Over.");
@@ -578,7 +637,11 @@
             } else if (isBotThinking){
                 statusElement.textContent = "Bot is thinking...";
                 statusElement.classList.add('status-bot-thinking');
-            } else {
+            } else if (awaitingPromotion) {
+                statusElement.textContent = "Promote Pawn!";
+                statusElement.classList.add(game.turn() === 'w' ? 'status-white-turn' : 'status-black-turn'); // Show current player's color
+            }
+            else {
                 const currentPlayerColor = game.turn() === 'w' ? 'White' : 'Black';
                 statusElement.textContent = `${currentPlayerColor}'s Turn`;
                 statusElement.classList.add(game.turn() === 'w' ? 'status-white-turn' : 'status-black-turn');
@@ -586,24 +649,17 @@
         }
 
         function startBackgroundMusic() {
-             if (!backgroundMusic) { // Agar music object pehle se nahi bana hai
+             if (!backgroundMusic) {
                 console.warn("Background music object not initialized yet in startBackgroundMusic. Will be initialized in startGame.");
-                return; // startGame mein initialize hoga
+                return;
              }
-             if (musicPlayed) { // Agar music pehle hi shuru ho chuka hai
-                 // console.log("Music already played or attempt made.");
+             if (musicPlayed) {
                  return;
              }
-
-             // Play() returns a promise
              backgroundMusic.play().then(() => {
-                 // console.log("Background music started successfully.");
-                 musicPlayed = true; // Flag set only on successful play or first attempt
+                 musicPlayed = true;
              }).catch(e => {
                  console.warn("Background music playback failed or was interrupted:", e);
-                 // Autoplay policy might prevent playing before further interaction.
-                 // We still set musicPlayed to true to avoid repeated attempts on every click if the first fails.
-                 // The browser might eventually allow it after more interaction.
                  musicPlayed = true;
              });
         }
@@ -614,33 +670,25 @@
             selectedSquare = null;
             validMoves = [];
             isBotThinking = false;
+            awaitingPromotion = false;
+            promotionDetails = null;
+            promotionPopup.style.display = 'none';
             if (botTimeoutId) { clearTimeout(botTimeoutId); botTimeoutId = null; }
 
             if (!moveSound) {
                  moveSound = new Audio('step.mp3');
                  moveSound.onerror = () => console.error("Error loading move sound 'step.mp3'");
             }
-            // --- MODIFIED: Background music filename ---
             if (!backgroundMusic) {
-                 // Using encodeURI for filenames with spaces
                  const musicFileName = "background music.mp3";
                  backgroundMusic = new Audio(encodeURI(musicFileName));
                  backgroundMusic.loop = true;
-                 backgroundMusic.volume = 0.5; // Aap volume adjust kar sakte hain (0.0 se 1.0)
+                 backgroundMusic.volume = 0.5;
                  backgroundMusic.onerror = () => console.error(`Error loading background music '${musicFileName}'`);
-                 // console.log("Background music object created.");
             }
-            // --- END MODIFICATION ---
-
             renderBoard();
             startScreen.style.display = 'none';
             gameElements.style.display = 'flex';
-
-            // Attempt to play background music is now handled by the click listeners of playFriendButton/playBotButton
-            // So, startBackgroundMusic() call is not strictly needed here anymore if it's in the button handlers,
-            // but we call it to ensure music logic is centralized if those buttons are ever bypassed.
-            // However, it's better to let the button clicks (user interaction) trigger it first.
-            // The button click handlers already call startBackgroundMusic().
         }
 
         function resetBoard() {
@@ -648,10 +696,12 @@
              selectedSquare = null;
              validMoves = [];
              isBotThinking = false;
+             awaitingPromotion = false;
+             promotionDetails = null;
+             promotionPopup.style.display = 'none';
              if (botTimeoutId) { clearTimeout(botTimeoutId); botTimeoutId = null; }
              renderBoard();
              console.log("Board reset.");
-             // Music continues playing
         }
 
         function resetGame() {
@@ -660,15 +710,16 @@
              selectedSquare = null;
              validMoves = [];
              isBotThinking = false;
+             awaitingPromotion = false;
+             promotionDetails = null;
+             promotionPopup.style.display = 'none';
              if (botTimeoutId) { clearTimeout(botTimeoutId); botTimeoutId = null; }
              statusElement.textContent = '';
              statusElement.className = ''; // Clear all status classes
              gameElements.style.display = 'none';
              startScreen.style.display = 'flex';
-             // Music continues playing as per "pure game mein bajate rahana chahie"
         }
 
-        // --- Custom Alert Function ---
         function showCustomAlert(message, duration = 2000) {
             if (customAlertTimeoutId) {
                 clearTimeout(customAlertTimeoutId);
@@ -682,7 +733,6 @@
             }, duration);
         }
 
-        // --- Event Listener for Custom Alert OK Button ---
         customAlertOkButton.addEventListener('click', () => {
             if (customAlertTimeoutId) {
                 clearTimeout(customAlertTimeoutId);
@@ -691,14 +741,13 @@
             customAlertPopup.style.display = 'none';
         });
 
-
         function afterMove() {
              if (moveSound) {
                  const soundClone = moveSound.cloneNode();
                  soundClone.currentTime = 0;
-                 soundClone.play().catch(e => {/* console.warn("Move sound playback failed:", e); */});
+                 soundClone.play().catch(e => {});
              }
-             renderBoard();
+             renderBoard(); // Render immediately after any move
 
              if (game.in_checkmate()) {
                  const winnerColor = game.turn() === 'w' ? 'Black' : 'White';
@@ -710,14 +759,49 @@
 
              if (game.game_over()) {
                  console.log("Game Over.");
-                 // Music continues playing even on game over, unless explicitly stopped.
-             } else if (gameMode === 'bot' && game.turn() === 'b' && !isBotThinking) {
+             } else if (gameMode === 'bot' && game.turn() === 'b' && !isBotThinking && !awaitingPromotion) {
                  makeBotMove();
              }
         }
 
+        // --- Pawn Promotion Logic ---
+        function showPromotionPopup(fromSq, toSq) {
+            awaitingPromotion = true;
+            promotionDetails = { from: fromSq, to: toSq };
+            promotionPopup.style.display = 'block';
+            updateStatus(); // To show "Promote Pawn!" message
+        }
+
+        promotionOptionsElement.addEventListener('click', (event) => {
+            const button = event.target.closest('button');
+            if (button && button.dataset.promote && awaitingPromotion && promotionDetails) {
+                const promotionPiece = button.dataset.promote;
+                const moveResult = game.move({
+                    from: promotionDetails.from,
+                    to: promotionDetails.to,
+                    promotion: promotionPiece
+                });
+
+                promotionPopup.style.display = 'none';
+                awaitingPromotion = false;
+                promotionDetails = null;
+
+                if (moveResult) {
+                    console.log("Pawn promoted. Player move:", moveResult.san || (moveResult.from + moveResult.to + promotionPiece));
+                    afterMove();
+                } else {
+                    console.error("Promotion move failed after selection.");
+                    // Handle error, perhaps reset selection or show an error
+                    selectedSquare = null;
+                    validMoves = [];
+                    renderBoard();
+                }
+            }
+        });
+
+
         function handleSquareClick(event) {
-            if (game.game_over() || !gameMode || isBotThinking) return;
+            if (game.game_over() || !gameMode || isBotThinking || awaitingPromotion) return;
             const clickedSquareElement = event.target.closest('.square');
             if (!clickedSquareElement) return;
 
@@ -736,8 +820,28 @@
                     renderBoard();
                 }
             } else {
+                 // Check for pawn promotion
+                 const pieceToMove = game.get(selectedSquare.squareName);
+                 const targetRank = (pieceToMove.color === 'w') ? 0 : 7; // 0 for white (rank 8), 7 for black (rank 1)
+
+                 if (pieceToMove && pieceToMove.type === 'p' && row === targetRank) {
+                     // Is it a valid promotion move?
+                     const possibleMoves = game.moves({ square: selectedSquare.squareName, verbose: true });
+                     const isPromotionTarget = possibleMoves.some(m => m.to === clickedSquareName && m.flags.includes('p'));
+
+                     if (isPromotionTarget) {
+                         showPromotionPopup(selectedSquare.squareName, clickedSquareName);
+                         selectedSquare = null;
+                         validMoves = [];
+                         renderBoard(); // Clear highlights while promotion dialog is up
+                         return; // Don't proceed with normal move logic
+                     }
+                 }
+
+                 // Normal move logic
                  const moveAttempt = { from: selectedSquare.squareName, to: clickedSquareName };
                  const moveResult = game.move(moveAttempt);
+
                  if (moveResult) {
                      console.log("Player move:", moveResult.san || (moveResult.from + moveResult.to));
                      selectedSquare = null;
@@ -765,7 +869,6 @@
         });
 
         playFriendButton.addEventListener('click', () => {
-            // Ensure music object is created if not already
             if (!backgroundMusic) {
                 const musicFileName = "background music.mp3";
                 backgroundMusic = new Audio(encodeURI(musicFileName));
@@ -773,11 +876,10 @@
                 backgroundMusic.volume = 0.5;
                 backgroundMusic.onerror = () => console.error(`Error loading background music '${musicFileName}'`);
             }
-            startBackgroundMusic(); // Attempt to start music on first interaction
+            startBackgroundMusic();
             startGame('friend');
         });
         playBotButton.addEventListener('click', () => {
-            // Ensure music object is created if not already
             if (!backgroundMusic) {
                 const musicFileName = "background music.mp3";
                 backgroundMusic = new Audio(encodeURI(musicFileName));
@@ -785,7 +887,7 @@
                 backgroundMusic.volume = 0.5;
                 backgroundMusic.onerror = () => console.error(`Error loading background music '${musicFileName}'`);
             }
-            startBackgroundMusic(); // Attempt to start music on first interaction
+            startBackgroundMusic();
             startGame('bot');
         });
 
@@ -793,8 +895,6 @@
 
         // --- Initial Setup ---
         createBoardHTML();
-        // Music object creation is deferred to startGame or button clicks to ensure it's ready
-        // when startBackgroundMusic is called by user interaction.
     </script>
 </body>
 </html>
