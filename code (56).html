@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Snake Game</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8067952496194704"
+     crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #556B2F; /* Dark Olive Green - outer background */
+            touch-action: manipulation; /* Prevent double tap zoom on mobile for buttons */
+            overflow: hidden;
+        }
+
+        #gameContainer {
+            width: 320px; /* Keep width relatively phone-like */
+            height: 620px; /* Increased height for larger canvas + UI */
+            background-color: #6B8E23; /* OliveDrab - inner background */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .screen {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #6B8E23; /* Default screen background */
+        }
+
+        .menu-panel {
+            background-color: #87CEEB; /* SkyBlue - like video */
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 280px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .menu-panel h2 {
+            margin-top: 0;
+            color: white;
+        }
+        .menu-panel p {
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .menu-scores {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .menu-score-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            font-size: 1.2em;
+        }
+        .icon {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        .menu-snake-preview {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .menu-snake-part {
+            height: 20px;
+            background-color: #4682B4; /* Default snake color, JS will update */
+            border: 1px solid darkblue;
+        }
+        #menuSnakeBody {
+            width: 60px;
+        }
+        #menuSnakeHead {
+            width: 20px;
+            border-radius: 0 10px 10px 0;
+            position: relative;
+        }
+        #menuSnakeHead .eye {
+            width: 5px;
+            height: 5px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            border: 1px solid black;
+        }
+        #menuSnakeHead .eye:first-child { top: 3px; right: 5px; }
+        #menuSnakeHead .eye:last-child { bottom: 3px; right: 5px; }
+
+        .menu-button, .small-button {
+            background-color: #00008B; /* DarkBlue */
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 80%;
+            max-width: 250px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: background-color 0.2s;
+        }
+        .menu-button:hover {
+            background-color: #4169E1; /* RoyalBlue */
+        }
+        .menu-button:active {
+            background-color: #0000CD; /* MediumBlue */
+        }
+
+        .small-button {
+            padding: 5px 10px;
+            font-size: 0.9em;
+            width: auto;
+            margin-left: 5px;
+        }
+
+        #gameAreaContainer {
+            width: 100%;
+            height: 100%;
+            display: none; /* Initially hidden, controlled by JS */
+            flex-direction: column;
+            justify-content: flex-start; /* Align canvas to top */
+            align-items: center;
+            background-color: #6B8E23; /* Match screen background */
+        }
+
+        #gameCanvas {
+            border: 2px solid #333;
+            margin-top: 10px; /* Some space from top */
+            touch-action: none; /* Important for custom swipe handling, prevents browser default actions like scrolling */
+        }
+
+        .game-ui {
+            width: 100%;
+            background-color: #00008B; /* DarkBlue for UI bar */
+            color: white;
+            padding: 10px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+            margin-top: auto; /* Pushes UI to the bottom of gameAreaContainer */
+            flex-shrink: 0; /* Prevent UI from shrinking if canvas is too large */
+        }
+        .game-score {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .dpad {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .dpad-row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+        .dpad-button {
+            background-color: #808080; /* Gray */
+            color: white;
+            border: 1px solid #505050;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none; /* Prevent text selection on rapid clicks */
+        }
+        .dpad-button:active {
+            background-color: #606060;
+        }
+        .dpad-spacer {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Settings Screen Specifics */
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            padding: 8px 0;
+            width: 100%;
+        }
+        .setting-item span {
+            margin-right: 10px;
+        }
+        .color-preview {
+            width: 30px;
+            height: 30px;
+            border: 1px solid black;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        /* Initial screen visibility */
+        #menuScreen { display: flex; } /* Default visible */
+        #gameOverScreen { display: none; }
+        #settingsScreen { display: none; }
+
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+
+        <!-- Menu Screen -->
+        <div id="menuScreen" class="screen">
+            <div class="menu-panel">
+                <div class="menu-scores">
+                    <div class="menu-score-item">
+                        <span class="icon apple-icon">🍎</span>
+                        <span id="menuScoreApple">0</span>
+                    </div>
+                    <div class="menu-score-item">
+                        <span class="icon trophy-icon">🏆</span>
+                        <span id="menuScoreTrophy">0</span>
+                    </div>
+                </div>
+                <div class="menu-snake-preview">
+                    <div id="menuSnakeBody" class="menu-snake-part"></div>
+                    <div id="menuSnakeHead" class="menu-snake-part">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                    </div>
+                </div>
+            </div>
+            <button id="playButton" class="menu-button">▶ Play</button>
+            <button id="settingsButtonMenu" class="menu-button">⚙️ Settings</button>
+            <button id="dailyChallengeButton" class="menu-button">⭐ Daily Challenge</button>
+        </div>
+
+        <!-- Game Screen (Canvas + UI) -->
+        <div id="gameAreaContainer">
+            <!-- Canvas size increased: width=300 (15 cells), height=440 (22 cells) -->
+            <canvas id="gameCanvas" width="300" height="440"></canvas>
+             <div id="gameUiContainer" class="game-ui">
+                <div class="game-score">Score: <span id="gameScoreValue">0</span></div>
+                <div class="dpad">
+                    <div class="dpad-row">
+                        <button id="dpadUp" class="dpad-button">▲</button>
+                    </div>
+                    <div class="dpad-row">
+                        <button id="dpadLeft" class="dpad-button">◀</button>
+                        <div class="dpad-spacer"></div>
+                        <button id="dpadRight" class="dpad-button">▶</button>
+                    </div>
+                    <div class="dpad-row">
+                        <button id="dpadDown" class="dpad-button">▼</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="gameOverScreen" class="screen">
+            <div class="menu-panel">
+                <h2>Game Over</h2>
+                <p id="finalScoreText">Score: 0</p>
+                <button id="playAgainButton" class="menu-button">Play Again</button>
+                <button id="menuButtonGameOver" class="menu-button">Back to Menu</button>
+            </div>
+        </div>
+
+        <!-- Settings Screen -->
+        <div id="settingsScreen" class="screen">
+            <div class="menu-panel">
+                <h2>Settings</h2>
+                <div class="setting-item">
+                    <span>Snake Color:</span>
+                    <div>
+                        <span id="snakeColorPreview" class="color-preview"></span>
+                        <button id="nextSnakeColor" class="small-button">Next</button>
+                    </div>
+                </div>
+                <div class="setting-item">
+                    <span>Food Color:</span>
+                    <div>
+                        <span id="foodColorPreview" class="color-preview"></span>
+                        <button id="nextFoodColor" class="small-button">Next</button>
+                    </div>
+                </div>
+                <div class="setting-item">
+                    <span>Speed: <span id="speedDisplay">10 FPS</span></span>
+                    <div>
+                        <button id="decreaseSpeed" class="small-button">-</button>
+                        <button id="increaseSpeed" class="small-button">+</button>
+                    </div>
+                </div>
+                <button id="backToMenuButtonSettings" class="menu-button">Back to Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Constants & Game Variables ---
+        const GRID_SIZE = 20;
+        let gameCanvas, ctx;
+        let snake;
+        let food;
+        let score;
+        let dx, dy; // Snake direction
+        let changingDirection; // Prevents rapid 180 turns
+        let gameInterval;
+        let currentGameState = 'MENU';
+
+        // Touch control variables
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+        const SWIPE_THRESHOLD = 30; // Minimum distance for a swipe
+
+        // DOM Elements
+        let menuScreen, gameOverScreen, settingsScreen, gameAreaContainer;
+        let playButton, settingsButtonMenu, dailyChallengeButton;
+        let menuScoreApple, menuScoreTrophy;
+        let gameScoreDisplay, finalScoreDisplay;
+        let playAgainButton, menuButtonGameOver;
+        let backToMenuButtonSettings;
+        let menuSnakeHeadElem, menuSnakeBodyElem;
+        let snakeColorPreviewElem, foodColorPreviewElem, speedDisplayElem;
+        let nextSnakeColorBtn, nextFoodColorBtn, increaseSpeedBtn, decreaseSpeedBtn;
+        let dpadUpBtn, dpadDownBtn, dpadLeftBtn, dpadRightBtn;
+
+        // --- User Settings ---
+        let userSettings = {
+            snakeColor: '#4682B4', // SteelBlue
+            foodColor: '#FF6347',   // Tomato Red
+            gameSpeedMs: 333 // This will be updated by currentSpeedIndex on init
+        };
+        const availableSnakeColors = ['#4682B4', '#32CD32', '#FFD700', '#DA70D6', '#8A2BE2'];
+        const availableFoodColors = ['#FF6347', '#FFFF00', '#00FFFF', '#FF00FF', '#FFA500'];
+        const speedOptions = [ // Slower speeds added
+            { label: "Very Slow (2 FPS)", ms: 500 },
+            { label: "Slow (3 FPS)", ms: 333 },      // New Default
+            { label: "Medium (5 FPS)", ms: 200 },
+            { label: "Fast (7 FPS)", ms: 142 },
+            { label: "Faster (10 FPS)", ms: 100 }
+        ];
+        let currentSnakeColorIndex = 0;
+        let currentFoodColorIndex = 0;
+        let currentSpeedIndex = 1; // Default to "Slow (3 FPS)"
+
+
+        // --- Initialization ---
+        function initDOM() {
+            gameCanvas = document.getElementById('gameCanvas');
+            ctx = gameCanvas.getContext('2d');
+
+            menuScreen = document.getElementById('menuScreen');
+            gameOverScreen = document.getElementById('gameOverScreen');
+            settingsScreen = document.getElementById('settingsScreen');
+            gameAreaContainer = document.getElementById('gameAreaContainer');
+
+            playButton = document.getElementById('playButton');
+            settingsButtonMenu = document.getElementById('settingsButtonMenu');
+            dailyChallengeButton = document.getElementById('dailyChallengeButton');
+
+            menuScoreApple = document.getElementById('menuScoreApple');
+            menuScoreTrophy = document.getElementById('menuScoreTrophy');
+            gameScoreDisplay = document.getElementById('gameScoreValue');
+            finalScoreDisplay = document.getElementById('finalScoreText');
+
+            playAgainButton = document.getElementById('playAgainButton');
+            menuButtonGameOver = document.getElementById('menuButtonGameOver');
+            backToMenuButtonSettings = document.getElementById('backToMenuButtonSettings');
+
+            menuSnakeHeadElem = document.getElementById('menuSnakeHead');
+            menuSnakeBodyElem = document.getElementById('menuSnakeBody');
+
+            snakeColorPreviewElem = document.getElementById('snakeColorPreview');
+            foodColorPreviewElem = document.getElementById('foodColorPreview');
+            speedDisplayElem = document.getElementById('speedDisplay');
+            nextSnakeColorBtn = document.getElementById('nextSnakeColor');
+            nextFoodColorBtn = document.getElementById('nextFoodColor');
+            increaseSpeedBtn = document.getElementById('increaseSpeed');
+            decreaseSpeedBtn = document.getElementById('decreaseSpeed');
+
+            dpadUpBtn = document.getElementById('dpadUp');
+            dpadDownBtn = document.getElementById('dpadDown');
+            dpadLeftBtn = document.getElementById('dpadLeft');
+            dpadRightBtn = document.getElementById('dpadRight');
+        }
+
+        function attachListeners() {
+            playButton.addEventListener('click', startGame);
+            settingsButtonMenu.addEventListener('click', () => showScreen('SETTINGS'));
+            dailyChallengeButton.addEventListener('click', () => alert("Daily Challenge - Coming Soon!"));
+
+            playAgainButton.addEventListener('click', startGame);
+            menuButtonGameOver.addEventListener('click', () => showScreen('MENU'));
+            backToMenuButtonSettings.addEventListener('click', () => showScreen('MENU'));
+
+            document.addEventListener('keydown', handleKeyPress);
+
+            nextSnakeColorBtn.addEventListener('click', cycleSnakeColor);
+            nextFoodColorBtn.addEventListener('click', cycleFoodColor);
+            increaseSpeedBtn.addEventListener('click', increaseGameSpeed);
+            decreaseSpeedBtn.addEventListener('click', decreaseGameSpeed);
+
+            dpadUpBtn.addEventListener('click', () => changeDirectionLogic(0, -GRID_SIZE));
+            dpadDownBtn.addEventListener('click', () => changeDirectionLogic(0, GRID_SIZE));
+            dpadLeftBtn.addEventListener('click', () => changeDirectionLogic(-GRID_SIZE, 0));
+            dpadRightBtn.addEventListener('click', () => changeDirectionLogic(GRID_SIZE, 0));
+
+            // Touch listeners for swipe control on the canvas
+            gameCanvas.addEventListener('touchstart', handleTouchStart, false);
+            gameCanvas.addEventListener('touchmove', handleTouchMove, false);
+            gameCanvas.addEventListener('touchend', handleTouchEnd, false);
+        }
+
+        // --- Game State Management ---
+        function showScreen(screenName) {
+            menuScreen.style.display = 'none';
+            gameAreaContainer.style.display = 'none';
+            gameOverScreen.style.display = 'none';
+            settingsScreen.style.display = 'none';
+
+            currentGameState = screenName.toUpperCase();
+
+            if (screenName === 'MENU') {
+                menuScreen.style.display = 'flex';
+                updateMenuScores(score || 0);
+                updateMenuSnakePreview();
+            } else if (screenName === 'PLAYING') {
+                gameAreaContainer.style.display = 'flex';
+            } else if (screenName === 'GAME_OVER') {
+                gameOverScreen.style.display = 'flex';
+                finalScoreDisplay.innerText = `Score: ${score}`;
+            } else if (screenName === 'SETTINGS') {
+                settingsScreen.style.display = 'flex';
+                updateSettingsPreview();
+            }
+        }
+
+        function updateMenuScores(currentScore) {
+            menuScoreApple.innerText = currentScore;
+            menuScoreTrophy.innerText = currentScore;
+        }
+
+        function updateMenuSnakePreview() {
+            menuSnakeHeadElem.style.backgroundColor = userSettings.snakeColor;
+            menuSnakeBodyElem.style.backgroundColor = userSettings.snakeColor;
+        }
+
+        // --- Game Logic ---
+        function startGame() {
+            // Canvas dimensions might have changed, ensure snake starts centrally
+            const startX = Math.floor((gameCanvas.width / GRID_SIZE) / 2) * GRID_SIZE;
+            const startY = Math.floor((gameCanvas.height / GRID_SIZE) / 2) * GRID_SIZE;
+
+            snake = [
+                { x: startX, y: startY },
+                { x: startX - GRID_SIZE, y: startY },
+                { x: startX - GRID_SIZE * 2, y: startY }
+            ];
+            dx = GRID_SIZE;
+            dy = 0;
+            score = 0;
+            gameScoreDisplay.innerText = score;
+            changingDirection = false;
+
+            spawnFood();
+            showScreen('PLAYING');
+
+            if (gameInterval) clearInterval(gameInterval);
+            gameInterval = setInterval(gameLoop, userSettings.gameSpeedMs);
+        }
+
+        function gameLoop() {
+            if (currentGameState !== 'PLAYING') return;
+
+            if (didGameEnd()) {
+                clearInterval(gameInterval);
+                showScreen('GAME_OVER');
+                return;
+            }
+
+            changingDirection = false; // Allow new direction input for next frame
+            clearCanvasAndDrawGrid();
+            drawFood();
+            advanceSnake();
+            drawSnake();
+        }
+
+        function clearCanvasAndDrawGrid() {
+            ctx.fillStyle = '#A2D9A2';
+            ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
+            ctx.strokeStyle = '#8FBC8F';
+            ctx.lineWidth = 1;
+            for (let x = 0; x < gameCanvas.width; x += GRID_SIZE) {
+                ctx.beginPath(); ctx.moveTo(x + 0.5, 0); ctx.lineTo(x + 0.5, gameCanvas.height); ctx.stroke();
+            }
+            for (let y = 0; y < gameCanvas.height; y += GRID_SIZE) {
+                ctx.beginPath(); ctx.moveTo(0, y + 0.5); ctx.lineTo(gameCanvas.width, y + 0.5); ctx.stroke();
+            }
+        }
+
+        function advanceSnake() {
+            const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+            snake.unshift(head);
+            const didEatFood = snake[0].x === food.x && snake[0].y === food.y;
+            if (didEatFood) {
+                score += 1;
+                gameScoreDisplay.innerText = score;
+                spawnFood();
+            } else {
+                snake.pop();
+            }
+        }
+
+        function didGameEnd() {
+            const head = snake[0];
+            if (head.x < 0 || head.x >= gameCanvas.width || head.y < 0 || head.y >= gameCanvas.height) return true;
+            for (let i = 1; i < snake.length; i++) {
+                if (snake[i].x === head.x && snake[i].y === head.y) return true;
+            }
+            return false;
+        }
+
+        function drawSnakePart(snakePart, isHead = false) {
+            ctx.fillStyle = userSettings.snakeColor;
+            ctx.strokeStyle = 'darkblue';
+            ctx.fillRect(snakePart.x, snakePart.y, GRID_SIZE, GRID_SIZE);
+            ctx.strokeRect(snakePart.x, snakePart.y, GRID_SIZE, GRID_SIZE);
+            if (isHead) {
+                ctx.fillStyle = 'white';
+                const eyeRadius = GRID_SIZE / 6, eyeOffsetX = GRID_SIZE / 3.5, eyeOffsetY = GRID_SIZE / 3.5;
+                let eye1X, eye1Y, eye2X, eye2Y;
+                if (dx > 0) { eye1X = snakePart.x + GRID_SIZE*0.7; eye1Y = snakePart.y + eyeOffsetY; eye2X = snakePart.x + GRID_SIZE*0.7; eye2Y = snakePart.y + GRID_SIZE - eyeOffsetY; }
+                else if (dx < 0) { eye1X = snakePart.x + GRID_SIZE*0.3; eye1Y = snakePart.y + eyeOffsetY; eye2X = snakePart.x + GRID_SIZE*0.3; eye2Y = snakePart.y + GRID_SIZE - eyeOffsetY; }
+                else if (dy > 0) { eye1X = snakePart.x + eyeOffsetX; eye1Y = snakePart.y + GRID_SIZE*0.7; eye2X = snakePart.x + GRID_SIZE - eyeOffsetX; eye2Y = snakePart.y + GRID_SIZE*0.7; }
+                else { eye1X = snakePart.x + eyeOffsetX; eye1Y = snakePart.y + GRID_SIZE*0.3; eye2X = snakePart.x + GRID_SIZE - eyeOffsetX; eye2Y = snakePart.y + GRID_SIZE*0.3; }
+                ctx.beginPath(); ctx.arc(eye1X, eye1Y, eyeRadius, 0, 2*Math.PI); ctx.fill();
+                ctx.beginPath(); ctx.arc(eye2X, eye2Y, eyeRadius, 0, 2*Math.PI); ctx.fill();
+                ctx.fillStyle = 'black'; const pupilRadius = eyeRadius/1.8;
+                ctx.beginPath(); ctx.arc(eye1X, eye1Y, pupilRadius, 0, 2*Math.PI); ctx.fill();
+                ctx.beginPath(); ctx.arc(eye2X, eye2Y, pupilRadius, 0, 2*Math.PI); ctx.fill();
+            }
+        }
+
+        function drawSnake() { snake.forEach((part, index) => drawSnakePart(part, index === 0)); }
+
+        function drawFood() {
+            ctx.fillStyle = userSettings.foodColor; ctx.strokeStyle = 'darkred';
+            const radius = GRID_SIZE/2.2;
+            ctx.beginPath(); ctx.arc(food.x + GRID_SIZE/2, food.y + GRID_SIZE/2, radius, 0, 2*Math.PI); ctx.fill(); ctx.stroke();
+            ctx.fillStyle = '#006400';
+            ctx.fillRect(food.x + GRID_SIZE/2 - GRID_SIZE*0.08, food.y + GRID_SIZE*0.05, GRID_SIZE*0.16, GRID_SIZE*0.3);
+        }
+
+        function spawnFood() {
+            let newFoodX, newFoodY;
+            do {
+                newFoodX = Math.floor(Math.random() * (gameCanvas.width / GRID_SIZE)) * GRID_SIZE;
+                newFoodY = Math.floor(Math.random() * (gameCanvas.height / GRID_SIZE)) * GRID_SIZE;
+            } while (snake.some(part => part.x === newFoodX && part.y === newFoodY));
+            food = { x: newFoodX, y: newFoodY };
+        }
+
+        // --- Centralized Direction Change Logic ---
+        function changeDirectionLogic(newDx, newDy) {
+            if (currentGameState !== 'PLAYING' || changingDirection) return;
+
+            const goingUp = dy === -GRID_SIZE;
+            const goingDown = dy === GRID_SIZE;
+            const goingLeft = dx === -GRID_SIZE;
+            const goingRight = dx === GRID_SIZE;
+
+            // Prevent 180-degree turns
+            if (newDx === -GRID_SIZE && goingRight) return;
+            if (newDx === GRID_SIZE && goingLeft) return;
+            if (newDy === -GRID_SIZE && goingDown) return;
+            if (newDy === GRID_SIZE && goingUp) return;
+
+            changingDirection = true; // Mark that a change is in progress for this frame
+            dx = newDx;
+            dy = newDy;
+        }
+
+        // --- Input Handling ---
+        function handleKeyPress(event) {
+            const keyPressed = event.key;
+            let targetDx = dx, targetDy = dy;
+
+            if (keyPressed === 'ArrowLeft' || keyPressed.toLowerCase() === 'a') targetDx = -GRID_SIZE, targetDy = 0;
+            else if (keyPressed === 'ArrowUp' || keyPressed.toLowerCase() === 'w') targetDx = 0, targetDy = -GRID_SIZE;
+            else if (keyPressed === 'ArrowRight' || keyPressed.toLowerCase() === 'd') targetDx = GRID_SIZE, targetDy = 0;
+            else if (keyPressed === 'ArrowDown' || keyPressed.toLowerCase() === 's') targetDx = 0, targetDy = GRID_SIZE;
+            
+            changeDirectionLogic(targetDx, targetDy);
+        }
+
+        // --- Touch Controls ---
+        function handleTouchStart(event) {
+            if (currentGameState !== 'PLAYING') return;
+            touchStartX = event.touches[0].clientX;
+            touchStartY = event.touches[0].clientY;
+            event.preventDefault(); // Prevent page scrolling on canvas touch
+        }
+
+        function handleTouchMove(event) {
+            if (currentGameState !== 'PLAYING' || !touchStartX || !touchStartY) return;
+            touchEndX = event.touches[0].clientX;
+            touchEndY = event.touches[0].clientY;
+            event.preventDefault();
+        }
+
+        function handleTouchEnd(event) {
+            if (currentGameState !== 'PLAYING' || !touchStartX || !touchStartY) return;
+
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+
+            let targetDx = dx;
+            let targetDy = dy;
+
+            if (Math.abs(deltaX) > Math.abs(deltaY)) { // Horizontal swipe
+                if (Math.abs(deltaX) > SWIPE_THRESHOLD) {
+                    if (deltaX > 0) { targetDx = GRID_SIZE; targetDy = 0; } // Right
+                    else { targetDx = -GRID_SIZE; targetDy = 0; } // Left
+                }
+            } else { // Vertical swipe
+                if (Math.abs(deltaY) > SWIPE_THRESHOLD) {
+                    if (deltaY > 0) { targetDx = 0; targetDy = GRID_SIZE; } // Down
+                    else { targetDx = 0; targetDy = -GRID_SIZE; } // Up
+                }
+            }
+            
+            if (targetDx !== dx || targetDy !== dy) { // Only if direction changed
+                changeDirectionLogic(targetDx, targetDy);
+            }
+
+            touchStartX = 0; touchStartY = 0; // Reset for next swipe
+            touchEndX = 0; touchEndY = 0;
+        }
+
+        // --- Settings Logic ---
+        function updateSettingsPreview() {
+            snakeColorPreviewElem.style.backgroundColor = userSettings.snakeColor;
+            foodColorPreviewElem.style.backgroundColor = userSettings.foodColor;
+            speedDisplayElem.textContent = speedOptions[currentSpeedIndex].label;
+        }
+
+        function cycleSnakeColor() {
+            currentSnakeColorIndex = (currentSnakeColorIndex + 1) % availableSnakeColors.length;
+            userSettings.snakeColor = availableSnakeColors[currentSnakeColorIndex];
+            updateSettingsPreview(); updateMenuSnakePreview();
+        }
+        function cycleFoodColor() {
+            currentFoodColorIndex = (currentFoodColorIndex + 1) % availableFoodColors.length;
+            userSettings.foodColor = availableFoodColors[currentFoodColorIndex];
+            updateSettingsPreview();
+        }
+        function increaseGameSpeed() {
+            if (currentSpeedIndex < speedOptions.length - 1) {
+                currentSpeedIndex++;
+                userSettings.gameSpeedMs = speedOptions[currentSpeedIndex].ms;
+                updateSettingsPreview();
+            }
+        }
+        function decreaseGameSpeed() {
+            if (currentSpeedIndex > 0) {
+                currentSpeedIndex--;
+                userSettings.gameSpeedMs = speedOptions[currentSpeedIndex].ms;
+                updateSettingsPreview();
+            }
+        }
+
+        // --- Entry Point ---
+        window.onload = () => {
+            initDOM();
+            attachListeners();
+            showScreen('MENU');
+            userSettings.snakeColor = availableSnakeColors[currentSnakeColorIndex];
+            userSettings.foodColor = availableFoodColors[currentFoodColorIndex];
+            userSettings.gameSpeedMs = speedOptions[currentSpeedIndex].ms;
+            updateMenuSnakePreview();
+            updateSettingsPreview();
+        };
+    </script>
+</body>
+</html>
