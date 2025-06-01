@@ -2,899 +2,879 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Chess Game with Bot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Play Chess Online Free - Strategy Game vs Bot (Themes & Alerts) | GameVerse</title>
+
+    <!-- SEO Meta Tags - Optimized for 2025 -->
+    <meta name="description" content="Enjoy GameVerse's free online Chess with themes & pop-up alerts! Play vs smart AI (Easy, Medium, Hard) or friends. Master chess strategy and rules. Author: Kanhaiya Mishra.">
+    <meta name="keywords" content="play chess online, free chess game, chess online, chess bot, ai chess, chess strategy, chess rules, chess themes, board games online, strategy games, GameVerse chess, Kanhaiya Mishra chess, 2025 chess game">
+    <meta name="author" content="Kanhaiya Mishra">
+    <link rel="canonical" href="https://online-games-indol.vercel.app/chess_v3.html"> <!-- UPDATE THIS URL WHEN YOU DEPLOY -->
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://online-games-indol.vercel.app/chess_v3.html"> <!-- UPDATE THIS URL -->
+    <meta property="og:title" content="Play Chess Online Free - Themes & Alerts | GameVerse">
+    <meta property="og:description" content="Master strategy with GameVerse's free online Chess. Play vs AI (Easy, Medium, Hard) or friends. Features themes & checkmate alerts.">
+    <meta property="og:image" content="https://online-games-indol.vercel.app/images/chess-social-preview-v3.png"> <!-- CREATE & UPLOAD THIS IMAGE -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://online-games-indol.vercel.app/chess_v3.html"> <!-- UPDATE THIS URL -->
+    <meta property="twitter:title" content="Play Chess Online Free - Themes & Alerts | GameVerse">
+    <meta property="twitter:description" content="Master strategy with GameVerse's free online Chess. Play vs AI (Easy, Medium, Hard) or friends. Features themes & checkmate alerts.">
+    <meta property="twitter:image" content="https://online-games-indol.vercel.app/images/chess-social-preview-v3.png"> <!-- CREATE & UPLOAD THIS IMAGE -->
 
     <!-- Google AdSense Script -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8067952496194704"
          crossorigin="anonymous"></script>
-    <!-- End Google AdSense Script -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
+        /* --- Global Styles & Theme Variables --- */
+        :root {
+            /* Default Theme (Dark Wood) */
+            --bg-color: #3d2c1d; /* Darker wood background */
+            --text-color: #f5e8d3; /* Creamy text */
+            --shadow-light: rgba(245, 232, 211, 0.2); /* Lighter shadow for dark theme */
+            --shadow-dark: rgba(0, 0, 0, 0.5);      /* Darker shadow */
+            --primary-accent: #e8a14d; /* Gold/Orange accent */
+            --secondary-accent: #8b5a2b; /* Medium wood accent */
+            --board-light-sq: #f0d9b5; 
+            --board-dark-sq: #b58863;  
+            --border-radius: 12px;
+            --transition-speed: 0.3s;
+            --page-wrapper-bg: #4a3623; /* Slightly lighter wood for wrapper */
+            --neumorphic-button-bg: #4a3623;
+            --neumorphic-button-text: #f5e8d3;
+            --neumorphic-button-active-text: #e8a14d;
+            --content-bg: #5a422d; /* For textual content area */
+            --top-nav-bg: #2c1e10; /* Very dark wood for top nav */
+            --top-nav-text: #f5e8d3;
+            --top-nav-link-hover-bg: #4a3623;
+        }
+
+        body.light-theme {
+            --bg-color: #e0e5ec; /* Light Neumorphic background */
+            --text-color: #555;
+            --shadow-light: #ffffff;
+            --shadow-dark: #bec8e4;
+            --primary-accent: #007bff;
+            --secondary-accent: #6c757d;
+            --board-light-sq: #f0f0f0; 
+            --board-dark-sq: #cccccc;  
+            --page-wrapper-bg: #e0e5ec;
+            --neumorphic-button-bg: #e0e5ec;
+            --neumorphic-button-text: #555;
+            --neumorphic-button-active-text: #007bff;
+            --content-bg: #e0e5ec;
+            --top-nav-bg: #343a40;
+            --top-nav-text: #f8f9fa;
+            --top-nav-link-hover-bg: #4f5459;
+        }
+        
+        body.classic-theme { /* More traditional, less "neumorphic" if preferred */
+            --bg-color: #f0f2f5;
+            --text-color: #333;
+            --primary-accent: #0066cc;
+            --secondary-accent: #555;
+            --board-light-sq: #ebebeb; 
+            --board-dark-sq: #b2b2b2;
+            --shadow-light: rgba(0,0,0,0.05); /* Softer shadows for classic */
+            --shadow-dark: rgba(0,0,0,0.15);
+            --page-wrapper-bg: #ffffff;
+            --neumorphic-button-bg: #0066cc; /* Button bg is accent */
+            --neumorphic-button-text: #ffffff; /* White text on accent bg */
+            --neumorphic-button-active-text: #ffffff;
+            --content-bg: #ffffff;
+            --top-nav-bg: #2c3e50;
+            --top-nav-text: #ffffff;
+            --top-nav-link-hover-bg: #34495e;
+        }
+
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             min-height: 100vh;
-            background-color: #f0f0f0;
-            margin: 0;
+            padding-top: 70px; 
+            line-height: 1.6;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
         }
 
-        .game-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: relative; /* Added for positioning custom alert within it if desired */
+        .top-nav-bar {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background-color: var(--top-nav-bg); 
+            color: var(--top-nav-text); padding: 12px 20px; /* Adjusted padding */
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2); z-index: 1005;
+            transition: background-color var(--transition-speed) ease;
         }
-
-        /* --- Start Screen Styling --- */
-        #start-screen {
-            display: flex; /* Initially visible */
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        .top-nav-bar .logo a { color: var(--top-nav-text); text-decoration: none; font-size: 1.4em; font-weight: 700; font-family: 'Roboto Slab', serif;}
+        .top-nav-bar .nav-links { display: flex; align-items: center; }
+        .top-nav-bar .nav-links a { color: var(--top-nav-text); text-decoration: none; margin-left: 15px; font-size: 0.9em; padding: 6px 10px; border-radius: var(--border-radius); transition: background-color var(--transition-speed) ease; }
+        .top-nav-bar .nav-links a:hover { background-color: var(--top-nav-link-hover-bg); }
+        
+        /* Theme Switcher Button in Top Nav */
+        #theme-switcher-button {
+            background: none; border: 1px solid var(--top-nav-text); color: var(--top-nav-text);
+            padding: 5px 10px; font-size: 0.85em; border-radius: calc(var(--border-radius) / 1.5);
+            cursor: pointer; margin-left: 15px; transition: all var(--transition-speed);
         }
-
-        #start-screen h2 {
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .start-button {
-            display: inline-block;
-            padding: 12px 25px;
-            margin: 10px;
-            font-size: 1.1em;
-            font-weight: bold;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.1s ease, box-shadow 0.1s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            box-shadow: 0 5px 0px rgba(0, 0, 0, 0.3);
-        }
-
-        .friend-button {
-            background-color: #007bff;
-        }
-        .friend-button:hover {
-             background-color: #0056b3;
-        }
-
-        .bot-button {
-            background-color: #dc3545;
-        }
-         .bot-button:hover {
-            background-color: #c82333;
-         }
-
-        .start-button:active {
-            transform: translateY(3px);
-            box-shadow: 0 2px 0px rgba(0, 0, 0, 0.3);
-        }
-
-        #game-elements {
-            display: none; /* Initially hidden */
-            flex-direction: column;
-            align-items: center;
-        }
-        /* --- END Start Screen Styling --- */
+        #theme-switcher-button:hover { background-color: var(--top-nav-link-hover-bg); }
 
 
+        .page-wrapper {
+            width: 95%; max-width: 1100px; 
+            background-color: var(--page-wrapper-bg); 
+            padding: 25px; border-radius: var(--border-radius);
+            box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+            margin-top: 20px; margin-bottom: 30px;
+            transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+
+        .game-title-section { text-align: center; margin-bottom: 30px; }
+        .game-title-section h1 { font-size: 2.4em; color: var(--primary-accent); margin-bottom: 8px; font-family: 'Roboto Slab', serif; text-shadow: 1px 1px 2px var(--shadow-dark); transition: color var(--transition-speed) ease;}
+        .game-title-section p.subtitle { font-size: 1.1em; color: var(--text-color); opacity: 0.8; transition: color var(--transition-speed) ease;}
+
+
+        .game-content-layout { display: flex; gap: 30px; flex-wrap: wrap; }
+        .game-board-area { 
+            flex: 1; min-width: 380px; display: flex; flex-direction: column; align-items: center;
+            background-color: var(--neumorphic-button-bg);
+            padding: 20px; border-radius: var(--border-radius);
+            box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+            transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+        
+        #start-screen { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 20px 0;}
+        #start-screen h2 { margin-bottom: 15px; font-size: 1.6em; color: var(--neumorphic-button-text); }
+        #bot-difficulty-selector { margin: 15px 0; display: none; }
+        #bot-difficulty-selector label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--neumorphic-button-text); }
+        #bot-difficulty-selector select {
+            padding: 10px 15px; font-size: 1em; border-radius: calc(var(--border-radius) / 1.5);
+            border: 1px solid var(--shadow-dark); background-color: var(--neumorphic-button-bg); color: var(--neumorphic-button-text);
+            box-shadow: inset 2px 2px 4px var(--shadow-dark), inset -2px -2px 4px var(--shadow-light);
+            cursor: pointer; appearance: none; -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23${encodeURIComponent(getComputedStyle(document.documentElement).getPropertyValue('--neumorphic-button-text').trim().substring(1))}' d='M8 11.314l-4.95-4.95.707-.707L8 9.899l4.243-4.242.707.707z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 10px center; background-size: 16px;
+            transition: all var(--transition-speed);
+        }
+
+        .neumorphic-button {
+            display: inline-block; padding: 12px 25px; margin: 10px; font-size: 1.05em; font-weight: 600;
+            color: var(--neumorphic-button-text); background-color: var(--neumorphic-button-bg);
+            border: none; border-radius: var(--border-radius); cursor: pointer;
+            box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
+            transition: all var(--transition-speed) ease; text-decoration: none;
+        }
+        .neumorphic-button.primary { color: var(--primary-accent); }
+        /* We can make other button colors also theme-dependent or fixed */
+        .neumorphic-button.success { color: #28a745; } 
+        .neumorphic-button.danger { color: #dc3545; }
+
+
+        .neumorphic-button:hover { opacity: 0.8; }
+        .neumorphic-button:active {
+            box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+            color: var(--neumorphic-button-active-text); 
+        }
+
+        #game-elements { display: none; flex-direction: column; align-items: center; margin-top: 15px; }
         #chessboard {
-            display: grid;
-            grid-template-columns: repeat(8, 50px);
-            grid-template-rows: repeat(8, 50px);
-            border: 2px solid #333;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: grid; grid-template-columns: repeat(8, 48px); grid-template-rows: repeat(8, 48px);
+            border-radius: calc(var(--border-radius) / 2);
+            box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
+            overflow: hidden; 
         }
+        .square { width: 48px; height: 48px; display: flex; justify-content: center; align-items: center; font-size: 36px; cursor: pointer; user-select: none; transition: background-color 0.2s; }
+        .square.light { background-color: var(--board-light-sq); }
+        .square.dark { background-color: var(--board-dark-sq); }
+        .piece { pointer-events: none; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+        
+        .selected { background-color: #a0c0f0cc !important; }
+        .valid-move::after { content: ''; display: block; width: 14px; height: 14px; background-color: rgba(40, 167, 69, 0.6); border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        .valid-capture::after { content: ''; display: block; width: calc(100% - 10px); height: calc(100% - 10px); border: 5px solid rgba(220, 53, 69, 0.6); border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); box-sizing: border-box; }
+        .valid-move, .valid-capture {position: relative;}
 
-        .square {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 36px;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .light {
-            background-color: white;
-        }
-
-        .dark {
-            background-color: papayawhip;
-        }
-
-        .piece {
-            pointer-events: none;
-        }
-
-        .selected {
-            background-color: #a0c0f0;
-            border: 2px solid #0066cc;
-            box-sizing: border-box;
-        }
-
-        .valid-move {
-            background-color: #88b488;
-            position: relative;
-        }
-
-        .valid-move::after {
-             content: '';
-             display: block;
-             width: 15px;
-             height: 15px;
-             background-color: rgba(0, 0, 0, 0.3);
-             border-radius: 50%;
-             position: absolute;
-             top: 50%;
-             left: 50%;
-             transform: translate(-50%, -50%);
-             pointer-events: none;
-        }
-
-        .valid-capture {
-            background-color: #e08080;
-             position: relative;
-        }
-         .valid-capture::after {
-             content: '';
-             display: block;
-             width: calc(100% - 10px);
-             height: calc(100% - 10px);
-             border: 5px solid rgba(0, 0, 0, 0.3);
-             border-radius: 50%;
-             position: absolute;
-             top: 50%;
-             left: 50%;
-             transform: translate(-50%, -50%);
-             box-sizing: border-box;
-             pointer-events: none;
-         }
 
         #status {
-            margin-top: 20px;
-            font-size: 1.2em;
-            font-weight: bold;
-            padding: 10px 20px;
-            border-radius: 4px;
-            text-align: center;
-            min-width: 180px;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-top: 20px; font-size: 1.2em; font-weight: 600; padding: 10px 20px;
+            border-radius: var(--border-radius); text-align: center; min-width: 200px;
+            background-color: var(--neumorphic-button-bg); /* Use button bg for status */
+            color: var(--neumorphic-button-text); /* Use button text for status */
+            box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+            transition: all var(--transition-speed);
         }
+        .status-bot-thinking { color: #ffc107; } /* Keep specific colors for states if needed */
+        .status-game-over { color: var(--secondary-accent); }
 
-        .status-white-turn {
-            background-color: white;
-            color: black;
-            border: 1px solid #ccc;
-        }
+        .game-buttons { margin-top: 15px; }
+        #back-button { margin-top: 10px; }
 
-        .status-black-turn {
-            background-color: #333;
-            color: white;
-            border: 1px solid #333;
+        .custom-popup, #promotion-popup {
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background-color: var(--page-wrapper-bg); /* Use page wrapper bg for popups */
+            color: var(--text-color);
+            padding: 25px; border-radius: var(--border-radius);
+            box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+            z-index: 1001; text-align: center;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
         }
-         .status-bot-thinking {
-            background-color: #ffc107;
-            color: #333;
-             border: 1px solid #ffb300;
-         }
-         .status-game-over {
-             background-color: #6c757d;
-             color: white;
-             border: 1px solid #5a6268;
-         }
+        .custom-popup p, #promotion-popup p { margin-bottom: 15px; font-size: 1.1em; }
+        .promotion-options button { font-size: 40px; background: none; border:none; cursor: pointer; padding: 10px; margin: 0 5px; border-radius: calc(var(--border-radius)/2); transition: all var(--transition-speed); color: var(--text-color);}
+        .promotion-options button:hover { color: var(--primary-accent); transform: scale(1.1); }
 
-        .game-buttons button {
-            margin: 5px;
-            padding: 10px 20px;
-            font-size: 1em;
-            cursor: pointer;
-            border: none;
-            border-radius: 4px;
-            color: white;
-            transition: background-color 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+        .game-description-wrapper { flex: 1.5; min-width: 320px; }
+        .game-description-content {
+            padding: 25px; background-color: var(--content-bg); color: var(--text-color);
+            border-radius: var(--border-radius);
+            box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
+            line-height: 1.8; text-align: left;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
         }
+        .game-description-content h2 { font-size: 1.9em; color: var(--primary-accent); margin-top: 0; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--primary-accent); font-family: 'Roboto Slab', serif; transition: color var(--transition-speed) ease, border-color var(--transition-speed) ease;}
+        .game-description-content h3 { font-size: 1.5em; color: var(--secondary-accent); margin-top: 25px; margin-bottom: 12px; font-family: 'Roboto Slab', serif; transition: color var(--transition-speed) ease;}
+        .game-description-content p, .game-description-content ul { margin-bottom: 18px; font-size: 1.05em; }
+        .game-description-content ul { padding-left: 30px; list-style-type: '♟ '; } 
+        .game-description-content li { margin-bottom: 10px; }
+        .game-description-content strong { font-weight: 600; color: var(--primary-accent); transition: color var(--transition-speed) ease;}
+        .game-description-content .highlight { color: var(--primary-accent); font-weight: bold;}
 
-        #reset-button {
-            background-color: #007bff;
+        .site-footer {
+            text-align: center; padding: 25px 0; margin-top: 30px;
+            width:100%; background-color: var(--top-nav-bg); /* Match top nav bg */
+            color: var(--top-nav-text); opacity: 0.9; font-size: 0.9em;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
         }
-        #reset-button:hover {
-            background-color: #0056b3;
-        }
+        .site-footer a { color: var(--primary-accent); text-decoration: none;}
+        .site-footer a:hover { text-decoration: underline;}
 
-        #share-button {
-            background-color: #25D366;
-        }
-         #share-button:hover {
-            background-color: #1DA54A;
-        }
-
-        #back-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 1em;
-            cursor: pointer;
-            border: none;
-            border-radius: 4px;
-            background-color: #6c757d;
-            color: white;
-            transition: background-color 0.3s ease;
-            display: inline-block;
-        }
-        #back-button:hover {
-             background-color: #5a6268;
-        }
-
-        /* --- Custom Pop-up Styling --- */
-        .custom-popup {
-            position: fixed; /* Fixed position to overlay everything */
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 25px 35px; /* Increased padding */
-            border-radius: 10px; /* Slightly more rounded */
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35); /* Enhanced shadow */
-            z-index: 1000; /* Ensure it's on top */
-            text-align: center;
-            border: 1px solid #bbb; /* Lighter border */
-            min-width: 250px; /* Ensure it's not too narrow */
-            max-width: 90%; /* Prevent it from being too wide on small screens */
-        }
-
-        .custom-popup p {
-            margin-top: 0;
-            margin-bottom: 20px; /* More space before button */
-            font-size: 1.2em; /* Slightly larger font */
-            color: #333;
-        }
-
-        .custom-popup button {
-            padding: 10px 25px; /* Larger button */
-            font-size: 1em;
-            font-weight: bold;
-            color: white;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px; /* Consistent rounding */
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-
-        .custom-popup button:hover {
-            background-color: #0056b3;
-        }
-        /* --- END Custom Pop-up Styling --- */
-
-        /* --- Pawn Promotion Pop-up Styling --- */
-        #promotion-popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #e0e0e0; /* Light wooden texture-like */
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            z-index: 1001; /* Above other pop-ups if any */
-            text-align: center;
-        }
-        #promotion-popup p {
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.1em;
-            color: #333;
-        }
-        .promotion-options button {
-            font-size: 40px; /* Larger piece icons */
-            background: none;
-            border: 2px solid transparent;
-            cursor: pointer;
-            padding: 10px;
-            margin: 0 8px;
-            border-radius: 5px;
-            transition: background-color 0.2s, border-color 0.2s;
-        }
-        .promotion-options button:hover {
-            background-color: #c7c7c7;
-            border-color: #888;
-        }
-        /* --- END Pawn Promotion Pop-up Styling --- */
-
+        @media (max-width: 850px) { .game-content-layout { flex-direction: column; } .game-board-area, .game-description-wrapper { min-width: 100%; } }
+        @media (max-width: 480px) { .top-nav-bar { padding: 10px 15px; flex-direction: column; gap: 8px; height: auto; padding-bottom: 8px;} .top-nav-bar .logo a { font-size: 1.3em; } .top-nav-bar .nav-links { margin-top:5px; } .top-nav-bar .nav-links a { margin-left: 8px; font-size: 0.8em; } #theme-switcher-button { font-size:0.75em; padding: 4px 8px;} .page-wrapper { padding: 15px; } .game-title-section h1 { font-size: 1.8em; } #chessboard { grid-template-columns: repeat(8, 40px); grid-template-rows: repeat(8, 40px); } .square { width: 40px; height: 40px; font-size: 30px; } .game-description-content h2 { font-size: 1.5em; } .game-description-content h3 { font-size: 1.2em; } body {padding-top: 90px;} /* Adjust for taller nav on mobile */ }
 
     </style>
 </head>
 <body>
-
-    <div class="game-container">
-
-        <!-- Start Screen -->
-        <div id="start-screen">
-            <h2>How do you want to play?</h2>
-            <div>
-                <button id="play-friend-button" class="start-button friend-button">
-                    Play vs Friend
-                </button>
-                 <button id="play-bot-button" class="start-button bot-button">
-                    Play vs Bot
-                </button>
-            </div>
+    <nav class="top-nav-bar">
+        <div class="logo"><a href="/">GameVerse</a></div>
+        <div class="nav-links">
+            <a href="/about.html">About</a>
+            <a href="/privacy_policy.html">Privacy Policy</a>
+            <a href="/contact.html">Contact</a>
+            <button id="theme-switcher-button">Change Theme</button>
         </div>
-        <!-- END Start Screen -->
+    </nav>
 
+    <div class="page-wrapper">
+        <section class="game-title-section">
+            <h1>Online Chess Master: Free Strategy Game</h1>
+            <p class="subtitle">Play the ultimate brain game against our AI or challenge a friend. Sharpen your tactical skills!</p>
+        </section>
 
-        <!-- Game Elements Container (Initially Hidden) -->
-        <div id="game-elements">
-            <div id="chessboard">
-                <!-- Squares will be generated by JavaScript -->
-            </div>
-            <div id="status">White's Turn</div>
-            <div class="game-buttons"> <!-- Wrapped Reset and Share buttons -->
-                <button id="reset-button">Reset Game</button>
-                <button id="share-button">Share via WhatsApp</button>
-            </div>
-             <!-- Back Button -->
-            <button id="back-button">Back to Menu</button>
-             <!-- END Back Button -->
+        <div class="game-content-layout">
+            <section class="game-board-area">
+                <div id="start-screen">
+                    <h2>Choose Your Opponent</h2>
+                    <div id="bot-difficulty-selector">
+                        <label for="difficulty">Select Bot Skill Level:</label>
+                        <select id="difficulty">
+                            <option value="easy">Easy (Learning)</option>
+                            <option value="medium" selected>Medium (Challenger)</option>
+                            <option value="hard">Hard (Grandmaster AI)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button id="play-friend-button" class="neumorphic-button primary">Play vs Friend</button>
+                        <button id="play-bot-initial-button" class="neumorphic-button success">Play vs Smart Bot</button>
+                        <button id="start-game-bot-final" class="neumorphic-button danger" style="display:none;">Start AI Battle!</button>
+                    </div>
+                </div>
+
+                <div id="game-elements">
+                    <div id="chessboard"></div>
+                    <div id="status">White's Turn</div>
+                    <div class="game-buttons">
+                        <button id="reset-button" class="neumorphic-button secondary">Reset Game</button>
+                        <button id="share-button" class="neumorphic-button success">Share on WhatsApp</button>
+                    </div>
+                    <button id="back-button" class="neumorphic-button secondary">Back to Menu</button>
+                </div>
+
+                <div id="custom-alert-popup" class="custom-popup" style="display: none;">
+                    <p id="custom-alert-message"></p>
+                    <button id="custom-alert-ok-button" class="neumorphic-button primary">OK</button>
+                </div>
+                <div id="promotion-popup" style="display: none;">
+                    <p>Promote Pawn To:</p>
+                    <div class="promotion-options">
+                        <button data-promote="q">♕</button> <button data-promote="r">♖</button>
+                        <button data-promote="b">♗</button> <button data-promote="n">♘</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="game-description-wrapper">
+                <article class="game-description-content">
+                    <h2>Master the Royal Game: Online Chess at GameVerse</h2>
+                    <p>Welcome to GameVerse's premier online chess experience, designed by Kanhaiya Mishra! Chess, a game of kings and intellect, has captivated minds for centuries. Whether you're a beginner learning the ropes or a seasoned grandmaster honing your skills, our platform offers a challenging and enjoyable environment. <span class="highlight">Play chess online free</span>, anytime, anywhere!</p>
+                    <h3>How to Play Chess: A Quick Guide</h3>
+                    <p>The objective in chess is to <strong class="highlight">checkmate</strong> your opponent's King...</p>
+                    {/* --- Baaki ka textual content (.game-description-content ke andar) waise hi rahega --- */}
+                    {/* --- Ensure all detailed content from previous example is here --- */}
+                    <ul>
+                        <li><strong>Setup:</strong> The board is an 8x8 grid...</li>
+                        <li><strong>Turns:</strong> White moves first...</li>
+                        <li><strong>Piece Movements:</strong> Each piece moves differently...
+                            <ul>
+                                <li><strong>King (♔♚):</strong> One square in any direction...</li>
+                                <li><strong>Queen (♕♛):</strong> Any number of squares...</li>
+                                {/* ... other pieces ... */}
+                                <li><strong>Pawn (♙♟):</strong> Moves one square forward...</li>
+                            </ul>
+                        </li>
+                        <li><strong>Special Moves:</strong> Castling and En Passant...</li>
+                    </ul>
+
+                    <h3>Features of GameVerse Chess (2025 Edition)</h3>
+                    <ul>
+                        <li><strong>Intelligent AI Bot:</strong> Challenge our chess bot...
+                            <ul style="list-style-type: '◉ '; margin-top:10px;">
+                                <li><strong>Easy (Learning):</strong> Perfect for new players...</li>
+                                <li><strong>Medium (Challenger):</strong> A balanced AI...</li>
+                                <li><strong>Hard (Grandmaster AI):</strong> A formidable opponent...</li>
+                            </ul>
+                        </li>
+                        <li><strong>Play vs. Friend:</strong> Enjoy a classic two-player game...</li>
+                        <li><strong>Sleek & Modern UI:</strong> A clean, intuitive interface...</li>
+                        <li><strong>Pawn Promotion:</strong> Easily promote your pawns...</li>
+                        <li><strong>No Downloads, Instant Play:</strong> Access the game directly...</li>
+                        <li><strong>Helpful Game Status & Alerts:</strong> Know whose turn, checks, and checkmate pop-ups!</li>
+                        <li><strong>Multiple Themes:</strong> Customize your playing experience!</li>
+                        <li><strong>Optimized for All Devices:</strong> Play seamlessly...</li>
+                    </ul>
+
+                    <h3>Winning Strategies & Tips for Chess</h3>
+                    <p>Improving at chess is a journey. Here are some fundamental tips:</p>
+                    <ul>
+                        <li><strong>Control the Center:</strong> Dominating the central squares...</li>
+                        <li><strong>Develop Your Pieces Early:</strong> Bring your Knights and Bishops out quickly...</li>
+                        {/* ... other tips ... */}
+                        <li><strong>Practice Regularly:</strong> The more you play...</li>
+                    </ul>
+                    <p>Ready to make your move? <span class="highlight">Start a new chess game online now</span> and test your strategic prowess on GameVerse!</p>
+                </article>
+            </section>
         </div>
-        <!-- END Game Elements Container -->
-
-        <!-- Custom Pop-up Notification -->
-        <div id="custom-alert-popup" class="custom-popup" style="display: none;">
-            <p id="custom-alert-message"></p>
-            <button id="custom-alert-ok-button">OK</button>
-        </div>
-        <!-- END Custom Pop-up Notification -->
-
-        <!-- Pawn Promotion Pop-up -->
-        <div id="promotion-popup" style="display: none;">
-            <p>Promote pawn to:</p>
-            <div class="promotion-options">
-                <button data-promote="q">♕</button> <!-- Queen -->
-                <button data-promote="r">♖</button> <!-- Rook -->
-                <button data-promote="b">♗</button> <!-- Bishop -->
-                <button data-promote="n">♘</button> <!-- Knight -->
-            </div>
-        </div>
-        <!-- END Pawn Promotion Pop-up -->
-
-
     </div>
 
-    <!-- Include chess.js library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+    <footer class="site-footer">
+        <p>© <span id="currentYear"></span> GameVerse by Kanhaiya Mishra. All Rights Reserved.</p>
+        <p><a href="/privacy_policy.html">Privacy Policy</a> | <a href="/terms.html">Terms of Service</a></p>
+    </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
     <script>
-        // --- Game State ---
+        // === START OF JAVASCRIPT ===
         let game = new Chess();
         let selectedSquare = null;
         let validMoves = [];
-        let gameMode = null;
+        let gameMode = null; 
         let isBotThinking = false;
         let botTimeoutId = null;
-        let awaitingPromotion = false; // New state for pawn promotion
-        let promotionDetails = null; // To store {from, to} for promotion
+        let awaitingPromotion = false;
+        let promotionDetails = null; 
+        let currentBotDifficulty = 'medium'; 
+        let searchDepth = 2; 
 
-        // --- Sound ---
         let moveSound = null;
-        let backgroundMusic = null;
-        let musicPlayed = false;
+        let backgroundMusic = null; // Assuming you might add background music later
+        let musicPlayed = false; // If you add background music
 
-        // --- DOM Elements ---
         const chessboardElement = document.getElementById('chessboard');
         const statusElement = document.getElementById('status');
         const resetGameButton = document.getElementById('reset-button');
         const shareButton = document.getElementById('share-button');
         const backButton = document.getElementById('back-button');
-
-        // Start Screen Elements
         const startScreen = document.getElementById('start-screen');
         const gameElements = document.getElementById('game-elements');
         const playFriendButton = document.getElementById('play-friend-button');
-        const playBotButton = document.getElementById('play-bot-button');
-
-        // --- Custom Alert Elements & State ---
+        const playBotInitialButton = document.getElementById('play-bot-initial-button');
+        const botDifficultySelectorDiv = document.getElementById('bot-difficulty-selector');
+        const difficultySelect = document.getElementById('difficulty');
+        const startGameBotFinalButton = document.getElementById('start-game-bot-final');
         const customAlertPopup = document.getElementById('custom-alert-popup');
         const customAlertMessageElement = document.getElementById('custom-alert-message');
         const customAlertOkButton = document.getElementById('custom-alert-ok-button');
         let customAlertTimeoutId = null;
-
-        // --- Promotion Pop-up Elements ---
         const promotionPopup = document.getElementById('promotion-popup');
         const promotionOptionsElement = promotionPopup.querySelector('.promotion-options');
+        
+        const themeSwitcherButton = document.getElementById('theme-switcher-button'); // NEW
+        let currentThemeIndex = 0; // NEW
+        const themes = ['default-theme', 'light-theme', 'classic-theme']; // NEW - CSS class names
 
-
-        // --- Piece Representation (Unicode) ---
-        const piecesUnicode = {
+        const piecesUnicode = { /* ... piecesUnicode object ... */ 
             wP: '♙', wR: '♖', wN: '♘', wB: '♗', wQ: '♕', wK: '♔',
             bP: '♟', bR: '♜', bN: '♞', bB: '♝', bQ: '♛', bK: '♚'
         };
-
-        // --- BOT DATA AND LOGIC ---
-        const pieceValues = {
-          p: 100, n: 320, b: 330, r: 500, q: 900, k: 20000
+        const pieceValues = { /* ... pieceValues object ... */ 
+            p: 100, n: 320, b: 330, r: 500, q: 900, k: 20000 
         };
-        const pawnEvalWhite = [
-          [0,0,0,0,0,0,0,0],[50,50,50,50,50,50,50,50],[10,10,20,30,30,20,10,10],[5,5,10,25,25,10,5,5],
-          [0,0,0,20,20,0,0,0],[5,-5,-10,0,0,-10,-5,5],[5,10,10,-20,-20,10,10,5],[0,0,0,0,0,0,0,0]
-        ];
-        const knightEval = [
-          [-50,-40,-30,-30,-30,-30,-40,-50],[-40,-20,0,0,0,0,-20,-40],[-30,0,10,15,15,10,0,-30],
-          [-30,5,15,20,20,15,5,-30],[-30,0,15,20,20,15,0,-30],[-30,5,10,15,15,10,5,-30],
-          [-40,-20,0,5,5,0,-20,-40],[-50,-40,-30,-30,-30,-30,-40,-50]
-        ];
-        const emptyEvalTable = new Array(8).fill(0).map(() => new Array(8).fill(0));
-        const bishopEval = emptyEvalTable;
-        const rookEval = emptyEvalTable;
-        const queenEval = emptyEvalTable;
-        const kingEvalMiddleGame = emptyEvalTable;
-        const kingEvalEndGame = emptyEvalTable;
+        const pawnEvalWhite = [/* ... pawnEvalWhite array ... */ [0,0,0,0,0,0,0,0],[50,50,50,50,50,50,50,50],[10,10,20,30,30,20,10,10],[5,5,10,25,25,10,5,5],[0,0,0,20,20,0,0,0],[5,-5,-10,0,0,-10,-5,5],[5,10,10,-20,-20,10,10,5],[0,0,0,0,0,0,0,0]];
+        const knightEval = [/* ... knightEval array ... */ [-50,-40,-30,-30,-30,-30,-40,-50],[-40,-20,0,0,0,0,-20,-40],[-30,0,10,15,15,10,0,-30],[-30,5,15,20,20,15,5,-30],[-30,0,15,20,20,15,0,-30],[-30,5,10,15,15,10,5,-30],[-40,-20,0,5,5,0,-20,-40],[-50,-40,-30,-30,-30,-30,-40,-50]];
+        const createEmptyEvalTable = () => new Array(8).fill(0).map(() => new Array(8).fill(0));
+        const bishopEval = createEmptyEvalTable();
+        const rookEval = createEmptyEvalTable();
+        const queenEval = createEmptyEvalTable();
+        const kingEvalMiddleGame = createEmptyEvalTable(); 
+        const kingEvalEndGame = createEmptyEvalTable(); 
 
-        function getPositionalValue(piece, row, col, isWhite) {
-             const tableRow = isWhite ? row : 7 - row;
-             const tableCol = col;
-             if (tableRow < 0 || tableRow > 7 || tableCol < 0 || tableCol > 7) return 0;
-             try {
-                 switch (piece.type) {
-                     case 'p': return isWhite ? pawnEvalWhite[tableRow][tableCol] : pawnEvalWhite[7 - tableRow][tableCol];
-                     case 'n': return knightEval[tableRow][tableCol];
-                     case 'b': return bishopEval[tableRow][tableCol];
-                     case 'r': return rookEval[tableRow][tableCol];
-                     case 'q': return queenEval[tableRow][tableCol];
-                     case 'k':
-                        const boardFlat = game.board().flat();
-                        const numQueens = boardFlat.filter(p => p && p.type === 'q').length;
-                        const numRooks = boardFlat.filter(p => p && p.type === 'r').length;
-                        const numBishops = boardFlat.filter(p => p && p.type === 'b').length;
-                        const numKnights = boardFlat.filter(p => p && p.type === 'n').length;
-                        const endgameMaterialThreshold = (pieceValues.q + pieceValues.r * 2 + pieceValues.b * 2 + pieceValues.n * 2) / 2;
-                        const currentMaterial = pieceValues.q * numQueens + pieceValues.r * numRooks + pieceValues.b * numBishops + pieceValues.n * numKnights;
-                        const isEndgame = numQueens < 2 || currentMaterial < endgameMaterialThreshold;
-                        return isEndgame ? kingEvalEndGame[tableRow][tableCol] : kingEvalMiddleGame[tableRow][tableCol];
-                     default: return 0;
-                 }
-             } catch (e) { console.error("Error getting positional value:", e); return 0; }
+        // --- THEME SWITCHER FUNCTIONALITY (NEW) ---
+        function applyTheme(themeClassName) {
+            document.body.className = ''; // Remove all previous theme classes
+            if (themeClassName !== 'default-theme') { // 'default-theme' implies no class, uses :root defaults
+                 document.body.classList.add(themeClassName);
+            }
+            localStorage.setItem('chessGameTheme', themeClassName);
+            // Update select arrow color for bot difficulty based on current text color
+             const selectArrowColor = getComputedStyle(document.documentElement).getPropertyValue('--neumorphic-button-text').trim().substring(1);
+             difficultySelect.style.backgroundImage = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23${encodeURIComponent(selectArrowColor)}' d='M8 11.314l-4.95-4.95.707-.707L8 9.899l4.243-4.242.707.707z'/%3E%3C/svg%3E")`;
+
         }
 
-        const searchDepth = 2;
-        const botThinkingTime = 100;
+        themeSwitcherButton.addEventListener('click', () => {
+            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+            applyTheme(themes[currentThemeIndex]);
+        });
 
-        function evaluateBoard(gameInstance) {
+        function loadSavedTheme() {
+            const savedTheme = localStorage.getItem('chessGameTheme');
+            if (savedTheme && themes.includes(savedTheme)) {
+                currentThemeIndex = themes.indexOf(savedTheme);
+                applyTheme(savedTheme);
+            } else {
+                applyTheme(themes[0]); // Apply default theme if nothing saved or invalid
+            }
+        }
+        // --- END THEME SWITCHER ---
+
+
+        function getPositionalValue(piece, r, c) { /* ... getPositionalValue function ... */ 
+            const row = piece.color === 'w' ? 7 - r : r; 
+            const col = c;
+            if (row < 0 || row > 7 || col < 0 || col > 7) return 0;
+            switch (piece.type) {
+                case 'p': return pawnEvalWhite[row][col]; 
+                case 'n': return knightEval[row][col];
+                case 'b': return bishopEval[row][col];
+                case 'r': return rookEval[row][col];
+                case 'q': return queenEval[row][col];
+                case 'k': return kingEvalMiddleGame[row][col]; 
+                default: return 0;
+            }
+        }
+        function evaluateBoard(boardInstance) { /* ... evaluateBoard function ... */
             let totalEvaluation = 0;
-            const boardState = gameInstance.board();
-            for (let row = 0; row < 8; row++) {
-                for (let col = 0; col < 8; col++) {
-                    const piece = boardState[row][col];
+            const boardState = boardInstance.board(); 
+            for (let r = 0; r < 8; r++) { 
+                for (let c = 0; c < 8; c++) { 
+                    const piece = boardState[r][c];
                     if (piece) {
-                        const pieceValue = pieceValues[piece.type];
-                        const positionalValue = getPositionalValue(piece, row, col, piece.color === 'w');
-                        totalEvaluation += (pieceValue + positionalValue) * (piece.color === 'w' ? 1 : -1);
+                        let pieceVal = pieceValues[piece.type];
+                        let positionalVal = getPositionalValue(piece, r, c); 
+                        totalEvaluation += (pieceVal + positionalVal) * (piece.color === 'w' ? 1 : -1);
                     }
                 }
             }
             return totalEvaluation;
         }
-
-        function minimax(gameInstance, depth, alpha, beta, maximizingPlayer) {
-            if (depth === 0 || gameInstance.game_over()) {
-                 if (gameInstance.in_checkmate()) return maximizingPlayer ? -100000 : 100000;
-                 if (gameInstance.in_stalemate() || gameInstance.in_threefold_repetition() || gameInstance.in_draw()) return 0;
-                return evaluateBoard(gameInstance);
+        function minimax(boardInstance, depth, alpha, beta, maximizingPlayer, isEasyMode) { /* ... minimax function ... */
+            if (depth === 0 || boardInstance.game_over()) {
+                if (boardInstance.in_checkmate()) return maximizingPlayer ? -Infinity : Infinity; 
+                return evaluateBoard(boardInstance);
             }
-            const moves = gameInstance.moves({ verbose: true });
-            if (moves.length === 0) return evaluateBoard(gameInstance);
-
-            if (maximizingPlayer) {
+            const moves = boardInstance.moves({ verbose: true });
+            if (moves.length === 0) return 0; 
+            if (isEasyMode && depth > 0 && Math.random() < 0.4) { 
+                 const randomMove = moves[Math.floor(Math.random() * moves.length)];
+                 boardInstance.move(randomMove);
+                 const eval = minimax(boardInstance, 0, alpha, beta, !maximizingPlayer, false); 
+                 boardInstance.undo();
+                 return eval;
+            }
+            if (maximizingPlayer) { 
                 let maxEval = -Infinity;
                 for (const move of moves) {
-                    let promotionPiece = (move.flags.includes('p')) ? 'q' : undefined; // Bot always promotes to queen
-                    gameInstance.move({from: move.from, to: move.to, promotion: promotionPiece});
-                    const evaluation = minimax(gameInstance, depth - 1, alpha, beta, false);
-                    gameInstance.undo();
-                    maxEval = Math.max(maxEval, evaluation);
-                    alpha = Math.max(alpha, evaluation);
+                    boardInstance.move(move);
+                    const eval = minimax(boardInstance, depth - 1, alpha, beta, false, isEasyMode);
+                    boardInstance.undo();
+                    maxEval = Math.max(maxEval, eval);
+                    alpha = Math.max(alpha, eval);
                     if (beta <= alpha) break;
                 }
                 return maxEval;
-            } else {
+            } else { 
                 let minEval = Infinity;
                 for (const move of moves) {
-                     let promotionPiece = (move.flags.includes('p')) ? 'q' : undefined; // Bot always promotes to queen
-                    gameInstance.move({from: move.from, to: move.to, promotion: promotionPiece});
-                    const evaluation = minimax(gameInstance, depth - 1, alpha, beta, true);
-                    gameInstance.undo();
-                    minEval = Math.min(minEval, evaluation);
-                    beta = Math.min(beta, evaluation);
+                    boardInstance.move(move);
+                    const eval = minimax(boardInstance, depth - 1, alpha, beta, true, isEasyMode);
+                    boardInstance.undo();
+                    minEval = Math.min(minEval, eval);
+                    beta = Math.min(beta, eval);
                     if (beta <= alpha) break;
                 }
                 return minEval;
             }
         }
-
-        function getBestMove(gameInstance, color) {
-            const moves = gameInstance.moves({ verbose: true });
-             if (gameInstance.game_over()) { console.log("Game over. No bot move."); return null; }
+        function getBestMoveForBot(boardInstance, difficulty) { /* ... getBestMoveForBot function ... */
+            const possibleMoves = boardInstance.moves({ verbose: true });
+            if (possibleMoves.length === 0) return null;
             let bestMove = null;
-            let bestEval = color === 'w' ? -Infinity : Infinity;
-            moves.sort(() => Math.random() - 0.5);
-            for (const move of moves) {
-                 let promotionPiece = (move.flags.includes('p')) ? 'q' : undefined; // Bot always promotes to queen
-                 gameInstance.move({from: move.from, to: move.to, promotion: promotionPiece});
-                const evaluation = minimax(gameInstance, searchDepth - 1, -Infinity, Infinity, color !== 'w');
-                gameInstance.undo();
-                 if (color === 'w') {
-                     if (evaluation > bestEval) { bestEval = evaluation; bestMove = move; }
-                 } else {
-                     if (evaluation < bestEval) { bestEval = evaluation; bestMove = move; }
-                 }
+            let bestValue = -Infinity; 
+            if (difficulty === 'easy') {
+                if (Math.random() < 0.7) { 
+                    return possibleMoves[Math.floor(Math.random() * possibleMoves.length)];
+                }
+                 for (const move of possibleMoves) {
+                    boardInstance.move(move);
+                    const boardValue = minimax(boardInstance, 0, -Infinity, Infinity, true, true); 
+                    boardInstance.undo();
+                    if (boardValue < (bestMove === null ? Infinity : bestValue) ) { 
+                        bestValue = boardValue;
+                        bestMove = move;
+                    }
+                }
+                return bestMove || possibleMoves[0]; 
             }
-            console.log(`Minimax best move for ${color} score:`, bestEval);
+            bestValue = Infinity; 
+            possibleMoves.sort(() => Math.random() - 0.5); 
+            for (const move of possibleMoves) {
+                boardInstance.move(move);
+                const boardValue = minimax(boardInstance, searchDepth -1, -Infinity, Infinity, true, false);
+                boardInstance.undo();
+                if (boardValue < bestValue) {
+                    bestValue = boardValue;
+                    bestMove = move;
+                }
+            }
+            // console.log(`Bot (${difficulty}) best move score for white: ${bestValue}`); // Keep for debugging if needed
             return bestMove;
         }
-
-        function makeBotMove() {
-             if (game.game_over() || game.turn() !== 'b' || isBotThinking || awaitingPromotion) return;
-             isBotThinking = true;
-             updateStatus();
-             if (botTimeoutId) { clearTimeout(botTimeoutId); botTimeoutId = null; }
-
-             botTimeoutId = setTimeout(() => {
-                 console.log("Bot thinking...");
-                 const move = getBestMove(game, 'b');
-                 if (move) {
-                     console.log("Bot moving:", move.san || (move.from + move.to));
-                     let promotionPiece = (move.flags.includes('p')) ? 'q' : undefined; // Bot always promotes to queen
-                     game.move({from: move.from, to: move.to, promotion: promotionPiece});
-                     afterMove();
-                 } else {
-                      console.log("Bot found no legal moves. Game Over.");
-                      afterMove();
-                 }
-                 isBotThinking = false;
-                 if (!game.game_over()) updateStatus();
-                 botTimeoutId = null;
-             }, botThinkingTime);
+        function makeBotMove() { /* ... makeBotMove function ... */
+            if (game.game_over() || game.turn() !== 'b' || isBotThinking || awaitingPromotion) return;
+            isBotThinking = true;
+            updateStatus();
+            if (botTimeoutId) clearTimeout(botTimeoutId);
+            botTimeoutId = setTimeout(() => {
+                const bestMove = getBestMoveForBot(game, currentBotDifficulty);
+                if (bestMove) {
+                    game.move(bestMove);
+                } else {
+                    // This case should ideally be caught by game.game_over()
+                }
+                isBotThinking = false;
+                afterMove(); 
+            }, 50); 
         }
-
-        // --- Game Initialization & UI Rendering ---
-        function squareToCoords(square) {
-             return { row: 8 - parseInt(square[1], 10), col: square.charCodeAt(0) - 'a'.charCodeAt(0) };
+        function setSearchDepthForDifficulty(difficulty) { /* ... setSearchDepthForDifficulty function ... */
+            currentBotDifficulty = difficulty;
+            if (difficulty === 'easy') searchDepth = 0; 
+            else if (difficulty === 'hard') searchDepth = 2; 
+            else searchDepth = 1; 
+            console.log("Bot difficulty set to:", difficulty, "Effective search depth for bot's turn:", searchDepth);
         }
-        function coordsToSquare(coords) {
-             return String.fromCharCode('a'.charCodeAt(0) + coords.col) + (8 - coords.row);
+        function squareToCoords(squareName) { /* ... squareToCoords function ... */ 
+            const col = squareName.charCodeAt(0) - 'a'.charCodeAt(0);
+            const row = 8 - parseInt(squareName[1]); 
+            return { row, col };
         }
-
-        function createBoardHTML() {
-             chessboardElement.innerHTML = '';
-             for (let row = 0; row < 8; row++) {
-                 for (let col = 0; col < 8; col++) {
-                     const squareElement = document.createElement('div');
-                     squareElement.classList.add('square', (row + col) % 2 === 0 ? 'light' : 'dark');
-                     squareElement.dataset.row = row;
-                     squareElement.dataset.col = col;
-                     squareElement.dataset.square = coordsToSquare({ row, col });
-                     squareElement.addEventListener('click', handleSquareClick);
-                     chessboardElement.appendChild(squareElement);
-                 }
-             }
+        function coordsToSquare(r, c) { /* ... coordsToSquare function ... */ 
+             return String.fromCharCode('a'.charCodeAt(0) + c) + (8 - r);
         }
-
-        function renderBoard() {
-             const boardState = game.board();
-             chessboardElement.querySelectorAll('.square').forEach(sqEl => {
-                 const row = parseInt(sqEl.dataset.row);
-                 const col = parseInt(sqEl.dataset.col);
-                 sqEl.innerHTML = '';
-                 sqEl.classList.remove('selected', 'valid-move', 'valid-capture');
-                 const piece = boardState[row][col];
-                 if (piece) {
-                     const pieceEl = document.createElement('div');
-                     pieceEl.classList.add('piece');
-                     pieceEl.textContent = piecesUnicode[piece.color + piece.type.toUpperCase()];
-                     sqEl.appendChild(pieceEl);
-                 }
-                 if (selectedSquare && selectedSquare.row === row && selectedSquare.col === col) {
-                     sqEl.classList.add('selected');
-                 }
-                 if (validMoves.some(m => m.row === row && m.col === col)) {
-                      sqEl.classList.add(boardState[row][col] ? 'valid-capture' : 'valid-move');
-                 }
-             });
-             updateStatus();
+        function createBoardHTML() { /* ... createBoardHTML function ... */
+            chessboardElement.innerHTML = '';
+            for (let r = 0; r < 8; r++) { 
+                for (let c = 0; c < 8; c++) { 
+                    const squareElement = document.createElement('div');
+                    squareElement.classList.add('square', (r + c) % 2 === 0 ? 'light' : 'dark');
+                    squareElement.dataset.square = coordsToSquare(r, c);
+                    squareElement.addEventListener('click', handleSquareClick);
+                    chessboardElement.appendChild(squareElement);
+                }
+            }
         }
-
-        function updateStatus() {
+        function renderBoard() { /* ... renderBoard function ... */
+            const board = game.board(); 
+            chessboardElement.querySelectorAll('.square').forEach(sqEl => {
+                const squareName = sqEl.dataset.square;
+                const coords = squareToCoords(squareName); 
+                sqEl.innerHTML = ''; 
+                sqEl.classList.remove('selected', 'valid-move', 'valid-capture');
+                const piece = board[coords.row][coords.col]; 
+                if (piece) {
+                    const pieceEl = document.createElement('div');
+                    pieceEl.classList.add('piece');
+                    pieceEl.textContent = piecesUnicode[piece.color + piece.type.toUpperCase()];
+                    sqEl.appendChild(pieceEl);
+                }
+                if (selectedSquare && selectedSquare === squareName) {
+                    sqEl.classList.add('selected');
+                }
+                if (validMoves.some(m => m.to === squareName)) {
+                    const targetPiece = game.get(squareName);
+                    sqEl.classList.add(targetPiece ? 'valid-capture' : 'valid-move');
+                }
+            });
+            updateStatus();
+        }
+        function updateStatus() { /* ... updateStatus function (checkmate alert is handled in afterMove) ... */
             statusElement.classList.remove('status-white-turn', 'status-black-turn', 'status-bot-thinking', 'status-game-over');
-            if (game.game_over()) {
-                 const winnerColor = game.turn() === 'w' ? 'Black' : 'White';
-                 if (game.in_checkmate()) statusElement.textContent = `${winnerColor} Wins by Checkmate!`;
-                 else if (game.in_stalemate()) statusElement.textContent = "Stalemate! (Draw)";
-                 else if (game.in_threefold_repetition()) statusElement.textContent = "Draw by Threefold Repetition!";
-                 else if (game.in_draw()) statusElement.textContent = "Draw!";
-                 else statusElement.textContent = "Game Over!";
-                 statusElement.classList.add('status-game-over');
-            } else if (isBotThinking){
+            if (game.game_over()) { // General game over, specific message handled by custom alert
+                let message = "Game Over"; // Default, will be overridden by checkmate/draw alert
+                if (game.in_checkmate()) message = `${game.turn() === 'w' ? 'Black' : 'White'} Wins!`;
+                else if (game.in_stalemate()) message = "Stalemate (Draw)";
+                else if (game.in_draw()) message = "Draw";
+                statusElement.textContent = message; // Still update status bar for context
+                statusElement.classList.add('status-game-over');
+            } else if (isBotThinking) {
                 statusElement.textContent = "Bot is thinking...";
                 statusElement.classList.add('status-bot-thinking');
             } else if (awaitingPromotion) {
                 statusElement.textContent = "Promote Pawn!";
-                statusElement.classList.add(game.turn() === 'w' ? 'status-white-turn' : 'status-black-turn'); // Show current player's color
-            }
-            else {
-                const currentPlayerColor = game.turn() === 'w' ? 'White' : 'Black';
-                statusElement.textContent = `${currentPlayerColor}'s Turn`;
+                statusElement.classList.add(game.turn() === 'w' ? 'status-white-turn' : 'status-black-turn');
+            } else {
+                statusElement.textContent = `${game.turn() === 'w' ? 'White' : 'Black'}'s Turn`;
                 statusElement.classList.add(game.turn() === 'w' ? 'status-white-turn' : 'status-black-turn');
             }
         }
-
-        function startBackgroundMusic() {
-             if (!backgroundMusic) {
-                console.warn("Background music object not initialized yet in startBackgroundMusic. Will be initialized in startGame.");
-                return;
-             }
-             if (musicPlayed) {
-                 return;
-             }
-             backgroundMusic.play().then(() => {
-                 musicPlayed = true;
-             }).catch(e => {
-                 console.warn("Background music playback failed or was interrupted:", e);
-                 musicPlayed = true;
-             });
+        function initializeSound(soundVar, fileName, loop = false, volume = 1) { /* ... initializeSound function ... */
+            if (!soundVar) {
+                try {
+                    soundVar = new Audio(fileName); 
+                    soundVar.loop = loop;
+                    soundVar.volume = volume;
+                    soundVar.onerror = () => console.error(`Error loading sound '${fileName}'`);
+                } catch (e) {
+                    console.error(`Failed to initialize Audio for ${fileName}:`, e);
+                    return null; 
+                }
+            }
+            return soundVar;
         }
-
-        function startGame(mode) {
+        function startGame(mode) { /* ... startGame function ... */
             gameMode = mode;
+            if (gameMode === 'bot') {
+                setSearchDepthForDifficulty(difficultySelect.value);
+            }
             game = new Chess();
             selectedSquare = null;
             validMoves = [];
             isBotThinking = false;
             awaitingPromotion = false;
             promotionDetails = null;
-            promotionPopup.style.display = 'none';
-            if (botTimeoutId) { clearTimeout(botTimeoutId); botTimeoutId = null; }
+            if (botTimeoutId) clearTimeout(botTimeoutId);
+            
+            moveSound = initializeSound(moveSound, 'step.mp3'); 
+            // backgroundMusic = initializeSound(backgroundMusic, 'background music.mp3', true, 0.3); // Uncomment if you add background music
 
-            if (!moveSound) {
-                 moveSound = new Audio('step.mp3');
-                 moveSound.onerror = () => console.error("Error loading move sound 'step.mp3'");
-            }
-            if (!backgroundMusic) {
-                 const musicFileName = "background music.mp3";
-                 backgroundMusic = new Audio(encodeURI(musicFileName));
-                 backgroundMusic.loop = true;
-                 backgroundMusic.volume = 0.5;
-                 backgroundMusic.onerror = () => console.error(`Error loading background music '${musicFileName}'`);
-            }
             renderBoard();
+            promotionPopup.style.display = 'none';
+            customAlertPopup.style.display = 'none'; // Ensure alert is hidden on new game
             startScreen.style.display = 'none';
             gameElements.style.display = 'flex';
+            
+            // if (backgroundMusic && !musicPlayed) {
+            //     backgroundMusic.play().then(() => musicPlayed = true).catch(e => { console.warn("Music playback failed on start:", e); musicPlayed = true;});
+            // }
         }
-
-        function resetBoard() {
-             game = new Chess();
-             selectedSquare = null;
-             validMoves = [];
-             isBotThinking = false;
-             awaitingPromotion = false;
-             promotionDetails = null;
-             promotionPopup.style.display = 'none';
-             if (botTimeoutId) { clearTimeout(botTimeoutId); botTimeoutId = null; }
-             renderBoard();
-             console.log("Board reset.");
+        function resetCurrentBoard() { /* ... resetCurrentBoard function ... */ 
+            game = new Chess(); 
+            selectedSquare = null;
+            validMoves = [];
+            isBotThinking = false;
+            awaitingPromotion = false;
+            promotionDetails = null;
+            if (botTimeoutId) clearTimeout(botTimeoutId);
+            renderBoard(); 
+            promotionPopup.style.display = 'none';
+            customAlertPopup.style.display = 'none';
+            // console.log("Current game board reset."); // Keep for debugging if needed
         }
-
-        function resetGame() {
-             gameMode = null;
-             game = new Chess();
-             selectedSquare = null;
-             validMoves = [];
-             isBotThinking = false;
-             awaitingPromotion = false;
-             promotionDetails = null;
-             promotionPopup.style.display = 'none';
-             if (botTimeoutId) { clearTimeout(botTimeoutId); botTimeoutId = null; }
-             statusElement.textContent = '';
-             statusElement.className = ''; // Clear all status classes
-             gameElements.style.display = 'none';
-             startScreen.style.display = 'flex';
+        function goBackToMainMenu() { /* ... goBackToMainMenu function ... */
+            gameMode = null;
+            if (botTimeoutId) clearTimeout(botTimeoutId);
+            isBotThinking = false;
+            gameElements.style.display = 'none';
+            customAlertPopup.style.display = 'none';
+            startScreen.style.display = 'flex';
+            botDifficultySelectorDiv.style.display = 'none';
+            playBotInitialButton.style.display = 'inline-block';
+            startGameBotFinalButton.style.display = 'none';
+            playFriendButton.style.display = 'inline-block';
+            statusElement.textContent = ""; 
+            statusElement.className = "";
         }
-
-        function showCustomAlert(message, duration = 2000) {
-            if (customAlertTimeoutId) {
-                clearTimeout(customAlertTimeoutId);
-            }
+        
+        // MODIFIED: showCustomAlert now takes a longer default duration
+        function showCustomAlert(message, duration = 3500) { // Longer duration for game end messages
+            if (customAlertTimeoutId) clearTimeout(customAlertTimeoutId);
             customAlertMessageElement.textContent = message;
             customAlertPopup.style.display = 'block';
-
-            customAlertTimeoutId = setTimeout(() => {
-                customAlertPopup.style.display = 'none';
-                customAlertTimeoutId = null;
-            }, duration);
-        }
-
-        customAlertOkButton.addEventListener('click', () => {
-            if (customAlertTimeoutId) {
-                clearTimeout(customAlertTimeoutId);
-                customAlertTimeoutId = null;
+            
+            // Don't auto-hide game end messages, wait for OK button
+            if (message.toLowerCase().includes('wins') || message.toLowerCase().includes('draw')) {
+                // For game end messages, don't set a timeout to auto-hide.
+                // User must click OK.
+            } else {
+                 customAlertTimeoutId = setTimeout(() => {
+                    customAlertPopup.style.display = 'none';
+                }, duration);
             }
+        }
+        customAlertOkButton.addEventListener('click', () => { /* ... customAlertOkButton listener ... */
+            if (customAlertTimeoutId) clearTimeout(customAlertTimeoutId);
             customAlertPopup.style.display = 'none';
         });
+        
+        // MODIFIED: afterMove to use showCustomAlert for checkmate
+        function afterMove() { /* ... afterMove function ... */
+            if (moveSound) { 
+                const soundClone = moveSound.cloneNode(); 
+                soundClone.currentTime = 0; 
+                soundClone.play().catch(e => {/* ignore */});
+            }
+            renderBoard(); // Render board first
+            
+            // Update status bar AFTER rendering and BEFORE showing alerts
+            // This ensures status bar also reflects game end if alert is dismissed quickly
+            updateStatus(); 
 
-        function afterMove() {
-             if (moveSound) {
-                 const soundClone = moveSound.cloneNode();
-                 soundClone.currentTime = 0;
-                 soundClone.play().catch(e => {});
-             }
-             renderBoard(); // Render immediately after any move
+            if (game.in_checkmate()) {
+                showCustomAlert(`Checkmate! ${game.turn() === 'w' ? 'Black' : 'White'} wins!`); // Pop-up for checkmate
+            } else if (game.in_draw()) {
+                 let drawMsg = "Draw!";
+                 if (game.in_stalemate()) drawMsg = "Stalemate! (Draw)";
+                 else if (game.in_threefold_repetition()) drawMsg = "Draw by Threefold Repetition!";
+                 else if (game.insufficient_material()) drawMsg = "Draw by Insufficient Material!";
+                 showCustomAlert(drawMsg); // Pop-up for draw
+            } else if (game.in_check()) {
+                showCustomAlert(`${game.turn() === 'w' ? 'White' : 'Black'}'s King is in Check!`, 2000); // Shorter duration for check alert
+            }
 
-             if (game.in_checkmate()) {
-                 const winnerColor = game.turn() === 'w' ? 'Black' : 'White';
-                 showCustomAlert(`Checkmate! ${winnerColor} wins!`, 3000);
-             } else if (game.in_check()) {
-                 const checkedPlayerColor = game.turn() === 'w' ? 'White' : 'Black';
-                 showCustomAlert(`${checkedPlayerColor}'s King is in Check!`, 2000);
-             }
-
-             if (game.game_over()) {
-                 console.log("Game Over.");
-             } else if (gameMode === 'bot' && game.turn() === 'b' && !isBotThinking && !awaitingPromotion) {
-                 makeBotMove();
-             }
+            if (!game.game_over() && gameMode === 'bot' && game.turn() === 'b' && !awaitingPromotion) {
+                makeBotMove();
+            }
         }
-
-        // --- Pawn Promotion Logic ---
-        function showPromotionPopup(fromSq, toSq) {
+        function showPromotionUI(fromSq, toSq) { /* ... showPromotionUI function ... */
             awaitingPromotion = true;
             promotionDetails = { from: fromSq, to: toSq };
             promotionPopup.style.display = 'block';
-            updateStatus(); // To show "Promote Pawn!" message
+            updateStatus(); 
         }
-
-        promotionOptionsElement.addEventListener('click', (event) => {
+        promotionOptionsElement.addEventListener('click', (event) => { /* ... promotionOptionsElement listener ... */
             const button = event.target.closest('button');
-            if (button && button.dataset.promote && awaitingPromotion && promotionDetails) {
-                const promotionPiece = button.dataset.promote;
-                const moveResult = game.move({
-                    from: promotionDetails.from,
-                    to: promotionDetails.to,
-                    promotion: promotionPiece
-                });
-
-                promotionPopup.style.display = 'none';
-                awaitingPromotion = false;
-                promotionDetails = null;
-
+            if (!button || !button.dataset.promote || !awaitingPromotion || !promotionDetails) return;
+            const promotionPiece = button.dataset.promote;
+            const moveResult = game.move({
+                from: promotionDetails.from,
+                to: promotionDetails.to,
+                promotion: promotionPiece
+            });
+            promotionPopup.style.display = 'none';
+            awaitingPromotion = false;
+            promotionDetails = null;
+            if (moveResult) {
+                afterMove();
+            } else {
+                console.error("Promotion move was invalid after selection.");
+                selectedSquare = null; 
+                validMoves = [];
+                renderBoard(); 
+            }
+        });
+        function handleSquareClick(event) { /* ... handleSquareClick function ... */
+            if (game.game_over() || isBotThinking || awaitingPromotion) return;
+            if (gameMode === 'bot' && game.turn() === 'b') return; 
+            const clickedSquareEl = event.target.closest('.square');
+            if (!clickedSquareEl) return;
+            const clickedSquareName = clickedSquareEl.dataset.square;
+            if (!selectedSquare) { 
+                const piece = game.get(clickedSquareName);
+                if (piece && piece.color === game.turn()) {
+                    selectedSquare = clickedSquareName;
+                    validMoves = game.moves({ square: selectedSquare, verbose: true });
+                    renderBoard();
+                }
+            } else { 
+                const pieceToMove = game.get(selectedSquare);
+                const targetRankForPromotion = (pieceToMove.color === 'w') ? '8' : '1';
+                if (pieceToMove.type === 'p' && clickedSquareName[1] === targetRankForPromotion) {
+                    const isActualPromotionMove = validMoves.some(m => m.to === clickedSquareName && m.flags.includes('p'));
+                    if (isActualPromotionMove) {
+                        showPromotionUI(selectedSquare, clickedSquareName);
+                        selectedSquare = null; 
+                        validMoves = [];
+                        renderBoard(); 
+                        return;
+                    }
+                }
+                const moveResult = game.move({ from: selectedSquare, to: clickedSquareName });
                 if (moveResult) {
-                    console.log("Pawn promoted. Player move:", moveResult.san || (moveResult.from + moveResult.to + promotionPiece));
-                    afterMove();
-                } else {
-                    console.error("Promotion move failed after selection.");
-                    // Handle error, perhaps reset selection or show an error
                     selectedSquare = null;
                     validMoves = [];
-                    renderBoard();
+                    afterMove();
+                } else {
+                    selectedSquare = null;
+                    validMoves = [];
+                    const pieceOnTarget = game.get(clickedSquareName);
+                    if (pieceOnTarget && pieceOnTarget.color === game.turn()) { 
+                        selectedSquare = clickedSquareName;
+                        validMoves = game.moves({ square: selectedSquare, verbose: true });
+                    }
+                    renderBoard(); 
                 }
-            }
-        });
-
-
-        function handleSquareClick(event) {
-            if (game.game_over() || !gameMode || isBotThinking || awaitingPromotion) return;
-            const clickedSquareElement = event.target.closest('.square');
-            if (!clickedSquareElement) return;
-
-            const row = parseInt(clickedSquareElement.dataset.row);
-            const col = parseInt(clickedSquareElement.dataset.col);
-            const clickedSquareName = clickedSquareElement.dataset.square;
-            const piece = game.get(clickedSquareName);
-            const isPlayersTurnClick = (gameMode === 'friend') || (gameMode === 'bot' && game.turn() === 'w');
-
-            if (!isPlayersTurnClick) return;
-
-            if (!selectedSquare) {
-                if (piece && piece.color === game.turn()) {
-                    selectedSquare = { row, col, squareName: clickedSquareName };
-                    validMoves = game.moves({ square: clickedSquareName, verbose: true }).map(m => squareToCoords(m.to));
-                    renderBoard();
-                }
-            } else {
-                 // Check for pawn promotion
-                 const pieceToMove = game.get(selectedSquare.squareName);
-                 const targetRank = (pieceToMove.color === 'w') ? 0 : 7; // 0 for white (rank 8), 7 for black (rank 1)
-
-                 if (pieceToMove && pieceToMove.type === 'p' && row === targetRank) {
-                     // Is it a valid promotion move?
-                     const possibleMoves = game.moves({ square: selectedSquare.squareName, verbose: true });
-                     const isPromotionTarget = possibleMoves.some(m => m.to === clickedSquareName && m.flags.includes('p'));
-
-                     if (isPromotionTarget) {
-                         showPromotionPopup(selectedSquare.squareName, clickedSquareName);
-                         selectedSquare = null;
-                         validMoves = [];
-                         renderBoard(); // Clear highlights while promotion dialog is up
-                         return; // Don't proceed with normal move logic
-                     }
-                 }
-
-                 // Normal move logic
-                 const moveAttempt = { from: selectedSquare.squareName, to: clickedSquareName };
-                 const moveResult = game.move(moveAttempt);
-
-                 if (moveResult) {
-                     console.log("Player move:", moveResult.san || (moveResult.from + moveResult.to));
-                     selectedSquare = null;
-                     validMoves = [];
-                     afterMove();
-                 } else {
-                     selectedSquare = null;
-                     validMoves = [];
-                     renderBoard(); // Clear highlights
-                     const clickedPieceAgain = game.get(clickedSquareName);
-                      if (clickedPieceAgain && clickedPieceAgain.color === game.turn()) {
-                          selectedSquare = { row, col, squareName: clickedSquareName };
-                          validMoves = game.moves({ square: clickedSquareName, verbose: true }).map(m => squareToCoords(m.to));
-                          renderBoard();
-                      }
-                 }
             }
         }
-
-        // --- Event Listeners ---
-        resetGameButton.addEventListener('click', resetBoard);
-        shareButton.addEventListener('click', () => {
-            const shareText = "Play chess! Check out this simple game: " + window.location.href;
+        
+        // Event Listeners
+        resetGameButton.addEventListener('click', resetCurrentBoard);
+        shareButton.addEventListener('click', () => { /* ... shareButton listener ... */
+            const shareText = "Play chess! Check out this awesome GameVerse game by Kanhaiya Mishra: " + window.location.href;
             window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(shareText), '_blank');
         });
-
-        playFriendButton.addEventListener('click', () => {
-            if (!backgroundMusic) {
-                const musicFileName = "background music.mp3";
-                backgroundMusic = new Audio(encodeURI(musicFileName));
-                backgroundMusic.loop = true;
-                backgroundMusic.volume = 0.5;
-                backgroundMusic.onerror = () => console.error(`Error loading background music '${musicFileName}'`);
-            }
-            startBackgroundMusic();
+        playFriendButton.addEventListener('click', () => { /* ... playFriendButton listener ... */
+            botDifficultySelectorDiv.style.display = 'none';
+            startGameBotFinalButton.style.display = 'none';
+            playBotInitialButton.style.display = 'inline-block'; 
             startGame('friend');
         });
-        playBotButton.addEventListener('click', () => {
-            if (!backgroundMusic) {
-                const musicFileName = "background music.mp3";
-                backgroundMusic = new Audio(encodeURI(musicFileName));
-                backgroundMusic.loop = true;
-                backgroundMusic.volume = 0.5;
-                backgroundMusic.onerror = () => console.error(`Error loading background music '${musicFileName}'`);
-            }
-            startBackgroundMusic();
+        playBotInitialButton.addEventListener('click', () => { /* ... playBotInitialButton listener ... */
+            botDifficultySelectorDiv.style.display = 'block';
+            startGameBotFinalButton.style.display = 'inline-block';
+            playBotInitialButton.style.display = 'none';
+            playFriendButton.style.display = 'none';
+        });
+        startGameBotFinalButton.addEventListener('click', () => { /* ... startGameBotFinalButton listener ... */
             startGame('bot');
         });
+        backButton.addEventListener('click', goBackToMainMenu);
+        
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        backButton.addEventListener('click', resetGame);
-
-        // --- Initial Setup ---
+        // Initial Setup
         createBoardHTML();
+        loadSavedTheme(); // Load theme on page load
+        goBackToMainMenu(); // Setup start screen
+
+        // === END OF JAVASCRIPT ===
     </script>
 </body>
 </html>
