@@ -3,231 +3,449 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - GameVerse</title>
+    <title>GameVerse Privacy Policy | Data Use, Cookies & AdSense (June 2025 Update)</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Comprehensive Privacy Policy for GameVerse by Kanhaiya Mishra. Details on data collection (Usage Data, Cookies), use for Service improvement, Google AdSense, user rights, and data protection. Effective June 1, 2025.">
+    <meta name="keywords" content="GameVerse privacy policy, Kanhaiya Mishra games, online games data privacy, AdSense policy, cookie policy, user data protection, gaming website privacy, June 2025 privacy update">
+    <meta name="author" content="Kanhaiya Mishra - GameVerse">
+    <link rel="canonical" href="https://online-games-indol.vercel.app/privacy_policy.html"> <!-- UPDATE THIS URL WHEN DEPLOYED -->
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="GameVerse Privacy Policy | Data Use, Cookies & AdSense (June 2025 Update)">
+    <meta property="og:description" content="GameVerse is committed to protecting your privacy. Our June 2025 updated policy explains how we handle data, use cookies, integrate with Google AdSense, and respect your rights.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://online-games-indol.vercel.app/privacy_policy.html"> <!-- UPDATE THIS URL -->
+    <meta property="og:image" content="https://online-games-indol.vercel.app/images/gameverse-privacy-social.png">
+    <meta property="og:site_name" content="GameVerse">
+    <meta property="og:locale" content="en_US">
+
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GameVerse Privacy Policy | Data Use, Cookies & AdSense (June 2025 Update)">
+    <meta name="twitter:description" content="GameVerse's June 2025 Privacy Policy: Transparency on data handling, cookie usage, Google AdSense, and user rights for our online games.">
+    <meta name="twitter:image" content="https://online-games-indol.vercel.app/images/gameverse-privacy-social.png">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+        :root {
+            --policy-bg: #f8f9fa; 
+            --policy-text: #212529; 
+            --policy-heading: #0056b3; 
+            --policy-link: #007bff; 
+            --policy-link-hover: #0056b3;
+            --policy-container-bg: #ffffff;
+            --policy-border: #dee2e6; 
+            --policy-blockquote-bg: #e9ecef; 
+            --policy-blockquote-border: #ced4da;
+
+            --gv-top-nav-bg: #222831; 
+            --gv-top-nav-text: #eeeeee;
+            --gv-top-nav-link-hover-bg: #393e46;
+            --gv-primary-accent-footer: #00adb5; 
+        }
 
         body {
             font-family: 'Poppins', sans-serif;
-            line-height: 1.8;
+            line-height: 1.75; 
             margin: 0;
             padding: 0;
-            background-color: #f4f7f6; /* Light, neutral background */
-            color: #333; /* Dark grey for text for readability */
+            background-color: var(--policy-bg);
+            color: var(--policy-text);
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            padding-top: 70px; /* Default padding for nav bar */
         }
+        
+        .top-nav-bar {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background-color: var(--gv-top-nav-bg); 
+            color: var(--gv-top-nav-text); padding: 12px 25px; 
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1); z-index: 1010;
+            border-bottom: 2px solid var(--gv-primary-accent-footer); 
+            min-height: 50px; /* Ensure nav bar has a minimum height */
+        }
+        .top-nav-bar .logo a { color: var(--gv-top-nav-text); text-decoration: none; font-size: 1.4em; font-weight: 700; font-family: 'Roboto Slab', serif;}
+        .top-nav-bar .nav-links { display: flex; align-items: center; }
+        .top-nav-bar .nav-links a { color: var(--gv-top-nav-text); text-decoration: none; margin-left: 18px; font-size: 0.95em; padding: 6px 10px; border-radius: 5px; transition: background-color 0.2s ease, color 0.2s ease; }
+        .top-nav-bar .nav-links a:hover { background-color: var(--gv-top-nav-link-hover-bg); color: var(--gv-primary-accent-footer); }
+
 
         .container {
             width: 90%;
-            max-width: 800px; /* Optimal width for reading text */
-            margin: 30px auto;
-            padding: 30px 40px;
-            background-color: #ffffff; /* White content background */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            max-width: 900px; 
+            margin: 30px auto 25px auto; /* Added a bit more top margin for container */
+            padding: 35px 50px; 
+            background-color: var(--policy-container-bg);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+            border-radius: 12px; 
+            border: 1px solid var(--policy-border);
         }
 
-        header {
+        .policy-header {
             text-align: center;
-            border-bottom: 1px solid #e0e0e0;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            border-bottom: 1px solid var(--policy-border);
+            padding-bottom: 25px;
+            margin-bottom: 35px;
+            /* margin-top: 10px; */ /* Ensures space if nav bar height varies slightly on mobile */
         }
 
-        header h1 {
-            color: #2c3e50; /* Darker blue for main heading */
-            font-size: 2.5em;
-            margin: 0;
-            font-weight: 600;
+        .policy-header h1 {
+            color: var(--policy-heading);
+            font-size: 2.8em; 
+            margin: 0 0 5px 0;
+            font-weight: 700; 
+            font-family: 'Roboto Slab', serif;
         }
-
-        header p {
-            font-size: 0.95em;
-            color: #7f8c8d; /* Lighter grey for subtitle/date */
+        .policy-header .page-subtitle { 
+            font-size: 1.1em;
+            color: #555;
             margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        .policy-header p.last-updated { 
+            font-size: 0.95em;
+            color: #6c757d; 
+            margin-top: 10px;
         }
 
         h2 {
-            color: #34495e; /* Slightly lighter blue for section headings */
-            font-size: 1.8em;
+            color: var(--policy-heading);
+            font-size: 2.0em; 
             margin-top: 40px;
-            margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #e0e0e0;
-            font-weight: 500;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--policy-heading); 
+            font-weight: 600;
+            font-family: 'Roboto Slab', serif;
         }
 
         h3 {
-            color: #34495e;
-            font-size: 1.4em;
-            margin-top: 25px;
-            margin-bottom: 10px;
-            font-weight: 500;
+            color: #343a40; 
+            font-size: 1.6em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 600; 
+            font-family: 'Roboto Slab', serif;
         }
 
         p, ul, li {
-            font-size: 1em;
-            color: #555;
-            margin-bottom: 15px;
+            font-size: 1.05em; 
+            color: #343a40; 
+            margin-bottom: 18px;
         }
 
         ul {
-            padding-left: 25px;
-            list-style-type: disc; /* Standard disc bullets */
+            padding-left: 30px; 
+            list-style-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><circle fill="%23007bff" cx="5" cy="5" r="3"/></svg>'); 
         }
-
-        li {
+        ul ul { 
+            list-style-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8"><rect fill="%230056b3" x="3" y="3" width="2" height="2"/></svg>');
+            margin-top: 8px;
             margin-bottom: 8px;
         }
 
-        a {
-            color: #3498db; /* Standard link blue */
-            text-decoration: none;
-            transition: color 0.2s ease-in-out;
+        li {
+            margin-bottom: 12px;
+            padding-left: 5px; 
         }
 
+        a {
+            color: var(--policy-link);
+            text-decoration: none;
+            font-weight: 500; 
+            transition: color 0.15s ease-in-out, text-decoration 0.15s ease-in-out;
+        }
         a:hover {
-            color: #2980b9; /* Darker blue on hover */
+            color: var(--policy-link-hover);
             text-decoration: underline;
         }
 
         strong {
-            font-weight: 600;
-            color: #2c3e50;
+            font-weight: 700; 
+            color: var(--policy-heading); 
         }
-
-        .footer-nav {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
+        
+        .important-note {
+            background-color: var(--policy-blockquote-bg);
+            border-left: 5px solid var(--policy-link);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-style: italic;
         }
+        .important-note p { margin-bottom: 0; }
 
-        .footer-nav a {
+        .contact-info p, .contact-info ul { margin-bottom: 8px;} 
+        .contact-info strong { color: var(--policy-text); } 
+
+        .site-footer {
+            text-align: center; padding: 25px 0; margin-top: auto; 
+            width:100%; background-color: var(--gv-top-nav-bg);
+            color: var(--gv-top-nav-text); opacity: 0.95; font-size: 0.9em;
+            border-top: 3px solid var(--gv-primary-accent-footer);
+        }
+        .site-footer a { color: var(--gv-primary-accent-footer); text-decoration: none; font-weight: 500;}
+        .site-footer a:hover { text-decoration: underline; color: #fff; }
+        .footer-links-group { margin-top: 8px; margin-bottom: 15px; } 
+        .footer-links-group a { margin: 0 8px; }
+
+        .social-media-links { 
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #444; 
+        }
+        .social-media-links p {
+             margin-bottom: 10px;
+             font-size: 1em;
+             font-weight: 500;
+             color: var(--gv-top-nav-text);
+        }
+        .social-media-links a {
             display: inline-block;
-            padding: 8px 15px;
             margin: 0 10px;
-            background-color: #3498db;
-            color: white;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: background-color 0.2s ease, transform 0.1s ease;
+            transition: transform 0.2s ease;
+        }
+        .social-media-links img {
+            width: 32px; 
+            height: 32px;
+            vertical-align: middle;
+        }
+        .social-media-links a:hover {
+            transform: scale(1.1);
+            text-decoration: none; 
         }
 
-        .footer-nav a:hover {
-            background-color: #2980b9;
-            text-decoration: none;
-            transform: translateY(-1px);
+        @media (max-width: 768px) { 
+            body { padding-top: 65px; } /* Adjust if nav height is consistently smaller */
+            .container { padding: 25px 30px; margin-top:20px; }
+            .policy-header h1 { font-size: 2.3em; }
+            h2 { font-size: 1.8em; }
+            h3 { font-size: 1.4em; }
         }
 
-        /* Responsive adjustments */
         @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-                width: 95%;
-            }
-            header h1 {
-                font-size: 2em;
-            }
-            h2 {
-                font-size: 1.5em;
-            }
-            h3 {
-                font-size: 1.2em;
-            }
+            /* Calculate nav bar height dynamically or set a fixed generous padding */
+            /* Assuming stacked nav bar height is around 100-120px */
+            body { padding-top: 120px; } 
+            .top-nav-bar { flex-direction: column; align-items: flex-start; gap: 8px; height: auto; padding-bottom: 10px;}
+            .top-nav-bar .logo { margin-bottom: 5px; }
+            .top-nav-bar .nav-links { width: 100%; display: flex; flex-wrap: wrap; justify-content: flex-start; margin-left:0; margin-top: 5px; }
+            .top-nav-bar .nav-links a { margin: 3px 10px 3px 0; }
+
+            .container { padding: 20px 15px; margin-top:15px; }
+            .policy-header h1 { font-size: 2.0em; }
+             .policy-header .page-subtitle { font-size: 1.0em; }
+            h2 { font-size: 1.6em; }
+            h3 { font-size: 1.3em; }
+            p, ul, li { font-size: 0.95em; }
+            .social-media-links img { width: 28px; height: 28px; }
         }
 
     </style>
 </head>
 <body>
+    <nav class="top-nav-bar">
+        <div class="logo"><a href="index.html">GameVerse</a></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a> 
+            <a href="contact.html">Contact Us</a> 
+            <a href="privacy_policy.html" style="background-color: var(--gv-top-nav-link-hover-bg); color: var(--gv-primary-accent-footer);">Privacy Policy</a>
+        </div>
+    </nav>
 
     <div class="container">
-        <header>
-            <h1>Privacy Policy</h1>
-            <p>Last updated: May 24, 2025</p>
+        <header class="policy-header">
+            <h1>GameVerse Privacy Policy</h1>
+            <p class="page-subtitle">Your trust and privacy are paramount to us. This policy outlines how we handle your information when you enjoy our online games.</p>
+            <p class="last-updated">Last Updated & Effective Date: <span id="lastUpdatedDate">June 1, 2025</span></p>
         </header>
 
-        <p>Welcome to GameVerse ("us", "we", or "our"). We operate the website https://online-games-indol.vercel.app/ (hereinafter referred to as the "Service").</p>
+        <p><strong>Welcome to GameVerse!</strong> This Privacy Policy applies to your use of the GameVerse website, located at <a href="https://online-games-indol.vercel.app/">https://online-games-indol.vercel.app/</a>, and all games and services offered thereon (collectively, the "Service"), operated by Kanhaiya Mishra ("we", "us", or "our").</p>
+        <p>We are dedicated to safeguarding the personal information entrusted to us. This document details our practices concerning the collection, use, disclosure, and protection of your information. By accessing or using GameVerse, you signify your understanding of and agreement to the terms of this Privacy Policy.</p>
+        <p>If you have any questions, concerns, or requests regarding your personal information or this policy, please do not hesitate to contact us at <a href="mailto:timelytrove.9354@gmail.com">timelytrove.9354@gmail.com</a> or through our social media channels listed in the footer.</p>
 
-        <p>Our Privacy Policy governs your visit to our Service and explains how we collect, safeguard, and disclose information that results from your use of our Service.</p>
+        <h2>1. Scope of This Policy</h2>
+        <p>This Privacy Policy covers all data processing activities carried out by GameVerse. It outlines what information we collect when you use our free online games (such as Chess, Wooden Block Puzzle, Tic Tac Toe, and others), how we use and protect that information, and your rights concerning your data. This policy does not apply to third-party websites, services, or applications that may be linked from our Service; we encourage you to review their respective privacy policies.</p>
 
-        <p>We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, the terms used in this Privacy Policy have the same meanings as in our Terms and Conditions.</p>
+        <h2>2. Information We Collect and Why</h2>
+        <p>To provide and continually enhance your gaming experience on GameVerse, we collect certain types of information. Our approach is to collect only what is necessary for the functioning and improvement of our services and for displaying advertisements that support our platform.</p>
 
-        <h2>Information Collection and Use</h2>
-        <p>We may collect several different types of information for various purposes to provide and improve our Service to you.</p>
-
-        <h3>Types of Data Collected</h3>
-        <h4>Personal Data</h4>
-        <p>While using our Service, we do not directly ask you to provide us with certain personally identifiable information that can be used to contact or identify you ("Personal Data") unless you voluntarily contact us (e.g., via email).</p>
-
-        <h4>Usage Data</h4>
-        <p>We may also collect information that your browser sends whenever you visit our Service or when you access the Service by or through a mobile device ("Usage Data").</p>
-        <p>This Usage Data may include information such as your computer's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers, and other diagnostic data.</p>
-
-        <h4>Tracking & Cookies Data</h4>
-        <p>We use cookies and similar tracking technologies to track the activity on our Service and we hold certain information.</p>
-        <p>Cookies are files with a small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device. Other tracking technologies are also used such as beacons, tags, and scripts to collect and track information and to improve and analyze our Service.</p>
-        <p>You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service.</p>
-        <p>Examples of Cookies we use:</p>
+        <h3>a) Information You Voluntarily Provide</h3>
+        <p>GameVerse is designed for immediate play without mandatory registration. The primary instances where we might collect personally identifiable information (PII) directly from you are:</p>
         <ul>
-            <li><strong>Session Cookies:</strong> We may use Session Cookies to operate our Service.</li>
-            <li><strong>Preference Cookies:</strong> We may use Preference Cookies to remember your preferences and various settings.</li>
-            <li><strong>Security Cookies:</strong> We may use Security Cookies for security purposes.</li>
-            <li><strong>Advertising Cookies:</strong> Advertising Cookies are used to serve you with advertisements that may be relevant to you and your interests.</li>
+            <li><strong>Direct Communications:</strong> If you contact us via email (e.g., for support, feedback, inquiries, or bug reports), we will collect your name, email address, and any other information you choose to provide in your correspondence. This information is used solely to address your query, provide assistance, or act upon your feedback.</li>
         </ul>
 
-        <h2>Use of Data</h2>
-        <p>GameVerse uses the collected data for various purposes:</p>
+        <h3>b) Information Collected Automatically (Usage Data & Analytics)</h3>
+        <p>As you navigate and interact with GameVerse, our systems (and those of our trusted third-party service providers like Vercel for hosting and potentially analytics providers) automatically log certain information:</p>
         <ul>
-            <li>To provide and maintain our Service;</li>
-            <li>To notify you about changes to our Service;</li>
-            <li>To allow you to participate in interactive features of our Service when you choose to do so;</li>
-            <li>To provide customer support;</li>
-            <li>To gather analysis or valuable information so that we can improve our Service;</li>
-            <li>To monitor the usage of our Service;</li>
-            <li>To detect, prevent and address technical issues;</li>
-            <li>To serve advertisements.</li>
+            <li><strong>Device and Connection Information:</strong> This includes your IP address (which may infer your general geographic location, but is often anonymized or truncated by our analytics tools), browser type and version (e.g., Chrome, Firefox), operating system (e.g., Windows, Android), device model (less common for web), screen resolution, and language settings.</li>
+            <li><strong>Interaction Data:</strong> We log how you use our Service, such as the games you play, pages visited (e.g., `index.html`, `chess_game_page.html`), duration of visit, time spent on specific pages or games, features used within games (e.g., selected difficulty, themes in Tic Tac Toe), game settings (like sound volume), high scores (for games like Wooden Block Puzzle, which are stored locally in your browser), referral URLs (how you arrived at our site), and general clickstream data. We also collect information about errors or crashes to help us improve stability.</li>
+        </ul>
+        <p>This Usage Data is crucial for:</p>
+        <ul>
+            <li>Understanding user engagement, identifying popular games and features, and pinpointing areas for improvement.</li>
+            <li>Optimizing game performance, user interface (UI), and user experience (UX) across different devices and browsers.</li>
+            <li>Identifying and resolving technical issues, bugs, and compatibility problems.</li>
+            <li>Informing decisions about new game development and feature enhancements based on aggregated user behavior.</li>
+            <li>Monitoring the overall health, security, and integrity of our Service.</li>
         </ul>
 
-        <h2>Google AdSense & DoubleClick DART Cookie</h2>
-        <p>We use Google AdSense Advertising on our website.</p>
-        <p>Google, as a third-party vendor, uses cookies to serve ads on our Service. Google's use of the DART cookie enables it to serve ads to our users based on their visit to our Service and other sites on the Internet. Users may opt out of the use of the DART cookie by visiting the Google Ad and Content Network privacy policy.</p>
-        <p>You can set preferences for how Google advertises to you using the <a href="https://adssettings.google.com/authenticated" target="_blank" rel="noopener noreferrer">Google Ad Settings</a> page. Alternatively, you can opt out by visiting the Network Advertising Initiative Opt Out page or by using the Google Analytics Opt Out Browser add on.</p>
-        <p>For more information on the privacy practices of Google, please visit the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy & Terms web page</a>.</p>
-
-        <h2>Log Files</h2>
-        <p>GameVerse follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information.</p>
-
-
-        <h2>Third-Party Privacy Policies</h2>
-        <p>GameVerse's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective privacy policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.</p>
-        <p>You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers' respective websites.</p>
-
-
-        <h2>Children's Information</h2>
-        <p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</p>
-        <p>GameVerse does not knowingly collect any Personal Identifiable Information from children under the age of 13 (or the relevant age in your jurisdiction). If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
-
-        <h2>Changes to This Privacy Policy</h2>
-        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
-        <p>We will let you know via email and/or a prominent notice on our Service, prior to the change becoming effective and update the "Last updated" date at the top of this Privacy Policy.</p>
-        <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
-
-        <h2>Contact Us</h2>
-        <p>If you have any questions about this Privacy Policy, please contact us:</p>
+        <h3>c) Cookies, Local Storage, and Similar Technologies</h3>
+        <p>GameVerse utilizes cookies, local browser storage, and other similar technologies (like pixels or web beacons, primarily through our ad partners) for several key functions:</p>
         <ul>
-            <li>By email: timelytrove.9354@gmail.com</li>
-            <!-- Agar aapke paas contact page hai toh uska link bhi daal sakte hain -->
-            <!-- <li>By visiting this page on our website: [Aapke Contact Page Ka Link Yahan Daalein]</li> -->
+            <li><strong>Essential Operations & Preferences:</strong> Some cookies and local storage items are vital for the basic functioning of our games and remembering your preferences. For example:
+                <ul>
+                    <li>Storing your chosen sound volume for game audio.</li>
+                    <li>Remembering your selected theme in games like Tic Tac Toe.</li>
+                    <li>Keeping track of your high scores in games like Wood Block Puzzle (stored locally).</li>
+                    <li>Maintaining session information for smooth navigation (less common for our simple games but possible).</li>
+                </ul>
+            These are typically session cookies (deleted when you close your browser) or persistent cookies/local storage items that remember your settings for future visits.
+            </li>
+            <li><strong>Performance and Analytics:</strong> We may use tools like Google Analytics (if implemented in the future, this policy will be updated) or Vercel Analytics (our hosting provider offers this) which use cookies to gather aggregated, anonymous data on how users interact with GameVerse. This helps us understand traffic patterns, page load times, and user flow, all contributing to service improvement.</li>
+            <li><strong>Advertising (Google AdSense):</strong> Our primary advertising partner, Google AdSense, uses cookies (including the DoubleClick DART cookie) to serve personalized and non-personalized ads. These cookies help tailor advertisements based on your visits to GameVerse and other sites on the internet, making them more relevant to you. They also help measure ad effectiveness and prevent ad fraud.</li>
         </ul>
-
-        <div class="footer-nav">
-            <a href="index.html">Back to Home</a>
+        <div class="important-note">
+            <p><strong>Local Storage for Game Data:</strong> Please note that game-specific data like high scores (e.g., in Wood Block Puzzle for each difficulty) and user preferences (e.g., Tic Tac Toe themes, sound settings, Chess AI difficulty) are typically stored directly in your web browser's local storage. This data is not transmitted to our servers and resides on your device. You have control over this data and can clear it by managing your browser's cache and site data settings.</p>
         </div>
+        <p><strong>Managing Your Cookie Preferences:</strong> Most modern web browsers allow you to control cookies through their settings. You can typically:
+            <ul>
+                <li>View active cookies and local storage items for a site.</li>
+                <li>Allow all cookies or block specific types or third-party cookies.</li>
+                <li>Delete existing cookies and local storage data.</li>
+                <li>Set your browser to notify you when a cookie is issued or data is stored.</li>
+                <li>Utilize private browsing modes which often limit cookie persistence.</li>
+            </ul>
+        Please be aware that disabling essential cookies or local storage may impact the functionality of GameVerse (e.g., your preferences might not be saved). For detailed information on managing cookies, consult your browser's help section or visit reputable sites like <a href="https://www.allaboutcookies.org" target="_blank" rel="noopener noreferrer">www.allaboutcookies.org</a>.
+        </p>
+
+        <h2>3. How We Utilize Your Information</h2>
+        <p>The information we collect serves the following primary purposes, always with the goal of providing a better, more enjoyable, and sustainable free gaming platform:</p>
+        <ul>
+            <li><strong>Service Provision and Maintenance:</strong> To deliver the games (Chess, Wooden Block Puzzle, Tic Tac Toe, etc.) and features you expect, ensure stability across different browsers and devices, and maintain the operational integrity of GameVerse.</li>
+            <li><strong>Personalization and Improvement:</strong> To understand user behavior and preferences, enabling us to enhance existing games (e.g., refining AI difficulty in Chess or Tic Tac Toe, adding new piece types in Wood Block Puzzle), develop new games, and tailor the user experience (e.g., remembering your last played theme or sound settings).</li>
+            <li><strong>Analytics and Performance Monitoring:</strong> To track usage metrics (like most played games, session duration), identify popular content, diagnose technical problems (like slow loading times or game errors), and optimize resource allocation for our hosting and development efforts.</li>
+            <li><strong>Advertising:</strong> To display advertisements via Google AdSense, which is the primary way we fund the development and maintenance of GameVerse, allowing us to offer our games for free. This may include personalized ads based on your browsing history unless you opt-out (see Section 4).</li>
+            <li><strong>Communication:</strong> Solely to respond to your direct inquiries, provide customer support if you contact us, and gather feedback you voluntarily offer. We do not currently engage in unsolicited marketing communications.</li>
+            <li><strong>Security and Compliance:</strong> To protect GameVerse and our users from fraudulent or malicious activity, ensure adherence to our terms (if any), and to comply with applicable legal obligations or lawful requests from authorities.</li>
+        </ul>
+
+        <h2>4. Advertising and Google AdSense</h2>
+        <p>GameVerse is supported by advertising revenue, primarily through Google AdSense. This allows us to offer our games free of charge. Google and its partners use cookies to personalize the ads you see and measure their effectiveness.</p>
+        <ul>
+            <li>Google's use of advertising cookies (such as the DoubleClick DART cookie) enables it and its partners to serve ads to you based on your visit to GameVerse and/or other sites on the Internet. This is known as interest-based advertising.</li>
+            <li>You have control over personalized advertising from Google. You can opt out by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google's Ad Settings</a> page.</li>
+            <li>To opt out of other third-party vendors' use of cookies for personalized advertising, you can visit resources such as <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">www.aboutads.info/choices</a> (for users in the USA) or <a href="https://youronlinechoices.eu/" target="_blank" rel="noopener noreferrer">www.youronlinechoices.eu/</a> (for users in the EU). The Digital Advertising Alliance (DAA) and the Network Advertising Initiative (NAI) also provide opt-out tools.</li>
+        </ul>
+        <p>We encourage you to review <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">How Google uses information from sites or apps that use their services</a> for a better understanding of their data practices and your choices.</p>
+        <p>Please note that even if you opt out of personalized advertising, you may still see ads, but they will likely be less relevant to your interests.</p>
+
+        <h2>5. Data Sharing and Disclosure</h2>
+        <p>We value your privacy and do not sell your personal information to third parties. We may share information under the following limited circumstances and with appropriate safeguards:</p>
+        <ul>
+            <li><strong>Service Providers:</strong> We may engage trusted third-party companies and individuals to perform services on our behalf or to assist us in analyzing how our Service is used. Examples include:
+                <ul>
+                    <li>Hosting providers (e.g., Vercel, where GameVerse is hosted).</li>
+                    <li>Analytics providers (e.g., Vercel Analytics, or Google Analytics if we implement it).</li>
+                </ul>
+                These third parties have access to your information (primarily aggregated or anonymized Usage Data) only to perform these tasks on our behalf and are contractually obligated not to disclose or use it for any other purpose.
+            </li>
+            <li><strong>Advertising Partners:</strong> As detailed in Section 4, advertising networks like Google AdSense collect data via cookies to serve ads. This sharing is integral to how AdSense functions.</li>
+            <li><strong>Legal Requirements and Protection of Rights:</strong> We may disclose your information if required to do so by law, in response to valid legal processes such as a subpoena, court order, or government request, or if we believe in good faith that disclosure is necessary to:
+                <ul>
+                    <li>Comply with a legal obligation.</li>
+                    <li>Protect and defend the rights or property of GameVerse or Kanhaiya Mishra.</li>
+                    <li>Prevent or investigate possible wrongdoing in connection with the Service.</li>
+                    <li>Protect the personal safety of users of the Service or the public.</li>
+                    <li>Protect against legal liability.</li>
+                </ul>
+            </li>
+            <li><strong>Business Transfers (Hypothetical):</strong> In the event that GameVerse or substantially all of its assets are acquired by a third party (a very unlikely scenario for our current scale), user information (primarily aggregated analytics) might be one of the assets transferred. We would ensure any such transfer is subject to a privacy policy that is at least as protective as this one.</li>
+        </ul>
+
+        <h2>6. Data Security and Retention</h2>
+        <p>We implement reasonable administrative, technical, and physical security measures designed to protect the information we collect from loss, theft, misuse, and unauthorized access, disclosure, alteration, and destruction. For instance, our site is served over HTTPS. However, no internet transmission or electronic storage method is 100% secure, so we cannot guarantee its absolute security. We continuously work to improve our security practices.</p>
+        <p>We retain Usage Data for as long as necessary for the purposes outlined in this policy, for internal analysis to improve our Service, or to comply with our legal obligations, resolve disputes, and enforce our agreements. Aggregated or anonymized data may be kept for longer periods for statistical purposes. As mentioned, game-specific preferences and high scores are stored locally in your browser and are under your control; we do not retain this on our servers.</p>
+
+        <h2>7. Links to Other Websites and Third-Party Services</h2>
+        <p>GameVerse may contain links to external websites or integrate with third-party services (e.g., social media sharing buttons if added) that are not operated by us. Clicking on such a link or interact with such a service will direct you to that third party's site or service. We strongly recommend reviewing the Privacy Policy of every external site or service you visit or interact with. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party sites or services.</p>
+
+        <h2>8. Children's Privacy Protection</h2>
+        <p>GameVerse is intended for a general audience. Our games are designed to be family-friendly, but the Service as a whole is not specifically directed at children under the age of 13 (or the applicable minimum age in your jurisdiction, e.g., 16 in some parts of the EU under GDPR). We do not knowingly collect personally identifiable information from children without verifiable parental consent.</p>
+        <p>If you are a parent or guardian and believe that your child has provided us with personal information without your consent, please contact us immediately at <a href="mailto:timelytrove.9354@gmail.com">timelytrove.9354@gmail.com</a>. If we become aware that we have inadvertently collected personal information from a child without appropriate consent, we will take prompt steps to delete that information from our records.</p>
+        <p>We encourage parents and guardians to monitor their children's online activities and to help enforce this Policy by instructing their children never to provide personal information through online services without their permission.</p>
+
+        <h2>9. Your Data Protection Rights (GDPR & CCPA Considerations)</h2>
+        <p>Depending on your geographical location and applicable data protection laws (such as GDPR for individuals in the European Economic Area or CCPA for California residents), you may have certain rights regarding your personal data. These can include:</p>
+        <ul>
+            <li><strong>The right to access:</strong> You may have the right to request copies of the personal information we hold about you (primarily applicable if you've contacted us directly, as most other data is Usage Data or stored locally by you).</li>
+            <li><strong>The right to rectification:</strong> You may have the right to request that we correct any information you believe is inaccurate or complete information you believe is incomplete.</li>
+            <li><strong>The right to erasure (right to be forgotten):</strong> You may have the right to request that we erase your personal data, under certain conditions.</li>
+            <li><strong>The right to restrict processing:</strong> You may have the right to request that we restrict the processing of your personal data, under certain conditions.</li>
+            <li><strong>The right to object to processing:</strong> You may have the right to object to our processing of your personal data, under certain conditions (e.g., for direct marketing, which we don't currently do).</li>
+            <li><strong>The right to data portability:</strong> You may have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</li>
+            <li><strong>The right to withdraw consent:</strong> If we are relying on your consent to process your personal information, you have the right to withdraw your consent at any time. Withdrawing your consent will not affect the lawfulness of any processing we conducted prior to your withdrawal, nor will it affect processing of your personal information conducted in reliance on lawful processing grounds other than consent.</li>
+        </ul>
+        <p>To exercise these rights, or if you have questions about them, please contact us at <a href="mailto:timelytrove.9354@gmail.com">timelytrove.9354@gmail.com</a>. We will respond to your request within a reasonable timeframe and in accordance with applicable law.</p>
+        <p>For requests related to advertising cookies and personalization, please use the opt-out mechanisms described in Section 4 (Advertising and Google AdSense).</p>
+        <p><strong>For users in California (CCPA):</strong> The California Consumer Privacy Act provides California residents with specific rights regarding their personal information. We do not "sell" personal information in the common, monetary-exchange sense of the word. However, the CCPA has a broad definition of "sale" that may include the sharing of information for advertising purposes through cookies. As described in Section 4, you can opt-out of such "sales" (i.e., interest-based advertising) via the provided links.</p>
+
+        <h2>10. Policy Updates and Modifications</h2>
+        <p>We reserve the right to update or modify this Privacy Policy at any time to reflect changes in our practices, technologies, legal requirements, or other factors. We will notify you of any significant changes by posting the new Privacy Policy on this page and prominently updating the "Last Updated & Effective Date" at the top. For material changes, we may also provide a more prominent notice on our Service (e.g., a banner on the homepage) prior to the change becoming effective.</p>
+        <p>We encourage you to review this Privacy Policy periodically for any changes. Your continued use of the Service after any modifications to this Privacy Policy will constitute your acknowledgment of the modifications and your consent to abide and be bound by the modified Privacy Policy. If you do not agree with the terms of this Privacy Policy or any updated Privacy Policy, please do not use or access (or continue to use or access) the Service.</p>
+
+        <h2>11. Contact Information</h2>
+        <p>We welcome your questions, comments, and concerns about privacy. You can contact Kanhaiya Mishra, the operator of GameVerse, through the following channels:</p>
+        <div class="contact-info">
+            <ul>
+                <li><strong>Primary Email:</strong> <a href="mailto:timelytrove.9354@gmail.com">timelytrove.9354@gmail.com</a></li>
+                <li><strong>Website:</strong> <a href="https://online-games-indol.vercel.app/">https://online-games-indol.vercel.app/</a></li>
+                <li><strong>Social Media (for general inquiries or to follow updates):</strong>
+                    <ul>
+                        <li>Telegram: <a href="https://t.me/PraxAI" target="_blank" rel="noopener noreferrer">PraxAI on Telegram</a></li>
+                        <li>YouTube: <a href="https://youtube.com/@praxai?si=SrIQNBLVw79p9oKD" target="_blank" rel="noopener noreferrer">PraxAI on YouTube</a></li>
+                        <li>WhatsApp Channel: <a href="https://whatsapp.com/channel/0029Vb30cphDjiOZoEQf9a20" target="_blank" rel="noopener noreferrer">Gyan Natraj on WhatsApp</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <p>When contacting us, please provide sufficient detail so we can adequately address your concerns. We will endeavor to respond to all legitimate requests within a reasonable timeframe.</p>
+        <p>Thank you for taking the time to understand our commitment to your privacy. We hope you enjoy playing games on GameVerse!</p>
+
     </div>
 
+    <footer class="site-footer">
+        <p>© <span id="currentYear"></span> GameVerse by Kanhaiya Mishra. All Rights Reserved.</p>
+        <div class="footer-links-group">
+            <a href="index.html">Home</a> | 
+            <a href="about.html">About Us</a> | 
+            <a href="contact.html">Contact Us</a> | 
+            <a href="privacy_policy.html">Privacy Policy</a>
+            <!-- Add Terms of Service link if you create that page -->
+            <!-- | <a href="terms.html">Terms of Service</a> -->
+        </div>
+        <div class="social-media-links">
+            <p>Follow Us for Updates:</p>
+            <a href="https://t.me/PraxAI" target="_blank" rel="noopener noreferrer" title="PraxAI on Telegram">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/64px-Telegram_logo.svg.png" alt="Telegram Icon">
+            </a>
+            <a href="https://youtube.com/@praxai?si=SrIQNBLVw79p9oKD" target="_blank" rel="noopener noreferrer" title="PraxAI on YouTube">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/64px-YouTube_full-color_icon_%282017%29.svg.png" alt="YouTube Icon">
+            </a>
+            <a href="https://whatsapp.com/channel/0029Vb30cphDjiOZoEQf9a20" target="_blank" rel="noopener noreferrer" title="Gyan Natraj on WhatsApp">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/64px-WhatsApp.svg.png" alt="WhatsApp Channel Icon">
+            </a>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
