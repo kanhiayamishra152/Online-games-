@@ -3,53 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe - Modern UI</title>
+    <title>Play Tic Tac Toe Online (XOXO) - Vs Bot or Friend | GameVerse 2025</title>
+
+    <!-- SEO Meta Tags - Optimized for 2025 -->
+    <meta name="description" content="Play the classic Tic Tac Toe (XOXO) game online for free at GameVerse! Challenge our smart AI bot (Easy, Medium, Hard, Impossible) or play with a friend. Enjoy modern UI, themes, and sound. Updated for 2025.">
+    <meta name="keywords" content="tic tac toe, xoxo game, play tic tac toe, online tic tac toe, tic tac toe bot, free tic tac toe, 2 player tic tac toe, strategy game, puzzle game, gameverse, Kanhaiya Mishra, 2025 games">
+    <meta name="author" content="Kanhaiya Mishra">
+    <link rel="canonical" href="https://online-games-indol.vercel.app/tic-tac-toe.html"> <!-- UPDATE THIS URL WHEN YOU DEPLOY -->
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://online-games-indol.vercel.app/tic-tac-toe.html"> <!-- UPDATE THIS URL -->
+    <meta property="og:title" content="Play Tic Tac Toe Online (XOXO) - Vs Bot or Friend | GameVerse 2025">
+    <meta property="og:description" content="Enjoy free online Tic Tac Toe (XOXO) at GameVerse. Play vs AI (4 difficulties) or friends. Features themes, sound & modern UI.">
+    <meta property="og:image" content="https://online-games-indol.vercel.app/images/tic-tac-toe-social-preview.png"> <!-- CREATE & UPLOAD THIS IMAGE (e.g., 1200x630px) -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://online-games-indol.vercel.app/tic-tac-toe.html"> <!-- UPDATE THIS URL -->
+    <meta property="twitter:title" content="Play Tic Tac Toe Online (XOXO) - Vs Bot or Friend | GameVerse 2025">
+    <meta property="twitter:description" content="Enjoy free online Tic Tac Toe (XOXO) at GameVerse. Play vs AI (4 difficulties) or friends. Features themes, sound & modern UI.">
+    <meta property="twitter:image" content="https://online-games-indol.vercel.app/images/tic-tac-toe-social-preview.png"> <!-- CREATE & UPLOAD THIS IMAGE -->
+
 
     <!-- Google AdSense Code - START -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8067952496194704"
      crossorigin="anonymous"></script>
     <!-- Google AdSense Code - END -->
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS Styles */
         :root {
-            /* Default Theme Variables (These will be changed by JS) */
-            --primary-bg: #1a1a2e;
-            --secondary-bg: #16213e;
-            --accent-color: #0f3460;
-            --text-color: #e0e0e0;
-            --button-bg: #e94560; /* Default red for accent/buttons */
-            --button-hover: #ff6a80;
-            --win-color: #8cff6a; /* Green for win */
-            --player-x-color: #ff6a80; /* Pinkish-red for X */
-            --player-o-color: #6affee; /* Cyan for O */
+            /* Default Theme Variables (Sunset) */
+            --primary-bg: #331F2A;
+            --secondary-bg: #4A2F45;
+            --accent-color: #6B4C72;
+            --text-color: #FCE7F0;
+            --button-bg: #F15A24;
+            --button-hover: #FF7F41;
+            --win-color: #9CFF8F;
+            --player-x-color: #FFC300;
+            --player-o-color: #8A2BE2;
+            --red-button-bg: #F15A24;
+            --red-button-hover: #FF7F41;
+            --blue-button-bg: #8A2BE2; 
+            --blue-button-hover: #9B59B6;
 
-            /* New: Specific button colors that override theme if needed */
-            --red-button-bg: #e94560;
-            --red-button-hover: #ff6a80;
-            --blue-button-bg: #2196F3; /* Standard blue */
-            --blue-button-hover: #64B5F6; /* Lighter blue for hover */
+            /* Shared Nav/Footer Styles from other games */
+            --gv-top-nav-bg: #1a1a2e; /* Darker for contrast with game themes */
+            --gv-top-nav-text: #e0e0e0;
+            --gv-top-nav-link-hover-bg: #2a2a40;
+            --gv-primary-accent-footer: #F15A24; /* Use a theme color for footer links */
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
 
         body {
             background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg));
             color: var(--text-color);
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column; /* For header, main content, footer */
+            align-items: center; /* Center game container and info */
             min-height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden; /* Prevent horizontal scroll */
             font-size: 16px;
-            transition: background 0.5s ease-in-out; /* Smooth transition for background on theme change */
+            transition: background 0.5s ease-in-out;
+            padding-top: 60px; /* Space for fixed header */
         }
+        
+        /* Standard Header from other games */
+        .top-nav-bar {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background-color: var(--gv-top-nav-bg); 
+            color: var(--gv-top-nav-text); padding: 10px 20px;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 1010;
+        }
+        .top-nav-bar .logo a { color: var(--gv-top-nav-text); text-decoration: none; font-size: 1.3em; font-weight: 700; font-family: 'Roboto Slab', serif;}
+        .top-nav-bar .nav-links { display: flex; align-items: center; }
+        .top-nav-bar .nav-links a { color: var(--gv-top-nav-text); text-decoration: none; margin-left: 15px; font-size: 0.9em; padding: 5px 8px; border-radius: 5px; transition: background-color 0.3s ease; }
+        .top-nav-bar .nav-links a:hover { background-color: var(--gv-top-nav-link-hover-bg); }
+
 
         #game-container {
             background-color: var(--secondary-bg);
@@ -62,536 +96,281 @@
             position: relative;
             overflow: hidden;
             transition: all 0.5s ease-in-out;
-            min-height: 350px; /* Ensure minimum height for screens */
+            min-height: 480px; /* Increased min-height for more content */
             display: flex;
             flex-direction: column;
             justify-content: center;
+            margin-top: 20px; /* Space below header */
+            margin-bottom: 20px;
         }
 
         .screen {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            padding: 30px; display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
             transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
-            transform: translateX(100%);
-            opacity: 0;
-            pointer-events: none;
-            background-color: var(--secondary-bg); /* Ensure background for transition */
-            border-radius: 15px;
+            transform: translateX(100%); opacity: 0; pointer-events: none;
+            background-color: var(--secondary-bg); border-radius: 15px;
         }
-
-        .screen.active {
-            transform: translateX(0);
-            opacity: 1;
-            pointer-events: auto;
-            position: relative; /* Keep active screen in normal flow */
-        }
-
+        .screen.active { transform: translateX(0); opacity: 1; pointer-events: auto; position: relative; }
         .screen h1 {
-            color: var(--button-bg); /* Uses theme's button color */
-            margin-bottom: 25px;
-            font-size: 2.5em;
-            letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+            color: var(--button-bg); margin-bottom: 25px; font-size: 2.5em;
+            letter-spacing: 1px; text-shadow: 0 0 10px rgba(233, 69, 96, 0.5); /* Example shadow */
+            font-family: 'Roboto Slab', serif;
         }
-
-        .screen h2 {
-            margin-bottom: 20px;
-            font-size: 1.8em;
-            color: var(--text-color);
-        }
-
+        .screen h2 { margin-bottom: 20px; font-size: 1.8em; color: var(--text-color); font-family: 'Roboto Slab', serif; }
         .btn {
-            background-color: var(--button-bg); /* Default theme button color */
-            color: var(--text-color);
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1.1em;
-            font-weight: 600;
-            margin: 10px;
+            background-color: var(--button-bg); color: var(--text-color); border: none;
+            padding: 12px 25px; border-radius: 8px; cursor: pointer;
+            font-size: 1.1em; font-weight: 600; margin: 10px;
             transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            text-decoration: none; /* For link buttons */
-            display: inline-block; /* For link buttons */
+            text-decoration: none; display: inline-block;
         }
-
-        .btn:hover {
-            background-color: var(--button-hover);
-            transform: translateY(-2px);
-        }
-
-        .button-group {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 15px;
-            width: 100%; /* Ensure button group takes full width */
-        }
-
-        /* Specific button colors */
-        .btn.red-button {
-            background-color: var(--red-button-bg);
-        }
-        .btn.red-button:hover {
-            background-color: var(--red-button-hover);
-        }
-
-        .btn.blue-button {
-            background-color: var(--blue-button-bg);
-        }
-        .btn.blue-button:hover {
-            background-color: var(--blue-button-hover);
-        }
-
-        /* Consistent size for mode selection buttons */
-        #mode-selection-screen .button-group .btn {
-            width: 80%; /* Make them take a consistent width */
-            max-width: 280px; /* Limit their max width to keep them centered and not too wide */
-        }
+        .btn:hover { background-color: var(--button-hover); transform: translateY(-2px); }
+        .button-group { display: flex; flex-direction: column; align-items: center; margin-top: 15px; width: 100%; }
+        .btn.red-button { background-color: var(--red-button-bg); }
+        .btn.red-button:hover { background-color: var(--red-button-hover); }
+        .btn.blue-button { background-color: var(--blue-button-bg); }
+        .btn.blue-button:hover { background-color: var(--blue-button-hover); }
+        #mode-selection-screen .button-group .btn { width: 80%; max-width: 280px; }
 
         .whatsapp-share {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            color: var(--text-color);
-            font-size: 1.1em;
+            margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+            gap: 10px; color: var(--text-color); font-size: 1.0em; /* Slightly smaller */
         }
+        .whatsapp-share .btn { background-color: #25D366; margin: 0; padding: 8px 15px; font-size: 1.0em;}
+        .whatsapp-share .btn:hover { background-color: #20b054; }
+        .whatsapp-share img { width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;}
 
-        .whatsapp-share .btn {
-            background-color: #25D366; /* WhatsApp green */
-            margin: 0;
-            padding: 10px 20px;
-        }
-
-        .whatsapp-share .btn:hover {
-            background-color: #20b054;
-        }
-
-        .whatsapp-share img {
-            width: 24px;
-            height: 24px;
-            vertical-align: middle;
-        }
-
-        /* Theme Option Specifics */
         .theme-option {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
+            margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
         }
-
-        .theme-option h3 {
-            font-size: 1.2em;
-            color: var(--text-color);
-            margin-bottom: 5px;
-        }
-
-        /* Styles for the theme options panel */
+        .theme-option h3 { font-size: 1.1em; color: var(--text-color); margin-bottom: 5px; }
         #theme-options-panel {
-            display: none; /* Hidden by default */
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 10px;
-            width: 100%;
-            max-width: 300px;
-            opacity: 0;
-            transform: translateY(-10px);
+            display: none; flex-wrap: wrap; justify-content: center;
+            gap: 8px; margin-top: 5px; width: 100%; max-width: 300px;
+            opacity: 0; transform: translateY(-10px);
             transition: opacity 0.3s ease-out, transform 0.3s ease-out;
         }
+        #theme-options-panel.active { display: flex; opacity: 1; transform: translateY(0); }
+        .small-btn { padding: 8px 18px; font-size: 0.9em; flex-grow: 1; min-width: 100px; }
+        .theme-feedback { min-height: 18px; font-size: 0.85em; color: var(--win-color); margin-top: 5px; }
+        .theme-feedback.error { color: var(--button-bg); }
 
-        #theme-options-panel.active {
-            display: flex; /* Show when active */
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .small-btn {
-            padding: 8px 18px;
-            font-size: 0.9em;
-            flex-grow: 1;
-            min-width: 100px;
-        }
-
-        .theme-feedback {
-            min-height: 20px;
-            font-size: 0.9em;
-            color: var(--win-color); /* Default for success */
-            margin-top: 5px;
-        }
-        .theme-feedback.error {
-            color: var(--button-bg); /* Red for error */
-        }
-
-
-        /* Game Screen Specifics */
         #game-screen #status {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            height: 30px; /* Keep height consistent */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-color);
+            font-size: 1.5em; margin-bottom: 20px; height: 30px;
+            display: flex; align-items: center; justify-content: center; color: var(--text-color);
         }
-
         .game-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 90px); /* FIXED: Use fixed pixel width for columns */
-            grid-template-rows: repeat(3, 90px);    /* FIXED: Use fixed pixel height for rows */
-            gap: 10px;
-            width: 290px;   /* FIXED: Adjusted grid width to fit 3x90px cells + 2x10px gaps */
-            height: 290px;  /* FIXED: Adjusted grid height to fit 3x90px cells + 2x10px gaps */
-            margin: 20px auto;
-            background-color: var(--accent-color);
-            border-radius: 10px;
-            padding: 10px;
-            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
-            position: relative; /* For win line */
+            display: grid; grid-template-columns: repeat(3, 90px); grid-template-rows: repeat(3, 90px);
+            gap: 10px; width: 290px; height: 290px; margin: 20px auto;
+            background-color: var(--accent-color); border-radius: 10px; padding: 10px;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5); position: relative;
         }
-
         .cell {
-            background-color: var(--primary-bg);
-            border-radius: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 4em;
-            font-weight: 700;
-            line-height: 1; /* FIXED: Ensure consistent vertical alignment for text */
-            cursor: pointer;
-            transition: background-color 0.2s ease; /* Removed transform for better touch responsiveness */
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-            user-select: none; /* Prevent text selection */
-            touch-action: manipulation; /* Helps prevent 300ms tap delay on mobile */
-            /* Removed explicit width/height here as grid-template-columns/rows now define it */
+            background-color: var(--primary-bg); border-radius: 8px; display: flex;
+            justify-content: center; align-items: center; font-size: 4em; font-weight: 700;
+            line-height: 1; cursor: pointer; transition: background-color 0.2s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3); user-select: none; touch-action: manipulation;
         }
-
-        .cell:hover:not(.occupied) {
-            background-color: var(--accent-color);
-            /* Removed: transform: scale(1.03); to prevent layout shifts on touch */
-        }
-
-        .cell.X {
-            color: var(--player-x-color);
-        }
-
-        .cell.O {
-            color: var(--player-o-color);
-        }
-
+        .cell:hover:not(.occupied) { background-color: var(--accent-color); }
+        .cell.X { color: var(--player-x-color); }
+        .cell.O { color: var(--player-o-color); }
         .win-line {
-            position: absolute;
-            background-color: var(--win-color);
-            z-index: 10;
-            border-radius: 5px;
-            opacity: 0;
+            position: absolute; background-color: var(--win-color); z-index: 10;
+            border-radius: 5px; opacity: 0;
             transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
         }
-
-        .win-line.active {
-            opacity: 1;
-        }
-
-        /* Horizontal lines - Adjusted top/left for new grid/cell sizes if necessary. */
-        .win-line.h-0 { top: 10px + 45px - 5px; left: 10px; width: 270px; height: 10px; } /* 45px is half cell height, -5px is half line height */
+        .win-line.active { opacity: 1; }
+        .win-line.h-0 { top: 10px + 45px - 5px; left: 10px; width: 270px; height: 10px; }
         .win-line.h-1 { top: 10px + 90px + 10px + 45px - 5px; left: 10px; width: 270px; height: 10px; }
         .win-line.h-2 { top: 10px + 180px + 20px + 45px - 5px; left: 10px; width: 270px; height: 10px; }
-
-        /* Vertical lines (Centered on the column of cells) */
         .win-line.v-0 { left: 10px + 45px - 5px; top: 10px; height: 270px; width: 10px; }
         .win-line.v-1 { left: 10px + 90px + 10px + 45px - 5px; top: 10px; height: 270px; width: 10px; }
         .win-line.v-2 { left: 10px + 180px + 20px + 45px - 5px; top: 10px; height: 270px; width: 10px; }
+        .win-line.d-0 { top: 50%; left: 50%; width: calc(270px * 1.4142); height: 10px; transform: translate(-50%, -50%) rotate(45deg); }
+        .win-line.d-1 { top: 50%; left: 50%; width: calc(270px * 1.4142); height: 10px; transform: translate(-50%, -50%) rotate(-45deg); }
+        #reset-button { margin-top: 20px; }
 
-        /* Diagonal lines - Adjust center point (50% of 290px is 145px) and length */
-        .win-line.d-0 { /* top-left to bottom-right */
-            top: 50%; left: 50%;
-            width: calc(270px * 1.4142); /* Length of diagonal across 270x270 square */
-            height: 10px;
-            transform: translate(-50%, -50%) rotate(45deg);
-        }
-        .win-line.d-1 { /* top-right to bottom-left */
-            top: 50%; left: 50%;
-            width: calc(270px * 1.4142);
-            height: 10px;
-            transform: translate(-50%, -50%) rotate(-45deg);
-        }
-
-
-        #reset-button {
-            margin-top: 20px;
-        }
-
-        /* Overlay for Game End */
         .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 20;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease-in-out;
-            border-radius: 15px; /* Match container border-radius */
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); display: flex; flex-direction: column;
+            justify-content: center; align-items: center; z-index: 20; opacity: 0;
+            pointer-events: none; transition: opacity 0.3s ease-in-out; border-radius: 15px;
         }
-
-        .overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
+        .overlay.active { opacity: 1; pointer-events: auto; }
         .overlay-content {
-            background-color: var(--accent-color);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-            transform: translateY(-20px);
-            opacity: 0;
+            background-color: var(--accent-color); padding: 30px; border-radius: 10px;
+            text-align: center; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            transform: translateY(-20px); opacity: 0;
             transition: transform 0.4s ease-out, opacity 0.4s ease-out;
         }
+        .overlay.active .overlay-content { transform: translateY(0); opacity: 1; }
+        .overlay-content h3 { font-size: 2.2em; margin-bottom: 20px; color: var(--win-color); font-family: 'Roboto Slab', serif;}
+        #result-image { max-width: 100px; height: auto; margin-bottom: 15px; display: none; }
+        .overlay-content button { margin-top: 15px; }
 
-        .overlay.active .overlay-content {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .overlay-content h3 {
-            font-size: 2.2em;
-            margin-bottom: 20px;
-            color: var(--win-color);
-        }
-
-        /* Styling for win/loss image */
-        #result-image {
-            max-width: 100px; /* Adjust size as needed */
-            height: auto;
-            margin-bottom: 15px;
-            display: none; /* Hidden by default, shown by JS */
-        }
-
-        .overlay-content button {
-            margin-top: 15px;
-        }
-
-        /* Global Back Button Styling */
         #global-back-button-container {
-            position: absolute;
-            top: 20px; /* Distance from top of game-container */
-            left: 20px; /* Distance from left of game-container */
-            z-index: 40; /* Ensure it's on top of everything */
-            display: none; /* Hidden by default, managed by JS */
+            position: absolute; top: 20px; left: 20px; z-index: 40; display: none;
         }
-
         #global-back-button {
-            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent */
-            color: var(--text-color);
-            border: none;
-            padding: 8px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.9em;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-            min-width: unset; /* Ensure it stays small */
-            width: auto;
-            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1); color: var(--text-color); border: none;
+            padding: 8px 15px; border-radius: 8px; cursor: pointer; font-size: 0.9em;
+            font-weight: 600; transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); min-width: unset; width: auto; text-align: center;
         }
-        #global-back-button:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-1px);
-        }
+        #global-back-button:hover { background-color: rgba(255, 255, 255, 0.2); transform: translateY(-1px); }
 
-        /* NEW: Sound Toggle Button Styling */
-        #sound-toggle-container {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 40;
-            display: none; /* Controlled by JS based on screen */
-        }
-
+        #sound-toggle-container { position: absolute; top: 20px; right: 20px; z-index: 40; display: none; }
         #sound-toggle-button {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.1); color: var(--text-color); border: none;
+            padding: 8px 15px; border-radius: 8px; cursor: pointer; font-size: 0.9em;
+            font-weight: 600; transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); min-width: unset; width: auto;
+            text-align: center; display: flex; align-items: center; justify-content: center; gap: 5px;
+        }
+        #sound-toggle-button:hover { background-color: rgba(255, 255, 255, 0.2); transform: translateY(-1px); }
+        #sound-toggle-button img { width: 20px; height: 20px; vertical-align: middle; }
+        
+        /* Game Info Section Styles */
+        .game-info-section {
+            background-color: var(--secondary-bg); /* Match game container for theme consistency */
             color: var(--text-color);
-            border: none;
-            padding: 8px 15px; /* Same padding as back button */
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.9em;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-            min-width: unset;
-            width: auto;
-            text-align: center;
-            display: flex; /* To center the image within the button */
-            align-items: center;
-            justify-content: center;
-            gap: 5px; /* Small gap between text (if any) and image */
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            margin-top: 30px;
+            margin-bottom: 30px; /* Space before footer */
+            max-width: 90vw;
+            width: 700px; /* Wider for text content */
+            text-align: left;
+            line-height: 1.7;
+            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out; /* For theme changes */
         }
-        #sound-toggle-button:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-1px);
+        .game-info-section h2 {
+            font-family: 'Roboto Slab', serif;
+            color: var(--button-bg); /* Use theme button color for main heading */
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.8em;
         }
-        #sound-toggle-button img {
-            width: 20px; /* Icon size */
-            height: 20px;
-            vertical-align: middle;
+        .game-info-section h3 {
+            font-family: 'Roboto Slab', serif;
+            color: var(--button-hover); /* Use theme button hover for subheadings */
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-size: 1.4em;
         }
+        .game-info-section p, .game-info-section ol, .game-info-section ul {
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+        .game-info-section ol, .game-info-section ul {
+            padding-left: 25px;
+        }
+        .game-info-section ul li { list-style: disc; margin-bottom: 8px; }
+        .game-info-section ol li { list-style: decimal; margin-bottom: 8px; }
+        .game-info-section strong { font-weight: 600; color: var(--player-x-color); } /* Use a player color for emphasis */
+
+        /* Standard Footer from other games */
+        .site-footer {
+            text-align: center; padding: 20px 0; margin-top: auto; /* Pushes footer to bottom */
+            width:100%; background-color: var(--gv-top-nav-bg);
+            color: var(--gv-top-nav-text); opacity: 0.9; font-size: 0.9em;
+        }
+        .site-footer a { color: var(--gv-primary-accent-footer); text-decoration: none;}
+        .site-footer a:hover { text-decoration: underline;}
 
 
-        /* Responsive Design */
+        @media (max-width: 768px) { /* For tablets and smaller */
+            .game-info-section { width: 90vw; padding: 20px; }
+            .game-info-section h2 { font-size: 1.6em; }
+            .game-info-section h3 { font-size: 1.3em; }
+        }
+
         @media (max-width: 600px) {
-            #game-container {
-                padding: 20px;
-                margin: 20px;
-                max-width: 90%;
-            }
+            body { padding-top: 80px; } /* Adjust for potentially taller nav */
+            .top-nav-bar { flex-direction: column; align-items: flex-start; gap: 5px; height: auto; padding-bottom: 8px;}
+            .top-nav-bar .nav-links { margin-left:0; margin-top: 5px; }
+            .top-nav-bar .nav-links a { margin-left: 0; margin-right: 10px;}
 
-            .screen h1 {
-                font-size: 2em;
-            }
-
-            .screen h2 {
-                font-size: 1.5em;
-            }
-
-            .btn {
-                padding: 10px 20px;
-                font-size: 1em;
-            }
-
-            .game-grid {
-                width: 290px; /* Keep fixed size on small screens too */
-                height: 290px;
-            }
-
-            .cell {
-                font-size: 3.5em;
-            }
-
-            #game-screen #status {
-                font-size: 1.2em;
-            }
-
-            .overlay-content h3 {
-                font-size: 1.8em;
-            }
-
-            .whatsapp-share {
-                flex-direction: column;
-                gap: 5px;
-            }
-            #theme-options-panel {
-                flex-direction: column; /* Stack buttons vertically on small screens */
-                min-width: unset; /* Remove min-width to allow full width */
-            }
-            .small-btn {
-                width: 100%; /* Make buttons take full width */
-            }
-
-            /* Adjust global back button for small screens */
-            #global-back-button-container {
-                top: 15px;
-                left: 15px;
-            }
-            /* Adjust sound toggle button for small screens */
-            #sound-toggle-container {
-                top: 15px;
-                right: 15px;
-            }
+            #game-container { padding: 20px; margin: 15px; max-width: 90%; min-height: 450px;}
+            .screen h1 { font-size: 2em; } .screen h2 { font-size: 1.5em; }
+            .btn { padding: 10px 20px; font-size: 1em; }
+            .game-grid { width: 290px; height: 290px; } /* Keep fixed grid for consistency */
+            .cell { font-size: 3.5em; }
+            #game-screen #status { font-size: 1.2em; }
+            .overlay-content h3 { font-size: 1.8em; }
+            .whatsapp-share { flex-direction: column; gap: 5px; }
+            #theme-options-panel { flex-direction: column; min-width: unset; }
+            .small-btn { width: 100%; }
+            #global-back-button-container { top: 15px; left: 15px; }
+            #sound-toggle-container { top: 15px; right: 15px; }
+            .game-info-section { width: 90vw; margin-top:20px; margin-bottom: 20px; }
         }
     </style>
 </head>
 <body>
+    <nav class="top-nav-bar">
+        <div class="logo"><a href="index.html">GameVerse</a></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <!-- Create these pages: <a href="about.html">About</a> <a href="contact.html">Contact</a> -->
+            <a href="privacy_policy.html">Privacy Policy</a>
+        </div>
+    </nav>
+
     <div id="game-container">
-        <!-- Global Back Button Container -->
         <div id="global-back-button-container">
             <button id="global-back-button">Back</button>
         </div>
-
-        <!-- NEW: Sound Toggle Button Container -->
         <div id="sound-toggle-container">
             <button id="sound-toggle-button">
                 <img id="sound-icon" src="speaker-on.png" alt="Sound On">
             </button>
         </div>
-
-        <!-- NEW: Audio Element for Background Music -->
         <audio id="background-music" loop>
             <source src="sound.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
         </audio>
 
-
-        <!-- Start Screen -->
         <div id="start-screen" class="screen active">
             <h1>Tic Tac Toe</h1>
             <button id="start-button" class="btn">Start Game</button>
         </div>
 
-        <!-- Mode Selection Screen -->
         <div id="mode-selection-screen" class="screen">
             <h2>Choose Mode</h2>
             <div class="button-group">
-                <!-- Added red-button and blue-button classes -->
                 <button id="play-bot-button" class="btn red-button">Play with Bot</button>
                 <button id="play-friend-button" class="btn blue-button">Play with Friend</button>
             </div>
-
             <div class="theme-option">
                 <h3>Change Theme</h3>
-                <!-- Single button to toggle theme options -->
                 <button id="toggle-theme-options-button" class="btn small-btn">Select Theme</button>
-                
-                <!-- Hidden panel for theme selection buttons -->
                 <div id="theme-options-panel">
-                    <button class="btn small-btn theme-btn" data-theme="default">Default</button>
-                    <button class="btn small-btn theme-btn" data-theme="light">Light</button>
-                    <button class="btn small-btn theme-btn" data-theme="ocean">Ocean</button>
-                    <button class="btn small-btn theme-btn" data-theme="sunset">Sunset</button>
+                    <button class="btn small-btn theme-btn" data-theme="default">Default Dark</button>
+                    <button class="btn small-btn theme-btn" data-theme="light">Light Mode</button>
+                    <button class="btn small-btn theme-btn" data-theme="ocean">Ocean Blue</button>
+                    <button class="btn small-btn theme-btn" data-theme="sunset">Sunset Vibe</button>
                 </div>
                 <div id="theme-feedback" class="theme-feedback"></div>
             </div>
-
             <div class="whatsapp-share">
-                <p>Share this game:</p>
+                <p>Share:</p>
                 <a href="#" id="whatsapp-share-button" class="btn">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp Icon">
-                    Share
+                    WhatsApp
                 </a>
             </div>
         </div>
 
-        <!-- Difficulty Selection Screen -->
         <div id="difficulty-selection-screen" class="screen">
-            <h2>Select Difficulty</h2>
+            <h2>Select Bot Difficulty</h2>
             <div class="button-group">
                 <button id="difficulty-easy-button" class="btn" data-difficulty="easy">Easy</button>
                 <button id="difficulty-medium-button" class="btn" data-difficulty="medium">Medium</button>
@@ -600,36 +379,21 @@
             </div>
         </div>
 
-        <!-- Game Screen -->
         <div id="game-screen" class="screen">
             <div id="status"></div>
             <div class="game-grid">
-                <div class="cell" data-cell-index="0"></div>
-                <div class="cell" data-cell-index="1"></div>
-                <div class="cell" data-cell-index="2"></div>
-                <div class="cell" data-cell-index="3"></div>
-                <div class="cell" data-cell-index="4"></div>
-                <div class="cell" data-cell-index="5"></div>
-                <div class="cell" data-cell-index="6"></div>
-                <div class="cell" data-cell-index="7"></div>
-                <div class="cell" data-cell-index="8"></div>
-                <!-- Win line elements -->
-                <div class="win-line h-0"></div>
-                <div class="win-line h-1"></div>
-                <div class="win-line h-2"></div>
-                <div class="win-line v-0"></div>
-                <div class="win-line v-1"></div>
-                <div class="win-line v-2"></div>
-                <div class="win-line d-0"></div>
-                <div class="win-line d-1"></div>
+                <div class="cell" data-cell-index="0"></div> <div class="cell" data-cell-index="1"></div> <div class="cell" data-cell-index="2"></div>
+                <div class="cell" data-cell-index="3"></div> <div class="cell" data-cell-index="4"></div> <div class="cell" data-cell-index="5"></div>
+                <div class="cell" data-cell-index="6"></div> <div class="cell" data-cell-index="7"></div> <div class="cell" data-cell-index="8"></div>
+                <div class="win-line h-0"></div> <div class="win-line h-1"></div> <div class="win-line h-2"></div>
+                <div class="win-line v-0"></div> <div class="win-line v-1"></div> <div class="win-line v-2"></div>
+                <div class="win-line d-0"></div> <div class="win-line d-1"></div>
             </div>
             <button id="reset-button" class="btn">Reset Game</button>
         </div>
 
-        <!-- Result Overlay -->
         <div id="result-overlay" class="overlay">
             <div class="overlay-content">
-                <!-- Image for win/loss -->
                 <img id="result-image" src="" alt="Game Result Image">
                 <h3 id="result-message"></h3>
                 <button id="play-again-button" class="btn">Play Again</button>
@@ -638,8 +402,63 @@
         </div>
     </div>
 
+    <section class="game-info-section">
+        <h2>The Timeless Game of Tic Tac Toe (XOXO)</h2>
+        <p>Welcome to GameVerse's enhanced Tic Tac Toe experience! Known globally as Noughts and Crosses or simply X's and O's, this classic two-player strategy game has entertained generations. Our 2025 version brings a modern interface, exciting themes, and a challenging AI opponent to this beloved pastime. Whether you're looking for a quick mental duel or a fun game with a friend, Tic Tac Toe on GameVerse is your perfect pick.</p>
+
+        <h3>How to Play Tic Tac Toe</h3>
+        <ol>
+            <li><strong>The Goal:</strong> Be the first player to get three of your marks (either 'X' or 'O') in a row – horizontally, vertically, or diagonally.</li>
+            <li><strong>The Board:</strong> The game is played on a 3x3 grid.</li>
+            <li><strong>Starting the Game:</strong>
+                <ul>
+                    <li>If playing against the Bot, Player 'X' (you) always goes first.</li>
+                    <li>If playing against a Friend, Player 'X' starts, and players take turns.</li>
+                </ul>
+            </li>
+            <li><strong>Making a Move:</strong> On your turn, click or tap an empty cell on the grid to place your mark ('X' or 'O').</li>
+            <li><strong>Winning:</strong> If you successfully place three of your marks in a row, you win the game! A line will highlight your winning combination.</li>
+            <li><strong>Drawing:</strong> If all nine cells on the grid are filled and no player has achieved three in a row, the game is a draw.</li>
+        </ol>
+
+        <h3>Features of GameVerse Tic Tac Toe (2025 Edition)</h3>
+        <ul>
+            <li><strong>Play vs. Smart Bot:</strong> Challenge our AI with four difficulty levels:
+                <ul>
+                    <li><strong>Easy:</strong> Great for beginners or a casual game.</li>
+                    <li><strong>Medium:</strong> Offers a balanced challenge.</li>
+                    <li><strong>Hard:</strong> The bot will play strategically, looking for wins and blocks.</li>
+                    <li><strong>Impossible:</strong> Can you beat the unbeatable? This bot uses an advanced algorithm (Minimax) to play perfectly.</li>
+                </ul>
+            </li>
+            <li><strong>Play vs. Friend:</strong> Enjoy the classic two-player experience on the same device.</li>
+            <li><strong>Multiple Themes:</strong> Customize your game's look and feel! Choose from Default Dark, Light Mode, Ocean Blue, or Sunset Vibe. Your preference is saved for next time.</li>
+            <li><strong>Sound On/Off:</strong> Play with engaging background music or turn it off for silent play. Your choice is remembered.</li>
+            <li><strong>Clear Win/Loss/Draw Indication:</strong> Visual feedback with highlighted lines and result messages (including fun images for bot games!).</li>
+            <li><strong>Responsive Design:</strong> Play seamlessly on your desktop, tablet, or mobile phone.</li>
+            <li><strong>Easy Navigation:</strong> Intuitive back buttons and a clear flow from start to game.</li>
+            <li><strong>Share with Friends:</strong> Easily share the game link via WhatsApp.</li>
+        </ul>
+
+        <h3>Basic Tic Tac Toe Strategies</h3>
+        <p>While Tic Tac Toe seems simple, a few basic strategies can significantly improve your chances of winning or drawing, especially against less experienced players or simpler AI.</p>
+        <ul>
+            <li><strong>Take the Center:</strong> If the center cell (position 4) is open, it's usually the strongest first move. It gives you the most opportunities to form a line.</li>
+            <li><strong>Win if Possible:</strong> Always check if you can make a move that results in three of your marks in a row. This is your top priority.</li>
+            <li><strong>Block Opponent's Win:</strong> If you cannot win on your current turn, check if your opponent can win on their next turn. If so, you MUST block their winning move.</li>
+            <li><strong>Create a Fork (Two-Way Threat):</strong> A fork is a situation where you have two possible ways to win on your next turn, and your opponent can only block one. This is a powerful tactic. Example: Placing your mark so that you have two rows/columns/diagonals with two of your marks and one empty cell.</li>
+            <li><strong>Block Opponent's Fork:</strong> Be aware of your opponent trying to set up a fork and block it if possible.</li>
+            <li><strong>Play Corners:</strong> After the center, corners are generally strong positions as they are part of more potential winning lines than edge middles.</li>
+        </ul>
+        <p>Ready to test your wits? Start a game of Tic Tac Toe now and aim for that three-in-a-row victory! Good luck from GameVerse!</p>
+    </section>
+
+    <footer class="site-footer">
+        <p>© <span id="currentYear"></span> GameVerse by Kanhaiya Mishra. All Rights Reserved.</p>
+        <p><a href="index.html">Home</a> | <a href="privacy_policy.html">Privacy Policy</a></p>
+    </footer>
+
     <script>
-        // JavaScript Logic
         const screens = document.querySelectorAll('.screen');
         const startScreen = document.getElementById('start-screen');
         const modeSelectionScreen = document.getElementById('mode-selection-screen');
@@ -653,10 +472,9 @@
         const difficultyButtons = document.querySelectorAll('#difficulty-selection-screen .btn');
         const whatsappShareButton = document.getElementById('whatsapp-share-button');
 
-        // Theme elements (Updated for single toggle button and panel)
         const toggleThemeOptionsButton = document.getElementById('toggle-theme-options-button');
         const themeOptionsPanel = document.getElementById('theme-options-panel');
-        const themeButtons = document.querySelectorAll('.theme-btn'); // Select all individual theme buttons within the panel
+        const themeButtons = document.querySelectorAll('.theme-btn');
         const themeFeedback = document.getElementById('theme-feedback');
 
         const statusDisplay = document.getElementById('status');
@@ -667,14 +485,10 @@
         const mainMenuButton = document.getElementById('main-menu-button');
         const winLines = document.querySelectorAll('.win-line');
 
-        // Global Back Button elements
         const globalBackButtonContainer = document.getElementById('global-back-button-container');
         const globalBackButton = document.getElementById('global-back-button');
-
-        // Result image element
         const resultImage = document.getElementById('result-image');
 
-        // NEW: Audio and Sound Toggle elements
         const backgroundMusic = document.getElementById('background-music');
         const soundToggleButton = document.getElementById('sound-toggle-button');
         const soundToggleIcon = document.getElementById('sound-icon');
@@ -683,93 +497,62 @@
         let gameBoard = ['', '', '', '', '', '', '', '', ''];
         let currentPlayer = 'X';
         let gameActive = false;
-        let gameMode = ''; // 'bot' or 'friend'
-        let difficulty = ''; // 'easy', 'medium', 'hard', 'impossible'
-        let isSoundOn = true; // State for sound (default to on)
+        let gameMode = ''; 
+        let difficulty = ''; 
+        let isSoundOn = true; 
 
         const winningConditions = [
-            [0, 1, 2, 'h-0'], [3, 4, 5, 'h-1'], [6, 7, 8, 'h-2'], // Rows
-            [0, 3, 6, 'v-0'], [1, 4, 7, 'v-1'], [2, 5, 8, 'v-2'], // Columns
-            [0, 4, 8, 'd-0'], [2, 4, 6, 'd-1']  // Diagonals
+            [0, 1, 2, 'h-0'], [3, 4, 5, 'h-1'], [6, 7, 8, 'h-2'],
+            [0, 3, 6, 'v-0'], [1, 4, 7, 'v-1'], [2, 5, 8, 'v-2'],
+            [0, 4, 8, 'd-0'], [2, 4, 6, 'd-1']
         ];
 
-        // --- Theme Definitions ---
         const themes = {
-            'default': {
-                '--primary-bg': '#1a1a2e',
-                '--secondary-bg': '#16213e',
-                '--accent-color': '#0f3460',
-                '--text-color': '#e0e0e0',
-                '--button-bg': '#e94560',
-                '--button-hover': '#ff6a80',
-                '--win-color': '#8cff6a',
-                '--player-x-color': '#ff6a80',
-                '--player-o-color': '#6affee',
-                '--red-button-bg': '#e94560', /* Ensure these persist even with theme changes */
-                '--red-button-hover': '#ff6a80',
-                '--blue-button-bg': '#2196F3',
-                '--blue-button-hover': '#64B5F6',
+            'default': { // Darker default
+                '--primary-bg': '#1a1a2e', '--secondary-bg': '#16213e', '--accent-color': '#0f3460',
+                '--text-color': '#e0e0e0', '--button-bg': '#e94560', '--button-hover': '#ff6a80',
+                '--win-color': '#8cff6a', '--player-x-color': '#ff6a80', '--player-o-color': '#6affee',
+                '--red-button-bg': '#e94560', '--red-button-hover': '#ff6a80',
+                '--blue-button-bg': '#2196F3', '--blue-button-hover': '#64B5F6',
             },
             'light': {
-                '--primary-bg': '#f0f0f0',
-                '--secondary-bg': '#ffffff',
-                '--accent-color': '#e0e0e0',
-                '--text-color': '#333333',
-                '--button-bg': '#4CAF50',
-                '--button-hover': '#66BB6A',
-                '--win-color': '#2196F3',
-                '--player-x-color': '#f44336',
-                '--player-o-color': '#2196F3',
-                '--red-button-bg': '#f44336', /* Custom red for light theme */
-                '--red-button-hover': '#ef5350',
-                '--blue-button-bg': '#2196F3',
-                '--blue-button-hover': '#64B5F6',
+                '--primary-bg': '#f0f0f0', '--secondary-bg': '#ffffff', '--accent-color': '#e0e0e0',
+                '--text-color': '#333333', '--button-bg': '#4CAF50', '--button-hover': '#66BB6A',
+                '--win-color': '#2196F3', '--player-x-color': '#f44336', '--player-o-color': '#2196F3',
+                '--red-button-bg': '#f44336', '--red-button-hover': '#ef5350',
+                '--blue-button-bg': '#2196F3', '--blue-button-hover': '#64B5F6',
             },
             'ocean': {
-                '--primary-bg': '#00203F',
-                '--secondary-bg': '#00395D',
-                '--accent-color': '#005F8F',
-                '--text-color': '#E0FBFC',
-                '--button-bg': '#007FFF',
-                '--button-hover': '#009FFF',
-                '--win-color': '#FFD700',
-                '--player-x-color': '#FF6B6B',
-                '--player-o-color': '#6BFFB0',
-                '--red-button-bg': '#FF6B6B',
-                '--red-button-hover': '#FF8E8E',
-                '--blue-button-bg': '#007FFF',
-                '--blue-button-hover': '#009FFF',
+                '--primary-bg': '#00203F', '--secondary-bg': '#00395D', '--accent-color': '#005F8F',
+                '--text-color': '#E0FBFC', '--button-bg': '#007FFF', '--button-hover': '#009FFF',
+                '--win-color': '#FFD700', '--player-x-color': '#FF6B6B', '--player-o-color': '#6BFFB0',
+                '--red-button-bg': '#FF6B6B', '--red-button-hover': '#FF8E8E',
+                '--blue-button-bg': '#007FFF', '--blue-button-hover': '#009FFF',
             },
-            'sunset': {
-                '--primary-bg': '#331F2A',
-                '--secondary-bg': '#4A2F45',
-                '--accent-color': '#6B4C72',
-                '--text-color': '#FCE7F0',
-                '--button-bg': '#F15A24',
-                '--button-hover': '#FF7F41',
-                '--win-color': '#9CFF8F',
-                '--player-x-color': '#FFC300',
-                '--player-o-color': '#8A2BE2',
-                '--red-button-bg': '#F15A24',
-                '--red-button-hover': '#FF7F41',
-                '--blue-button-bg': '#8A2BE2', /* Using a purple-blue for sunset theme */
-                '--blue-button-hover': '#9B59B6',
+            'sunset': { // Current default in CSS
+                '--primary-bg': '#331F2A', '--secondary-bg': '#4A2F45', '--accent-color': '#6B4C72',
+                '--text-color': '#FCE7F0', '--button-bg': '#F15A24', '--button-hover': '#FF7F41',
+                '--win-color': '#9CFF8F', '--player-x-color': '#FFC300', '--player-o-color': '#8A2BE2',
+                '--red-button-bg': '#F15A24', '--red-button-hover': '#FF7F41',
+                '--blue-button-bg': '#8A2BE2', '--blue-button-hover': '#9B59B6',
             }
         };
 
         function applyTheme(themeName) {
             const root = document.documentElement;
             const theme = themes[themeName];
-
-            themeFeedback.textContent = ''; // Clear previous feedback
+            themeFeedback.textContent = ''; 
             themeFeedback.classList.remove('error');
 
             if (theme) {
                 for (const prop in theme) {
                     root.style.setProperty(prop, theme[prop]);
                 }
-                localStorage.setItem('ticTacToeTheme', themeName); // Save theme preference
-                themeFeedback.textContent = `Theme '${themeName}' applied!`;
+                localStorage.setItem('ticTacToeTheme', themeName);
+                themeFeedback.textContent = `Theme '${themeName.replace("-"," ")}' applied!`;
+                 // Update footer accent color dynamically based on theme
+                root.style.setProperty('--gv-primary-accent-footer', theme['--button-bg'] || '#F15A24');
+
             } else {
                 themeFeedback.textContent = `Theme '${themeName}' not found.`;
                 themeFeedback.classList.add('error');
@@ -777,25 +560,23 @@
         }
 
         function loadTheme() {
-            const savedTheme = localStorage.getItem('ticTacToeTheme') || 'sunset'; // Default to 'sunset'
+            const savedTheme = localStorage.getItem('ticTacToeTheme') || 'sunset';
             applyTheme(savedTheme);
         }
 
-        // --- Sound Control Functions ---
         function updateSoundToggleUI() {
             if (isSoundOn) {
-                soundToggleIcon.src = 'speaker-on.png'; // Make sure this image exists
+                soundToggleIcon.src = 'speaker-on.png'; 
                 soundToggleIcon.alt = 'Sound On';
-                // Attempt to play, caught by .catch for browser autoplay policies
-                if (backgroundMusic.paused) {
+                if (backgroundMusic.paused && (gameScreen.classList.contains('active') || modeSelectionScreen.classList.contains('active') || difficultySelectionScreen.classList.contains('active'))) { // Play only if on a relevant screen
                     backgroundMusic.play().catch(e => console.log("Autoplay blocked:", e));
                 }
             } else {
-                soundToggleIcon.src = 'speaker-off.png'; // Make sure this image exists
+                soundToggleIcon.src = 'speaker-off.png'; 
                 soundToggleIcon.alt = 'Sound Off';
                 backgroundMusic.pause();
             }
-            localStorage.setItem('ticTacToeSound', isSoundOn); // Save preference
+            localStorage.setItem('ticTacToeSound', isSoundOn);
         }
 
         function loadSoundState() {
@@ -803,68 +584,52 @@
             if (savedSoundState !== null) {
                 isSoundOn = (savedSoundState === 'true');
             }
-            // Do not play immediately here, as it might be blocked by browser.
-            // Play will be attempted on first user interaction (e.g., Start Game click).
-            updateSoundToggleUI(); // Just update UI
+            updateSoundToggleUI(); 
         }
 
-        // --- Screen Management ---
-        // Function to handle global back button visibility and action
         function updateGlobalBackButton(currentScreenId) {
-            globalBackButtonContainer.style.display = 'none'; // Hide by default
-            globalBackButton.onclick = null; // Clear previous handler
+            globalBackButtonContainer.style.display = 'none'; 
+            globalBackButton.onclick = null; 
 
             if (currentScreenId === 'mode-selection-screen') {
                 globalBackButtonContainer.style.display = 'block';
-                globalBackButton.onclick = () => {
-                    showScreen(startScreen);
-                    initializeGame(); // Clear game state
-                };
+                globalBackButton.onclick = () => { showScreen(startScreen); initializeGame(); };
             } else if (currentScreenId === 'difficulty-selection-screen') {
                 globalBackButtonContainer.style.display = 'block';
-                globalBackButton.onclick = () => {
-                    showScreen(modeSelectionScreen);
-                    initializeGame(); // Clear game state
-                };
+                globalBackButton.onclick = () => { showScreen(modeSelectionScreen); initializeGame(); };
             } else if (currentScreenId === 'game-screen') {
                 globalBackButtonContainer.style.display = 'block';
                 globalBackButton.onclick = () => {
-                    if (gameMode === 'bot') {
-                        showScreen(difficultySelectionScreen);
-                    } else { // gameMode === 'friend'
-                        showScreen(modeSelectionScreen);
-                    }
-                    initializeGame(); // Clear game state
+                    if (gameMode === 'bot') showScreen(difficultySelectionScreen);
+                    else showScreen(modeSelectionScreen);
+                    initializeGame(); 
                 };
             }
-            // No back button for start-screen or result-overlay (handled by play again/main menu)
         }
 
         function showScreen(screenToShow) {
             screens.forEach(screen => {
-                if (screen === screenToShow) {
-                    screen.classList.add('active');
-                } else {
-                    screen.classList.remove('active');
-                }
+                screen.classList.toggle('active', screen === screenToShow);
             });
-            // Hide theme options panel when changing screens
             themeOptionsPanel.classList.remove('active');
-            themeFeedback.textContent = ''; // Clear feedback when screens change
-            // Update global back button state
+            themeFeedback.textContent = ''; 
             updateGlobalBackButton(screenToShow.id);
 
-            // NEW: Control visibility of sound toggle button
             if (screenToShow.id === 'mode-selection-screen' ||
                 screenToShow.id === 'difficulty-selection-screen' ||
                 screenToShow.id === 'game-screen') {
                 soundToggleContainer.style.display = 'block';
+                 if (isSoundOn && backgroundMusic.paused) { // Try to play if sound is on and music paused
+                    backgroundMusic.play().catch(e => console.log("Autoplay blocked on screen change:", e));
+                }
             } else {
                 soundToggleContainer.style.display = 'none';
+                 if (screenToShow.id === 'start-screen' && !backgroundMusic.paused) { // Pause if returning to start screen
+                    backgroundMusic.pause();
+                }
             }
         }
 
-        // --- Game Initialization & Reset ---
         function initializeGame() {
             gameBoard = ['', '', '', '', '', '', '', '', ''];
             currentPlayer = 'X';
@@ -876,18 +641,16 @@
             });
             winLines.forEach(line => line.classList.remove('active'));
             resultOverlay.classList.remove('active');
-            // NEW: Hide and clear result image on game initialization
             resultImage.style.display = 'none';
             resultImage.src = '';
             resultImage.alt = '';
         }
 
-        // --- Game Logic ---
         function handleCellClick(clickedCellEvent) {
             const clickedCell = clickedCellEvent.target;
             const clickedCellIndex = parseInt(clickedCell.dataset.cellIndex);
 
-            if (gameBoard[clickedCellIndex] !== '' || !gameActive) {
+            if (gameBoard[clickedCellIndex] !== '' || !gameActive || (gameMode === 'bot' && currentPlayer === 'O')) {
                 return;
             }
 
@@ -895,10 +658,7 @@
             checkGameStatus();
 
             if (gameActive && gameMode === 'bot' && currentPlayer === 'O') {
-                // If the game is still active after human's move and it's bot's turn,
-                // and the bot is player 'O', then make bot move after a short delay.
-                // This ensures the human player's mark is rendered before the bot's move.
-                setTimeout(botMove, 500); 
+                setTimeout(botMove, 400 + Math.random() * 200); // Bot move delay
             }
         }
 
@@ -922,350 +682,190 @@
                 const a = gameBoard[winCondition[0]];
                 const b = gameBoard[winCondition[1]];
                 const c = gameBoard[winCondition[2]];
-
-                if (a === '' || b === '' || c === '') {
-                    continue;
-                }
-                if (a === b && b === c) {
-                    roundWon = true;
-                    winLineClass = winCondition[3];
-                    break;
-                }
+                if (a === '' || b === '' || c === '') continue;
+                if (a === b && b === c) { roundWon = true; winLineClass = winCondition[3]; break; }
             }
 
             if (roundWon) {
-                let displayMessage = `Player ${currentPlayer} Wins!`; // Default for friend mode
-                
-                // NEW: Set specific messages and images based on game mode and winner
+                let displayMessage = `Player ${currentPlayer} Wins!`;
                 if (gameMode === 'bot') {
-                    if (currentPlayer === 'X') { // Human player wins against bot
-                        displayMessage = 'Congratulations!';
-                        resultImage.src = 'win.png';
-                        resultImage.alt = 'You Win!';
-                    } else { // Bot player wins (human loss)
-                        displayMessage = 'Your loss!';
-                        resultImage.src = 'loss.png';
-                        resultImage.alt = 'You Lost!';
-                    }
-                } else { // Friend mode
-                    // For friend mode, we just show generic win. If win.png should also show, set it here.
-                    resultImage.src = 'win.png'; // Assuming win.png is suitable for player vs player win too
-                    resultImage.alt = 'Player Wins!';
+                    if (currentPlayer === 'X') { displayMessage = 'Congratulations!'; resultImage.src = 'win.png'; resultImage.alt = 'You Win!'; }
+                    else { displayMessage = 'Such a Loss!'; resultImage.src = 'loss.png'; resultImage.alt = 'You Lost!'; }
+                } else {
+                    resultImage.src = 'win.png'; resultImage.alt = 'Player Wins!';
                 }
-
-                statusDisplay.textContent = displayMessage; // Update game status
-                endGame(displayMessage); // Show overlay with customized message and image
+                statusDisplay.textContent = displayMessage; 
+                endGame(displayMessage); 
                 drawWinLine(winLineClass);
                 return;
             }
 
-            let roundDraw = !gameBoard.includes('');
-            if (roundDraw) {
+            if (!gameBoard.includes('')) {
                 statusDisplay.textContent = 'Game Draw!';
                 endGame('Game Draw!');
-                // Ensure no image is shown for a draw
-                resultImage.style.display = 'none';
-                resultImage.src = '';
-                resultImage.alt = '';
+                resultImage.style.display = 'none'; resultImage.src = ''; resultImage.alt = '';
                 return;
             }
-
             changePlayer();
         }
 
         function endGame(message) {
             gameActive = false;
-            resultMessage.textContent = message; // Set the customized message (or draw message)
+            resultMessage.textContent = message; 
             resultOverlay.classList.add('active');
-            // Display image if src was set (for win/loss), otherwise it's hidden for draw
-            if (resultImage.src && resultImage.alt) {
-                resultImage.style.display = 'block';
-            }
+            if (resultImage.src && resultImage.alt) { resultImage.style.display = 'block'; }
         }
 
         function drawWinLine(lineClass) {
             const lineElement = document.querySelector(`.win-line.${lineClass}`);
-            if (lineElement) {
-                lineElement.classList.add('active');
-            }
+            if (lineElement) lineElement.classList.add('active');
         }
 
-        // --- Bot AI Logic ---
-        function getEmptyCells(board) {
-            return board.map((cell, index) => cell === '' ? index : null).filter(index => index !== null);
-        }
-
+        function getEmptyCells(board) { return board.map((c, i) => c === '' ? i : null).filter(i => i !== null); }
         function checkWinner(board, player) {
             for (let i = 0; i < winningConditions.length; i++) {
                 const [a, b, c] = winningConditions[i];
-                if (board[a] === player && board[b] === player && board[c] === player) {
-                    return true;
-                }
+                if (board[a] === player && board[b] === player && board[c] === player) return true;
             }
             return false;
         }
 
         function botMove() {
+            if (!gameActive) return;
             let move;
-            // Bot is always 'O', Human is 'X'
-            const botPlayer = 'O';
-            const humanPlayer = 'X';
-
+            const botPlayer = 'O'; const humanPlayer = 'X';
             switch (difficulty) {
-                case 'easy':
-                    move = getEasyMove(gameBoard);
-                    break;
-                case 'medium':
-                    move = getMediumMove(gameBoard, botPlayer, humanPlayer);
-                    break;
-                case 'hard':
-                    move = getHardMove(gameBoard, botPlayer, humanPlayer);
-                    break;
-                case 'impossible':
-                    move = getImpossibleMove(gameBoard, botPlayer, humanPlayer);
-                    break;
-                default:
-                    move = getEasyMove(gameBoard); // Fallback
+                case 'easy': move = getEasyMove(gameBoard); break;
+                case 'medium': move = getMediumMove(gameBoard, botPlayer, humanPlayer); break;
+                case 'hard': move = getHardMove(gameBoard, botPlayer, humanPlayer); break;
+                case 'impossible': move = getImpossibleMove(gameBoard, botPlayer, humanPlayer); break;
+                default: move = getEasyMove(gameBoard);
             }
-
-            if (move !== -1) {
+            if (move !== -1 && gameBoard[move] === '') { // Ensure cell is still empty
                 const cell = gameCells[move];
                 placeMark(cell, move);
                 checkGameStatus();
+            } else if (move === -1 && getEmptyCells(gameBoard).length > 0) { // Fallback if strategy returned -1 but cells are available
+                move = getEasyMove(gameBoard);
+                 if (move !== -1 && gameBoard[move] === '') {
+                    const cell = gameCells[move];
+                    placeMark(cell, move);
+                    checkGameStatus();
+                }
             }
         }
 
-        // Easy: Random move
         function getEasyMove(board) {
             const emptyCells = getEmptyCells(board);
-            if (emptyCells.length === 0) return -1;
-            return emptyCells[Math.floor(Math.random() * emptyCells.length)];
+            return emptyCells.length > 0 ? emptyCells[Math.floor(Math.random() * emptyCells.length)] : -1;
         }
 
-        // Medium: Prioritize win, then block, then center, then corners, then random
         function getMediumMove(board, botPlayer, humanPlayer) {
             const emptyCells = getEmptyCells(board);
-            if (emptyCells.length === 0) return -1;
-
-            // 1. Check for immediate win
-            for (let i = 0; i < emptyCells.length; i++) {
-                const tempBoard = [...board];
-                tempBoard[emptyCells[i]] = botPlayer;
-                if (checkWinner(tempBoard, botPlayer)) {
-                    return emptyCells[i];
-                }
+            for (let i = 0; i < emptyCells.length; i++) { // Win
+                const tempBoard = [...board]; tempBoard[emptyCells[i]] = botPlayer;
+                if (checkWinner(tempBoard, botPlayer)) return emptyCells[i];
             }
-
-            // 2. Check for immediate block
-            for (let i = 0; i < emptyCells.length; i++) {
-                const tempBoard = [...board];
-                tempBoard[emptyCells[i]] = humanPlayer;
-                if (checkWinner(tempBoard, humanPlayer)) {
-                    return emptyCells[i];
-                }
+            for (let i = 0; i < emptyCells.length; i++) { // Block
+                const tempBoard = [...board]; tempBoard[emptyCells[i]] = humanPlayer;
+                if (checkWinner(tempBoard, humanPlayer)) return emptyCells[i];
             }
-
-            // 3. Take center (if available)
-            if (emptyCells.includes(4)) return 4;
-
-            // 4. Take a corner (if available, pick randomly among them)
-            const corners = [0, 2, 6, 8];
-            const availableCorners = corners.filter(index => emptyCells.includes(index));
-            if (availableCorners.length > 0) {
-                return availableCorners[Math.floor(Math.random() * availableCorners.length)];
-            }
-
-            // 5. Take an edge (if available, pick randomly among them)
-            const edges = [1, 3, 5, 7];
-            const availableEdges = edges.filter(index => emptyCells.includes(index));
-            if (availableEdges.length > 0) {
-                 return availableEdges[Math.floor(Math.random() * availableEdges.length)];
-            }
-
-            // Fallback to random if no strategic moves found (should not happen in Tic Tac Toe usually)
+            if (emptyCells.includes(4)) return 4; // Center
+            const corners = [0, 2, 6, 8].filter(i => emptyCells.includes(i));
+            if (corners.length > 0) return corners[Math.floor(Math.random() * corners.length)];
+            const edges = [1, 3, 5, 7].filter(i => emptyCells.includes(i));
+            if (edges.length > 0) return edges[Math.floor(Math.random() * edges.length)];
             return getEasyMove(board);
         }
 
-        // Minimax for Hard/Impossible
-        // Scores: Bot wins (10), Human wins (-10), Tie (0)
-        const scores = {
-            O: 10,
-            X: -10,
-            tie: 0
-        };
-
-        function minimax(board, depth, isMaximizingPlayer, botPlayer, humanPlayer) {
-            // Check for terminal states
-            if (checkWinner(board, botPlayer)) {
-                return scores[botPlayer] - depth; // Prioritize quicker wins
-            } else if (checkWinner(board, humanPlayer)) {
-                return scores[humanPlayer] + depth; // Prioritize quicker losses for human
-            } else if (!board.includes('')) { // No empty cells left, it's a tie
-                return scores.tie;
-            }
+        const scores = { O: 10, X: -10, tie: 0 };
+        function minimax(board, depth, isMaximizingPlayer, botPlayer, humanPlayer, alpha, beta) {
+            if (checkWinner(board, botPlayer)) return scores[botPlayer] - depth;
+            if (checkWinner(board, humanPlayer)) return scores[humanPlayer] + depth;
+            if (!board.includes('')) return scores.tie;
 
             const emptyCells = getEmptyCells(board);
-
-            if (isMaximizingPlayer) { // Bot's turn (Maximizing player)
+            if (isMaximizingPlayer) {
                 let bestScore = -Infinity;
-                for (let i = 0; i < emptyCells.length; i++) {
-                    const move = emptyCells[i];
+                for (const move of emptyCells) {
                     board[move] = botPlayer;
-                    let score = minimax(board, depth + 1, false, botPlayer, humanPlayer);
-                    board[move] = ''; // Undo move
+                    let score = minimax(board, depth + 1, false, botPlayer, humanPlayer, alpha, beta);
+                    board[move] = '';
                     bestScore = Math.max(score, bestScore);
+                    alpha = Math.max(alpha, bestScore);
+                    if (beta <= alpha) break;
                 }
                 return bestScore;
-            } else { // Human's turn (Minimizing player)
+            } else {
                 let bestScore = Infinity;
-                for (let i = 0; i < emptyCells.length; i++) {
-                    const move = emptyCells[i];
+                for (const move of emptyCells) {
                     board[move] = humanPlayer;
-                    let score = minimax(board, depth + 1, true, botPlayer, humanPlayer);
-                    board[move] = ''; // Undo move
+                    let score = minimax(board, depth + 1, true, botPlayer, humanPlayer, alpha, beta);
+                    board[move] = '';
                     bestScore = Math.min(score, bestScore);
+                    beta = Math.min(beta, bestScore);
+                    if (beta <= alpha) break;
                 }
                 return bestScore;
             }
         }
 
         function findBestMove(board, botPlayer, humanPlayer) {
-            let bestScore = -Infinity;
-            let bestMove = -1;
+            let bestScore = -Infinity; let bestMove = -1;
             const emptyCells = getEmptyCells(board);
-
             if (emptyCells.length === 0) return -1;
 
-            // Iterate through all possible moves and find the one with the best score
-            for (let i = 0; i < emptyCells.length; i++) {
-                const move = emptyCells[i];
-                board[move] = botPlayer; // Try this move
-                let score = minimax(board, 0, false, botPlayer, humanPlayer); // See what score human would get
-                board[move] = ''; // Undo move
-
-                if (score > bestScore) {
-                    bestScore = score;
-                    bestMove = move;
-                }
+            for (const move of emptyCells) {
+                board[move] = botPlayer;
+                let score = minimax(board, 0, false, botPlayer, humanPlayer, -Infinity, Infinity);
+                board[move] = '';
+                if (score > bestScore) { bestScore = score; bestMove = move; }
             }
             return bestMove;
         }
-
-        // Hard: Minimax with a significant chance of a random suboptimal move
+        
         function getHardMove(board, botPlayer, humanPlayer) {
-            const emptyCells = getEmptyCells(board);
-            if (emptyCells.length === 0) return -1;
-
             const optimalMove = findBestMove(board, botPlayer, humanPlayer);
-            const SLIP_UP_CHANCE = 0.35; // 35% chance the bot might not play perfectly optimally
-
-            if (Math.random() < SLIP_UP_CHANCE) {
-                // Find all moves that are NOT the optimal move
-                const suboptimalMoves = emptyCells.filter(move => move !== optimalMove);
-
-                if (suboptimalMoves.length > 0) {
-                    // Pick a random suboptimal move from the remaining options
-                    return suboptimalMoves[Math.floor(Math.random() * suboptimalMoves.length)];
-                }
+            if (Math.random() < 0.25 && getEmptyCells(board).length > 1) { // 25% chance of suboptimal move if options exist
+                const suboptimalMoves = getEmptyCells(board).filter(m => m !== optimalMove);
+                if (suboptimalMoves.length > 0) return suboptimalMoves[Math.floor(Math.random() * suboptimalMoves.length)];
             }
-
-            // If no suitable suboptimal move found (e.g., only optimal move left),
-            // or if the random chance didn't trigger, play the optimal move.
             return optimalMove;
         }
+        function getImpossibleMove(board, botPlayer, humanPlayer) { return findBestMove(board, botPlayer, humanPlayer); }
 
-        // Impossible: Pure Minimax (unbeatable)
-        function getImpossibleMove(board, botPlayer, humanPlayer) {
-            return findBestMove(board, botPlayer, humanPlayer);
-        }
-
-
-        // --- Event Listeners ---
         startButton.addEventListener('click', () => {
             showScreen(modeSelectionScreen);
-            // Attempt to play music on user interaction
             if (isSoundOn && backgroundMusic.paused) {
-                backgroundMusic.play().catch(e => console.log("Autoplay blocked or failed:", e));
+                backgroundMusic.play().catch(e => console.log("Autoplay failed on start:", e));
             }
         });
-
-        playBotButton.addEventListener('click', () => {
-            gameMode = 'bot';
-            showScreen(difficultySelectionScreen);
-        });
-
-        playFriendButton.addEventListener('click', () => {
-            gameMode = 'friend';
-            startGame();
-        });
-
-        difficultyButtons.forEach(button => {
-            button.addEventListener('click', (event) => {
-                difficulty = event.target.dataset.difficulty;
-                startGame();
-            });
-        });
-
+        playBotButton.addEventListener('click', () => { gameMode = 'bot'; showScreen(difficultySelectionScreen); });
+        playFriendButton.addEventListener('click', () => { gameMode = 'friend'; startGame(); });
+        difficultyButtons.forEach(b => b.addEventListener('click', (e) => { difficulty = e.target.dataset.difficulty; startGame(); }));
         whatsappShareButton.addEventListener('click', (e) => {
             e.preventDefault();
-            const gameUrl = window.location.href; // Current page URL
-            const shareText = encodeURIComponent(`Check out this amazing Tic Tac Toe game I'm playing! Play it here: ${gameUrl}`);
+            const shareText = encodeURIComponent(`Play Tic Tac Toe on GameVerse! ${window.location.href}`);
             window.open(`https://api.whatsapp.com/send?text=${shareText}`, '_blank');
         });
-
-        // Theme toggle button
-        toggleThemeOptionsButton.addEventListener('click', () => {
-            themeOptionsPanel.classList.toggle('active');
-            themeFeedback.textContent = ''; // Clear feedback when showing/hiding panel
-        });
-
-        // Theme selection buttons
-        themeButtons.forEach(button => {
-            button.addEventListener('click', (event) => {
-                const requestedTheme = event.target.dataset.theme; // Get theme name from data-theme attribute
-                applyTheme(requestedTheme);
-                themeOptionsPanel.classList.remove('active'); // Hide options after selection
-            });
-        });
-
-        // Sound toggle button event listener
-        soundToggleButton.addEventListener('click', () => {
-            isSoundOn = !isSoundOn;
-            updateSoundToggleUI();
-        });
-
-        gameCells.forEach(cell => {
-            cell.addEventListener('click', handleCellClick);
-        });
-
-        // Modify Reset Button to go back to mode/difficulty selection
+        toggleThemeOptionsButton.addEventListener('click', () => { themeOptionsPanel.classList.toggle('active'); themeFeedback.textContent = ''; });
+        themeButtons.forEach(b => b.addEventListener('click', (e) => { applyTheme(e.target.dataset.theme); themeOptionsPanel.classList.remove('active'); }));
+        soundToggleButton.addEventListener('click', () => { isSoundOn = !isSoundOn; updateSoundToggleUI(); });
+        gameCells.forEach(cell => cell.addEventListener('click', handleCellClick));
         resetButton.addEventListener('click', () => {
-            if (gameMode === 'bot') {
-                showScreen(difficultySelectionScreen); // Go back to difficulty selection
-            } else { // gameMode === 'friend'
-                showScreen(modeSelectionScreen); // Go back to mode selection
-            }
-            initializeGame(); // Reset game state for next play
-        });
-        
-        playAgainButton.addEventListener('click', startGame); // Play Again from result overlay
-
-        mainMenuButton.addEventListener('click', () => {
-            resultOverlay.classList.remove('active');
-            showScreen(startScreen);
-            initializeGame(); // Ensure clean state if returning to main menu
-        });
-
-        function startGame() {
+            if (gameMode === 'bot') showScreen(difficultySelectionScreen);
+            else showScreen(modeSelectionScreen);
             initializeGame();
-            showScreen(gameScreen);
-            // X always starts. If bot is player O, it will only move after player X.
-        }
+        });
+        playAgainButton.addEventListener('click', startGame);
+        mainMenuButton.addEventListener('click', () => { resultOverlay.classList.remove('active'); showScreen(startScreen); initializeGame(); });
+        
+        function startGame() { initializeGame(); showScreen(gameScreen); }
 
-        // Initial setup on page load
-        loadTheme(); // Load saved theme first (will apply 'sunset' as default)
-        loadSoundState(); // Load sound preference and update UI
-        showScreen(startScreen); // Then show the start screen
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        loadTheme(); 
+        loadSoundState(); 
+        showScreen(startScreen); 
     </script>
 </body>
 </html>
