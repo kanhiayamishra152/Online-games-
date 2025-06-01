@@ -28,10 +28,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --page-bg: #eef1f5; /* A very light, slightly cool background */
-            --text-color: #34495e; /* Cool dark blue for text */
-            --heading-color: #2c3e50; /* Even darker for main headings */
-            --accent-color: #3498db; /* A vibrant, friendly blue */
+            --page-bg: #eef1f5; 
+            --text-color: #34495e; 
+            --heading-color: #2c3e50; 
+            --accent-color: #3498db; 
             --accent-hover: #2980b9;
             --container-bg: #ffffff;
             --container-shadow: rgba(0, 0, 0, 0.08);
@@ -78,7 +78,7 @@
 
         .main-container {
             width: 90%;
-            max-width: 800px; /* Optimized for contact form and info */
+            max-width: 800px; 
             margin: 30px auto 25px auto; 
             padding: 40px 50px; 
             background-color: var(--container-bg);
@@ -153,10 +153,10 @@
             margin-bottom: 10px;
         }
 
-        .social-contact {
+        .social-contact { /* This class is not explicitly used in the HTML structure provided but good to have if needed */
             text-align: center;
         }
-        .social-contact h3 {
+        .social-contact h3 { /* Same as .contact-option h3 */
              font-family: 'Roboto Slab', serif;
             font-size: 1.5em;
             color: var(--heading-color);
@@ -169,7 +169,7 @@
             transition: transform 0.2s ease;
         }
         .social-contact-icons img {
-            width: 40px; /* Larger icons for contact page */
+            width: 40px; 
             height: 40px;
             vertical-align: middle;
         }
@@ -180,15 +180,14 @@
         .note-section {
             margin-top: 30px;
             padding: 15px;
-            background-color: #fffadf; /* Light yellow for notes */
-            border-left: 4px solid #ffc107; /* Amber border */
+            background-color: #fffadf; 
+            border-left: 4px solid #ffc107; 
             border-radius: 4px;
             font-size: 0.95em;
         }
         .note-section p {
             margin-bottom: 5px;
         }
-
 
         .site-footer {
             text-align: center; padding: 25px 0; margin-top: auto; 
@@ -201,7 +200,7 @@
         .footer-links-group { margin-top: 8px; margin-bottom: 15px; } 
         .footer-links-group a { margin: 0 8px; }
 
-        .footer-social-links { /* Renamed to avoid conflict with .social-media-links if styles were global */
+        .footer-social-links { 
             margin-top: 15px;
             padding-top: 15px;
             border-top: 1px solid #444; 
@@ -246,7 +245,7 @@
             .contact-methods h2 { font-size: 1.8em; }
             .contact-option h3 { font-size: 1.3em; }
             .contact-option p { font-size: 1em; }
-            .social-contact h3 { font-size: 1.3em; }
+            /* .social-contact h3 was removed as the h3 is inside .contact-option */
             .social-contact-icons img { width: 35px; height: 35px;}
             .footer-social-links img { width: 28px; height: 28px; }
         }
@@ -273,7 +272,7 @@
             <h2>How to Reach Us</h2>
 
             <div class="contact-option" id="email-contact">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/64px-Gmail_icon_%282020%29.svg.png" alt="Email Icon" class="icon">
+                <img src="images/email-icon.png" alt="Email Icon" class="icon"> <!-- Assuming you have email-icon.png in images folder -->
                 <h3>Via Email</h3>
                 <p>For general inquiries, support, feedback, or partnership opportunities, email is the best way to connect with Kanhaiya Mishra.</p>
                 <p><strong>Email Address:</strong> <a href="mailto:timelytrove.9354@gmail.com">timelytrove.9354@gmail.com</a></p>
@@ -281,18 +280,18 @@
             </div>
 
             <div class="contact-option" id="social-media-contact">
-                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Almost_ बबलू_लाइक_share_ वाला_icon.svg/64px-Almost_ बबलू_लाइक_share_ वाला_icon.svg.png" alt="Social Media Icon" class="icon"> <!-- Generic social icon -->
+                 <img src="images/social-media-generic-icon.png" alt="Connect on Social Media Icon" class="icon"> 
                 <h3>Connect on Social Media</h3>
                 <p>Follow our channels for the latest game updates, announcements, and to be part of the GameVerse community. You can also send us messages there!</p>
                 <div class="social-contact-icons">
                     <a href="https://t.me/PraxAI" target="_blank" rel="noopener noreferrer" title="PraxAI on Telegram">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/64px-Telegram_logo.svg.png" alt="Telegram">
+                        <img src="images/telegram-icon.png" alt="Telegram"> <!-- Assuming local telegram-icon.png -->
                     </a>
                     <a href="https://youtube.com/@praxai?si=SrIQNBLVw79p9oKD" target="_blank" rel="noopener noreferrer" title="PraxAI on YouTube">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/64px-YouTube_full-color_icon_%282017%29.svg.png" alt="YouTube">
+                        <img src="images/youtube-icon.png" alt="YouTube"> <!-- Assuming local youtube-icon.png -->
                     </a>
                     <a href="https://whatsapp.com/channel/0029Vb30cphDjiOZoEQf9a20" target="_blank" rel="noopener noreferrer" title="Gyan Natraj on WhatsApp">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/64px-WhatsApp.svg.png" alt="WhatsApp Channel">
+                        <img src="images/whatsapp-icon.png" alt="WhatsApp Channel"> <!-- Assuming local whatsapp-icon.png -->
                     </a>
                 </div>
             </div>
@@ -324,28 +323,27 @@
             <a href="contact.html">Contact Us</a> | 
             <a href="privacy_policy.html">Privacy Policy</a>
         </div>
-        <div class="footer-social-links"> <!-- Changed class name to avoid conflict if styles were global -->
-            <p>Follow Us for Updates:</p>
+        <div class="footer-social-links"> 
+            <p>Follow Us for GameVerse Updates:</p>
             <a href="https://t.me/PraxAI" target="_blank" rel="noopener noreferrer" title="PraxAI on Telegram">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/64px-Telegram_logo.svg.png" alt="Telegram Icon">
+                <img src="images/telegram-icon.png" alt="Telegram Icon for GameVerse">
             </a>
             <a href="https://youtube.com/@praxai?si=SrIQNBLVw79p9oKD" target="_blank" rel="noopener noreferrer" title="PraxAI on YouTube">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/64px-YouTube_full-color_icon_%282017%29.svg.png" alt="YouTube Icon">
+                <img src="images/youtube-icon.png" alt="YouTube Icon for GameVerse">
             </a>
             <a href="https://whatsapp.com/channel/0029Vb30cphDjiOZoEQf9a20" target="_blank" rel="noopener noreferrer" title="Gyan Natraj on WhatsApp">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/64px-WhatsApp.svg.png" alt="WhatsApp Channel Icon">
+                <img src="images/whatsapp-icon.png" alt="WhatsApp Channel Icon for GameVerse">
             </a>
         </div>
     </footer>
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
         
-        // Optional: Pre-fill email subject if user clicks "Send Email"
         const emailLink = document.querySelector('#email-contact .contact-link');
         if(emailLink) {
             const emailBase = "mailto:timelytrove.9354@gmail.com";
             const subject = "Inquiry from GameVerse User";
-            const body = "Hello Kanhaiya,\n\nI'm reaching out regarding GameVerse.\n\nMy query/feedback is:\n\n"; // Pre-fill some body
+            const body = "Hello Kanhaiya,\n\nI'm reaching out regarding GameVerse.\n\nMy query/feedback is:\n\n";
             emailLink.href = `${emailBase}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }
 
