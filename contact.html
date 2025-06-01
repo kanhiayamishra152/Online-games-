@@ -8,14 +8,15 @@
     <meta name="description" content="Contact Kanhaiya Mishra at GameVerse for any inquiries, feedback, bug reports, or suggestions regarding our free online games (Chess, Puzzles, Tic Tac Toe). We'd love to hear from you!">
     <meta name="keywords" content="contact gameverse, Kanhaiya Mishra contact, gameverse support, feedback, bug report, game suggestions, online games contact">
     <meta name="author" content="Kanhaiya Mishra - GameVerse">
-    <link rel="canonical" href="https://online-games-indol.vercel.app/contact.html"> <!-- UPDATE THIS URL WHEN DEPLOYED -->
+    <link rel="canonical" href="https://online-games-indol.vercel.app/contact.html"> 
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Contact GameVerse | Reach Out to Kanhaiya Mishra">
     <meta property="og:description" content="Have questions or feedback about GameVerse? Contact Kanhaiya Mishra directly via email or connect through our social channels.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://online-games-indol.vercel.app/contact.html"> <!-- UPDATE THIS URL -->
-    <meta property="og:image" content="https://online-games-indol.vercel.app/images/gameverse-contact-social.png"> <!-- CREATE A DEDICATED CONTACT US OG IMAGE -->
+    <meta property="og:url" content="https://online-games-indol.vercel.app/contact.html"> 
+    <!-- IMPORTANT: Make sure 'gameverse-contact-social.png' is in your ROOT directory or update path -->
+    <meta property="og:image" content="https://online-games-indol.vercel.app/gameverse-contact-social.png"> 
     <meta property="og:site_name" content="GameVerse">
     <meta property="og:locale" content="en_US">
 
@@ -23,7 +24,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Contact GameVerse | Reach Out to Kanhaiya Mishra">
     <meta name="twitter:description" content="Connect with Kanhaiya Mishra at GameVerse. Share your thoughts, report issues, or make suggestions about our online games.">
-    <meta name="twitter:image" content="https://online-games-indol.vercel.app/images/gameverse-contact-social.png">
+    <!-- IMPORTANT: Make sure 'gameverse-contact-social.png' is in your ROOT directory or update path -->
+    <meta name="twitter:image" content="https://online-games-indol.vercel.app/gameverse-contact-social.png">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -153,17 +155,7 @@
             margin-bottom: 10px;
         }
 
-        .social-contact { /* This class is not explicitly used in the HTML structure provided but good to have if needed */
-            text-align: center;
-        }
-        .social-contact h3 { /* Same as .contact-option h3 */
-             font-family: 'Roboto Slab', serif;
-            font-size: 1.5em;
-            color: var(--heading-color);
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-         .social-contact-icons a {
+        .social-contact-icons a {
             display: inline-block;
             margin: 0 12px;
             transition: transform 0.2s ease;
@@ -188,6 +180,15 @@
         .note-section p {
             margin-bottom: 5px;
         }
+        .note-section ul {
+            padding-left: 20px; /* Adjusted padding for inner list */
+            margin-top: 5px;
+        }
+        .note-section ul li {
+            font-size: 1em; /* Match parent p font-size */
+            margin-bottom: 3px;
+        }
+
 
         .site-footer {
             text-align: center; padding: 25px 0; margin-top: auto; 
@@ -245,7 +246,6 @@
             .contact-methods h2 { font-size: 1.8em; }
             .contact-option h3 { font-size: 1.3em; }
             .contact-option p { font-size: 1em; }
-            /* .social-contact h3 was removed as the h3 is inside .contact-option */
             .social-contact-icons img { width: 35px; height: 35px;}
             .footer-social-links img { width: 28px; height: 28px; }
         }
@@ -272,7 +272,7 @@
             <h2>How to Reach Us</h2>
 
             <div class="contact-option" id="email-contact">
-                <img src="images/email-icon.png" alt="Email Icon" class="icon"> <!-- Assuming you have email-icon.png in images folder -->
+                <img src="email-icon.png" alt="Email Icon" class="icon"> 
                 <h3>Via Email</h3>
                 <p>For general inquiries, support, feedback, or partnership opportunities, email is the best way to connect with Kanhaiya Mishra.</p>
                 <p><strong>Email Address:</strong> <a href="mailto:timelytrove.9354@gmail.com">timelytrove.9354@gmail.com</a></p>
@@ -280,18 +280,18 @@
             </div>
 
             <div class="contact-option" id="social-media-contact">
-                 <img src="images/social-media-generic-icon.png" alt="Connect on Social Media Icon" class="icon"> 
+                 <img src="social-media-generic-icon.png" alt="Connect on Social Media Icon" class="icon"> 
                 <h3>Connect on Social Media</h3>
                 <p>Follow our channels for the latest game updates, announcements, and to be part of the GameVerse community. You can also send us messages there!</p>
                 <div class="social-contact-icons">
                     <a href="https://t.me/PraxAI" target="_blank" rel="noopener noreferrer" title="PraxAI on Telegram">
-                        <img src="images/telegram-icon.png" alt="Telegram"> <!-- Assuming local telegram-icon.png -->
+                        <img src="telegram-icon.png" alt="Telegram"> 
                     </a>
                     <a href="https://youtube.com/@praxai?si=SrIQNBLVw79p9oKD" target="_blank" rel="noopener noreferrer" title="PraxAI on YouTube">
-                        <img src="images/youtube-icon.png" alt="YouTube"> <!-- Assuming local youtube-icon.png -->
+                        <img src="youtube-icon.png" alt="YouTube"> 
                     </a>
                     <a href="https://whatsapp.com/channel/0029Vb30cphDjiOZoEQf9a20" target="_blank" rel="noopener noreferrer" title="Gyan Natraj on WhatsApp">
-                        <img src="images/whatsapp-icon.png" alt="WhatsApp Channel"> <!-- Assuming local whatsapp-icon.png -->
+                        <img src="whatsapp-icon.png" alt="WhatsApp Channel"> 
                     </a>
                 </div>
             </div>
@@ -326,13 +326,13 @@
         <div class="footer-social-links"> 
             <p>Follow Us for GameVerse Updates:</p>
             <a href="https://t.me/PraxAI" target="_blank" rel="noopener noreferrer" title="PraxAI on Telegram">
-                <img src="images/telegram-icon.png" alt="Telegram Icon for GameVerse">
+                <img src="telegram-icon.png" alt="Telegram Icon for GameVerse">
             </a>
             <a href="https://youtube.com/@praxai?si=SrIQNBLVw79p9oKD" target="_blank" rel="noopener noreferrer" title="PraxAI on YouTube">
-                <img src="images/youtube-icon.png" alt="YouTube Icon for GameVerse">
+                <img src="youtube-icon.png" alt="YouTube Icon for GameVerse">
             </a>
             <a href="https://whatsapp.com/channel/0029Vb30cphDjiOZoEQf9a20" target="_blank" rel="noopener noreferrer" title="Gyan Natraj on WhatsApp">
-                <img src="images/whatsapp-icon.png" alt="WhatsApp Channel Icon for GameVerse">
+                <img src="whatsapp-icon.png" alt="WhatsApp Channel Icon for GameVerse">
             </a>
         </div>
     </footer>
