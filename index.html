@@ -232,6 +232,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            text-align: left; 
         }
 
         .game-card h3 {
@@ -244,8 +245,8 @@
         }
 
         .game-card p.game-description { 
-            font-size: 1.05em; 
-            line-height: 1.7;
+            font-size: 1.0em; 
+            line-height: 1.6; 
             color: var(--text-dark);
             margin-bottom: 20px;
             flex-grow: 1;
@@ -320,12 +321,18 @@
             line-height: 1.6;
         }
 
-        .privacy-section { 
+        .important-links-section { 
             width: 90%;
             max-width: 1300px;
             text-align: center;
             padding: 30px 0 40px 0;
             margin: 20px auto;
+        }
+        .important-links-section .button-group { 
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center;
+            gap: 15px; 
         }
 
         .important-link-button { 
@@ -393,6 +400,76 @@
             text-decoration: none; 
         }
         
+        #welcome-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); 
+            display: none; 
+            justify-content: center;
+            align-items: center;
+            z-index: 2000; 
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        #welcome-popup-overlay.visible {
+            display: flex;
+            opacity: 1;
+        }
+        .welcome-popup-content {
+            background-color: var(--card-bg); 
+            color: var(--text-light);
+            padding: 30px 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+            max-width: 90vw;
+            width: 450px;
+            border: 1px solid var(--border-light);
+            transform: scale(0.9);
+            transition: transform 0.3s ease-out;
+        }
+         #welcome-popup-overlay.visible .welcome-popup-content {
+            transform: scale(1);
+        }
+        .welcome-popup-content h2 {
+            font-family: 'Roboto Slab', serif;
+            color: var(--accent-color1);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .welcome-popup-content p {
+            font-size: 1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+        .welcome-popup-content p a { 
+            color: var(--accent-color2);
+            text-decoration: underline;
+        }
+        .welcome-popup-content p a:hover {
+            color: #ffab00;
+        }
+        .welcome-popup-button {
+            background-color: var(--accent-color2);
+            color: var(--primary-bg);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+        .welcome-popup-button:hover {
+            background-color: #ffab00;
+        }
+
+
         @media (max-width: 992px) { 
             .games-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
             .game-card h3 { font-size: 1.7em; }
@@ -423,6 +500,9 @@
             .games-grid { grid-template-columns: 1fr; gap: 30px;} 
             .game-card { margin: 0 10px; } 
             .footer-social-links img { width: 28px; height: 28px; }
+            .welcome-popup-content { width: 90%; padding: 20px; }
+            .welcome-popup-content h2 { font-size: 1.5em;}
+            .welcome-popup-content p { font-size: 0.9em;}
         }
     </style>
 
@@ -463,9 +543,21 @@
             <a href="about.html">About Us</a> 
             <a href="contact.html">Contact Us</a> 
             <a href="privacy_policy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Service</a> {/*-- << नया लिंक जोड़ा गया --*/}
+            <a href="terms.html">Terms of Service</a>
         </div>
     </nav>
+
+    <div id="welcome-popup-overlay">
+        <div class="welcome-popup-content">
+            <h2>Welcome to GameVerse!</h2>
+            <p>We're thrilled to have you here. By continuing to use our site, you agree to our 
+            <a href="terms.html" target="_blank">Terms of Service</a> and 
+            <a href="privacy_policy.html" target="_blank">Privacy Policy</a>, which includes information about how we use cookies and serve ads.
+            </p>
+            <button id="welcome-popup-ok-button" class="welcome-popup-button">Got It!</button>
+        </div>
+    </div>
+
 
     <header class="hero-section">
         <h1>GameVerse: Your Universe of Free Online Games!</h1>
@@ -479,7 +571,7 @@
             <p class="section-subtitle">Dive into a curated selection of timeless classics and engaging new challenges. Perfect for a quick break or hours of strategic fun!</p>
 
             <div class="games-grid">
-                {/*-- Game Card 1: Chess --*/}
+                <!-- Game Card 1: Chess -->
                 <article class="game-card" itemscope itemtype="https://schema.org/VideoGame">
                     <meta itemprop="applicationCategory" content="Game"/>
                     <meta itemprop="gamePlatform" content="Web Browser"/>
@@ -493,13 +585,15 @@
                     <div class="game-card-content">
                         <div>
                             <h3 itemprop="name">Strategic Chess Online</h3>
-                            <p class="game-description" itemprop="description">Engage in the timeless battle of wits. Outsmart our AI (Easy, Medium, Hard) or play with a friend in this classic online chess game. Master strategy, learn the rules, and aim for checkmate!</p>
+                            <p class="game-description" itemprop="description">
+                                Immerse yourself in the regal world of Strategic Chess Online, a timeless classic that has challenged intellects for centuries. At GameVerse, you can sharpen your tactical mind by playing against our sophisticated AI, which offers multiple difficulty settings from Easy for beginners to Hard for seasoned grandmasters. Alternatively, invite a friend for a captivating two-player duel right in your browser. Learn the intricate rules, master complex strategies like forks and pins, develop your pieces, control the center, and relentlessly pursue the ultimate goal: checkmate! This is more than just a game; it's a mental gymnasium.
+                            </p>
                         </div>
                         <a href="chess_game_page.html" class="play-button" itemprop="url" aria-label="Play Strategic Chess Game Online">Play Chess</a>
                     </div>
                 </article>
 
-                {/*-- Game Card 2: Wooden Puzzle --*/}
+                <!-- Game Card 2: Wooden Puzzle -->
                 <article class="game-card" itemscope itemtype="https://schema.org/VideoGame">
                      <meta itemprop="applicationCategory" content="Game"/>
                     <meta itemprop="gamePlatform" content="Web Browser"/>
@@ -513,13 +607,15 @@
                     <div class="game-card-content">
                         <div>
                             <h3 itemprop="name">Wooden Block Puzzle Challenge</h3>
-                            <p class="game-description" itemprop="description">A captivating and addictive puzzle experience. Strategically arrange wooden blocks on a 10x10 grid to fill and clear lines. Test your spatial skills and aim for a high score in this brain-teasing wooden puzzle game.</p>
+                            <p class="game-description" itemprop="description">
+                                Experience the satisfying challenge of our Wooden Block Puzzle, a game that combines simple mechanics with deep strategic possibilities. Your task is to skillfully place an assortment of wooden-style blocks onto a 10x10 grid. The objective? Fill complete rows or columns to clear them from the board, earn points, and make space for new pieces. With various difficulty levels, this brain-teasing puzzle offers endless replayability. Plan your moves carefully, think ahead, and aim for those rewarding multi-line clears to achieve a new high score in this engaging and beautifully designed classic.
+                            </p>
                         </div>
                         <a href="wooden_puzzle_page.html" class="play-button" itemprop="url" aria-label="Play Wooden Block Puzzle Game Online">Play Puzzle Game</a>
                     </div>
                 </article>
 
-                {/*-- Game Card 3: Tic-Tac-Toe --*/}
+                <!-- Game Card 3: Tic-Tac-Toe -->
                 <article class="game-card" itemscope itemtype="https://schema.org/VideoGame">
                     <meta itemprop="applicationCategory" content="Game"/>
                     <meta itemprop="gamePlatform" content="Web Browser"/>
@@ -533,7 +629,9 @@
                     <div class="game-card-content">
                         <div>
                             <h3 itemprop="name">Tic-Tac-Toe Classic (XOXO)</h3>
-                            <p class="game-description" itemprop="description">The beloved Xs and Os game, reimagined! Challenge a friend locally or test your wits against our smart AI with multiple difficulty levels. Enjoy various themes in this simple yet deeply engaging strategy game.</p>
+                            <p class="game-description" itemprop="description">
+                                Relive the fun of Tic-Tac-Toe (also known as Noughts and Crosses or X's and O's) with our modern and feature-rich version! This seemingly simple game is a fantastic test of foresight and strategy. Challenge a friend in a classic two-player local match, or pit your wits against our intelligent AI opponent, available in multiple difficulty settings from Easy to Impossible. Customize your experience with various themes to suit your style. The goal is simple: be the first to get three of your marks in a row – horizontally, vertically, or diagonally. Can you outsmart your opponent?
+                            </p>
                         </div>
                         <a href="tic-tac-toe.html" class="play-button" itemprop="url" aria-label="Play Tic-Tac-Toe Game Online (XOXO)">Play Tic-Tac-Toe</a>
                     </div>
@@ -580,11 +678,13 @@
             </div>
         </section>
 
-        <div class="privacy-section"> 
+        <div class="important-links-section"> 
             <h2 class="section-title" style="font-size: 2em; margin-bottom: 25px;">Learn More About Us</h2>
-            <a href="privacy_policy.html" class="important-link-button">Our Privacy Commitment</a>
-            <a href="about.html" class="important-link-button" style="margin-left:15px;">Meet The Team</a> 
-            <a href="terms.html" class="important-link-button" style="margin-left:15px;">Terms of Service</a> {/*-- << नया लिंक जोड़ा गया (वैकल्पिक स्थान) --*/}
+            <div class="button-group">
+                <a href="about.html" class="important-link-button">Meet The Team</a> 
+                <a href="privacy_policy.html" class="important-link-button">Our Privacy Commitment</a>
+                <a href="terms.html" class="important-link-button">Terms of Service</a>
+            </div>
         </div>
 
     </main>
@@ -596,7 +696,7 @@
             <a href="about.html">About Us</a> | 
             <a href="contact.html">Contact Us</a> | 
             <a href="privacy_policy.html">Privacy Policy</a> |
-            <a href="terms.html">Terms of Service</a> {/*-- << नया लिंक जोड़ा गया --*/}
+            <a href="terms.html">Terms of Service</a>
         </div>
         <div class="footer-social-links">
             <p>Follow Us for GameVerse Updates:</p>
@@ -626,6 +726,32 @@
                 }
             });
         }
+
+        // Welcome Popup Logic
+        const welcomePopupOverlay = document.getElementById('welcome-popup-overlay');
+        const welcomePopupOkButton = document.getElementById('welcome-popup-ok-button');
+        const popupTimeoutDuration = 7000; // 7 seconds to auto-hide
+        let popupTimer;
+
+        function showWelcomePopup() {
+            if (!localStorage.getItem('gameverseWelcomePopupShown_v1')) { 
+                welcomePopupOverlay.classList.add('visible');
+                popupTimer = setTimeout(hideWelcomePopup, popupTimeoutDuration);
+                localStorage.setItem('gameverseWelcomePopupShown_v1', 'true'); 
+            }
+        }
+
+        function hideWelcomePopup() {
+            clearTimeout(popupTimer); 
+            welcomePopupOverlay.classList.remove('visible');
+        }
+
+        if (welcomePopupOkButton) {
+            welcomePopupOkButton.addEventListener('click', hideWelcomePopup);
+        }
+
+        window.addEventListener('load', showWelcomePopup);
+
     </script>
 
 </body>
