@@ -3,23 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wood Block Puzzle - How to Play & Tips | GameVerse</title>
-    <meta name="description" content="Play the engaging Wood Block Puzzle game. Learn how to play, get tips for high scores, and enjoy this classic brain teaser on GameVerse.">
-    <meta name="keywords" content="wood block puzzle, puzzle game, block puzzle, online puzzle, gameverse, brain game, new games, what is game, how to play, Play Store, google.com, ai, strategy game">
+    <title>Wood Block Puzzle Challenge (2025) - Play Free Online | GameVerse</title>
+    <meta name="description" content="Play the engaging Wood Block Puzzle game online for free at GameVerse (2025 Edition)! Test your strategy and spatial skills. Learn how to play, get tips for high scores, and enjoy this classic brain teaser.">
+    <meta name="keywords" content="wood block puzzle, puzzle game online, free block puzzle, brain teaser game, strategy puzzle, GameVerse, Kanhaiya Mishra, 2025 puzzle games, play wooden puzzle">
+    <meta name="author" content="Kanhaiya Mishra - GameVerse">
+    <link rel="canonical" href="https://online-games-indol.vercel.app/wooden_puzzle_page.html"> <!-- UPDATE URL -->
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://online-games-indol.vercel.app/wooden_puzzle_page.html"> <!-- UPDATE URL -->
+    <meta property="og:title" content="Wood Block Puzzle Challenge (2025) - Play Free Online | GameVerse">
+    <meta property="og:description" content="Addictive Wood Block Puzzle game on GameVerse! Fit blocks, clear lines, and aim for a high score. Fun for all puzzle lovers.">
+    <meta property="og:image" content="https://online-games-indol.vercel.app/images/wooden-puzzle-social-2025.png"> <!-- CREATE/UPDATE IMAGE -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://online-games-indol.vercel.app/wooden_puzzle_page.html"> <!-- UPDATE URL -->
+    <meta property="twitter:title" content="Wood Block Puzzle Challenge (2025) - Play Free Online | GameVerse">
+    <meta property="twitter:description" content="Play the captivating Wood Block Puzzle on GameVerse. Free, fun, and challenging for all ages.">
+    <meta property="twitter:image" content="https://online-games-indol.vercel.app/images/wooden-puzzle-social-2025.png"> <!-- CREATE/UPDATE IMAGE -->
+
+    <!-- Favicon (Ensure these files are in your root or update path) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00adb5"> 
+    <meta name="msapplication-TileColor" content="#222831"> 
+    <meta name="theme-color" content="#222831"> 
 
     <!-- Google AdSense Script -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8067952496194704"
          crossorigin="anonymous"></script>
-    <!-- End Google AdSense Script -->
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --gv-top-nav-bg: #2c1e10;
-            --gv-top-nav-text: #f5e8d3;
-            --gv-top-nav-link-hover-bg: #4a3623;
-            --gv-primary-accent: #e8a14d;
+            --gv-top-nav-bg: #1a1a1a; /* Consistent with other pages' nav */
+            --gv-top-nav-text: #eeeeee;
+            --gv-top-nav-link-hover-bg: #2c2c2c;
+            --gv-primary-accent-footer: #00adb5; /* Teal from index page footer */
+
+            /* Game Specific Theme (Browns for Wooden Puzzle) */
+            --game-primary-bg: #654321; /* Main page background */
+            --game-container-bg: #8B4513; /* Game box background */
+            --game-text-light: #FFF0E1; /* Light text on dark wood */
+            --game-accent-dark-wood: #603813; /* Darker wood accents */
+            --game-accent-medium-wood: #A0522D; /* Medium wood accents */
+            --game-accent-highlight: #FFD700; /* Gold for highlights */
         }
         body {
             font-family: 'Poppins', sans-serif;
@@ -29,50 +61,68 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background-color: #654321;
-            touch-action: manipulation;
+            background-color: var(--game-primary-bg);
+            touch-action: manipulation; 
             overflow-x: hidden;
-            padding-top: 60px;
+            padding-top: 70px; /* Space for fixed header */
         }
 
         .top-nav-bar {
             position: fixed; top: 0; left: 0; width: 100%;
             background-color: var(--gv-top-nav-bg); 
-            color: var(--gv-top-nav-text); padding: 10px 20px;
+            color: var(--gv-top-nav-text); padding: 12px 25px;
             display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 1010;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3); z-index: 1010;
+            border-bottom: 2px solid var(--gv-primary-accent-footer); 
+            min-height: 50px;
         }
-        .top-nav-bar .logo a { color: var(--gv-top-nav-text); text-decoration: none; font-size: 1.3em; font-weight: 700; font-family: 'Roboto Slab', serif;}
-        .top-nav-bar .nav-links { display: flex; align-items: center; }
-        .top-nav-bar .nav-links a { color: var(--gv-top-nav-text); text-decoration: none; margin-left: 15px; font-size: 0.9em; padding: 5px 8px; border-radius: 5px; transition: background-color 0.3s ease; }
-        .top-nav-bar .nav-links a:hover { background-color: var(--gv-top-nav-link-hover-bg); }
+        .top-nav-bar .logo a { color: var(--gv-top-nav-text); text-decoration: none; font-size: 1.4em; font-weight: 700; font-family: 'Roboto Slab', serif;}
+        .top-nav-bar .nav-links { display: flex; align-items: center; flex-wrap: wrap;}
+        .top-nav-bar .nav-links a { color: var(--gv-top-nav-text); text-decoration: none; margin-left: 18px; font-size: 0.95em; padding: 6px 10px; border-radius: 5px; transition: background-color 0.2s ease, color 0.2s ease; }
+        .top-nav-bar .nav-links a:hover, .top-nav-bar .nav-links a.active { 
+            background-color: var(--gv-top-nav-link-hover-bg); 
+            color: var(--gv-primary-accent-footer); 
+        }
 
         .site-footer {
-            text-align: center; padding: 20px 0; margin-top: 30px;
+            text-align: center; padding: 25px 0; margin-top: auto;
             width:100%; background-color: var(--gv-top-nav-bg);
-            color: var(--gv-top-nav-text); opacity: 0.9; font-size: 0.9em;
+            color: var(--gv-top-nav-text); opacity: 0.95; font-size: 0.9em;
+            border-top: 3px solid var(--gv-primary-accent-footer);
         }
-        .site-footer a { color: var(--gv-primary-accent); text-decoration: none;}
-        .site-footer a:hover { text-decoration: underline;}
+        .site-footer a { color: var(--gv-primary-accent-footer); text-decoration: none; font-weight: 500;}
+        .site-footer a:hover { text-decoration: underline; color: #fff;}
+        .footer-links-group { margin-top: 8px; margin-bottom: 15px; } 
+        .footer-links-group a { margin: 0 8px; }
+        .footer-social-links { 
+            margin-top: 15px; padding-top: 15px; border-top: 1px solid #444; 
+        }
+        .footer-social-links p {
+             margin-bottom: 10px; font-size: 1em; font-weight: 500; color: var(--gv-top-nav-text);
+        }
+        .footer-social-links a { display: inline-block; margin: 0 10px; transition: transform 0.2s ease; }
+        .footer-social-links img { width: 32px; height: 32px; vertical-align: middle; }
+        .footer-social-links a:hover { transform: scale(1.15); text-decoration: none; }
+
 
         body.dragging-active { cursor: grabbing; }
         .game-container {
-            background-color: #8B4513; padding: 20px; border-radius: 10px;
+            background-color: var(--game-container-bg); padding: 20px; border-radius: 10px;
             box-shadow: 0 0 20px rgba(0,0,0,0.5), inset 0 0 15px rgba(50,20,0,0.7);
             text-align: center; max-width: 90vw; width: 400px; user-select: none;
             -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;
-            position: relative; margin-top: 10px; margin-bottom: 20px;
+            position: relative; margin-top: 20px; margin-bottom: 20px; /* Added top margin */
         }
         .screen { display: none; }
         .screen.active { display: block; }
         #score-area {
-            background-color: #A0522D; color: #FFF0E1; font-size: 24px; font-weight: bold;
+            background-color: var(--game-accent-medium-wood); color: var(--game-text-light); font-size: 24px; font-weight: bold;
             padding: 10px 20px; border-radius: 8px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
             border: 2px solid #6B4226; flex-grow: 1; text-align: center;
         }
         #game-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
         #back-to-difficulty-btn {
-            background-color: #A0522D; color: #FFF0E1; border: 1px solid #6B4226;
+            background-color: var(--game-accent-medium-wood); color: var(--game-text-light); border: 1px solid #6B4226;
             padding: 5px 10px; font-size: 14px; border-radius: 5px; cursor: pointer;
             box-shadow: 0 2px #6B4226; margin-right: 10px;
         }
@@ -80,8 +130,8 @@
         #back-to-difficulty-btn:active { transform: translateY(1px); box-shadow: 0 1px #6B4226; }
         #game-board {
             display: grid; grid-template-columns: repeat(10, 1fr); grid-template-rows: repeat(10, 1fr);
-            width: 100%; aspect-ratio: 1 / 1; background-color: #A0522D;
-            border: 3px solid #603813; box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
+            width: 100%; aspect-ratio: 1 / 1; background-color: var(--game-accent-medium-wood);
+            border: 3px solid var(--game-accent-dark-wood); box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
             margin-bottom: 20px; position: relative;
         }
         .grid-cell {
@@ -96,47 +146,34 @@
         .grid-cell.preview { background-color: rgba(255, 255, 255, 0.5) !important; outline: 1px dashed #333; }
         
         @keyframes destroyEffect {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-                background-color: #FFFACD; /* Highlight color */
-            }
-            50% {
-                transform: scale(1.1); 
-                opacity: 0.8;
-                background-color: #FFD700; /* Brighter highlight */
-            }
-            100% {
-                transform: scale(0.1); 
-                opacity: 0;
-                background-color: #CD853F; 
-            }
+            0% { transform: scale(1); opacity: 1; background-color: #FFFACD; }
+            50% { transform: scale(1.1); opacity: 0.8; background-color: var(--game-accent-highlight); }
+            100% { transform: scale(0.1); opacity: 0; background-color: #CD853F; }
         }
-
-        .grid-cell.line-clearing {
-            animation: destroyEffect 0.4s ease-out forwards; 
-        }
+        .grid-cell.line-clearing { animation: destroyEffect 0.4s ease-out forwards; }
 
         .combo-popup {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.7); color: white; padding: 15px 30px;
+            background-color: rgba(0, 0, 0, 0.75); color: white; padding: 15px 30px;
             border-radius: 10px; font-size: 28px; font-weight: bold; z-index: 1001;
             opacity: 0; transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-            pointer-events: none;
+            pointer-events: none; text-shadow: 1px 1px 2px #000;
         }
         .combo-popup.show { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
         .combo-popup.hide { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+        
         #game-over-message {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%);
-            background-color: rgba(139, 69, 19, 0.9); color: #FFF0E1; padding: 25px;
-            border-radius: 15px; border: 3px solid #603813; box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-            z-index: 1002; text-align: center; width: 80%; max-width: 300px;
+            background-color: rgba(139, 69, 19, 0.95); color: var(--game-text-light); padding: 25px;
+            border-radius: 15px; border: 3px solid var(--game-accent-dark-wood); box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            z-index: 1002; text-align: center; width: 80%; max-width: 320px;
         }
-        #game-over-message h3 { margin-top: 0; margin-bottom: 15px; font-size: 24px; color: #FFD700; }
+        #game-over-message h3 { margin-top: 0; margin-bottom: 15px; font-size: 24px; color: var(--game-accent-highlight); font-family: 'Roboto Slab', serif;}
         #game-over-message p { margin: 8px 0; font-size: 18px; }
+        
         #piece-container {
             display: flex; justify-content: space-around; align-items: flex-start;
-            min-height: 80px; padding: 10px; background-color: #A0522D;
+            min-height: 80px; padding: 10px; background-color: var(--game-accent-medium-wood);
             border-radius: 8px; box-shadow: inset 0 0 8px rgba(0,0,0,0.3);
         }
         .piece-slot { width: 30%; display: flex; justify-content: center; align-items: center; min-height: 60px; }
@@ -152,60 +189,79 @@
             position: absolute; z-index: 1000; opacity: 0.75;
             pointer-events: none; transform-origin: top left;
         }
-        button {
+        button, .difficulty-btn, #start-game-btn, #back-to-difficulty-btn, #restart-game-over-btn  { /* More specific selectors */
             background-color: #D2691E; color: white; border: 2px solid #8B4513;
             padding: 12px 25px; font-size: 18px; border-radius: 8px; cursor: pointer;
             transition: background-color 0.2s, transform 0.1s;
             box-shadow: 0 4px #8B4513; margin: 10px 5px;
+            font-family: 'Poppins', sans-serif; /* Ensure consistent font */
         }
-        button:hover { background-color: #B85C1A; }
-        button:active { transform: translateY(2px); box-shadow: 0 2px #8B4513; }
-        h1, h2 { color: #FFF0E1; font-family: 'Roboto Slab', serif;}
+        button:hover, .difficulty-btn:hover, #start-game-btn:hover, #back-to-difficulty-btn:hover, #restart-game-over-btn:hover { background-color: #B85C1A; }
+        button:active, .difficulty-btn:active, #start-game-btn:active, #back-to-difficulty-btn:active, #restart-game-over-btn:active { transform: translateY(2px); box-shadow: 0 2px #8B4513; }
+        
+        #back-to-difficulty-btn { font-size: 14px; padding: 8px 15px; } /* Smaller back button */
+
+        h1, .game-container h2 { color: var(--game-text-light); font-family: 'Roboto Slab', serif;} /* Game container specific h2 */
+        
         .music-controls { margin-top: 20px; padding-top: 15px; border-top: 1px solid #6B4226; }
-        .music-controls h3 { margin-bottom: 10px; font-size: 18px; color: #FFF0E1; }
+        .music-controls h3 { margin-bottom: 10px; font-size: 18px; color: var(--game-text-light); font-family: 'Roboto Slab', serif;}
         .volume-control-container { display: flex; align-items: center; justify-content: center; margin-top: 5px; }
         #volume-slider { width: 180px; cursor: pointer; }
 
         .game-info-section {
-            background-color: #8B4513; 
-            color: #FFF0E1;
-            padding: 20px;
+            background-color: var(--game-container-bg); 
+            color: var(--game-text-light);
+            padding: 25px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.3), inset 0 0 10px rgba(50,20,0,0.5);
             margin-top: 30px;
+            margin-bottom: 30px;
             max-width: 90vw;
-            width: 600px; 
+            width: 700px; 
             text-align: left;
-            line-height: 1.6;
+            line-height: 1.7;
         }
         .game-info-section h2 {
             font-family: 'Roboto Slab', serif;
-            color: #FFD700; 
-            border-bottom: 1px solid #A0522D;
+            color: var(--game-accent-highlight); 
+            border-bottom: 2px solid var(--game-accent-medium-wood);
             padding-bottom: 10px;
             margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 2em;
         }
         .game-info-section h3 {
             font-family: 'Roboto Slab', serif;
-            color: #FFD700;
-            margin-top: 20px;
+            color: var(--game-accent-highlight);
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.6em;
         }
         .game-info-section p, .game-info-section ol, .game-info-section ul {
-            font-size: 1em;
-            margin-bottom: 10px;
+            font-size: 1.05em;
+            margin-bottom: 15px;
         }
         .game-info-section ol, .game-info-section ul {
-            padding-left: 20px;
+            padding-left: 30px;
         }
-        .game-info-section ul li { list-style: disc; margin-bottom: 5px;}
-        .game-info-section ol li { list-style: decimal; margin-bottom: 5px;}
+        .game-info-section ul li { list-style: disc; margin-bottom: 8px; padding-left: 5px;}
+        .game-info-section ol li { list-style: decimal; margin-bottom: 8px;}
+        .game-info-section strong { font-weight: 600; color: var(--game-accent-highlight);}
 
-         @media (max-width: 640px) {
-            .game-info-section { width: 90vw; }
-            .top-nav-bar { flex-direction: column; align-items: flex-start; gap: 5px;}
-            .top-nav-bar .nav-links { margin-left:0; margin-top: 5px; }
-            .top-nav-bar .nav-links a { margin-left: 0; margin-right: 10px;}
-            body { padding-top: 90px; }
+         @media (max-width: 768px) {
+            .game-info-section { width: 90vw; padding: 20px;}
+            .game-info-section h2 { font-size: 1.8em; }
+            .game-info-section h3 { font-size: 1.4em; }
+        }
+         @media (max-width: 600px) {
+            body { padding-top: 120px; } 
+            .top-nav-bar { flex-direction: column; align-items: flex-start; gap: 8px; height: auto; padding-bottom: 10px;}
+            .top-nav-bar .nav-links { width: 100%; display: flex; flex-wrap: wrap; justify-content: flex-start; margin-left:0; margin-top: 5px; }
+            .top-nav-bar .nav-links a { margin: 3px 10px 3px 0; }
+            .game-container { width: 95vw; padding: 15px;}
+            #score-area {font-size: 20px;}
+            .game-info-section { width: 95vw; padding: 15px;}
+            .footer-social-links img { width: 28px; height: 28px;}
         }
     </style>
 </head>
@@ -214,10 +270,10 @@
         <div class="logo"><a href="index.html">GameVerse</a></div>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <!-- IMPORTANT: Create these pages (about.html, contact.html) with unique content -->
-            <!-- <a href="about.html">About Us</a> -->
-            <!-- <a href="contact.html">Contact Us</a> -->
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
             <a href="privacy_policy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a> 
         </div>
     </nav>
 
@@ -232,11 +288,13 @@
 
         <div id="start-screen" class="screen active">
             <h1>Wood Block Puzzle</h1>
+            <p style="color: var(--game-text-light); font-size:1.1em; margin-bottom:15px;">A classic brain-teasing block puzzle. Fit the pieces, clear lines, and challenge your high score!</p>
             <button id="start-game-btn">Start Game</button>
         </div>
 
         <div id="difficulty-screen" class="screen">
-            <h2>Select Difficulty</h2>
+            <h2 style="margin-bottom:5px;">Select Difficulty</h2>
+            <p style="color: var(--game-text-light); font-size:0.9em; margin-bottom:15px;">Choose your challenge level.</p>
             <button class="difficulty-btn" data-difficulty="easy">Easy</button>
             <button class="difficulty-btn" data-difficulty="medium">Medium</button>
             <button class="difficulty-btn" data-difficulty="hard">Hard</button>
@@ -267,49 +325,77 @@
     </div>
 
     <section class="game-info-section">
-        <h2>About Wood Block Puzzle</h2>
-        <p>Welcome to the classic Wood Block Puzzle on GameVerse! This isn't just any puzzle; it's a mental workout wrapped in a charming wooden aesthetic. The game is designed to test your strategic foresight and spatial awareness. Your mission, should you choose to accept it, is to deftly arrange an assortment of wooden blocks onto a 10x10 grid. The real magic happens when you complete a full line – poof! It vanishes, clearing space and earning you points. While the basics are a breeze to pick up, achieving true mastery requires practice and a keen eye for patterns. This version of the game offers varying difficulty levels to suit everyone from the casual player to the seasoned puzzle enthusiast.</p>
+        <h2>The Enduring Charm of Wood Block Puzzle</h2>
+        <p>Welcome to GameVerse's rendition of the Wood Block Puzzle, a timeless and universally loved brain teaser! This game, with its simple yet profoundly engaging mechanics, offers a delightful challenge to players of all ages. It's not just about fitting pieces; it's an exercise in foresight, spatial reasoning, and strategic planning, all wrapped in a charmingly rustic wooden aesthetic. Our version aims to provide a smooth, intuitive, and satisfying puzzle experience, perfect for a quick mental break or an extended session of thoughtful block placement. Get ready to immerse yourself in the satisfying world of clearing lines and chasing high scores!</p>
 
-        <h3>How to Play: Step-by-Step</h3>
+        <h3>How to Play: A Beginner's Guide to Block Mastery</h3>
+        <p>Getting started with Wood Block Puzzle is incredibly easy, but mastering its nuances will keep you engaged for hours. Here’s a step-by-step guide:</p>
         <ol>
-            <li><strong>Starting Up:</strong> Once you select your difficulty and start the game, you'll see a 10x10 empty grid and three wooden block pieces at the bottom.</li>
-            <li><strong>Placing Blocks:</strong> Simply tap (or click and drag) one of the three pieces and move it onto the game board. Release to place it. The piece must fit entirely within the empty cells.</li>
-            <li><strong>Clearing Lines:</strong> Your primary goal is to fill either a horizontal row or a vertical column completely with blocks. Once a line is full, it will clear, freeing up space and adding to your score.</li>
-            <li><strong>New Pieces:</strong> After you place a piece, if its slot was the first or second, the remaining pieces will shift, and a new "hint" piece will appear in the third slot, giving you a glimpse of what's coming. If all three pieces are used, three new pieces will be generated.</li>
-            <li><strong>Game Over Condition:</strong> The game concludes if you reach a point where none of the three available block pieces can be legally placed anywhere on the board. So, think carefully before each move!</li>
-            <li><strong>Scoring:</strong> You get points for each block cell placed. Clearing lines awards bonus points, and clearing multiple lines at once (a combo!) results in an even bigger score boost. The difficulty level also influences your final score multiplier.</li>
+            <li><strong>The Game Board:</strong> You are presented with a 10x10 grid, your canvas for building and clearing lines.</li>
+            <li><strong>The Pieces:</strong> Below the grid, you'll find three wooden block pieces of various shapes, inspired by classic tetrominoes and other polyominoes. These are the tools you'll use to fill the board.</li>
+            <li><strong>Placing Blocks:</strong> To make a move, simply tap (or click and drag on desktop) one of the three available pieces and move it onto an empty space on the game board. The piece must fit entirely within the unoccupied cells. Once you're happy with the position, release to place it.</li>
+            <li><strong>Clearing Lines:</strong> The primary objective is to create complete horizontal or vertical lines of blocks across the grid. When a line is entirely filled with no gaps, it will be cleared from the board, earning you points and, crucially, freeing up valuable space for more pieces.</li>
+            <li><strong>Receiving New Pieces:</strong> After you place a piece, it disappears from its slot. If it was from slot 0 or 1, the remaining pieces may shift, and a "hint" piece (visible in slot 2) will become available in the next open slot. When all three initial pieces are used, a new set of three pieces will be generated for you to place. Always keep an eye on the upcoming hint piece!</li>
+            <li><strong>No Rotations:</strong> In this classic version, pieces cannot be rotated. You must use them in the orientation they are presented. This adds an extra layer of strategic challenge.</li>
+            <li><strong>The End of the Game:</strong> The game concludes when there is no legal move left on the board for any of the three currently available pieces. This means no piece can fit into the remaining empty spaces. At this point, your final score is tallied.</li>
+            <li><strong>Scoring System:</strong> You earn points for every individual block cell you place on the board. Clearing a single line grants a significant point bonus. Clearing multiple lines simultaneously (a "combo") results in substantially higher bonus points – aim for these for a top score! The chosen difficulty level also applies a multiplier to your score.</li>
         </ol>
 
-        <h3>Key Features of Our Wood Block Puzzle</h3>
+        <h3>Key Features of GameVerse Wood Block Puzzle</h3>
         <ul>
-            <li><strong>Multiple Difficulty Levels:</strong> Choose from Easy, Medium, or Hard to match your skill. Harder levels might introduce more complex pieces or affect scoring.</li>
-            <li><strong>Intuitive Drag and Drop:</strong> Smooth and responsive controls make placing blocks a joy.</li>
-            <li><strong>Engaging Sound Effects:</strong> Satisfying sounds for placing blocks and clearing lines. Music volume is adjustable.</li>
-            <li><strong>No Time Limit:</strong> Play at your own pace. This is a game of strategy, not speed.</li>
-            <li><strong>High Score Tracking:</strong> Challenge yourself to beat your personal best (stored locally in your browser for each difficulty).</li>
-            <li><strong>Combo System:</strong> Get rewarded with extra points and encouraging messages for clearing multiple lines in a single move.</li>
-            <li><strong>Clean, Wooden Aesthetic:</strong> Enjoy a visually pleasing and relaxing game environment with a cool line-clearing effect.</li>
+            <li><strong>Multiple Difficulty Levels:</strong> Catering to all players, choose from Easy (more forgiving piece sets, potentially), Medium (a balanced challenge), or Hard (more complex or larger pieces might appear more frequently, testing your limits).</li>
+            <li><strong>Intuitive Drag & Drop Controls:</strong> Effortlessly move and place blocks with smooth and responsive touch/mouse controls.</li>
+            <li><strong>Satisfying Visuals & Sounds:</strong> Enjoy the clean wooden aesthetic, complemented by pleasing sound effects for piece placement and line clears. An immersive experience with adjustable music volume.</li>
+            <li><strong>No Time Pressure:</strong> Play at your own relaxed pace. This is a game of thoughtful strategy, not a race against the clock, allowing for careful planning.</li>
+            <li><strong>High Score System:</strong> Challenge yourself to beat your personal best! High scores are saved locally in your browser for each difficulty level, encouraging replayability.</li>
+            <li><strong>Exciting Combo Rewards:</strong> Clearing multiple lines in a single move not only boosts your score dramatically but also triggers encouraging on-screen messages like "Good!", "Very Good!", or "Excellent!"</li>
+            <li><strong>Dynamic Piece Generation:</strong> A fair but challenging system of piece generation keeps the game interesting and requires adaptability.</li>
+            <li><strong>Engaging Line Clear Animation:</strong> A cool "destroy" effect for when lines are cleared, adding to the satisfaction.</li>
         </ul>
 
-        <h3>Tips and Strategies for a High Score</h3>
+        <h3>Advanced Tips & Strategies for Becoming a Puzzle Pro</h3>
+        <p>Ready to take your Wood Block Puzzle skills to the next level? Here are some advanced tactics:</p>
         <ul>
-            <li><strong>Think Several Moves Ahead:</strong> Don't just focus on the immediate piece. Look at all three available pieces and the hint piece to plan your placements.</li>
-            <li><strong>Corner Management:</strong> Corners can be tricky. Try to keep them relatively open or fill them strategically. Avoid trapping yourself.</li>
-            <li><strong>Create Space for Large Pieces:</strong> The 3x3 square or long I-shapes need significant space. Always try to maintain areas where these larger pieces can fit.</li>
-            <li><strong>Don't Neglect Small Gaps:</strong> While you want space for big pieces, don't let small, awkward gaps accumulate. Use smaller pieces to fill these when possible.</li>
-            <li><strong>Prioritize Multiple Line Clears:</strong> Setting up for a double or triple line clear is often more valuable than clearing a single line immediately. This also triggers better performance messages!</li>
-            <li><strong>The "Waiting Game":</strong> Sometimes, it's better to make a slightly suboptimal move if it means keeping your options open for a piece you desperately need or to clear a critical line.</li>
-            <li><strong>Learn Piece Patterns:</strong> Familiarize yourself with all the possible block shapes. Knowing what might come next helps in strategic board management.</li>
+            <li><strong>Board Vision & Planning:</strong> Don't just focus on the current three pieces. Constantly scan the entire board for potential line clears several moves ahead. Visualize how upcoming pieces (including the hint piece) might fit.</li>
+            <li><strong>Creating "Tetrises" (Multi-Line Clears):</strong> Actively try to leave long, open channels (ideally 4+ cells wide or tall) to set up for clearing multiple lines with a single long "I" piece or strategically placed L/T pieces. This yields the highest scores.</li>
+            <li><strong>Corner and Edge Management:</strong> Be wary of creating isolated empty cells in corners or along edges, as these can be very difficult to fill later. Try to keep your block structures relatively flat or with easily accessible gaps.</li>
+            <li><strong>Managing "Awkward" Pieces:</strong> Some pieces (like the 2x2 square or larger, more complex shapes) can be tricky. Try to use them as soon as a good opportunity arises, rather than letting them clog your available piece slots if your board is getting tight.</li>
+            <li><strong>Strategic Sacrifices:</strong> Sometimes, placing a piece in a slightly suboptimal position is necessary to open up a crucial line clear on the next move or to make space for a much-needed larger piece you see coming in the hint slot.</li>
+            <li><strong>Maintaining Flexibility:</strong> Avoid building yourself into a corner where only one specific (and rare) piece can save you. Keep multiple options open by maintaining diverse empty space configurations.</li>
+            <li><strong>The "Well" Strategy (for advanced players):</strong> Some players try to build up blocks on most of the board while leaving one column (the "well") mostly empty, aiming to clear multiple lines repeatedly with "I" pieces. This is high-risk, high-reward.</li>
+            <li><strong>Learn from Mistakes:</strong> If a game ends prematurely, try to identify the move or series of moves that led to the board becoming unplayable. Each game is a learning opportunity.</li>
         </ul>
-         <p>Dive into the relaxing yet stimulating world of Wood Block Puzzle. Sharpen your mind, challenge your friends (by comparing high scores!), and enjoy countless hours of classic puzzle fun, right here on GameVerse!</p>
+         <p>The Wood Block Puzzle on GameVerse offers a perfect blend of simplicity and strategic depth. It’s an ideal way to relax, de-stress, and give your brain a stimulating workout. Dive in, start placing those blocks, and see how high you can score. Happy puzzling!</p>
     </section>
 
     <footer class="site-footer">
         <p>© <span id="currentYear"></span> GameVerse by Kanhaiya Mishra. All Rights Reserved.</p>
-        <p><a href="index.html">Home</a> | <a href="privacy_policy.html">Privacy Policy</a></p>
+        <div class="footer-links-group">
+            <a href="index.html">Home</a> | 
+            <a href="about.html">About Us</a> | 
+            <a href="contact.html">Contact Us</a> | 
+            <a href="privacy_policy.html">Privacy Policy</a> |
+            <a href="terms.html">Terms of Service</a>
+        </div>
+        <div class="footer-social-links">
+            <p>Follow Us for GameVerse Updates:</p>
+            <a href="https://t.me/PraxAI" target="_blank" rel="noopener noreferrer" title="PraxAI on Telegram">
+                <img src="telegram-icon.png" alt="Telegram Icon for GameVerse">
+            </a>
+            <a href="https://youtube.com/@praxai?si=SrIQNBLVw79p9oKD" target="_blank" rel="noopener noreferrer" title="PraxAI on YouTube">
+                <img src="youtube-icon.png" alt="YouTube Icon for GameVerse">
+            </a>
+            <a href="https://whatsapp.com/channel/0029Vb30cphDjiOZoEQf9a20" target="_blank" rel="noopener noreferrer" title="Gyan Natraj on WhatsApp">
+                <img src="whatsapp-icon.png" alt="WhatsApp Channel Icon for GameVerse">
+            </a>
+        </div>
     </footer>
 
     <script>
+        // PASTE THE ENTIRE ORIGINAL JAVASCRIPT FOR THE WOODEN PUZZLE GAME HERE
+        // (The one that starts with "const GRID_SIZE = 10;")
+        // No changes should be made to the game logic JavaScript itself.
+
         const GRID_SIZE = 10;
         const gameBoardElement = document.getElementById('game-board');
         const scoreElement = document.getElementById('score');
@@ -339,7 +425,8 @@
         let currentPieces = [null, null, null];
         let difficulty = 'medium';
         let difficultyMultipliers = { easy: 0.8, medium: 1, hard: 1.3 };
-        const HIGH_SCORE_KEY = 'woodBlockPuzzleHighScore'; // Base key, difficulty will be appended
+        const HIGH_SCORE_KEY = 'woodBlockPuzzleHighScore';
+
 
         const PIECES = {
             SINGLE: { shape: [[1]], id: 'SINGLE' }, DOMINO1X2_H: { shape: [[1,1]], id: 'DOMINO1X2_H' },
@@ -396,7 +483,7 @@
         let dragOffsetY = 0;
         let mainCellSize = 30; 
         const PIECE_PREVIEW_CELL_SIZE = 18;
-        const LINE_CLEAR_ANIMATION_DURATION = 400; // Matched to CSS animation: 0.4s
+        const LINE_CLEAR_ANIMATION_DURATION = 400; 
         let comboPopupTimeout = null;
 
 
@@ -425,7 +512,7 @@
             comboPopupTimeout = setTimeout(() => {
                 comboPopupMessageElement.classList.remove('show');
                 comboPopupMessageElement.classList.add('hide');
-            }, 1500); // Message display duration
+            }, 1500); 
         }
 
 
@@ -507,7 +594,7 @@
 
         function selectDifficulty(selectedDifficulty) {
             difficulty = selectedDifficulty;
-            easyPieceBag = []; // Reset bags on difficulty change
+            easyPieceBag = []; 
             mediumPieceBag = [];
             hardPieceBag = [];
             if(!menuMusic.paused) menuMusic.pause();
@@ -525,14 +612,14 @@
             board = Array(GRID_SIZE).fill(null).map(() => Array(GRID_SIZE).fill(0));
             score = 0;
             updateScoreDisplay();
-            renderBoard(); // Render board once before calculating mainCellSize
+            renderBoard(); 
             const firstGridCell = gameBoardElement.querySelector('.grid-cell');
             if (firstGridCell) {
                  mainCellSize = firstGridCell.offsetWidth;
             } else {
-                mainCellSize = 30; // Fallback, though board should always have cells
+                mainCellSize = 30; 
             }
-            if(isNaN(mainCellSize) || mainCellSize <= 0) mainCellSize = 30; // Ensure valid size
+            if(isNaN(mainCellSize) || mainCellSize <= 0) mainCellSize = 30; 
 
             initialFillAllSlots();
             gameOverMessageDiv.style.display = 'none';
@@ -566,8 +653,6 @@
                     } else {
                         cellElement.classList.remove('filled');
                     }
-                    // Remove line-clearing class after animation is done (handled by 'forwards' in CSS)
-                    // or if re-rendering before animation finishes to prevent stale state.
                     cellElement.classList.remove('line-clearing');
                 }
             }
@@ -576,7 +661,7 @@
         function getPieceKeyFromBag(difficultyLevel) {
             let targetBag;
             let sourcePool;
-            let pieceBagRef; // To correctly reference the global bag variable name for refilling
+            let pieceBagRef; 
 
             if (difficultyLevel === 'easy') {
                 targetBag = easyPieceBag; sourcePool = NEW_EASY_PIECE_KEYS_POOL; pieceBagRef = 'easyPieceBag';
@@ -584,24 +669,22 @@
                 targetBag = mediumPieceBag; sourcePool = NEW_MEDIUM_PIECE_KEYS_POOL; pieceBagRef = 'mediumPieceBag';
             } else if (difficultyLevel === 'hard') {
                 targetBag = hardPieceBag; sourcePool = NEW_HARD_PIECE_KEYS_POOL; pieceBagRef = 'hardPieceBag';
-            } else { // Default to medium if difficulty is somehow undefined
+            } else { 
                 targetBag = mediumPieceBag; sourcePool = NEW_MEDIUM_PIECE_KEYS_POOL; pieceBagRef = 'mediumPieceBag';
             }
 
             if (targetBag.length === 0) {
-                if (!sourcePool || sourcePool.length === 0) return 'SINGLE'; // Fallback if pool is empty
+                if (!sourcePool || sourcePool.length === 0) return 'SINGLE'; 
                 
-                // Refill the correct global bag
                 if (pieceBagRef === 'easyPieceBag') easyPieceBag.push(...[...sourcePool]);
                 else if (pieceBagRef === 'mediumPieceBag') mediumPieceBag.push(...[...sourcePool]);
                 else if (pieceBagRef === 'hardPieceBag') hardPieceBag.push(...[...sourcePool]);
                 
-                // Update targetBag to point to the now filled global bag
                 if (pieceBagRef === 'easyPieceBag') targetBag = easyPieceBag;
                 else if (pieceBagRef === 'mediumPieceBag') targetBag = mediumPieceBag;
                 else if (pieceBagRef === 'hardPieceBag') targetBag = hardPieceBag;
             }
-            if (targetBag.length === 0) return 'SINGLE'; // Should ideally not be reached if sourcePool is valid
+            if (targetBag.length === 0) return 'SINGLE'; 
 
             const randomIndex = Math.floor(Math.random() * targetBag.length);
             return targetBag.splice(randomIndex, 1)[0];
@@ -648,42 +731,37 @@
                 }
             }
 
-            if (pieceData.slotIndex === 2) { // Hint piece slot (index 2)
+            if (pieceData.slotIndex === 2) { 
                 pieceElement.classList.add('hint-piece');
-                // Hint pieces are not draggable
-            } else { // Playable piece slots (index 0 and 1)
+            } else { 
                 pieceElement.addEventListener('pointerdown', (e) => onPiecePointerDown(e, pieceData, pieceElement));
             }
             slotElement.appendChild(pieceElement);
         }
 
         function shiftAndRefillPieces(usedSlotIndex) {
-            if (usedSlotIndex === 0) { // Piece from slot 0 used
-                currentPieces[0] = currentPieces[1]; // Slot 1 piece moves to slot 0
+            if (usedSlotIndex === 0) { 
+                currentPieces[0] = currentPieces[1]; 
                 if (currentPieces[0]) currentPieces[0].slotIndex = 0;
 
-                currentPieces[1] = currentPieces[2]; // Hint piece (slot 2) moves to slot 1
+                currentPieces[1] = currentPieces[2]; 
                 if (currentPieces[1]) currentPieces[1].slotIndex = 1;
 
-            } else if (usedSlotIndex === 1) { // Piece from slot 1 used
-                // currentPieces[0] remains as is
-                currentPieces[1] = currentPieces[2]; // Hint piece (slot 2) moves to slot 1
+            } else if (usedSlotIndex === 1) { 
+                currentPieces[1] = currentPieces[2]; 
                 if (currentPieces[1]) currentPieces[1].slotIndex = 1;
             }
-            // A new hint piece is always generated for slot 2
             currentPieces[2] = generateRandomPieceData(2);
 
-            // Re-render all slots
             renderPieceInSlot(currentPieces[0], pieceSlots[0]);
             renderPieceInSlot(currentPieces[1], pieceSlots[1]);
-            renderPieceInSlot(currentPieces[2], pieceSlots[2]); // Render the new hint piece
+            renderPieceInSlot(currentPieces[2], pieceSlots[2]); 
 
-            checkGameOver(); // Check if game is over with the new set of pieces
+            checkGameOver(); 
         }
 
-
         function onPiecePointerDown(event, pieceData, pieceElement) {
-            if (isDragging || event.button !== 0 || pieceData.slotIndex === 2) return; // Ensure hint piece is not draggable
+            if (isDragging || event.button !== 0 || pieceData.slotIndex === 2) return; 
             event.preventDefault();
 
             playSound(dragSound, true);
@@ -699,14 +777,12 @@
 
             draggedPieceCloneElement = pieceElement.cloneNode(true);
             draggedPieceCloneElement.classList.add('piece-clone');
-            // Set overall size of the clone based on scaled dimensions
             draggedPieceCloneElement.style.width = `${pieceElement.offsetWidth * scaleFactor}px`;
             draggedPieceCloneElement.style.height = `${pieceElement.offsetHeight * scaleFactor}px`;
 
-            // Scale individual cells within the clone
             const cloneCells = draggedPieceCloneElement.querySelectorAll('.piece-cell');
             cloneCells.forEach(cell => {
-                 if(!cell.classList.contains('empty')) { // Only scale actual block cells
+                 if(!cell.classList.contains('empty')) { 
                     cell.style.width = `${mainCellSize}px`;
                     cell.style.height = `${mainCellSize}px`;
                  }
@@ -718,7 +794,7 @@
             draggedPieceCloneElement.style.left = `${event.clientX - (dragOffsetX * scaleFactor)}px`;
             draggedPieceCloneElement.style.top = `${event.clientY - (dragOffsetY * scaleFactor)}px`;
             
-            originalPieceElement.classList.add('is-being-dragged'); // Make original transparent
+            originalPieceElement.classList.add('is-being-dragged'); 
             
             document.addEventListener('pointermove', onDocumentPointerMove);
             document.addEventListener('pointerup', onDocumentPointerUp);
@@ -736,12 +812,10 @@
 
             const gameBoardRect = gameBoardElement.getBoundingClientRect();
             
-            // Use the clone's current position for preview calculation
             const cloneRect = draggedPieceCloneElement.getBoundingClientRect();
             let boardRelativeX = cloneRect.left - gameBoardRect.left;
             let boardRelativeY = cloneRect.top - gameBoardRect.top;
 
-            // Potential drop row and col based on the center of the first block of the piece
             let potentialDropR = Math.floor((boardRelativeY + mainCellSize / 2) / mainCellSize);
             let potentialDropC = Math.floor((boardRelativeX + mainCellSize / 2) / mainCellSize);
 
@@ -785,16 +859,15 @@
                     const linesClearedInfo = await clearLines(); 
                     renderBoard(); 
 
-                    // Updated performance messages based on lines cleared
                     if (linesClearedInfo.totalLines > 0) {
-                        if (linesClearedInfo.totalLines >= 4) { // For 4 or more lines
+                        if (linesClearedInfo.totalLines >= 4) { 
                             showComboPopup("Excellent!");
                         } else if (linesClearedInfo.totalLines === 3) {
                             showComboPopup("Very Good!");
                         } else if (linesClearedInfo.totalLines === 2) {
                             showComboPopup("Good!");
                         } else if (linesClearedInfo.totalLines === 1) {
-                             showComboPopup("Great!"); // Kept "Great!" for single line as per previous
+                             showComboPopup("Great!"); 
                         }
                     }
                     shiftAndRefillPieces(usedSlotOriginalIndex);
@@ -808,10 +881,8 @@
             if (originalPieceElement) {
                 originalPieceElement.classList.remove('is-being-dragged');
                 if (!piecePlacedSuccessfully && originalPieceElement.parentElement) { 
-                    // If not placed and still in DOM, make it visible again
                     originalPieceElement.style.opacity = '1'; 
                 } else if (!piecePlacedSuccessfully && !originalPieceElement.parentElement) {
-                    // If it was removed from DOM (e.g. by re-render), re-render the slot
                     if(draggedPieceData) renderPieceInSlot(draggedPieceData, pieceSlots[draggedPieceData.slotIndex]);
                 }
             }
@@ -914,13 +985,11 @@
                     for (let r = 0; r < GRID_SIZE; r++) board[r][c] = 0;
                 });
                 
-                // Scoring based on total lines cleared in this single event
                 if (totalLinesCleared > 0) {
                     let lineScore = 0;
-                    // More granular scoring for multiple lines
                     if (totalLinesCleared === 1) lineScore = 100;
-                    else if (totalLinesCleared === 2) lineScore = 300; // e.g., 100 + 200
-                    else if (totalLinesCleared === 3) lineScore = 600; // e.g., 100 + 200 + 300
+                    else if (totalLinesCleared === 2) lineScore = 300; 
+                    else if (totalLinesCleared === 3) lineScore = 600; 
                     else if (totalLinesCleared >= 4) lineScore = 1000 + (totalLinesCleared - 4) * 500;
                     addScore(lineScore);
                 }
@@ -938,9 +1007,8 @@
         }
         function checkGameOver() {
             let canPlaceAnyPlayable = false;
-            // Only check the two playable slots (0 and 1)
-            for (let pieceIdx = 0; pieceIdx < 2; pieceIdx++) {
-                if (currentPieces[pieceIdx]) { // If there's a piece in the slot
+            for (let pieceIdx = 0; pieceIdx < 2; pieceIdx++) { 
+                if (currentPieces[pieceIdx]) { 
                     const pieceShape = currentPieces[pieceIdx].shape;
                     for (let r = 0; r < GRID_SIZE; r++) {
                         for (let c = 0; c < GRID_SIZE; c++) {
@@ -964,7 +1032,6 @@
 
 
         function gameOver() {
-            // Use difficulty-specific high score key
             const currentHighScoreKey = HIGH_SCORE_KEY + `_${difficulty}`;
             let highScore = localStorage.getItem(currentHighScoreKey);
             if (highScore === null) {
@@ -995,7 +1062,7 @@
                     if (parseFloat(volumeSlider.value) > 0 && menuMusic.paused) {
                         menuMusic.play().catch(e => console.warn("Menu music play failed on restart (game over):", e));
                     }
-                    showDifficultyScreen(); // Return to difficulty selection for a new game
+                    showDifficultyScreen(); 
                 });
             }
 
@@ -1006,6 +1073,13 @@
 
         initGame();
         showStartScreen();
+
+        // Ensure currentYear is set for the footer on this page too
+        // This should ideally be in initGame or a separate function called on page load for all pages.
+        // For simplicity, if it's not already in initGame, adding it here again.
+        if(document.getElementById('currentYear')) {
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        }
     </script>
 </body>
 </html>
