@@ -6,7 +6,7 @@
     <title>GameVerse: Play Free Online Games - Chess, Puzzles, Tic Tac Toe & More (2025)</title>
 
     <meta name="description" content="Play the best free online games at GameVerse (2025 Edition)! Enjoy classic Chess, addictive Wooden Block Puzzles, strategic Tic Tac Toe, and more. Instant play, no downloads. Fun for all ages!">
-    <meta name="keywords" content="free online games, play games online, online games 2025, browser games, chess online, wooden block puzzle, tic tac toe online, strategy games, puzzle games, fun games, GameVerse, Kanhaiya Mishra, play chess free, puzzle games online, tic tac toe 2 player">
+    <meta name="keywords" content="free online games, play games online, online games 2025, browser games, chess online, wooden block puzzle, tic tac toe online, strategy games, puzzle games, fun games, GameVerse, Kanhaiya Mishra, play chess free, puzzle games online, tic tac toe 2 player, game tips, game blogs">
     <meta name="author" content="Kanhaiya Mishra - GameVerse">
     <meta name="distribution" content="global">
     <meta name="revisit-after" content="7 days">
@@ -250,6 +250,13 @@
             color: var(--text-dark);
             margin-bottom: 20px;
             flex-grow: 1;
+            /* Ensure max 3 lines roughly, overflow handled by shortness of text */
+            max-height: calc(1.0em * 1.6 * 3); /* font-size * line-height * 3 lines */
+            overflow: hidden; /* For browsers not supporting -webkit-line-clamp well */
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
         }
 
         .play-button {
@@ -544,6 +551,7 @@
             <a href="contact.html">Contact Us</a> 
             <a href="privacy_policy.html">Privacy Policy</a>
             <a href="terms.html">Terms of Service</a>
+            <a href="blogs.html">Blog</a>
         </div>
     </nav>
 
@@ -566,7 +574,8 @@
     </header>
 
     <main>
-        <div class="container" id="games-section">
+        <!-- 1. Our Featured Games -->
+        <div class="container" id="games-section" style="margin-top: 40px;">
             <h2 class="section-title">Our Featured Games</h2>
             <p class="section-subtitle">Dive into a curated selection of timeless classics and engaging new challenges. Perfect for a quick break or hours of strategic fun!</p>
 
@@ -586,7 +595,7 @@
                         <div>
                             <h3 itemprop="name">Strategic Chess Online</h3>
                             <p class="game-description" itemprop="description">
-                                Immerse yourself in the regal world of Strategic Chess Online, a timeless classic that has challenged intellects for centuries. At GameVerse, you can sharpen your tactical mind by playing against our sophisticated AI, which offers multiple difficulty settings from Easy for beginners to Hard for seasoned grandmasters. Alternatively, invite a friend for a captivating two-player duel right in your browser. Learn the intricate rules, master complex strategies like forks and pins, develop your pieces, control the center, and relentlessly pursue the ultimate goal: checkmate! This is more than just a game; it's a mental gymnasium.
+                                Engage in Strategic Chess Online, a classic brain-game. Play our AI (Easy to Hard) or challenge a friend in 2-player mode. Master tactics, control the board, and aim for checkmate in your browser!
                             </p>
                         </div>
                         <a href="chess_game_page.html" class="play-button" itemprop="url" aria-label="Play Strategic Chess Game Online">Play Chess</a>
@@ -608,7 +617,7 @@
                         <div>
                             <h3 itemprop="name">Wooden Block Puzzle Challenge</h3>
                             <p class="game-description" itemprop="description">
-                                Experience the satisfying challenge of our Wooden Block Puzzle, a game that combines simple mechanics with deep strategic possibilities. Your task is to skillfully place an assortment of wooden-style blocks onto a 10x10 grid. The objective? Fill complete rows or columns to clear them from the board, earn points, and make space for new pieces. With various difficulty levels, this brain-teasing puzzle offers endless replayability. Plan your moves carefully, think ahead, and aim for those rewarding multi-line clears to achieve a new high score in this engaging and beautifully designed classic.
+                                Solve the Wooden Block Puzzle by fitting blocks onto a 10x10 grid. Clear lines to score points in this addictive brain-teaser. Plan your moves for high scores in this engaging, replayable classic.
                             </p>
                         </div>
                         <a href="wooden_puzzle_page.html" class="play-button" itemprop="url" aria-label="Play Wooden Block Puzzle Game Online">Play Puzzle Game</a>
@@ -630,7 +639,7 @@
                         <div>
                             <h3 itemprop="name">Tic-Tac-Toe Classic (XOXO)</h3>
                             <p class="game-description" itemprop="description">
-                                Relive the fun of Tic-Tac-Toe (also known as Noughts and Crosses or X's and O's) with our modern and feature-rich version! This seemingly simple game is a fantastic test of foresight and strategy. Challenge a friend in a classic two-player local match, or pit your wits against our intelligent AI opponent, available in multiple difficulty settings from Easy to Impossible. Customize your experience with various themes to suit your style. The goal is simple: be the first to get three of your marks in a row – horizontally, vertically, or diagonally. Can you outsmart your opponent?
+                                Play Tic-Tac-Toe (XOXO), the classic strategy game. Challenge friends in 2-player mode or test your skills against our AI (Easy to Impossible). Get three in a row to win this fun, quick game!
                             </p>
                         </div>
                         <a href="tic-tac-toe.html" class="play-button" itemprop="url" aria-label="Play Tic-Tac-Toe Game Online (XOXO)">Play Tic-Tac-Toe</a>
@@ -639,6 +648,7 @@
             </div> 
         </div> 
 
+        <!-- 2. Why Play at GameVerse? -->
         <section class="why-choose-us-section">
             <div class="container">
                 <h2 class="section-title">Why Play at GameVerse?</h2>
@@ -677,6 +687,13 @@
                 </div>
             </div>
         </section>
+        
+        <!-- 3. Tips and Tricks for Crack Games -->
+        <div class="container" id="tips-tricks-section" style="padding-top: 40px; padding-bottom: 30px; margin-bottom: 0px; text-align: center;">
+            <h2 class="section-title" style="font-size: 2em; margin-bottom: 20px;">Tips and Tricks for Crack Games</h2>
+            <p class="section-subtitle" style="margin-bottom: 30px;">Discover expert strategies, hidden features, and hints to master your favorite games on GameVerse!</p>
+            <a href="blogs.html" class="play-button">Explore Our Blog & Tips</a>
+        </div>
 
         <div class="important-links-section"> 
             <h2 class="section-title" style="font-size: 2em; margin-bottom: 25px;">Learn More About Us</h2>
@@ -696,7 +713,8 @@
             <a href="about.html">About Us</a> | 
             <a href="contact.html">Contact Us</a> | 
             <a href="privacy_policy.html">Privacy Policy</a> |
-            <a href="terms.html">Terms of Service</a>
+            <a href="terms.html">Terms of Service</a> |
+            <a href="blogs.html">Blog</a>
         </div>
         <div class="footer-social-links">
             <p>Follow Us for GameVerse Updates:</p>
@@ -722,7 +740,10 @@
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Adjust scroll position slightly to account for fixed nav if needed
+                    const navHeight = document.querySelector('.top-nav-bar')?.offsetHeight || 70;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight - 20; // 20px extra offset
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth'});
                 }
             });
         }
