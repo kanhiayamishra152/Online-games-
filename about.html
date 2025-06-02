@@ -3,39 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About GameVerse | Our Mission & The Creator</title>
+    <title>About GameVerse | Our Story, Mission & Creator Kanhaiya Mishra (2025)</title>
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Learn more about GameVerse and its creator, Kanhaiya Mishra. Discover our passion for creating fun, free online games like Chess, Puzzles, and Tic Tac Toe for everyone to enjoy.">
-    <meta name="keywords" content="about gameverse, Kanhaiya Mishra, gameverse creator, online games, free games, game development, mission, vision">
+    <meta name="description" content="Discover GameVerse: our passion for creating engaging free online games (Chess, Puzzles, Tic Tac Toe) and the journey of our founder, Kanhaiya Mishra. Learn about our mission to provide quality gaming for everyone. Updated June 2025.">
+    <meta name="keywords" content="about GameVerse, Kanhaiya Mishra, GameVerse story, online games mission, free browser games, game development philosophy, who created GameVerse, gaming community">
     <meta name="author" content="Kanhaiya Mishra - GameVerse">
-    <link rel="canonical" href="https://online-games-indol.vercel.app/about.html"> <!-- UPDATE THIS URL WHEN DEPLOYED -->
+    <link rel="canonical" href="https://online-games-indol.vercel.app/about.html"> <!-- UPDATE URL -->
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="About GameVerse | Our Mission & The Creator, Kanhaiya Mishra">
-    <meta property="og:description" content="Discover the story behind GameVerse, our commitment to quality free online gaming, and meet the developer Kanhaiya Mishra.">
+    <meta property="og:title" content="About GameVerse | Our Story, Mission & Creator Kanhaiya Mishra (2025)">
+    <meta property="og:description" content="Get to know GameVerse! Learn about our dedication to crafting fun and free online games, our core values, and meet Kanhaiya Mishra, the developer behind your favorite gaming experiences.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://online-games-indol.vercel.app/about.html"> <!-- UPDATE THIS URL -->
-    <meta property="og:image" content="https://online-games-indol.vercel.app/images/gameverse-about-social.png"> <!-- CREATE A DEDICATED ABOUT US OG IMAGE -->
+    <meta property="og:url" content="https://online-games-indol.vercel.app/about.html"> <!-- UPDATE URL -->
+    <meta property="og:image" content="https://online-games-indol.vercel.app/images/gameverse-about-social-detailed.png"> <!-- CREATE/UPDATE IMAGE -->
     <meta property="og:site_name" content="GameVerse">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="About GameVerse | Our Mission & The Creator, Kanhaiya Mishra">
-    <meta name="twitter:description" content="Get to know GameVerse: our philosophy on free online games and the developer Kanhaiya Mishra who brings them to life.">
-    <meta name="twitter:image" content="https://online-games-indol.vercel.app/images/gameverse-about-social.png">
+    <meta name="twitter:title" content="About GameVerse | Our Story, Mission & Creator Kanhaiya Mishra (2025)">
+    <meta name="twitter:description" content="Explore the world of GameVerse: our commitment to quality free gaming, our development journey, and insights from founder Kanhaiya Mishra.">
+    <meta name="twitter:image" content="https://online-games-indol.vercel.app/images/gameverse-about-social-detailed.png">
+
+    <!-- Favicon (Ensure these files are in your root or update path) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00adb5"> 
+    <meta name="msapplication-TileColor" content="#222831"> 
+    <meta name="theme-color" content="#222831"> 
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --page-bg: #f0f2f5; /* Light and airy background */
+            --page-bg: #f0f2f5; 
             --text-color: #333a45;
             --heading-color: #1a253c;
-            --accent-color: #007bff; /* A friendly, engaging blue */
+            --accent-color: #007bff; 
             --accent-hover: #0056b3;
             --container-bg: #ffffff;
-            --container-shadow: rgba(0, 0, 0, 0.1);
+            --container-shadow: rgba(0, 0, 0, 0.08); /* Softer shadow */
             --border-light: #e9ecef;
+            --profile-bg: #f9f9fc; /* Light background for profile section */
 
             --gv-top-nav-bg: #222831; 
             --gv-top-nav-text: #eeeeee;
@@ -45,7 +55,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            line-height: 1.7;
+            line-height: 1.75; /* Increased for better readability */
             margin: 0;
             padding: 0;
             background-color: var(--page-bg);
@@ -67,9 +77,12 @@
             min-height: 50px; 
         }
         .top-nav-bar .logo a { color: var(--gv-top-nav-text); text-decoration: none; font-size: 1.4em; font-weight: 700; font-family: 'Roboto Slab', serif;}
-        .top-nav-bar .nav-links { display: flex; align-items: center; }
+        .top-nav-bar .nav-links { display: flex; align-items: center; flex-wrap:wrap;}
         .top-nav-bar .nav-links a { color: var(--gv-top-nav-text); text-decoration: none; margin-left: 18px; font-size: 0.95em; padding: 6px 10px; border-radius: 5px; transition: background-color 0.2s ease, color 0.2s ease; }
-        .top-nav-bar .nav-links a:hover { background-color: var(--gv-top-nav-link-hover-bg); color: var(--gv-primary-accent-footer); }
+        .top-nav-bar .nav-links a:hover, .top-nav-bar .nav-links a.active { 
+            background-color: var(--gv-top-nav-link-hover-bg); 
+            color: var(--gv-primary-accent-footer); 
+        }
 
         .main-container {
             width: 90%;
@@ -79,12 +92,13 @@
             background-color: var(--container-bg);
             box-shadow: 0 10px 30px var(--container-shadow);
             border-radius: 15px; 
+            border: 1px solid var(--border-light);
         }
 
         .page-header {
             text-align: center;
             margin-bottom: 40px;
-            padding-bottom: 20px;
+            padding-bottom: 25px; /* Increased padding */
             border-bottom: 1px solid var(--border-light);
         }
         .page-header h1 {
@@ -95,13 +109,13 @@
             font-weight: 700;
         }
         .page-header .tagline {
-            font-size: 1.2em;
+            font-size: 1.25em; /* Slightly larger tagline */
             color: #555;
             font-style: italic;
         }
 
         .content-section {
-            margin-bottom: 35px;
+            margin-bottom: 40px; /* Increased spacing between sections */
         }
         .content-section h2 {
             font-family: 'Roboto Slab', serif;
@@ -114,39 +128,43 @@
         }
         .content-section p {
             font-size: 1.1em;
-            margin-bottom: 18px;
+            margin-bottom: 20px; /* Increased paragraph spacing */
             color: var(--text-color);
         }
         .content-section ul {
-            list-style: none; /* Remove default bullets */
+            list-style: none; 
             padding-left: 0;
         }
         .content-section ul li {
             font-size: 1.1em;
-            padding-left: 25px;
+            padding-left: 30px; /* More indent for custom bullet */
             position: relative;
             margin-bottom: 12px;
         }
-        .content-section ul li::before { /* Custom bullet point */
-            content: '✔'; /* Checkmark or any other icon */
+        .content-section ul li::before { 
+            content: '⭐'; /* Star bullet or ✔ */
             color: var(--accent-color);
             position: absolute;
             left: 0;
-            font-weight: bold;
+            font-size: 1.1em; /* Match li font size */
+            line-height: inherit;
         }
 
         .highlight {
             color: var(--accent-color);
             font-weight: 600;
+            background-color: #e7f3ff; /* Light blue highlight background */
+            padding: 0.1em 0.3em;
+            border-radius: 3px;
         }
 
         .profile-section {
             display: flex;
-            align-items: flex-start; /* Align items to the top */
-            gap: 30px;
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #f9f9f9; /* Slight off-white for profile */
+            align-items: flex-start; 
+            gap: 35px; /* Increased gap */
+            margin-top: 25px;
+            padding: 25px;
+            background-color: var(--profile-bg); 
             border-radius: 10px;
             border: 1px solid var(--border-light);
         }
@@ -154,32 +172,33 @@
             flex-shrink: 0;
         }
         .profile-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%; /* Circular image */
-            object-fit: cover; /* Ensure image covers the area well */
-            border: 4px solid var(--accent-color);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 160px; /* Slightly larger image */
+            height: 160px;
+            border-radius: 50%; 
+            object-fit: cover; 
+            border: 5px solid var(--accent-color); /* Thicker border */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
         }
         .profile-details {
             flex-grow: 1;
         }
         .profile-details h3 {
             font-family: 'Roboto Slab', serif;
-            font-size: 1.8em;
+            font-size: 1.9em; /* Larger name */
             color: var(--heading-color);
             margin-top: 0;
-            margin-bottom: 10px;
-        }
-        .profile-details p {
-            font-size: 1.05em;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .profile-details .role {
             font-style: italic;
-            color: #666;
+            color: #5a6f8e; /* Softer role color */
             margin-bottom: 15px;
             font-weight: 500;
+            font-size: 1.1em;
+        }
+        .profile-details p {
+            font-size: 1.05em;
+            margin-bottom: 12px;
         }
 
 
@@ -194,29 +213,29 @@
         .footer-links-group { margin-top: 8px; margin-bottom: 15px; } 
         .footer-links-group a { margin: 0 8px; }
 
-        .social-media-links { 
+        .footer-social-links { 
             margin-top: 15px;
             padding-top: 15px;
             border-top: 1px solid #444; 
         }
-        .social-media-links p {
+        .footer-social-links p {
              margin-bottom: 10px;
              font-size: 1em;
              font-weight: 500;
              color: var(--gv-top-nav-text);
         }
-        .social-media-links a {
+        .footer-social-links a {
             display: inline-block;
             margin: 0 10px;
             transition: transform 0.2s ease;
         }
-        .social-media-links img {
+        .footer-social-links img {
             width: 32px; 
             height: 32px;
             vertical-align: middle;
         }
-        .social-media-links a:hover {
-            transform: scale(1.1);
+        .footer-social-links a:hover {
+            transform: scale(1.15);
             text-decoration: none; 
         }
 
@@ -241,9 +260,9 @@
             .page-header .tagline { font-size: 1.1em; }
             .content-section h2 { font-size: 1.7em; }
             .content-section p, .content-section ul li { font-size: 1em; }
-            .profile-image { width: 120px; height: 120px; }
-            .profile-details h3 { font-size: 1.6em; }
-            .social-media-links img { width: 28px; height: 28px; }
+            .profile-image { width: 130px; height: 130px; } /* Adjusted for smaller screens */
+            .profile-details h3 { font-size: 1.7em; }
+            .footer-social-links img { width: 28px; height: 28px; }
         }
     </style>
 </head>
@@ -252,35 +271,40 @@
         <div class="logo"><a href="index.html">GameVerse</a></div>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="about.html" style="background-color: var(--gv-top-nav-link-hover-bg); color: var(--gv-primary-accent-footer);">About Us</a> 
+            <a href="about.html" class="active">About Us</a> 
             <a href="contact.html">Contact Us</a> 
             <a href="privacy_policy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a> 
         </div>
     </nav>
 
     <div class="main-container">
         <header class="page-header">
             <h1>About GameVerse</h1>
-            <p class="tagline">Crafting Joyful Gaming Moments, One Click at a Time.</p>
+            <p class="tagline">Crafting Joyful Gaming Moments, One Click at a Time – The Story Behind Your Favorite Free Online Games.</p>
         </header>
 
         <section class="content-section" id="our-story">
             <h2>Our Story: The Genesis of GameVerse</h2>
-            <p>GameVerse was born from a simple yet profound love for classic games and a desire to make them accessible to everyone, anywhere, anytime. In a world bustling with complex, high-commitment games, we envisioned a digital haven where players could instantly dive into timeless favorites like Chess, engaging mind-benders like Wooden Block Puzzles, and quick, fun challenges like Tic Tac Toe. Our journey began with the idea that gaming should be straightforward, enjoyable, and free from barriers.</p>
-            <p>Founded by Kanhaiya Mishra, a passionate developer and gaming enthusiast, GameVerse aims to be more than just a collection of games. It's a growing community space built on the principles of <span class="highlight">simplicity, quality, and accessibility</span>. We believe that a good game doesn't need to be complicated; it needs to be engaging and well-crafted.</p>
+            <p>GameVerse wasn't just built; it was envisioned from a deep-seated love for the timeless appeal of classic games and a strong desire to share this joy with a global audience. In an era where the gaming landscape is often dominated by complex narratives and high-commitment experiences, we saw an opportunity to create a digital sanctuary – a place where players could instantly reconnect with beloved favorites like Chess, immerse themselves in engaging mind-benders such as Wooden Block Puzzles, or enjoy a quick, satisfying round of Tic Tac Toe. Our journey embarked on the simple premise that great gaming experiences should be effortlessly accessible, universally enjoyable, and entirely free from cost or complicated installations. We aim to bring back the pure, unadulterated fun of browser-based gaming, enhanced with modern design and smooth performance for today's players.</p>
+            <p>Founded and passionately developed by Kanhaiya Mishra, an avid gaming enthusiast and dedicated software developer, GameVerse aspires to be more than just a repository of online games. It's envisioned as a growing, vibrant community hub, meticulously built upon the core principles of <span class="highlight">simplicity in access, uncompromising quality in gameplay, and universal accessibility</span>. We firmly believe that a truly compelling game doesn't need an overwhelming array of features or a steep learning curve; rather, it needs to be intuitively engaging, thoughtfully crafted, and polished to perfection. Every game on GameVerse is selected or developed with this philosophy in mind, ensuring that each click leads to a moment of genuine enjoyment and mental stimulation.</p>
         </section>
 
-        <section class="content-section" id="our-mission">
-            <h2>Our Mission & Vision</h2>
-            <p><strong>Our Mission:</strong> To provide a diverse collection of high-quality, free-to-play online browser games that offer fun, challenge, and a moment of delightful escape for players of all ages and skill levels.</p>
-            <p><strong>Our Vision:</strong> To become a go-to destination for classic and innovative browser games, recognized for our commitment to user experience, fair play, and a constantly evolving library of engaging content. We aim to foster a positive online environment where strategy, puzzles, and simple fun thrive.</p>
-            <p>We strive to achieve this by focusing on:</p>
+        <section class="content-section" id="our-mission-vision">
+            <h2>Our Mission, Vision, and Core Values</h2>
+            <p><strong>Our Mission:</strong> To curate and develop a diverse, high-quality collection of free-to-play online browser games that deliver consistent fun, intellectual challenge, and delightful moments of escape for players of all ages, backgrounds, and skill levels across the globe. We are committed to making engaging gaming experiences readily available to everyone with an internet connection.</p>
+            <p><strong>Our Vision:</strong> To establish GameVerse as a premier and trusted online destination for classic, strategy, and puzzle browser games, renowned for our unwavering commitment to superior user experience, principles of fair play, a consistently evolving library of captivating content, and fostering a positive, inclusive online gaming community. We see a future where simple, well-crafted games continue to bring joy and connection to millions.</p>
+            
+            <h3>Our Core Values:</h3>
+            <p>These principles guide every decision we make at GameVerse:</p>
             <ul>
-                <li>Developing intuitive and user-friendly game interfaces.</li>
-                <li>Ensuring our games are optimized for various devices, providing a seamless experience on desktops, tablets, and mobiles.</li>
-                <li>Continuously improving existing games based on player feedback and anlytics.</li>
-                <li>Exploring and adding new, exciting games to our collection.</li>
-                <li>Maintaining a respectful and safe platform for all users.</li>
+                <li><strong>Player-Centric Design:</strong> Every game and feature is developed with the player's enjoyment and ease of use as the foremost priority. We focus on intuitive interfaces and seamless gameplay.</li>
+                <li><strong>Quality Craftsmanship:</strong> We believe in attention to detail, from bug-free code to polished graphics and satisfying sound design, ensuring a high-quality experience in every game.</li>
+                <li><strong>Accessibility for All:</strong> Our games are designed to be playable on a wide range of devices (desktops, tablets, mobiles) and browsers, ensuring everyone can join the fun without barriers.</li>
+                <li><strong>Free and Fair Play:</strong> We are committed to offering our core gaming experiences for free, supported transparently by non-intrusive advertising. We believe in fair game mechanics that reward skill and strategy.</li>
+                <li><strong>Continuous Improvement:</strong> GameVerse is a dynamic platform. We actively seek player feedback and analyze usage patterns to continuously enhance existing games, introduce new features, and expand our game library.</li>
+                <li><strong>Community and Respect:</strong> We aim to foster a positive and respectful environment for all users. While our current games are primarily single-player or local multiplayer, we value the broader community of online gamers.</li>
+                <li><strong>Integrity and Transparency:</strong> We operate with integrity, particularly concerning user privacy (as detailed in our <a href="privacy_policy.html" class="highlight">Privacy Policy</a>) and our operational practices.</li>
             </ul>
         </section>
 
@@ -288,30 +312,31 @@
             <h2>Meet the Creator: Kanhaiya Mishra</h2>
             <div class="profile-section">
                 <div class="profile-image-container">
-                    <!-- Replace 'your-profile-image.jpg' with the actual path to your image -->
-                    <img src="kanhaiya-mishra-profile.jpg" alt="Kanhaiya Mishra - Creator of GameVerse" class="profile-image" 
-                         onerror="this.style.display='none'; this.parentElement.innerHTML = '<div style=\'width:150px;height:150px;border-radius:50%;background-color:#ccc;display:flex;align-items:center;justify-content:center;color:#555;font-size:0.9em;text-align:center;\'>Image<br>Not Found</div>';">
+                    <img src="kanhaiya-mishra-profile.jpg" alt="Kanhaiya Mishra - Founder and Developer of GameVerse" class="profile-image" 
+                         onerror="this.style.display='none'; this.parentElement.innerHTML = '<div style=\'width:160px;height:160px;border-radius:50%;background-color:#ccc;display:flex;align-items:center;justify-content:center;color:#555;font-size:0.9em;text-align:center;padding:10px;box-sizing:border-box;\'>Creator\'s Photo<br>Coming Soon!</div>';">
                 </div>
                 <div class="profile-details">
                     <h3>Kanhaiya Mishra</h3>
-                    <p class="role">Founder, Developer, and Chief Game Enthusiast</p>
-                    <p>Hello! I'm Kanhaiya, the mind and hands behind GameVerse. My journey into game development started from a lifelong passion for playing games and a curiosity about how they work. I believe in the power of games to not only entertain but also to stimulate a_i_thinking, foster strategic skills, and provide a joyful break from the everyday hustle.</p>
-                    <p>With GameVerse, my goal is to share this passion by creating a platform where classic games are re-imagined with a modern touch, and new, simple-yet-addictive games can find a home. I handle everything from coding the games, designing the user interface, to ensuring the site runs smoothly. It's a challenging yet incredibly rewarding endeavor!</p>
-                    <p>I'm always eager to hear from fellow gamers. Your feedback, suggestions, and even bug reports are invaluable in making GameVerse better. Feel free to connect with me through the <a href="contact.html" class="highlight">Contact Us</a> page or via our social media channels.</p>
+                    <p class="role">Founder, Lead Developer, and Chief Game Enthusiast</p>
+                    <p>Hello and welcome to GameVerse! I'm Kanhaiya, the individual coder and creative mind behind this platform. My journey into the world of web development and game creation stems from a lifelong passion for both playing and understanding the intricate mechanics of games. I've always been fascinated by how simple rules and elegant design can lead to profoundly engaging and mentally stimulating experiences. I believe games are a powerful medium – they can entertain, educate, challenge our strategic thinking, sharpen our focus, and most importantly, provide a joyful and accessible escape from the complexities of daily life.</p>
+                    <p>With GameVerse, my core ambition is to channel this passion into a curated digital space where timeless classics are given a fresh, modern appeal, and where new, innovative browser-based games can flourish. I personally oversee and implement all aspects of the platform, from the initial game concept and coding (HTML, CSS, JavaScript, and game-specific libraries) to user interface (UI) and user experience (UX) design, testing, and ensuring the smooth operation of the site. It’s a one-person endeavor fueled by dedication and a desire to create something genuinely enjoyable for others. Each game you find here has been chosen or developed with care, focusing on fun, fair play, and accessibility.</p>
+                    <p>I am a firm believer in the power of community and feedback. Your thoughts, suggestions for new games or features, and even those pesky bug reports are incredibly valuable to me. They are the catalysts that help GameVerse evolve and improve. Please don't hesitate to connect with me through the <a href="contact.html" class="highlight">Contact Us</a> page or via our social media channels listed in the footer. Let's build a fantastic gaming space together!</p>
                 </div>
             </div>
         </section>
 
-        <section class="content-section" id="our-commitment">
-            <h2>Our Commitment to You</h2>
-            <p>At GameVerse, we are committed to:</p>
+        <section class="content-section" id="our-commitment-and-future">
+            <h2>Our Commitment to You & The Future of GameVerse</h2>
+            <p>At GameVerse, our players are at the heart of everything we do. We are steadfastly committed to upholding the following promises:</p>
             <ul>
-                <li><strong>Free Access:</strong> Keeping our core collection of games free for everyone to enjoy. We support our platform through non-intrusive advertising (Google AdSense).</li>
-                <li><strong>Quality Gameplay:</strong> Focusing on bug-free, smooth, and engaging gaming experiences.</li>
-                <li><strong>User Privacy:</strong> Respecting your privacy as outlined in our <a href="privacy_policy.html" class="highlight">Privacy Policy</a>. We strive to be transparent about how data is handled.</li>
-                <li><strong>Continuous Improvement:</strong> We are constantly looking for ways to enhance GameVerse, whether it's by adding new features, new games, or improving existing ones.</li>
+                <li><strong>Unwavering Free Access:</strong> Our core philosophy is to keep our primary collection of games entirely free for everyone to access and enjoy. We sustain and grow GameVerse through responsible, non-intrusive advertising via Google AdSense, ensuring the games remain accessible without paywalls.</li>
+                <li><strong>Dedication to Quality Gameplay:</strong> We are relentless in our pursuit of quality. This means focusing on delivering bug-free, smooth, responsive, and genuinely engaging gaming experiences across all our titles.</li>
+                <li><strong>Respect for User Privacy:</strong> Your privacy is a top priority. We are committed to transparency and responsible data handling practices, as meticulously outlined in our comprehensive <a href="privacy_policy.html" class="highlight">Privacy Policy</a>.</li>
+                <li><strong>Platform for Continuous Improvement and Growth:</strong> GameVerse is not a static entity. We view it as an evolving platform. We are always exploring new game ideas, listening to player feedback for enhancements, and seeking ways to improve the overall user experience. Our goal is to regularly introduce new features and expand our library with more exciting games that align with our core values.</li>
+                 <li><strong>Adherence to Fair Practices:</strong> We believe in providing a fair gaming environment. For our AI-powered games, we strive to offer clearly defined difficulty levels. For all games, the rules are intended to be clear and unambiguous.</li>
             </ul>
-            <p>Thank you for visiting GameVerse. We hope you have a fantastic time playing our games! If you have any ideas or just want to say hello, don't hesitate to get in touch.</p>
+            <p>Looking ahead, we are excited about the potential to introduce more diverse game genres, potentially incorporate community features (like leaderboards or forums, if feasible and desired by users), and continue refining the platform to make GameVerse your favorite destination for quick, fun, and free online browser gaming. Your support and engagement are what make this journey possible.</p>
+            <p>Thank you for choosing GameVerse and for being a part of our growing community. We sincerely hope you have a fantastic and memorable time playing our games! If you have any ideas, feedback, or just want to share your high scores, we're always eager to hear from you.</p>
         </section>
 
     </div>
@@ -322,18 +347,19 @@
             <a href="index.html">Home</a> | 
             <a href="about.html">About Us</a> | 
             <a href="contact.html">Contact Us</a> | 
-            <a href="privacy_policy.html">Privacy Policy</a>
+            <a href="privacy_policy.html">Privacy Policy</a> |
+            <a href="terms.html">Terms of Service</a> 
         </div>
-        <div class="social-media-links">
-            <p>Follow Us for Updates:</p>
+        <div class="footer-social-links"> 
+            <p>Follow Us for GameVerse Updates:</p>
             <a href="https://t.me/PraxAI" target="_blank" rel="noopener noreferrer" title="PraxAI on Telegram">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/64px-Telegram_logo.svg.png" alt="Telegram Icon">
+                <img src="telegram-icon.png" alt="Telegram Icon for GameVerse">
             </a>
             <a href="https://youtube.com/@praxai?si=SrIQNBLVw79p9oKD" target="_blank" rel="noopener noreferrer" title="PraxAI on YouTube">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/64px-YouTube_full-color_icon_%282017%29.svg.png" alt="YouTube Icon">
+                <img src="youtube-icon.png" alt="YouTube Icon for GameVerse">
             </a>
             <a href="https://whatsapp.com/channel/0029Vb30cphDjiOZoEQf9a20" target="_blank" rel="noopener noreferrer" title="Gyan Natraj on WhatsApp">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/64px-WhatsApp.svg.png" alt="WhatsApp Channel Icon">
+                <img src="whatsapp-icon.png" alt="WhatsApp Channel Icon for GameVerse">
             </a>
         </div>
     </footer>
