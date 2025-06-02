@@ -6,54 +6,61 @@
     <title>Play Tic Tac Toe Online (XOXO) - Vs Bot or Friend | GameVerse 2025</title>
 
     <!-- SEO Meta Tags - Optimized for 2025 -->
-    <meta name="description" content="Play the classic Tic Tac Toe (XOXO) game online for free at GameVerse! Challenge our smart AI bot (Easy, Medium, Hard, Impossible) or play with a friend. Enjoy modern UI, themes, and sound. Updated for 2025.">
-    <meta name="keywords" content="tic tac toe, xoxo game, play tic tac toe, online tic tac toe, tic tac toe bot, free tic tac toe, 2 player tic tac toe, strategy game, puzzle game, gameverse, Kanhaiya Mishra, 2025 games">
-    <meta name="author" content="Kanhaiya Mishra">
+    <meta name="description" content="Play the classic Tic Tac Toe (XOXO) game online for free at GameVerse (2025 Edition)! Challenge our smart AI bot (Easy, Medium, Hard, Impossible) or play with a friend. Enjoy modern UI, themes, and sound. Learn strategies and have fun!">
+    <meta name="keywords" content="tic tac toe, xoxo game, play tic tac toe, online tic tac toe, tic tac toe bot, free tic tac toe, 2 player tic tac toe, strategy game, puzzle game, gameverse, Kanhaiya Mishra, 2025 games, noughts and crosses">
+    <meta name="author" content="Kanhaiya Mishra - GameVerse">
     <link rel="canonical" href="https://online-games-indol.vercel.app/tic-tac-toe.html"> <!-- UPDATE THIS URL WHEN YOU DEPLOY -->
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://online-games-indol.vercel.app/tic-tac-toe.html"> <!-- UPDATE THIS URL -->
     <meta property="og:title" content="Play Tic Tac Toe Online (XOXO) - Vs Bot or Friend | GameVerse 2025">
-    <meta property="og:description" content="Enjoy free online Tic Tac Toe (XOXO) at GameVerse. Play vs AI (4 difficulties) or friends. Features themes, sound & modern UI.">
-    <meta property="og:image" content="https://online-games-indol.vercel.app/images/tic-tac-toe-social-preview.png"> <!-- CREATE & UPLOAD THIS IMAGE (e.g., 1200x630px) -->
+    <meta property="og:description" content="Enjoy free online Tic Tac Toe (XOXO) at GameVerse. Play vs AI (4 difficulties) or friends. Features themes, sound & modern UI with detailed game guides.">
+    <meta property="og:image" content="https://online-games-indol.vercel.app/images/tic-tac-toe-social-2025.png"> <!-- CREATE/UPDATE THIS IMAGE -->
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://online-games-indol.vercel.app/tic-tac-toe.html"> <!-- UPDATE THIS URL -->
     <meta property="twitter:title" content="Play Tic Tac Toe Online (XOXO) - Vs Bot or Friend | GameVerse 2025">
-    <meta property="twitter:description" content="Enjoy free online Tic Tac Toe (XOXO) at GameVerse. Play vs AI (4 difficulties) or friends. Features themes, sound & modern UI.">
-    <meta property="twitter:image" content="https://online-games-indol.vercel.app/images/tic-tac-toe-social-preview.png"> <!-- CREATE & UPLOAD THIS IMAGE -->
+    <meta property="twitter:description" content="Enjoy free online Tic Tac Toe (XOXO) at GameVerse. Play vs AI (4 difficulties) or friends. Features themes, sound & modern UI with detailed game guides.">
+    <meta property="twitter:image" content="https://online-games-indol.vercel.app/images/tic-tac-toe-social-2025.png"> <!-- CREATE/UPDATE THIS IMAGE -->
 
+    <!-- Favicon (Ensure these files are in your root or update path) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00adb5"> 
+    <meta name="msapplication-TileColor" content="#222831"> 
+    <meta name="theme-color" content="#222831"> 
 
-    <!-- Google AdSense Code - START -->
+    <!-- Google AdSense Code -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8067952496194704"
      crossorigin="anonymous"></script>
-    <!-- Google AdSense Code - END -->
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Default Theme Variables (Sunset) */
+            /* Default Theme Variables (Sunset from your tic-tac-toe) */
             --primary-bg: #331F2A;
             --secondary-bg: #4A2F45;
-            --accent-color: #6B4C72;
+            --accent-color: #6B4C72; /* Used for grid background */
             --text-color: #FCE7F0;
-            --button-bg: #F15A24;
+            --button-bg: #F15A24; /* Main button color */
             --button-hover: #FF7F41;
             --win-color: #9CFF8F;
             --player-x-color: #FFC300;
             --player-o-color: #8A2BE2;
-            --red-button-bg: #F15A24;
+            --red-button-bg: #F15A24; /* Explicit red button */
             --red-button-hover: #FF7F41;
-            --blue-button-bg: #8A2BE2; 
+            --blue-button-bg: #8A2BE2; /* Explicit blue button */
             --blue-button-hover: #9B59B6;
 
-            /* Shared Nav/Footer Styles from other games */
-            --gv-top-nav-bg: #1a1a2e; /* Darker for contrast with game themes */
-            --gv-top-nav-text: #e0e0e0;
-            --gv-top-nav-link-hover-bg: #2a2a40;
-            --gv-primary-accent-footer: #F15A24; /* Use a theme color for footer links */
+            /* Shared Nav/Footer Styles */
+            --gv-top-nav-bg: #1a1a1a; 
+            --gv-top-nav-text: #eeeeee;
+            --gv-top-nav-link-hover-bg: #2c2c2c;
+            --gv-primary-accent-footer: #00adb5; /* Teal for footer consistency */
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
@@ -62,28 +69,31 @@
             background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg));
             color: var(--text-color);
             display: flex;
-            flex-direction: column; /* For header, main content, footer */
-            align-items: center; /* Center game container and info */
+            flex-direction: column; 
+            align-items: center; 
             min-height: 100vh;
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            overflow-x: hidden; 
             font-size: 16px;
             transition: background 0.5s ease-in-out;
-            padding-top: 60px; /* Space for fixed header */
+            padding-top: 70px; 
         }
         
-        /* Standard Header from other games */
         .top-nav-bar {
             position: fixed; top: 0; left: 0; width: 100%;
             background-color: var(--gv-top-nav-bg); 
-            color: var(--gv-top-nav-text); padding: 10px 20px;
+            color: var(--gv-top-nav-text); padding: 12px 25px; 
             display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 1010;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3); z-index: 1010;
+            border-bottom: 2px solid var(--gv-primary-accent-footer); 
+            min-height: 50px;
         }
-        .top-nav-bar .logo a { color: var(--gv-top-nav-text); text-decoration: none; font-size: 1.3em; font-weight: 700; font-family: 'Roboto Slab', serif;}
-        .top-nav-bar .nav-links { display: flex; align-items: center; }
-        .top-nav-bar .nav-links a { color: var(--gv-top-nav-text); text-decoration: none; margin-left: 15px; font-size: 0.9em; padding: 5px 8px; border-radius: 5px; transition: background-color 0.3s ease; }
-        .top-nav-bar .nav-links a:hover { background-color: var(--gv-top-nav-link-hover-bg); }
-
+        .top-nav-bar .logo a { color: var(--gv-top-nav-text); text-decoration: none; font-size: 1.4em; font-weight: 700; font-family: 'Roboto Slab', serif;}
+        .top-nav-bar .nav-links { display: flex; align-items: center; flex-wrap:wrap; }
+        .top-nav-bar .nav-links a { color: var(--gv-top-nav-text); text-decoration: none; margin-left: 18px; font-size: 0.95em; padding: 6px 10px; border-radius: 5px; transition: background-color 0.2s ease, color 0.2s ease; }
+        .top-nav-bar .nav-links a:hover, .top-nav-bar .nav-links a.active { 
+            background-color: var(--gv-top-nav-link-hover-bg); 
+            color: var(--gv-primary-accent-footer); 
+        }
 
         #game-container {
             background-color: var(--secondary-bg);
@@ -96,11 +106,11 @@
             position: relative;
             overflow: hidden;
             transition: all 0.5s ease-in-out;
-            min-height: 480px; /* Increased min-height for more content */
+            min-height: 480px; 
             display: flex;
             flex-direction: column;
             justify-content: center;
-            margin-top: 20px; /* Space below header */
+            margin-top: 20px; 
             margin-bottom: 20px;
         }
 
@@ -115,7 +125,7 @@
         .screen.active { transform: translateX(0); opacity: 1; pointer-events: auto; position: relative; }
         .screen h1 {
             color: var(--button-bg); margin-bottom: 25px; font-size: 2.5em;
-            letter-spacing: 1px; text-shadow: 0 0 10px rgba(233, 69, 96, 0.5); /* Example shadow */
+            letter-spacing: 1px; text-shadow: 0 0 10px rgba(233, 69, 96, 0.5); /* Example, adjust to theme */
             font-family: 'Roboto Slab', serif;
         }
         .screen h2 { margin-bottom: 20px; font-size: 1.8em; color: var(--text-color); font-family: 'Roboto Slab', serif; }
@@ -126,6 +136,7 @@
             transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             text-decoration: none; display: inline-block;
+            font-family: 'Poppins', sans-serif; /* Ensure consistent font */
         }
         .btn:hover { background-color: var(--button-hover); transform: translateY(-2px); }
         .button-group { display: flex; flex-direction: column; align-items: center; margin-top: 15px; width: 100%; }
@@ -138,7 +149,7 @@
         .whatsapp-share {
             margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1);
             display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-            gap: 10px; color: var(--text-color); font-size: 1.0em; /* Slightly smaller */
+            gap: 10px; color: var(--text-color); font-size: 1.0em; 
         }
         .whatsapp-share .btn { background-color: #25D366; margin: 0; padding: 8px 15px; font-size: 1.0em;}
         .whatsapp-share .btn:hover { background-color: #20b054; }
@@ -148,7 +159,7 @@
             margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1);
             display: flex; flex-direction: column; align-items: center; gap: 8px;
         }
-        .theme-option h3 { font-size: 1.1em; color: var(--text-color); margin-bottom: 5px; }
+        .theme-option h3 { font-size: 1.1em; color: var(--text-color); margin-bottom: 5px; font-family: 'Roboto Slab', serif; }
         #theme-options-panel {
             display: none; flex-wrap: wrap; justify-content: center;
             gap: 8px; margin-top: 5px; width: 100%; max-width: 300px;
@@ -235,74 +246,86 @@
         #sound-toggle-button:hover { background-color: rgba(255, 255, 255, 0.2); transform: translateY(-1px); }
         #sound-toggle-button img { width: 20px; height: 20px; vertical-align: middle; }
         
-        /* Game Info Section Styles */
         .game-info-section {
-            background-color: var(--secondary-bg); /* Match game container for theme consistency */
+            background-color: var(--secondary-bg); 
             color: var(--text-color);
             padding: 25px;
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
             margin-top: 30px;
-            margin-bottom: 30px; /* Space before footer */
+            margin-bottom: 30px; 
             max-width: 90vw;
-            width: 700px; /* Wider for text content */
+            width: 700px; 
             text-align: left;
             line-height: 1.7;
-            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out; /* For theme changes */
+            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out; 
         }
         .game-info-section h2 {
             font-family: 'Roboto Slab', serif;
-            color: var(--button-bg); /* Use theme button color for main heading */
+            color: var(--button-bg); 
             border-bottom: 2px solid var(--accent-color);
             padding-bottom: 10px;
             margin-top: 0;
             margin-bottom: 20px;
-            font-size: 1.8em;
+            font-size: 2em;
         }
         .game-info-section h3 {
             font-family: 'Roboto Slab', serif;
-            color: var(--button-hover); /* Use theme button hover for subheadings */
+            color: var(--button-hover); 
             margin-top: 25px;
-            margin-bottom: 10px;
-            font-size: 1.4em;
+            margin-bottom: 12px;
+            font-size: 1.6em;
         }
         .game-info-section p, .game-info-section ol, .game-info-section ul {
-            font-size: 1em;
+            font-size: 1.05em;
             margin-bottom: 15px;
         }
         .game-info-section ol, .game-info-section ul {
-            padding-left: 25px;
+            padding-left: 30px;
         }
-        .game-info-section ul li { list-style: disc; margin-bottom: 8px; }
-        .game-info-section ol li { list-style: decimal; margin-bottom: 8px; }
-        .game-info-section strong { font-weight: 600; color: var(--player-x-color); } /* Use a player color for emphasis */
+        .game-info-section ul li { list-style: disc; margin-bottom: 8px; padding-left: 5px;}
+        .game-info-section ol li { list-style: decimal; margin-bottom: 8px;}
+        .game-info-section strong { font-weight: 600; color: var(--player-x-color); } 
+        .game-info-section .game-feature-list li { list-style-type: '✓ '; margin-top: 8px; }
 
-        /* Standard Footer from other games */
+
         .site-footer {
-            text-align: center; padding: 20px 0; margin-top: auto; /* Pushes footer to bottom */
+            text-align: center; padding: 25px 0; margin-top: auto; 
             width:100%; background-color: var(--gv-top-nav-bg);
-            color: var(--gv-top-nav-text); opacity: 0.9; font-size: 0.9em;
+            color: var(--gv-top-nav-text); opacity: 0.95; font-size: 0.9em;
+            border-top: 3px solid var(--gv-primary-accent-footer);
         }
-        .site-footer a { color: var(--gv-primary-accent-footer); text-decoration: none;}
-        .site-footer a:hover { text-decoration: underline;}
+        .site-footer a { color: var(--gv-primary-accent-footer); text-decoration: none; font-weight: 500;}
+        .site-footer a:hover { text-decoration: underline; color: #fff; }
+        .footer-links-group { margin-top: 8px; margin-bottom: 15px; } 
+        .footer-links-group a { margin: 0 8px; }
+        .footer-social-links { 
+            margin-top: 15px; padding-top: 15px; border-top: 1px solid #444; 
+        }
+        .footer-social-links p {
+             margin-bottom: 10px; font-size: 1em; font-weight: 500; color: var(--gv-top-nav-text);
+        }
+        .footer-social-links a { display: inline-block; margin: 0 10px; transition: transform 0.2s ease; }
+        .footer-social-links img { width: 32px; height: 32px; vertical-align: middle; }
+        .footer-social-links a:hover { transform: scale(1.15); text-decoration: none; }
 
 
-        @media (max-width: 768px) { /* For tablets and smaller */
+        @media (max-width: 768px) { 
             .game-info-section { width: 90vw; padding: 20px; }
-            .game-info-section h2 { font-size: 1.6em; }
-            .game-info-section h3 { font-size: 1.3em; }
+            .game-info-section h2 { font-size: 1.8em; }
+            .game-info-section h3 { font-size: 1.4em; }
         }
 
         @media (max-width: 600px) {
-            body { padding-top: 80px; } /* Adjust for potentially taller nav */
-            .top-nav-bar { flex-direction: column; align-items: flex-start; gap: 5px; height: auto; padding-bottom: 8px;}
-            .top-nav-bar .nav-links { margin-left:0; margin-top: 5px; }
-            .top-nav-bar .nav-links a { margin-left: 0; margin-right: 10px;}
+            body { padding-top: 120px; } 
+            .top-nav-bar { flex-direction: column; align-items: flex-start; gap: 8px; height: auto; padding-bottom: 10px;}
+            .top-nav-bar .nav-links { width: 100%; display: flex; flex-wrap: wrap; justify-content: flex-start; margin-left:0; margin-top: 5px; }
+            .top-nav-bar .nav-links a { margin: 3px 10px 3px 0; }
 
             #game-container { padding: 20px; margin: 15px; max-width: 90%; min-height: 450px;}
             .screen h1 { font-size: 2em; } .screen h2 { font-size: 1.5em; }
             .btn { padding: 10px 20px; font-size: 1em; }
-            .game-grid { width: 290px; height: 290px; } /* Keep fixed grid for consistency */
+            .game-grid { width: 290px; height: 290px; } 
             .cell { font-size: 3.5em; }
             #game-screen #status { font-size: 1.2em; }
             .overlay-content h3 { font-size: 1.8em; }
@@ -311,7 +334,8 @@
             .small-btn { width: 100%; }
             #global-back-button-container { top: 15px; left: 15px; }
             #sound-toggle-container { top: 15px; right: 15px; }
-            .game-info-section { width: 90vw; margin-top:20px; margin-bottom: 20px; }
+            .game-info-section { width: 95vw; padding: 15px; margin-top:20px; margin-bottom: 20px; }
+            .footer-social-links img { width: 28px; height: 28px;}
         }
     </style>
 </head>
@@ -320,8 +344,10 @@
         <div class="logo"><a href="index.html">GameVerse</a></div>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <!-- Create these pages: <a href="about.html">About</a> <a href="contact.html">Contact</a> -->
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
             <a href="privacy_policy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a> 
         </div>
     </nav>
 
@@ -340,11 +366,13 @@
 
         <div id="start-screen" class="screen active">
             <h1>Tic Tac Toe</h1>
+            <p style="color:var(--text-color); font-size:1.1em; margin-bottom:15px; max-width: 80%;">The classic game of X's and O's. Simple to learn, endlessly fun to master!</p>
             <button id="start-button" class="btn">Start Game</button>
         </div>
 
         <div id="mode-selection-screen" class="screen">
-            <h2>Choose Mode</h2>
+            <h2>Choose Your Game Mode</h2>
+             <p style="color:var(--text-color); font-size:0.9em; margin-bottom:10px;">Play against our smart AI or a friend!</p>
             <div class="button-group">
                 <button id="play-bot-button" class="btn red-button">Play with Bot</button>
                 <button id="play-friend-button" class="btn blue-button">Play with Friend</button>
@@ -363,7 +391,7 @@
             <div class="whatsapp-share">
                 <p>Share:</p>
                 <a href="#" id="whatsapp-share-button" class="btn">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp Icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/64px-WhatsApp.svg.png" alt="WhatsApp Icon">
                     WhatsApp
                 </a>
             </div>
@@ -371,6 +399,7 @@
 
         <div id="difficulty-selection-screen" class="screen">
             <h2>Select Bot Difficulty</h2>
+            <p style="color:var(--text-color); font-size:0.9em; margin-bottom:10px;">How smart should your opponent be?</p>
             <div class="button-group">
                 <button id="difficulty-easy-button" class="btn" data-difficulty="easy">Easy</button>
                 <button id="difficulty-medium-button" class="btn" data-difficulty="medium">Medium</button>
@@ -403,62 +432,93 @@
     </div>
 
     <section class="game-info-section">
-        <h2>The Timeless Game of Tic Tac Toe (XOXO)</h2>
-        <p>Welcome to GameVerse's enhanced Tic Tac Toe experience! Known globally as Noughts and Crosses or simply X's and O's, this classic two-player strategy game has entertained generations. Our 2025 version brings a modern interface, exciting themes, and a challenging AI opponent to this beloved pastime. Whether you're looking for a quick mental duel or a fun game with a friend, Tic Tac Toe on GameVerse is your perfect pick.</p>
+        <h2>Tic Tac Toe (XOXO): The Enduring Classic Reimagined</h2>
+        <p>Welcome to GameVerse's vibrant and engaging version of Tic Tac Toe, the universally beloved game also known as Noughts and Crosses or simply X's and O's! This seemingly simple game of strategy has been a favorite pastime for generations, offering quick, challenging fun that's easy to learn but surprisingly deep to master. Our 2025 edition brings a sleek modern interface, customizable themes, immersive sound effects, and a highly adaptable AI opponent to this timeless classic. Whether you're looking for a nostalgic trip, a quick mental duel during a break, or a fun way to challenge a friend, Tic Tac Toe on GameVerse is perfectly designed for players of all ages and skill levels. Get ready to place your X's and O's!</p>
 
-        <h3>How to Play Tic Tac Toe</h3>
+        <h3>How to Play Tic Tac Toe: A Step-by-Step Guide</h3>
+        <p>The rules of Tic Tac Toe are famously straightforward, making it accessible to everyone. Here’s how you can jump right into the action on GameVerse:</p>
         <ol>
-            <li><strong>The Goal:</strong> Be the first player to get three of your marks (either 'X' or 'O') in a row – horizontally, vertically, or diagonally.</li>
-            <li><strong>The Board:</strong> The game is played on a 3x3 grid.</li>
-            <li><strong>Starting the Game:</strong>
+            <li><strong>The Objective:</strong> The ultimate goal is to be the first player to place three of your designated marks (either 'X' or 'O') in a continuous line. This line can be horizontal (across a row), vertical (down a column), or diagonal.</li>
+            <li><strong>The Playing Field:</strong> The game is played on a 3x3 grid, consisting of nine empty cells at the start.</li>
+            <li><strong>Starting the Game & Turns:</strong>
                 <ul>
-                    <li>If playing against the Bot, Player 'X' (you) always goes first.</li>
-                    <li>If playing against a Friend, Player 'X' starts, and players take turns.</li>
+                    <li>By convention, Player 'X' always makes the first move.</li>
+                    <li>If you're playing against our AI Bot, you will always be Player 'X'.</li>
+                    <li>If you're playing against a friend locally (on the same device), Player 'X' starts, and then players take turns placing their marks.</li>
                 </ul>
             </li>
-            <li><strong>Making a Move:</strong> On your turn, click or tap an empty cell on the grid to place your mark ('X' or 'O').</li>
-            <li><strong>Winning:</strong> If you successfully place three of your marks in a row, you win the game! A line will highlight your winning combination.</li>
-            <li><strong>Drawing:</strong> If all nine cells on the grid are filled and no player has achieved three in a row, the game is a draw.</li>
+            <li><strong>Making Your Move:</strong> On your designated turn, simply click or tap on any empty cell within the 3x3 grid. Your mark ('X' or 'O') will appear in that cell, and it becomes occupied for the rest of the game.</li>
+            <li><strong>Winning the Game:</strong> If you successfully arrange three of your marks in a horizontal, vertical, or diagonal row, you win! The game will highlight your winning line and announce your victory.</li>
+            <li><strong>Drawing the Game (Tie/Cat's Game):</strong> If all nine cells on the grid are filled with marks, and neither player has managed to achieve three in a row, the game results in a draw (often called a "cat's game" or a "tie").</li>
         </ol>
 
-        <h3>Features of GameVerse Tic Tac Toe (2025 Edition)</h3>
-        <ul>
-            <li><strong>Play vs. Smart Bot:</strong> Challenge our AI with four difficulty levels:
+        <h3>Key Features of GameVerse Tic Tac Toe (2025 Edition)</h3>
+        <ul class="game-feature-list">
+            <li><strong>Versatile Game Modes:</strong>
                 <ul>
-                    <li><strong>Easy:</strong> Great for beginners or a casual game.</li>
-                    <li><strong>Medium:</strong> Offers a balanced challenge.</li>
-                    <li><strong>Hard:</strong> The bot will play strategically, looking for wins and blocks.</li>
-                    <li><strong>Impossible:</strong> Can you beat the unbeatable? This bot uses an advanced algorithm (Minimax) to play perfectly.</li>
+                    <li><strong>Play vs. Intelligent Bot:</strong> Challenge our AI opponent, which comes with four distinct difficulty levels to match your skill:
+                        <ul>
+                            <li><strong>Easy:</strong> Ideal for beginners or players looking for a relaxed game. The bot makes more random moves.</li>
+                            <li><strong>Medium:</strong> A good balance, the bot will attempt to block obvious wins and make some strategic plays.</li>
+                            <li><strong>Hard:</strong> The bot becomes a more formidable opponent, actively looking for winning opportunities and two-way threats (forks).</li>
+                            <li><strong>Impossible:</strong> Test your skills against an AI that uses the Minimax algorithm to play a perfect game. Can you force a draw or find a way to win?</li>
+                        </ul>
+                    </li>
+                    <li><strong>Play vs. Friend (2 Player):</strong> Enjoy the classic head-to-head experience with a friend on the same computer or device. Perfect for quick challenges and friendly rivalries.</li>
                 </ul>
             </li>
-            <li><strong>Play vs. Friend:</strong> Enjoy the classic two-player experience on the same device.</li>
-            <li><strong>Multiple Themes:</strong> Customize your game's look and feel! Choose from Default Dark, Light Mode, Ocean Blue, or Sunset Vibe. Your preference is saved for next time.</li>
-            <li><strong>Sound On/Off:</strong> Play with engaging background music or turn it off for silent play. Your choice is remembered.</li>
-            <li><strong>Clear Win/Loss/Draw Indication:</strong> Visual feedback with highlighted lines and result messages (including fun images for bot games!).</li>
-            <li><strong>Responsive Design:</strong> Play seamlessly on your desktop, tablet, or mobile phone.</li>
-            <li><strong>Easy Navigation:</strong> Intuitive back buttons and a clear flow from start to game.</li>
-            <li><strong>Share with Friends:</strong> Easily share the game link via WhatsApp.</li>
+            <li><strong>Customizable Themes:</strong> Personalize your gaming environment! Choose from several visually appealing themes like Default Dark, Light Mode, Ocean Blue, or Sunset Vibe. Your preferred theme is saved locally for your next visit.</li>
+            <li><strong>Engaging Sound Design:</strong> Optional background music and satisfying sound effects for placing marks and game-end events. You can easily toggle sound on or off, and your preference is remembered.</li>
+            <li><strong>Clear Visual Feedback:</strong> Intuitive interface with clear indication of player turns, occupied cells, and highlighted winning lines. Result messages (including fun win/loss images when playing against the bot) make the game outcome clear.</li>
+            <li><strong>Responsive and Accessible:</strong> Play seamlessly across all your devices – desktop, laptop, tablet, or mobile phone. The game adapts to your screen size for optimal playability.</li>
+            <li><strong>Instant Play, No Hassle:</strong> No downloads or installations required. Just open your browser, visit GameVerse, and start playing immediately.</li>
+            <li><strong>Easy Navigation:</strong> User-friendly menus and back buttons allow for smooth transitions between game modes and settings.</li>
+            <li><strong>Share the Fun:</strong> Quickly share a link to the game with your friends via WhatsApp.</li>
         </ul>
 
-        <h3>Basic Tic Tac Toe Strategies</h3>
-        <p>While Tic Tac Toe seems simple, a few basic strategies can significantly improve your chances of winning or drawing, especially against less experienced players or simpler AI.</p>
+        <h3>Tic Tac Toe: Tips, Tricks, and Winning Strategies</h3>
+        <p>While Tic Tac Toe might appear simple on the surface, applying a few strategic principles can significantly boost your win rate or help you secure a draw against even skilled opponents. Here are some essential tactics:</p>
         <ul>
-            <li><strong>Take the Center:</strong> If the center cell (position 4) is open, it's usually the strongest first move. It gives you the most opportunities to form a line.</li>
-            <li><strong>Win if Possible:</strong> Always check if you can make a move that results in three of your marks in a row. This is your top priority.</li>
-            <li><strong>Block Opponent's Win:</strong> If you cannot win on your current turn, check if your opponent can win on their next turn. If so, you MUST block their winning move.</li>
-            <li><strong>Create a Fork (Two-Way Threat):</strong> A fork is a situation where you have two possible ways to win on your next turn, and your opponent can only block one. This is a powerful tactic. Example: Placing your mark so that you have two rows/columns/diagonals with two of your marks and one empty cell.</li>
-            <li><strong>Block Opponent's Fork:</strong> Be aware of your opponent trying to set up a fork and block it if possible.</li>
-            <li><strong>Play Corners:</strong> After the center, corners are generally strong positions as they are part of more potential winning lines than edge middles.</li>
+            <li><strong>The Golden First Move (as X):</strong> If you are Player X (going first), the strongest opening move is generally to take the center square (position 4). This move participates in the most potential winning lines (four of them: one row, one column, and two diagonals). If the center is unavailable, a corner square is the next best option.</li>
+            <li><strong>Prioritize an Immediate Win:</strong> On your turn, always scan the board first for any opportunity to place your third mark in a row to win the game. This takes precedence over any other move.</li>
+            <li><strong>Block Opponent's Imminent Win:</strong> If you cannot win on your current turn, your next priority is to check if your opponent has two marks in a row with an empty third cell. You MUST play in that empty cell to block their win. Failing to do so usually results in an immediate loss.</li>
+            <li><strong>The Power of the Fork (Creating a Two-Way Threat):</strong> A "fork" is a situation where you place your mark in such a way that it creates two different lines where you can win on your next turn. Your opponent can only block one of these, guaranteeing you a win on the subsequent move. Actively look for opportunities to create forks.</li>
+            <li><strong>Defending Against Forks:</strong> Be vigilant about your opponent's attempts to create a fork. Sometimes, you might need to make a move that doesn't directly block an immediate win but prevents them from setting up an unblockable fork.</li>
+            <li><strong>Corner Control:</strong> After the center, corner squares are generally more powerful than edge (side-middle) squares because they are part of three potential winning lines (one row, one column, one diagonal), whereas edge squares are only part of two.</li>
+            <li><strong>Playing for a Draw (Against Strong Opponents):</strong> If you're playing against a very strong AI (like our "Impossible" mode) or an experienced human player, and a win seems unlikely, focus on blocking all their winning threats and playing defensively to secure a draw. This is a valid and often necessary strategy in Tic Tac Toe.</li>
+            <li><strong>Pattern Recognition:</strong> With practice, you'll start to recognize common game patterns and sequences of moves that lead to wins, losses, or forced draws. This intuition is key to becoming a proficient Tic Tac Toe player.</li>
         </ul>
-        <p>Ready to test your wits? Start a game of Tic Tac Toe now and aim for that three-in-a-row victory! Good luck from GameVerse!</p>
+        <p>Tic Tac Toe is a wonderful game for all ages, offering a perfect blend of simplicity and strategic depth. It’s an excellent way to sharpen your logical thinking and planning skills. Jump into a game now on GameVerse and see if you can claim victory or outsmart our toughest AI!</p>
     </section>
 
     <footer class="site-footer">
         <p>© <span id="currentYear"></span> GameVerse by Kanhaiya Mishra. All Rights Reserved.</p>
-        <p><a href="index.html">Home</a> | <a href="privacy_policy.html">Privacy Policy</a></p>
+        <div class="footer-links-group">
+            <a href="index.html">Home</a> | 
+            <a href="about.html">About Us</a> | 
+            <a href="contact.html">Contact Us</a> | 
+            <a href="privacy_policy.html">Privacy Policy</a> |
+            <a href="terms.html">Terms of Service</a>
+        </div>
+        <div class="footer-social-links">
+            <p>Follow Us for GameVerse Updates:</p>
+            <a href="https://t.me/PraxAI" target="_blank" rel="noopener noreferrer" title="PraxAI on Telegram">
+                <img src="telegram-icon.png" alt="Telegram Icon for GameVerse">
+            </a>
+            <a href="https://youtube.com/@praxai?si=SrIQNBLVw79p9oKD" target="_blank" rel="noopener noreferrer" title="PraxAI on YouTube">
+                <img src="youtube-icon.png" alt="YouTube Icon for GameVerse">
+            </a>
+            <a href="https://whatsapp.com/channel/0029Vb30cphDjiOZoEQf9a20" target="_blank" rel="noopener noreferrer" title="Gyan Natraj on WhatsApp">
+                <img src="whatsapp-icon.png" alt="WhatsApp Channel Icon for GameVerse">
+            </a>
+        </div>
     </footer>
 
     <script>
+        // PASTE THE ENTIRE ORIGINAL JAVASCRIPT FOR THE TIC TAC TOE GAME HERE
+        // (The one that starts with "const screens = document.querySelectorAll('.screen');")
+        // No changes should be made to the game logic JavaScript itself.
+
         const screens = document.querySelectorAll('.screen');
         const startScreen = document.getElementById('start-screen');
         const modeSelectionScreen = document.getElementById('mode-selection-screen');
@@ -474,7 +534,7 @@
 
         const toggleThemeOptionsButton = document.getElementById('toggle-theme-options-button');
         const themeOptionsPanel = document.getElementById('theme-options-panel');
-        const themeButtons = document.querySelectorAll('.theme-btn');
+        const themeButtons = document.querySelectorAll('.theme-btn'); 
         const themeFeedback = document.getElementById('theme-feedback');
 
         const statusDisplay = document.getElementById('status');
@@ -487,6 +547,7 @@
 
         const globalBackButtonContainer = document.getElementById('global-back-button-container');
         const globalBackButton = document.getElementById('global-back-button');
+
         const resultImage = document.getElementById('result-image');
 
         const backgroundMusic = document.getElementById('background-music');
@@ -502,37 +563,37 @@
         let isSoundOn = true; 
 
         const winningConditions = [
-            [0, 1, 2, 'h-0'], [3, 4, 5, 'h-1'], [6, 7, 8, 'h-2'],
-            [0, 3, 6, 'v-0'], [1, 4, 7, 'v-1'], [2, 5, 8, 'v-2'],
-            [0, 4, 8, 'd-0'], [2, 4, 6, 'd-1']
+            [0, 1, 2, 'h-0'], [3, 4, 5, 'h-1'], [6, 7, 8, 'h-2'], 
+            [0, 3, 6, 'v-0'], [1, 4, 7, 'v-1'], [2, 5, 8, 'v-2'], 
+            [0, 4, 8, 'd-0'], [2, 4, 6, 'd-1']  
         ];
 
         const themes = {
-            'default': { // Darker default
-                '--primary-bg': '#1a1a2e', '--secondary-bg': '#16213e', '--accent-color': '#0f3460',
-                '--text-color': '#e0e0e0', '--button-bg': '#e94560', '--button-hover': '#ff6a80',
-                '--win-color': '#8cff6a', '--player-x-color': '#ff6a80', '--player-o-color': '#6affee',
+            'default': {
+                '--primary-bg': '#1a1a2e','--secondary-bg': '#16213e','--accent-color': '#0f3460',
+                '--text-color': '#e0e0e0','--button-bg': '#e94560','--button-hover': '#ff6a80',
+                '--win-color': '#8cff6a','--player-x-color': '#ff6a80','--player-o-color': '#6affee',
                 '--red-button-bg': '#e94560', '--red-button-hover': '#ff6a80',
                 '--blue-button-bg': '#2196F3', '--blue-button-hover': '#64B5F6',
             },
             'light': {
-                '--primary-bg': '#f0f0f0', '--secondary-bg': '#ffffff', '--accent-color': '#e0e0e0',
-                '--text-color': '#333333', '--button-bg': '#4CAF50', '--button-hover': '#66BB6A',
-                '--win-color': '#2196F3', '--player-x-color': '#f44336', '--player-o-color': '#2196F3',
+                '--primary-bg': '#f0f0f0','--secondary-bg': '#ffffff','--accent-color': '#e0e0e0',
+                '--text-color': '#333333','--button-bg': '#4CAF50','--button-hover': '#66BB6A',
+                '--win-color': '#2196F3','--player-x-color': '#f44336','--player-o-color': '#2196F3',
                 '--red-button-bg': '#f44336', '--red-button-hover': '#ef5350',
                 '--blue-button-bg': '#2196F3', '--blue-button-hover': '#64B5F6',
             },
             'ocean': {
-                '--primary-bg': '#00203F', '--secondary-bg': '#00395D', '--accent-color': '#005F8F',
-                '--text-color': '#E0FBFC', '--button-bg': '#007FFF', '--button-hover': '#009FFF',
-                '--win-color': '#FFD700', '--player-x-color': '#FF6B6B', '--player-o-color': '#6BFFB0',
+                '--primary-bg': '#00203F','--secondary-bg': '#00395D','--accent-color': '#005F8F',
+                '--text-color': '#E0FBFC','--button-bg': '#007FFF','--button-hover': '#009FFF',
+                '--win-color': '#FFD700','--player-x-color': '#FF6B6B','--player-o-color': '#6BFFB0',
                 '--red-button-bg': '#FF6B6B', '--red-button-hover': '#FF8E8E',
                 '--blue-button-bg': '#007FFF', '--blue-button-hover': '#009FFF',
             },
-            'sunset': { // Current default in CSS
-                '--primary-bg': '#331F2A', '--secondary-bg': '#4A2F45', '--accent-color': '#6B4C72',
-                '--text-color': '#FCE7F0', '--button-bg': '#F15A24', '--button-hover': '#FF7F41',
-                '--win-color': '#9CFF8F', '--player-x-color': '#FFC300', '--player-o-color': '#8A2BE2',
+            'sunset': {
+                '--primary-bg': '#331F2A','--secondary-bg': '#4A2F45','--accent-color': '#6B4C72',
+                '--text-color': '#FCE7F0','--button-bg': '#F15A24','--button-hover': '#FF7F41',
+                '--win-color': '#9CFF8F','--player-x-color': '#FFC300','--player-o-color': '#8A2BE2',
                 '--red-button-bg': '#F15A24', '--red-button-hover': '#FF7F41',
                 '--blue-button-bg': '#8A2BE2', '--blue-button-hover': '#9B59B6',
             }
@@ -541,6 +602,7 @@
         function applyTheme(themeName) {
             const root = document.documentElement;
             const theme = themes[themeName];
+
             themeFeedback.textContent = ''; 
             themeFeedback.classList.remove('error');
 
@@ -548,11 +610,9 @@
                 for (const prop in theme) {
                     root.style.setProperty(prop, theme[prop]);
                 }
-                localStorage.setItem('ticTacToeTheme', themeName);
-                themeFeedback.textContent = `Theme '${themeName.replace("-"," ")}' applied!`;
-                 // Update footer accent color dynamically based on theme
-                root.style.setProperty('--gv-primary-accent-footer', theme['--button-bg'] || '#F15A24');
-
+                localStorage.setItem('ticTacToeTheme', themeName); 
+                themeFeedback.textContent = `Theme '${themeName.charAt(0).toUpperCase() + themeName.slice(1).replace("-"," ")}' applied!`;
+                 root.style.setProperty('--gv-primary-accent-footer', theme['--button-bg'] || '#00adb5');
             } else {
                 themeFeedback.textContent = `Theme '${themeName}' not found.`;
                 themeFeedback.classList.add('error');
@@ -560,7 +620,7 @@
         }
 
         function loadTheme() {
-            const savedTheme = localStorage.getItem('ticTacToeTheme') || 'sunset';
+            const savedTheme = localStorage.getItem('ticTacToeTheme') || 'sunset'; 
             applyTheme(savedTheme);
         }
 
@@ -568,7 +628,7 @@
             if (isSoundOn) {
                 soundToggleIcon.src = 'speaker-on.png'; 
                 soundToggleIcon.alt = 'Sound On';
-                if (backgroundMusic.paused && (gameScreen.classList.contains('active') || modeSelectionScreen.classList.contains('active') || difficultySelectionScreen.classList.contains('active'))) { // Play only if on a relevant screen
+                if (backgroundMusic.paused && (gameScreen.classList.contains('active') || modeSelectionScreen.classList.contains('active') || difficultySelectionScreen.classList.contains('active'))) {
                     backgroundMusic.play().catch(e => console.log("Autoplay blocked:", e));
                 }
             } else {
@@ -576,7 +636,7 @@
                 soundToggleIcon.alt = 'Sound Off';
                 backgroundMusic.pause();
             }
-            localStorage.setItem('ticTacToeSound', isSoundOn);
+            localStorage.setItem('ticTacToeSound', isSoundOn); 
         }
 
         function loadSoundState() {
@@ -619,12 +679,12 @@
                 screenToShow.id === 'difficulty-selection-screen' ||
                 screenToShow.id === 'game-screen') {
                 soundToggleContainer.style.display = 'block';
-                 if (isSoundOn && backgroundMusic.paused) { // Try to play if sound is on and music paused
+                 if (isSoundOn && backgroundMusic.paused) { 
                     backgroundMusic.play().catch(e => console.log("Autoplay blocked on screen change:", e));
                 }
             } else {
                 soundToggleContainer.style.display = 'none';
-                 if (screenToShow.id === 'start-screen' && !backgroundMusic.paused) { // Pause if returning to start screen
+                 if (screenToShow.id === 'start-screen' && !backgroundMusic.paused) { 
                     backgroundMusic.pause();
                 }
             }
@@ -658,7 +718,7 @@
             checkGameStatus();
 
             if (gameActive && gameMode === 'bot' && currentPlayer === 'O') {
-                setTimeout(botMove, 400 + Math.random() * 200); // Bot move delay
+                setTimeout(botMove, 400 + Math.random() * 200); // Bot move delay with slight randomness
             }
         }
 
@@ -689,10 +749,10 @@
             if (roundWon) {
                 let displayMessage = `Player ${currentPlayer} Wins!`;
                 if (gameMode === 'bot') {
-                    if (currentPlayer === 'X') { displayMessage = 'Congratulations!'; resultImage.src = 'win.png'; resultImage.alt = 'You Win!'; }
-                    else { displayMessage = 'Such a Loss!'; resultImage.src = 'loss.png'; resultImage.alt = 'You Lost!'; }
-                } else {
-                    resultImage.src = 'win.png'; resultImage.alt = 'Player Wins!';
+                    if (currentPlayer === 'X') { displayMessage = 'Congratulations, You Win!'; resultImage.src = 'win.png'; resultImage.alt = 'You Win!'; }
+                    else { displayMessage = 'Oh no, The Bot Wins!'; resultImage.src = 'loss.png'; resultImage.alt = 'You Lost!'; }
+                } else { // Friend mode
+                    resultImage.src = 'win.png'; resultImage.alt = `Player ${currentPlayer} is the Winner!`;
                 }
                 statusDisplay.textContent = displayMessage; 
                 endGame(displayMessage); 
@@ -701,7 +761,7 @@
             }
 
             if (!gameBoard.includes('')) {
-                statusDisplay.textContent = 'Game Draw!';
+                statusDisplay.textContent = 'It\'s a Draw!';
                 endGame('Game Draw!');
                 resultImage.style.display = 'none'; resultImage.src = ''; resultImage.alt = '';
                 return;
@@ -741,11 +801,11 @@
                 case 'impossible': move = getImpossibleMove(gameBoard, botPlayer, humanPlayer); break;
                 default: move = getEasyMove(gameBoard);
             }
-            if (move !== -1 && gameBoard[move] === '') { // Ensure cell is still empty
+            if (move !== -1 && gameBoard[move] === '') { 
                 const cell = gameCells[move];
                 placeMark(cell, move);
                 checkGameStatus();
-            } else if (move === -1 && getEmptyCells(gameBoard).length > 0) { // Fallback if strategy returned -1 but cells are available
+            } else if (move === -1 && getEmptyCells(gameBoard).length > 0) { 
                 move = getEasyMove(gameBoard);
                  if (move !== -1 && gameBoard[move] === '') {
                     const cell = gameCells[move];
@@ -762,30 +822,37 @@
 
         function getMediumMove(board, botPlayer, humanPlayer) {
             const emptyCells = getEmptyCells(board);
-            for (let i = 0; i < emptyCells.length; i++) { // Win
+            // 1. Win if possible
+            for (let i = 0; i < emptyCells.length; i++) {
                 const tempBoard = [...board]; tempBoard[emptyCells[i]] = botPlayer;
                 if (checkWinner(tempBoard, botPlayer)) return emptyCells[i];
             }
-            for (let i = 0; i < emptyCells.length; i++) { // Block
+            // 2. Block if opponent can win
+            for (let i = 0; i < emptyCells.length; i++) {
                 const tempBoard = [...board]; tempBoard[emptyCells[i]] = humanPlayer;
                 if (checkWinner(tempBoard, humanPlayer)) return emptyCells[i];
             }
-            if (emptyCells.includes(4)) return 4; // Center
+            // 3. Take center
+            if (emptyCells.includes(4)) return 4;
+            // 4. Take a random corner
             const corners = [0, 2, 6, 8].filter(i => emptyCells.includes(i));
             if (corners.length > 0) return corners[Math.floor(Math.random() * corners.length)];
+            // 5. Take a random edge
             const edges = [1, 3, 5, 7].filter(i => emptyCells.includes(i));
             if (edges.length > 0) return edges[Math.floor(Math.random() * edges.length)];
-            return getEasyMove(board);
+            return getEasyMove(board); // Fallback
         }
 
-        const scores = { O: 10, X: -10, tie: 0 };
+        const scores = { O: 10, X: -10, tie: 0 }; // O is bot (maximizer), X is human (minimizer)
         function minimax(board, depth, isMaximizingPlayer, botPlayer, humanPlayer, alpha, beta) {
-            if (checkWinner(board, botPlayer)) return scores[botPlayer] - depth;
-            if (checkWinner(board, humanPlayer)) return scores[humanPlayer] + depth;
-            if (!board.includes('')) return scores.tie;
+            // Terminal states
+            if (checkWinner(board, botPlayer)) return scores[botPlayer] - depth; // Bot wins
+            if (checkWinner(board, humanPlayer)) return scores[humanPlayer] + depth; // Human wins
+            if (!board.includes('')) return scores.tie; // Draw
 
             const emptyCells = getEmptyCells(board);
-            if (isMaximizingPlayer) {
+
+            if (isMaximizingPlayer) { // Bot's turn (O)
                 let bestScore = -Infinity;
                 for (const move of emptyCells) {
                     board[move] = botPlayer;
@@ -793,10 +860,10 @@
                     board[move] = '';
                     bestScore = Math.max(score, bestScore);
                     alpha = Math.max(alpha, bestScore);
-                    if (beta <= alpha) break;
+                    if (beta <= alpha) break; // Alpha-beta pruning
                 }
                 return bestScore;
-            } else {
+            } else { // Human's turn (X)
                 let bestScore = Infinity;
                 for (const move of emptyCells) {
                     board[move] = humanPlayer;
@@ -804,7 +871,7 @@
                     board[move] = '';
                     bestScore = Math.min(score, bestScore);
                     beta = Math.min(beta, bestScore);
-                    if (beta <= alpha) break;
+                    if (beta <= alpha) break; // Alpha-beta pruning
                 }
                 return bestScore;
             }
@@ -816,9 +883,10 @@
             if (emptyCells.length === 0) return -1;
 
             for (const move of emptyCells) {
-                board[move] = botPlayer;
+                board[move] = botPlayer; // Bot makes a move
+                // Now, evaluate this move by seeing what the MINIMIZING player (human) would do
                 let score = minimax(board, 0, false, botPlayer, humanPlayer, -Infinity, Infinity);
-                board[move] = '';
+                board[move] = ''; // Undo the move
                 if (score > bestScore) { bestScore = score; bestMove = move; }
             }
             return bestMove;
@@ -826,7 +894,8 @@
         
         function getHardMove(board, botPlayer, humanPlayer) {
             const optimalMove = findBestMove(board, botPlayer, humanPlayer);
-            if (Math.random() < 0.25 && getEmptyCells(board).length > 1) { // 25% chance of suboptimal move if options exist
+            // Add a small chance of not playing optimally for "Hard" to differentiate from "Impossible"
+            if (Math.random() < 0.25 && getEmptyCells(board).length > 1) { 
                 const suboptimalMoves = getEmptyCells(board).filter(m => m !== optimalMove);
                 if (suboptimalMoves.length > 0) return suboptimalMoves[Math.floor(Math.random() * suboptimalMoves.length)];
             }
@@ -834,6 +903,7 @@
         }
         function getImpossibleMove(board, botPlayer, humanPlayer) { return findBestMove(board, botPlayer, humanPlayer); }
 
+        // --- Event Listeners ---
         startButton.addEventListener('click', () => {
             showScreen(modeSelectionScreen);
             if (isSoundOn && backgroundMusic.paused) {
@@ -862,10 +932,13 @@
         
         function startGame() { initializeGame(); showScreen(gameScreen); }
 
+        // Initial setup
         document.getElementById('currentYear').textContent = new Date().getFullYear();
         loadTheme(); 
         loadSoundState(); 
         showScreen(startScreen); 
+
+        // === END OF JAVASCRIPT ===
     </script>
 </body>
 </html>
