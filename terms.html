@@ -1,46 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- ... (सभी मौजूदा meta tags, title, links to css/fonts, AdSense script, JSON-LD) ... -->
-    <title>GameVerse: Play Free Online Games - Chess, Puzzles, Tic Tac Toe & More (2025)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameVerse Terms of Service | Website Usage Rules & Guidelines (June 2025)</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Official Terms of Service for GameVerse by Kanhaiya Mishra. By using our free online games (Chess, Puzzles, Tic Tac Toe) and website, you agree to these comprehensive terms, including user conduct, intellectual property, disclaimers, and limitation of liability. Effective June 1, 2025.">
+    <meta name="keywords" content="GameVerse terms of service, terms and conditions, website usage agreement, Kanhaiya Mishra games policy, online gaming rules, user conduct, intellectual property rights, legal terms for games, AdSense site terms">
+    <meta name="author" content="Kanhaiya Mishra - GameVerse">
+    <link rel="canonical" href="https://online-games-indol.vercel.app/terms.html"> <!-- UPDATE URL -->
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="GameVerse Terms of Service | Rules for Our Online Games (June 2025)">
+    <meta property="og:description" content="Please review the GameVerse Terms of Service. These terms govern your use of our free online gaming platform, including content by Kanhaiya Mishra.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://online-games-indol.vercel.app/terms.html"> <!-- UPDATE URL -->
+    <meta property="og:image" content="https://online-games-indol.vercel.app/images/gameverse-terms-social-detailed.png"> <!-- CREATE/UPDATE IMAGE -->
+    <meta property="og:site_name" content="GameVerse">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GameVerse Terms of Service | Rules for Our Online Games (June 2025)">
+    <meta name="twitter:description" content="Understand your rights and responsibilities when using GameVerse. Our Terms of Service for free online games by Kanhaiya Mishra.">
+    <meta name="twitter:image" content="https://online-games-indol.vercel.app/images/gameverse-terms-social-detailed.png">
+
+    <!-- Favicon (Ensure these files are in your root or update path) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00adb5"> 
+    <meta name="msapplication-TileColor" content="#222831"> 
+    <meta name="theme-color" content="#222831"> 
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* ... (आपकी सभी CSS स्टाइल्स) ... */
+        :root {
+            --page-bg: #f8f9fa;
+            --text-color: #212529; 
+            --heading-color: #004085; 
+            --link-color: #0056b3; 
+            --link-hover: #003875;
+            --container-bg: #ffffff;
+            --border-color: #dee2e6; 
+            --section-highlight-bg: #e9f5ff; /* Light blue for highlighting sections */
+            --section-highlight-border: #badffd;
+
+            --gv-top-nav-bg: #222831; 
+            --gv-top-nav-text: #eeeeee;
+            --gv-top-nav-link-hover-bg: #393e46;
+            --gv-primary-accent-footer: #00adb5; 
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.75; /* Increased for readability */
+            margin: 0;
+            padding: 0;
+            background-color: var(--page-bg);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: 70px; 
+        }
+        
+        .top-nav-bar {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background-color: var(--gv-top-nav-bg); 
+            color: var(--gv-top-nav-text); padding: 12px 25px; 
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1); z-index: 1010;
+            border-bottom: 2px solid var(--gv-primary-accent-footer); 
+            min-height: 50px; 
+        }
+        .top-nav-bar .logo a { color: var(--gv-top-nav-text); text-decoration: none; font-size: 1.4em; font-weight: 700; font-family: 'Roboto Slab', serif;}
+        .top-nav-bar .nav-links { display: flex; align-items: center; flex-wrap:wrap;}
+        .top-nav-bar .nav-links a { color: var(--gv-top-nav-text); text-decoration: none; margin-left: 18px; font-size: 0.95em; padding: 6px 10px; border-radius: 5px; transition: background-color 0.2s ease, color 0.2s ease; }
+        .top-nav-bar .nav-links a:hover, .top-nav-bar .nav-links a.active { 
+            background-color: var(--gv-top-nav-link-hover-bg); 
+            color: var(--gv-primary-accent-footer); 
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px; 
+            margin: 30px auto 25px auto; 
+            padding: 35px 50px; 
+            background-color: var(--container-bg);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+            border-radius: 12px; 
+            border: 1px solid var(--border-color);
+        }
+
+        .page-header {
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 25px;
+            margin-bottom: 35px;
+        }
+
+        .page-header h1 {
+            color: var(--heading-color);
+            font-size: 2.8em; 
+            margin: 0 0 5px 0;
+            font-weight: 700; 
+            font-family: 'Roboto Slab', serif;
+        }
+        .page-header .page-subtitle {
+            font-size: 1.15em;
+            color: #555;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        .page-header p.last-updated { 
+            font-size: 0.95em;
+            color: #6c757d; 
+            margin-top: 10px;
+        }
+
+        h2 { /* Main section headings */
+            color: var(--heading-color);
+            font-size: 2.0em; 
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--heading-color); 
+            font-weight: 600;
+            font-family: 'Roboto Slab', serif;
+        }
+
+        h3 { /* Sub-section headings */
+            color: #2a629a; /* Slightly lighter blue */
+            font-size: 1.6em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 600; 
+            font-family: 'Roboto Slab', serif;
+            padding-left: 10px;
+            border-left: 4px solid var(--link-color);
+        }
+         h4 { /* Sub-sub-heading for finer details */
+            color: #495057;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+
+        p, ul, ol, li {
+            font-size: 1.05em; 
+            color: #333; 
+            margin-bottom: 18px;
+        }
+
+        ul, ol {
+            padding-left: 30px; 
+        }
+        ul li { list-style-type: disc; margin-bottom: 10px; padding-left: 5px;}
+        ol li { list-style-type: decimal; margin-bottom: 10px; }
+        
+        ul.no-bullets { list-style-type: none; padding-left: 0;} 
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: 500; 
+            transition: color 0.15s ease-in-out;
+        }
+        a:hover {
+            color: var(--link-hover);
+            text-decoration: underline;
+        }
+
+        strong, b { /* Make bold more distinct */
+            font-weight: 600;
+            color: #111; 
+        }
+        
+        .terms-section { /* Add some visual separation for sections */
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: var(--section-highlight-bg);
+            border: 1px solid var(--section-highlight-border);
+            border-radius: 8px;
+        }
+        .terms-section p:last-child { margin-bottom: 0; } /* Remove extra margin for last p in section */
+
+        .site-footer {
+            text-align: center; padding: 25px 0; margin-top: auto; 
+            width:100%; background-color: var(--gv-top-nav-bg);
+            color: var(--gv-top-nav-text); opacity: 0.95; font-size: 0.9em;
+            border-top: 3px solid var(--gv-primary-accent-footer);
+        }
+        .site-footer a { color: var(--gv-primary-accent-footer); text-decoration: none; font-weight: 500;}
+        .site-footer a:hover { text-decoration: underline; color: #fff; }
+        .footer-links-group { margin-top: 8px; margin-bottom: 15px; } 
+        .footer-links-group a { margin: 0 8px; }
+
+        .footer-social-links { 
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #444; 
+        }
+        .footer-social-links p {
+             margin-bottom: 10px;
+             font-size: 1em;
+             font-weight: 500;
+             color: var(--gv-top-nav-text);
+        }
+        .footer-social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            transition: transform 0.2s ease;
+        }
+        .footer-social-links img {
+            width: 32px; 
+            height: 32px;
+            vertical-align: middle;
+        }
+        .footer-social-links a:hover {
+            transform: scale(1.15);
+            text-decoration: none; 
+        }
+
+        @media (max-width: 768px) { 
+            body { padding-top: 65px; }
+            .container { padding: 25px 30px; margin-top:20px; }
+            .page-header h1 { font-size: 2.3em; }
+            h2 { font-size: 1.8em; }
+            h3 { font-size: 1.4em; }
+            h4 { font-size: 1.2em; }
+        }
+
+        @media (max-width: 600px) {
+            body { padding-top: 120px; } 
+            .top-nav-bar { flex-direction: column; align-items: flex-start; gap: 8px; height: auto; padding-bottom: 10px;}
+            .top-nav-bar .logo { margin-bottom: 5px; }
+            .top-nav-bar .nav-links { width: 100%; display: flex; flex-wrap: wrap; justify-content: flex-start; margin-left:0; margin-top: 5px; }
+            .top-nav-bar .nav-links a { margin: 3px 10px 3px 0; }
+
+            .container { padding: 20px 15px; margin-top:15px; }
+            .page-header h1 { font-size: 2.0em; }
+             .page-header .page-subtitle { font-size: 1.0em; }
+            h2 { font-size: 1.6em; }
+            h3 { font-size: 1.3em; }
+            h4 { font-size: 1.1em; }
+            p, ul, ol, li { font-size: 0.95em; }
+            .footer-social-links img { width: 28px; height: 28px; }
+        }
+
     </style>
 </head>
 <body>
-
     <nav class="top-nav-bar">
         <div class="logo"><a href="index.html">GameVerse</a></div>
         <div class="nav-links">
-            <a href="index.html" class="active">Home</a> 
+            <a href="index.html">Home</a>
             <a href="about.html">About Us</a> 
             <a href="contact.html">Contact Us</a> 
             <a href="privacy_policy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Service</a> <!-- << नया लिंक जोड़ा गया -->
+            <a href="terms.html" class="active">Terms of Service</a> 
         </div>
     </nav>
 
-    <header class="hero-section">
-        <!-- ... (हीरो सेक्शन का कंटेंट) ... -->
-    </header>
+    <div class="container">
+        <header class="page-header">
+            <h1>Terms of Service for GameVerse</h1>
+            <p class="page-subtitle">Your agreement for using our free online gaming platform.</p>
+            <p class="last-updated">Last Updated & Effective Date: <span id="lastUpdatedDate">June 1, 2025</span></p>
+        </header>
 
-    <main>
-        <div class="container" id="games-section">
-            <!-- ... (गेम ग्रिड और अन्य कंटेंट) ... -->
-        </div> 
+        <p><strong>Welcome to GameVerse!</strong> These Terms of Service ("Terms", "ToS") constitute a legally binding agreement between you ("User", "you", "your") and Kanhaiya Mishra, the owner and operator of GameVerse ("GameVerse", "we", "us", "our"), concerning your access to and use of the GameVerse website located at <a href="https://online-games-indol.vercel.app/">https://online-games-indol.vercel.app/</a>, including all content, features, and games such as Chess, Wooden Block Puzzle, Tic Tac Toe, and any other services offered (collectively, the "Service").</p>
+        <p>By accessing, browsing, or using any part of our Service, you acknowledge that you have read, understood, and agree to be bound by these Terms in their entirety, as well as our <a href="privacy_policy.html">Privacy Policy</a>, which is incorporated herein by reference. If you do not agree with any part of these Terms or the Privacy Policy, you must immediately cease all use of the Service.</p>
+        <p>We reserve the right to modify these Terms at any time. All changes will be effective immediately upon posting to the Service, and your continued use of the Service after changes are posted will constitute your acceptance of such changes. Please review these Terms periodically for updates.</p>
 
-        <section class="why-choose-us-section">
-            <!-- ... ("Why Choose Us?" सेक्शन का कंटेंट) ... -->
+        <section class="terms-section">
+            <h2>1. Acceptance and Eligibility to Use the Service</h2>
+            <p><strong>1.1. Agreement to Terms:</strong> These Terms apply to all visitors, users, and others who wish to access or use the Service. You affirm that you are either more than 18 years of age, or an emancipated minor, or possess legal parental or guardian consent, and are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations, and warranties set forth in these Terms, and to abide by and comply with these Terms.</p>
+            <p><strong>1.2. Age Restriction:</strong> The Service is intended for users who are at least 13 years of age. If you are under 13 years of age, you are not permitted to use the Service. If you are between the ages of 13 and 18 (or the age of legal majority in your jurisdiction), you may only use the Service under the supervision of a parent or legal guardian who agrees to be bound by these Terms on your behalf. We do not knowingly collect personal information from children under 13. Please see our <a href="privacy_policy.html">Privacy Policy</a> for more details.</p>
         </section>
 
-        <div class="privacy-section"> 
-            <h2 class="section-title" style="font-size: 2em; margin-bottom: 25px;">Learn More About Us</h2>
-            <a href="privacy_policy.html" class="important-link-button">Our Privacy Commitment</a>
-            <a href="about.html" class="important-link-button" style="margin-left:15px;">Meet The Team</a> 
-             <!-- आप चाहें तो यहाँ Terms of Service का बटन भी जोड़ सकते हैं -->
-            <!-- <a href="terms.html" class="important-link-button" style="margin-left:15px;">Our Terms</a> -->
-        </div>
-    </main>
+        <section class="terms-section">
+            <h2>2. License to Use Our Service</h2>
+            <p><strong>2.1. Grant of License:</strong> Subject to your full compliance with these Terms, GameVerse grants you a limited, non-exclusive, non-transferable, non-sublicensable, and revocable license to access and use the Service (including our games like Chess, Wooden Block Puzzle, and Tic Tac Toe) solely for your personal, non-commercial entertainment purposes.</p>
+            <p><strong>2.2. Restrictions on Use:</strong> This license is contingent upon your adherence to the following restrictions. You agree not to (and not to attempt to, or permit any third party to):</p>
+            <ul>
+                <li>Use the Service for any commercial purpose or the benefit of any third party, or in any manner not permitted by these Terms.</li>
+                <li>Copy, modify, adapt, translate, reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code of any software or intellectual property used in the Service, except to the extent expressly permitted by applicable law.</li>
+                <li>Remove, alter, or obscure any copyright, trademark, service mark, or other proprietary rights notices incorporated in or accompanying the Service.</li>
+                <li>Use any robot, spider, scraper, or other automated means to access the Service for any purpose without our express written permission, or bypass any measures we may use to prevent or restrict access to the Service.</li>
+                <li>Interfere with or disrupt the integrity or performance of the Service or the data contained therein.</li>
+                <li>Engage in any activity that is harmful, fraudulent, deceptive, threatening, harassing, defamatory, obscene, or otherwise objectionable in connection with the Service.</li>
+                <li>Violate any applicable local, state, national, or international law, rule, or regulation.</li>
+            </ul>
+        </section>
+
+        <section class="terms-section">
+            <h2>3. User Conduct and Responsibilities</h2>
+            <p>You are solely responsible for your conduct while using the Service and for any consequences thereof. You agree to use the Service only for purposes that are legal, proper, and in accordance with these Terms and any applicable laws or regulations.</p>
+            <p>While GameVerse currently does not feature extensive user interaction or user-generated content (like forums or chat), should such features be introduced, you agree not to submit, post, upload, or otherwise transmit any content that:
+            <ul>
+                <li>Infringes any third party's intellectual property or other proprietary rights, or rights of publicity or privacy.</li>
+                <li>Is unlawful, defamatory, libelous, threatening, pornographic, obscene, harassing, hateful, racially or ethnically offensive, or encourages conduct that would be considered a criminal offense, give rise to civil liability, violate any law, or is otherwise inappropriate.</li>
+                <li>Contains software viruses or any other computer code, files, or programs designed to interrupt, destroy, or limit the functionality of any computer software or hardware or telecommunications equipment.</li>
+            </ul>
+            We reserve the right, but have no obligation, to monitor user activity and to remove or refuse to distribute any content that, in our sole discretion, violates these Terms or is otherwise objectionable.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>4. Intellectual Property Ownership</h2>
+            <p><strong>4.1. GameVerse IP:</strong> The Service, including but not limited to its "look and feel" (e.g., text, graphics, images, logos, page headers, button icons, and scripts), all proprietary content, information, and other materials available on or through the Service (including our games like Chess, Wooden Block Puzzle, Tic Tac Toe, their code, design, and original artwork), and the selection and arrangement thereof, are the exclusive property of Kanhaiya Mishra (GameVerse) or its licensors, and are protected by copyright, trademark, trade secret, and other intellectual property or proprietary rights laws.</p>
+            <p><strong>4.2. Trademarks:</strong> "GameVerse" and our logos are trademarks or registered trademarks belonging to us. You may not use these marks without our prior written permission.</p>
+            <p><strong>4.3. Limited Rights:</strong> Except for the limited license granted in Section 2, no rights are granted to you hereunder by implication or otherwise. All rights not expressly granted herein are reserved by GameVerse and its licensors.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>5. Advertisements and Third-Party Content</h2>
+            <p><strong>5.1. Advertising:</strong> GameVerse is a free-to-play service supported by revenue generated from advertisements displayed on the Service. These ads are primarily served by Google AdSense and potentially other third-party advertising partners. By using the Service, you acknowledge and agree to the placement of such advertising. The manner, mode, and extent of advertising by GameVerse on the Service are subject to change without specific notice to you. We strive to ensure that advertisements are clearly distinguishable from editorial content and are compliant with applicable advertising standards. Please refer to our <a href="privacy_policy.html">Privacy Policy</a> for more information on how data is used in connection with advertising and your choices regarding personalized ads.</p>
+            <p><strong>5.2. Third-Party Links and Content:</strong> The Service may contain links to third-party websites, advertisers, services, special offers, or other events or activities that are not owned or controlled by GameVerse. We do not endorse or assume any responsibility for any such third-party sites, information, materials, products, or services. If you access a third-party website from the Service, you do so at your own risk, and you understand that these Terms and our Privacy Policy do not apply to your use of such sites. You expressly relieve GameVerse from any and all liability arising from your use of any third-party website, service, or content.</p>
+        </section>
+
+        <!-- Sections 6 through 11 (Disclaimer, Limitation of Liability, etc.) would continue with similar detail -->
+        <!-- For brevity, I'll add placeholders here, but in your final version, each should be as detailed as above. -->
+
+        <section class="terms-section">
+            <h2>6. Disclaimers of Warranties</h2>
+            <p>THE SERVICE IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT ANY WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, OR NON-INFRINGEMENT. GAMEVERSE DOES NOT WARRANT THAT: (A) THE SERVICE WILL BE UNINTERRUPTED, SECURE, ERROR-FREE, OR AVAILABLE AT ANY PARTICULAR TIME OR LOCATION; (B) ANY DEFECTS OR ERRORS WILL BE CORRECTED; (C) THE SERVICE IS FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS; OR (D) THE RESULTS OF USING THE SERVICE WILL MEET YOUR REQUIREMENTS OR EXPECTATIONS. YOUR USE OF THE SERVICE IS SOLELY AT YOUR OWN RISK. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF CERTAIN WARRANTIES, SO SOME OF THE ABOVE EXCLUSIONS MAY NOT APPLY TO YOU.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>7. Limitation of Liability</h2>
+            <p>TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL KANHAIYA MISHRA (GAMEVERSE), ITS AFFILIATES, DIRECTORS, EMPLOYEES, AGENTS, OR LICENSORS BE LIABLE FOR ANY INDIRECT, PUNITIVE, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES, INCLUDING WITHOUT LIMITATION DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, DATA, OR OTHER INTANGIBLE LOSSES, ARISING OUT OF OR RELATING TO THE USE OF, OR INABILITY TO USE, THE SERVICE; ANY CONDUCT OR CONTENT OF ANY THIRD PARTY ON THE SERVICE; ANY CONTENT OBTAINED FROM THE SERVICE; OR UNAUTHORIZED ACCESS, USE, OR ALTERATION OF YOUR TRANSMISSIONS OR CONTENT, WHETHER BASED ON WARRANTY, CONTRACT, TORT (INCLUDING NEGLIGENCE), OR ANY OTHER LEGAL THEORY, WHETHER OR NOT WE HAVE BEEN INFORMED OF THE POSSIBILITY OF SUCH DAMAGE, AND EVEN IF A REMEDY SET FORTH HEREIN IS FOUND TO HAVE FAILED OF ITS ESSENTIAL PURPOSE. OUR TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING OUT OF OR RELATING TO THESE TERMS OR YOUR USE OF THE SERVICE SHALL NOT EXCEED THE AMOUNT OF ONE HUNDRED INDIAN RUPEES (INR 100.00) OR THE AMOUNT YOU PAID US, IF ANY, IN THE LAST SIX MONTHS FOR THE SERVICE GIVING RISE TO THE CLAIM, WHICHEVER IS GREATER.</p>
+            <p>(**Note to Kanhaiya:** The liability cap (e.g., INR 100) is common but you should consider what's appropriate. Consult legal advice if unsure.)</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>8. Indemnification</h2>
+            <p>You agree to defend, indemnify, and hold harmless Kanhaiya Mishra (GameVerse) and its officers, directors, employees, contractors, agents, licensors, and suppliers from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to reasonable attorneys' fees and costs) arising from: (i) your use of and access to the Service, including any data or content transmitted or received by you; (ii) your violation of any term of these Terms, including without limitation your breach of any of the representations and warranties above; (iii) your violation of any third-party right, including without limitation any right of privacy or intellectual property rights; (iv) your violation of any applicable law, rule, or regulation; or (v) any other party’s access and use of the Service with your unique username, password, or other appropriate security code, if applicable.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>9. Governing Law and Dispute Resolution</h2>
+            <p>These Terms shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law principles. You agree to submit to the personal and exclusive jurisdiction of the courts located within [Your City/Region, e.g., "New Delhi"], India for the resolution of any disputes arising out of or relating to these Terms or the Service.</p>
+            <p>(**Note to Kanhaiya:** Specify your actual city/region for jurisdiction or consult legal advice for appropriate wording based on your operations.)</p>
+            <p>Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect. These Terms constitute the entire agreement between us regarding our Service and supersede and replace any prior agreements we might have had between us regarding the Service.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>10. Modifications to the Service and Terms</h2>
+            <p><strong>10.1. Changes to Service:</strong> GameVerse reserves the right to modify, suspend, or discontinue, temporarily or permanently, the Service or any part of it with or without notice at any time. You agree that GameVerse will not be liable to you or to any third party for any modification, suspension, or discontinuance of the Service.</p>
+            <p><strong>10.2. Changes to Terms:</strong> We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material (as determined by us), we will make reasonable efforts to provide at least thirty (30) days' notice prior to any new terms taking effect. This notice may be provided by posting the updated Terms on the Service, by sending an email to users (if we have email addresses, which we currently don't collect for general use), or by other means we deem appropriate. What constitutes a material change will be determined at our sole discretion.</p>
+            <p>By continuing to access or use our Service after any revisions become effective, you agree to be bound by the revised Terms. If you do not agree to the new Terms, in whole or in part, please stop using the website and the Service.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>11. Termination of Use</h2>
+            <p>We may terminate or suspend your access to all or any part of our Service immediately, without prior notice or liability, for any reason whatsoever, including, without limitation, if you breach any of these Terms. Upon termination, your right to use the Service will immediately cease.</p>
+            <p>All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity, and limitations of liability. If you wish to terminate your "agreement" to these terms, you may simply discontinue using the Service.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>12. Severability and Waiver</h2>
+            <p><strong>12.1. Severability:</strong> If any provision of these Terms is found by a court of competent jurisdiction to be invalid, illegal, or unenforceable, such provision shall be modified to reflect the parties' intention or eliminated to the minimum extent necessary so that the remaining provisions of the Terms will continue in full force and effect.</p>
+            <p><strong>12.2. Waiver:</strong> No waiver by GameVerse of any term or condition set forth in these Terms shall be deemed a further or continuing waiver of such term or condition or a waiver of any other term or condition, and any failure of GameVerse to assert a right or provision under these Terms shall not constitute a waiver of such right or provision.</p>
+        </section>
+        
+        <section class="terms-section">
+            <h2>13. Entire Agreement</h2>
+            <p>These Terms, together with our <a href="privacy_policy.html">Privacy Policy</a> and any other legal notices published by us on the Service, shall constitute the entire agreement between you and GameVerse concerning the Service. If any provision of these Terms is deemed invalid by a court of competent jurisdiction, the invalidity of such provision shall not affect the validity of the remaining provisions of these Terms, which shall remain in full force and effect.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>14. Contact Information</h2>
+            <p>If you have any questions, concerns, or comments about these Terms of Service, please do not hesitate to contact us. We value your understanding and cooperation.</p>
+            <ul class="no-bullets">
+                <li><strong>By email:</strong> <a href="mailto:timelytrove.9354@gmail.com">timelytrove.9354@gmail.com</a></li>
+                <li><strong>Via our website's contact page:</strong> <a href="contact.html">GameVerse Contact Page</a></li>
+                <li><strong>Operator:</strong> Kanhaiya Mishra</li>
+            </ul>
+            <p>Thank you for taking the time to review our Terms of Service and for being a part of the GameVerse community!</p>
+        </section>
+
+    </div>
 
     <footer class="site-footer">
         <p>© <span id="currentYear"></span> GameVerse by Kanhaiya Mishra. All Rights Reserved.</p>
@@ -49,16 +394,24 @@
             <a href="about.html">About Us</a> | 
             <a href="contact.html">Contact Us</a> | 
             <a href="privacy_policy.html">Privacy Policy</a> |
-            <a href="terms.html">Terms of Service</a> <!-- << नया लिंक जोड़ा गया -->
+            <a href="terms.html">Terms of Service</a> 
         </div>
-        <div class="footer-social-links">
-            <!-- ... (सोशल मीडिया लिंक्स) ... -->
+        <div class="footer-social-links"> 
+            <p>Follow Us for GameVerse Updates:</p>
+            <a href="https://t.me/PraxAI" target="_blank" rel="noopener noreferrer" title="PraxAI on Telegram">
+                <img src="telegram-icon.png" alt="Telegram Icon for GameVerse">
+            </a>
+            <a href="https://youtube.com/@praxai?si=SrIQNBLVw79p9oKD" target="_blank" rel="noopener noreferrer" title="PraxAI on YouTube">
+                <img src="youtube-icon.png" alt="YouTube Icon for GameVerse">
+            </a>
+            <a href="https://whatsapp.com/channel/0029Vb30cphDjiOZoEQf9a20" target="_blank" rel="noopener noreferrer" title="Gyan Natraj on WhatsApp">
+                <img src="whatsapp-icon.png" alt="WhatsApp Channel Icon for GameVerse">
+            </a>
         </div>
     </footer>
-
     <script>
-        // ... (आपका JavaScript कोड) ...
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        document.getElementById('lastUpdatedDate').textContent = "June 1, 2025"; 
     </script>
-
 </body>
 </html>
